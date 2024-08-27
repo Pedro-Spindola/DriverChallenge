@@ -65,12 +65,6 @@ namespace DriverChallenge
             }
             else
             {
-                /*
-                CriarDataGridViewQualificacaoEquipesF1(dvgTableF1);
-                PreencherDataGridViewQualificacaoEquipesF1(0, 10, dvgTableF1);
-                AtualizarDataGridViewQualificacaoEquipesF1(0, 10, dvgTableF1);
-                AtualizarTabelasQualificacaoVoltas(dvgTableF1);
-                */
                 // Obtém a lista de categorias
                 List<Principal> categorias = Principal.ObterListaCategoria();
                 string fCategoria = pilotos[indexDoJogador].Categoria;
@@ -1315,22 +1309,20 @@ namespace DriverChallenge
             Random r = new Random();
 
             int t = 5000; //valorPadraoTempo
-            int c = 1; //valorPadraoCarro
-            int p = 1; //valorPadraoPiloto
 
             int medCarro = ((aerodinamica + freio + asaDianteira + asaTraseira + cambio + eletrico + direcao + confiabilidade) / 8);
             int medPiloto = (largada + concentracao + ultrapassagem + experiencia + rapidez + chuva + acertoCarro + fisico) / 8;
-            int medCarroVel = (r.Next(c, aerodinamica + 1) + r.Next(c, asaDianteira + 1) + r.Next(c, asaTraseira + 1) + r.Next(c, freio + 1)) / 4;
-            int medCarroQual = (r.Next(c, cambio + 1) + r.Next(c, confiabilidade + 1) + r.Next(c, direcao + 1) + r.Next(c, eletrico + 1)) / 4;
-            int medPilotVel = (r.Next(p, ultrapassagem + 1) + r.Next(p, experiencia + 1) + r.Next(p, rapidez + 1)) / 3;
-            int medPilotFis = (r.Next(p, concentracao + 1) + r.Next(p, acertoCarro + 1) + r.Next(p, fisico + 1)) / 3;
+            int medCarroVel = (r.Next(aerodinamica / 2, aerodinamica + 1) + r.Next(asaDianteira / 2, asaDianteira + 1) + r.Next(asaTraseira / 2, asaTraseira + 1) + r.Next(freio / 2, freio + 1)) / 4;
+            int medCarroQual = (r.Next(cambio / 2, cambio + 1) + r.Next(confiabilidade / 2, confiabilidade + 1) + r.Next(direcao / 2, direcao + 1) + r.Next(eletrico / 2, eletrico + 1)) / 4;
+            int medPilotVel = (r.Next(ultrapassagem / 2, ultrapassagem + 1) + r.Next(experiencia / 2, experiencia + 1) + r.Next(rapidez / 2, rapidez + 1)) / 3;
+            int medPilotFis = (r.Next(concentracao / 2, concentracao + 1) + r.Next(acertoCarro / 2, acertoCarro + 1) + r.Next(fisico / 2, fisico + 1)) / 3;
 
-            int atributo01 = ((motor + medCarro) + (r.Next(c, medCarro)));
+            int atributo01 = ((motor + medCarro) + (r.Next(1, medCarro)));
             int atributo02 = (medCarroVel + medPiloto + medPilotVel + rapidez) * ((retas / 100) + 1);
             int atributo03 = (medCarroQual + medPiloto + medPilotFis) * ((curvas / 100) + 1);
             int atributo04 = (medCarroVel + medPilotVel);
             int atributo05 = (medCarroQual + medPilotFis);
-            int atributo06 = ((medPiloto + motor) + (r.Next(c, medPiloto)));
+            int atributo06 = ((medPiloto + motor) + (r.Next(1, medPiloto)));
             int atributo07 = (medPilotVel + medPilotFis) * ((importanciPiloto / 100) + 1);
             int atributo08 = (medCarroVel + medCarroQual) * ((importanciaCarro / 100) + 1);
             int atributo09 = (medPilotVel + medPilotFis) * ((retas / 100) + 1);

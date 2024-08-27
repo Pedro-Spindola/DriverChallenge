@@ -26,7 +26,7 @@ namespace DriverChallenge
         public int ContadorDeSemana { get; set; } = 1;
         public int ContadorDeAno { get; set; } = 2024;
         public string StatusDaTemporada { get; set; } = "Pre-Temporada";
-        public int TotalSemanas { get; set; } = 10;  // Total de 52 semanas, mudar após os testes.
+        public int TotalSemanas { get; set; } = 52;  // Total de 52 semanas, mudar após os testes. para teste deixa em 10
         // Atributos responsáveis pelas informações semanais do game.
         public string ProximoGp { get; set; } = "";
         public string ProximoGpPais { get; set; } = "";
@@ -97,11 +97,11 @@ namespace DriverChallenge
             if (TotalSemanas > ContadorDeSemana)
             {
                 ContadorDeSemana++;
-                if (ContadorDeSemana > 4 && ContadorDeSemana <= 9)
+                if (ContadorDeSemana > 4 && ContadorDeSemana <= 48)
                 {
                     StatusDaTemporada = "Andamento"; // *Atualizar o valor apos finalizar os teste. -> (ContadorDeSemana > 4 && ContadorDeSemana <= 48)
                 }
-                else if (ContadorDeSemana > 9)
+                else if (ContadorDeSemana > 48)
                 {
                     StatusDaTemporada = "Fim-Temporada"; // *Atualizar o valor apos finalizar os teste. -> (ContadorDeSemana > 48)
                 }

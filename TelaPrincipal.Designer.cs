@@ -612,10 +612,10 @@
             // 
             panel14.BackColor = Color.FromArgb(230, 240, 240);
             panel14.Controls.Add(dgvClassificacaoEquipes);
-            panel14.Location = new Point(820, 190);
+            panel14.Location = new Point(350, 400);
             panel14.Margin = new Padding(0);
             panel14.Name = "panel14";
-            panel14.Size = new Size(500, 290);
+            panel14.Size = new Size(460, 340);
             panel14.TabIndex = 6;
             // 
             // dgvClassificacaoEquipes
@@ -642,17 +642,17 @@
             dgvClassificacaoEquipes.Name = "dgvClassificacaoEquipes";
             dgvClassificacaoEquipes.ReadOnly = true;
             dgvClassificacaoEquipes.RowHeadersVisible = false;
-            dgvClassificacaoEquipes.Size = new Size(500, 290);
+            dgvClassificacaoEquipes.Size = new Size(460, 340);
             dgvClassificacaoEquipes.TabIndex = 0;
             // 
             // panel15
             // 
             panel15.BackColor = Color.FromArgb(230, 240, 240);
             panel15.Controls.Add(dgvClassificacaoPilotos);
-            panel15.Location = new Point(820, 490);
+            panel15.Location = new Point(820, 190);
             panel15.Margin = new Padding(0);
             panel15.Name = "panel15";
-            panel15.Size = new Size(500, 250);
+            panel15.Size = new Size(500, 550);
             panel15.TabIndex = 7;
             // 
             // dgvClassificacaoPilotos
@@ -678,7 +678,7 @@
             dgvClassificacaoPilotos.Name = "dgvClassificacaoPilotos";
             dgvClassificacaoPilotos.ReadOnly = true;
             dgvClassificacaoPilotos.RowHeadersVisible = false;
-            dgvClassificacaoPilotos.Size = new Size(500, 250);
+            dgvClassificacaoPilotos.Size = new Size(500, 550);
             dgvClassificacaoPilotos.TabIndex = 0;
             // 
             // panel16

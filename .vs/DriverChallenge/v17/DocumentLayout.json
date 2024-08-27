@@ -7,16 +7,16 @@
       "RelativeMoniker": "D:0:0:{8CAFADBA-BA49-410B-8740-EB24FDB1ACC9}|DriverChallenge.csproj|solutionrelative:telaprincipal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{8CAFADBA-BA49-410B-8740-EB24FDB1ACC9}|DriverChallenge.csproj|c:\\users\\pedro spindola\\documents\\driverchallenge\\telafinaldesemanadecorrida.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8CAFADBA-BA49-410B-8740-EB24FDB1ACC9}|DriverChallenge.csproj|solutionrelative:telafinaldesemanadecorrida.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{8CAFADBA-BA49-410B-8740-EB24FDB1ACC9}|DriverChallenge.csproj|c:\\users\\pedro spindola\\documents\\driverchallenge\\principal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8CAFADBA-BA49-410B-8740-EB24FDB1ACC9}|DriverChallenge.csproj|solutionrelative:principal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8CAFADBA-BA49-410B-8740-EB24FDB1ACC9}|DriverChallenge.csproj|c:\\users\\pedro spindola\\documents\\driverchallenge\\telafinaldesemanadecorrida.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8CAFADBA-BA49-410B-8740-EB24FDB1ACC9}|DriverChallenge.csproj|solutionrelative:telafinaldesemanadecorrida.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8CAFADBA-BA49-410B-8740-EB24FDB1ACC9}|DriverChallenge.csproj|c:\\users\\pedro spindola\\documents\\driverchallenge\\telafinaldesemanadecorrida.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8CAFADBA-BA49-410B-8740-EB24FDB1ACC9}|DriverChallenge.csproj|solutionrelative:telafinaldesemanadecorrida.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8CAFADBA-BA49-410B-8740-EB24FDB1ACC9}|DriverChallenge.csproj|c:\\users\\pedro spindola\\documents\\driverchallenge\\piloto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8CAFADBA-BA49-410B-8740-EB24FDB1ACC9}|DriverChallenge.csproj|solutionrelative:piloto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -37,46 +37,16 @@
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Principal.cs",
-              "DocumentMoniker": "C:\\Users\\Pedro Spindola\\Documents\\DriverChallenge\\Principal.cs",
-              "RelativeDocumentMoniker": "Principal.cs",
-              "ToolTip": "C:\\Users\\Pedro Spindola\\Documents\\DriverChallenge\\Principal.cs",
-              "RelativeToolTip": "Principal.cs",
-              "ViewState": "AQIAAAEAAAAAAAAAAAAjwI4AAAAmAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-26T02:50:51.001Z",
-              "EditorCaption": ""
-            },
-            {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "TelaFinalDeSemanaDeCorrida.cs",
-              "DocumentMoniker": "C:\\Users\\Pedro Spindola\\Documents\\DriverChallenge\\TelaFinalDeSemanaDeCorrida.cs",
-              "RelativeDocumentMoniker": "TelaFinalDeSemanaDeCorrida.cs",
-              "ToolTip": "C:\\Users\\Pedro Spindola\\Documents\\DriverChallenge\\TelaFinalDeSemanaDeCorrida.cs",
-              "RelativeToolTip": "TelaFinalDeSemanaDeCorrida.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAlAAAA",
+              "Title": "Piloto.cs",
+              "DocumentMoniker": "C:\\Users\\Pedro Spindola\\Documents\\DriverChallenge\\Piloto.cs",
+              "RelativeDocumentMoniker": "Piloto.cs",
+              "ToolTip": "C:\\Users\\Pedro Spindola\\Documents\\DriverChallenge\\Piloto.cs",
+              "RelativeToolTip": "Piloto.cs",
+              "ViewState": "AQIAAGEAAAAAAAAAAAAgwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-26T02:47:03.183Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "TelaFinalDeSemanaDeCorrida.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\Pedro Spindola\\Documents\\DriverChallenge\\TelaFinalDeSemanaDeCorrida.Designer.cs",
-              "RelativeDocumentMoniker": "TelaFinalDeSemanaDeCorrida.Designer.cs",
-              "ToolTip": "C:\\Users\\Pedro Spindola\\Documents\\DriverChallenge\\TelaFinalDeSemanaDeCorrida.Designer.cs",
-              "RelativeToolTip": "TelaFinalDeSemanaDeCorrida.Designer.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAP8AAAAzAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-26T02:47:00.792Z",
+              "WhenOpened": "2024-08-27T02:16:47.904Z",
               "EditorCaption": ""
             },
             {
@@ -87,9 +57,35 @@
               "RelativeDocumentMoniker": "TelaPrincipal.cs",
               "ToolTip": "C:\\Users\\Pedro Spindola\\Documents\\DriverChallenge\\TelaPrincipal.cs",
               "RelativeToolTip": "TelaPrincipal.cs",
-              "ViewState": "AQIAACQEAAAAAAAAAAAuwLgFAAAqAAAA",
+              "ViewState": "AQIAAGQAAAAAAAAAAAAAAFMAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-26T02:43:28.903Z",
+              "WhenOpened": "2024-08-27T02:14:50.261Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Principal.cs",
+              "DocumentMoniker": "C:\\Users\\Pedro Spindola\\Documents\\DriverChallenge\\Principal.cs",
+              "RelativeDocumentMoniker": "Principal.cs",
+              "ToolTip": "C:\\Users\\Pedro Spindola\\Documents\\DriverChallenge\\Principal.cs",
+              "RelativeToolTip": "Principal.cs",
+              "ViewState": "AQIAABIAAAAAAAAAAAAxwGkAAACCAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-27T01:53:24.582Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TelaFinalDeSemanaDeCorrida.cs",
+              "DocumentMoniker": "C:\\Users\\Pedro Spindola\\Documents\\DriverChallenge\\TelaFinalDeSemanaDeCorrida.cs",
+              "RelativeDocumentMoniker": "TelaFinalDeSemanaDeCorrida.cs",
+              "ToolTip": "C:\\Users\\Pedro Spindola\\Documents\\DriverChallenge\\TelaFinalDeSemanaDeCorrida.cs",
+              "RelativeToolTip": "TelaFinalDeSemanaDeCorrida.cs",
+              "ViewState": "AQIAAGoAAAAAAAAAAAAAADQFAAA9AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-27T01:47:47.275Z",
               "EditorCaption": ""
             }
           ]

@@ -19,7 +19,7 @@ namespace DriverChallenge
         Principal principal;
         private Equipe[] equipe = new Equipe[30];      // Criando array com a quantidade de equipes.
         private Piloto[] piloto = new Piloto[100];     // Criando array com a quantidade de pilotos.
-        private Pista[] pista = new Pista[3];          // Crinado array com a quantidade de pistas. -> Mudar para o padrão depois de teste = 25
+        private Pista[] pista = new Pista[25];          // Crinado array com a quantidade de pistas. -> Mudar para o padrão depois de teste = 25 para teste e = 3
         private Random random = new Random();
         private Financia financia = new Financia();
         private Motor motor = new Motor();
@@ -119,7 +119,7 @@ namespace DriverChallenge
             equipe[29] = new Equipe("Team Senna", "#2D7D4E", "#FFD91C", "#000000", "Brasil", 10, 10, 10, 10, 10, 10, 10, 10, "Lamborghini", "F3", motor);
 
             // Método para chamar uma Tela, onde jogador vai escolher a sua equipe inicial.
-            EscolherEquipeInicialDoJogador();
+            //EscolherEquipeInicialDoJogador();
 
             // Vai atribur os pilotos as suas equipes.
             for (int i = 0; i < (equipe.Length * 2); i++)
@@ -246,7 +246,7 @@ namespace DriverChallenge
             }
             return 0;
         }
-        public void EscolherEquipeInicialDoJogador() // FAZER A TELA AINDA.
+        public void EscolherEquipeInicialDoJogador()
         {
             TelaEscolherEquipeInicial telaEscolherEquipeInicial = new TelaEscolherEquipeInicial(principal, equipe, piloto);
             telaEscolherEquipeInicial.ShowDialog();
@@ -256,7 +256,7 @@ namespace DriverChallenge
             pista[0] = new Pista("Austrália", "Melbourne", 58, 44, 56, 76800);
             pista[1] = new Pista("Itália", "Monza", 53, 35, 65, 70200);
             pista[2] = new Pista("Brasil", "Interlagos", 71, 42, 58, 65400);
-            /*
+            /**/
             pista[3] = new Pista("Bahrein", "Sakhir", 57, 43, 57, 77400);
             pista[4] = new Pista("Arábia Saudita", "Corniche Circuit", 50, 58, 42, 76200);
             pista[5] = new Pista("Japão", "Suzuka", 53, 59, 41, 75420);
@@ -278,7 +278,8 @@ namespace DriverChallenge
             pista[21] = new Pista("Qatar", "Lusail Circuit", 57, 59, 41, 72480);
             pista[22] = new Pista("Estados Unidos", "Las Vegas", 50, 70, 30, 81100);
             pista[23] = new Pista("Emirados Árabes Unidos", "Yas Marina", 58, 39, 61, 74400);
-            pista[24] = new Pista("Alemanha", "Hockenheimring", 67, 42, 58, 68400);*/
+            pista[24] = new Pista("Alemanha", "Hockenheimring", 67, 42, 58, 68400);
+            /**/
 
         }
         public void EmbaralharPistas()
@@ -297,7 +298,7 @@ namespace DriverChallenge
             pista[0].SemanaDaProva = 5;
             pista[1].SemanaDaProva = 7;
             pista[2].SemanaDaProva = 8;
-            /*
+            /**/
             pista[3].SemanaDaProva = 10;
             pista[4].SemanaDaProva = 12;
             pista[5].SemanaDaProva = 15;
@@ -319,7 +320,8 @@ namespace DriverChallenge
             pista[21].SemanaDaProva = 42;
             pista[22].SemanaDaProva = 44;
             pista[23].SemanaDaProva = 46;
-            pista[24].SemanaDaProva = 48;*/
+            pista[24].SemanaDaProva = 48;
+            /**/
 
         }
         public void AtualizaStatusProxCorrida(int contador) // Depois de finalizar os testem desbloquear o restantes das pistas.
@@ -336,7 +338,7 @@ namespace DriverChallenge
             {
                 FuncaoParaStatusDaProximaCorrida(2);
             }
-            /*
+            /**/
             else if (contador > 8 && contador <= 10)
             {
                 FuncaoParaStatusDaProximaCorrida(3);
@@ -424,7 +426,7 @@ namespace DriverChallenge
             else if (contador > 46 && contador <= 48)
             {
                 FuncaoParaStatusDaProximaCorrida(24);
-            }*/
+            }/**/
             else
             {
                 principal.ProximoGp = "";
@@ -639,18 +641,18 @@ namespace DriverChallenge
             dgvClassificacaoEquipes.Enabled = false;
             dgvClassificacaoEquipes.ScrollBars = ScrollBars.None;
             dgvClassificacaoEquipes.AllowUserToAddRows = false;
-            dgvClassificacaoEquipes.RowHeadersDefaultCellStyle.BackColor = Color.FromArgb(180, 180, 180); // Define a cor das linhas do cabe�alho
             dgvClassificacaoEquipes.DefaultCellStyle.BackColor = Color.FromArgb(255, 255, 255);
             dgvClassificacaoEquipes.GridColor = Color.FromArgb(220, 220, 220);
             dgvClassificacaoEquipes.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvClassificacaoEquipes.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvClassificacaoEquipes.Refresh();
 
             dgvClassificacaoEquipes.DataSource = classEquipes;
 
             // Altura das linhas
-            dgvClassificacaoEquipes.RowTemplate.Height = 26;
+            dgvClassificacaoEquipes.RowTemplate.Height = 30;
             // Define a altura do cabe�alho das colunas
-            dgvClassificacaoEquipes.ColumnHeadersHeight = 30;
+            dgvClassificacaoEquipes.ColumnHeadersHeight = 40;
 
 
             // Defina a ordem de exibi��o das colunas com base nos indices
@@ -671,7 +673,7 @@ namespace DriverChallenge
             dgvClassificacaoEquipes.Columns[0].Width = 40;
             dgvClassificacaoEquipes.Columns[1].Width = 50;
             dgvClassificacaoEquipes.Columns[2].Width = 10;
-            dgvClassificacaoEquipes.Columns[3].Width = 230;
+            dgvClassificacaoEquipes.Columns[3].Width = 190;
             dgvClassificacaoEquipes.Columns[4].Width = 50;
             dgvClassificacaoEquipes.Columns[5].Width = 40;
             dgvClassificacaoEquipes.Columns[6].Width = 40;
@@ -765,9 +767,9 @@ namespace DriverChallenge
             dgvClassificacaoPilotos.DataSource = classPilotos;
 
             // Altura das linhas
-            dgvClassificacaoPilotos.RowTemplate.Height = 25;
+            dgvClassificacaoPilotos.RowTemplate.Height = 26;
             // Define a altura do cabecalho das colunas
-            dgvClassificacaoPilotos.ColumnHeadersHeight = 25;
+            dgvClassificacaoPilotos.ColumnHeadersHeight = 30;
 
             // Defina a ordem de exibicao das colunas com base nos indices
             dgvClassificacaoPilotos.Columns["#"].DisplayIndex = 0;
@@ -1574,31 +1576,23 @@ namespace DriverChallenge
         }
         public void PictureBoxClassificacao_Click(object sender, EventArgs e)
         {
-            /*
-            TelaClassificacao telaClassificacao = new TelaClassificacao(principal, equipes, pilotos, pistas);
+            TelaClassificacao telaClassificacao = new TelaClassificacao(principal, equipe, piloto, pista);
             telaClassificacao.ShowDialog();
-            */
         }
         public void PictureBoxPilotos_Click(object sender, EventArgs e)
         {
-            /*
-            TelaPilotos telaPilotos = new TelaPilotos(principal, equipes, pilotos);
+            TelaPilotos telaPilotos = new TelaPilotos(principal, equipe, piloto);
             telaPilotos.ShowDialog();
-            */
         }
         public void PictureBoxEquipes_Click(object sender, EventArgs e)
         {
-            /*
-            TelaEquipes telaEquipes = new TelaEquipes(principal, equipes, pilotos);
+            TelaEquipes telaEquipes = new TelaEquipes(principal, equipe, piloto);
             telaEquipes.ShowDialog();
-            */
         }
         public void PictureBoxFinancias_Click(object sender, EventArgs e)
         {
-            /*
-            TelaFinancias telaFinancias = new TelaFinancias(principal, financias);
+            TelaFinancias telaFinancias = new TelaFinancias(principal, financia);
             telaFinancias.ShowDialog();
-            */
         }
     }
     class DadosCompletos
@@ -1608,27 +1602,5 @@ namespace DriverChallenge
         public required Piloto[] Pilotos { get; set; }
         public required Pista[] Pistas { get; set; }
         public required Financia Financia { get; set; }
-        /*
-        public List<Historicos.PilotoCampeao> PilotosCampeoesF1 { get; set; }
-        public List<Historicos.PilotoCampeao> PilotosCampeoesF2 { get; set; }
-        public List<Historicos.PilotoCampeao> PilotosCampeoesF3 { get; set; }
-        public List<Historicos.EquipeCampeao> EquipesCampeoesF1 { get; set; }
-        public List<Historicos.EquipeCampeao> EquipesCampeoesF2 { get; set; }
-        public List<Historicos.EquipeCampeao> EquipesCampeoesF3 { get; set; }
-        public List<PilotoTemporada>[] PilotosTemporada { get; set; }
-        public List<EquipeTemporada>[] EquipeTemporada { get; set; }
-        public string NomeJogador { get; set; }
-        public string SobrenomeJogador { get; set; }
-        public string NacionalidadeJogador { get; set; }
-        public int IdadeJogador { get; set; }
-        public int HabilidadeJogador { get; set; }
-        public int ContadorDeSemana { get; set; }
-        public int ContadorDeAno { get; set; }
-        public string StatusDaTemporada { get; set; }
-        public string ProxGP { get; set; }
-        public string ProxGPais { get; set; }
-        public int ProxGPSemana { get; set; }
-        public int EtapaAtual { get; set; }
-        */
     }
 }

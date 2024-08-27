@@ -19,3 +19,8 @@ C:\Users\Pedro Spindola\Documents\DriverChallenge\obj\Debug\net8.0-windows\Drive
 C:\Users\Pedro Spindola\Documents\DriverChallenge\obj\Debug\net8.0-windows\DriverChallenge.TelaPrincipal.resources
 C:\Users\Pedro Spindola\Documents\DriverChallenge\obj\Debug\net8.0-windows\DriverChallenge.TelaEscolherEquipeInicial.resources
 C:\Users\Pedro Spindola\Documents\DriverChallenge\obj\Debug\net8.0-windows\DriverChallenge.TelaFinalDeSemanaDeCorrida.resources
+C:\Users\Pedro Spindola\Documents\DriverChallenge\obj\Debug\net8.0-windows\DriverChallenge.TelaClassificacao.resources
+C:\Users\Pedro Spindola\Documents\DriverChallenge\obj\Debug\net8.0-windows\DriverChallenge.TelaFinancias.resources
+C:\Users\Pedro Spindola\Documents\DriverChallenge\obj\Debug\net8.0-windows\DriverChallenge.TelaPilotos.resources
+C:\Users\Pedro Spindola\Documents\DriverChallenge\obj\Debug\net8.0-windows\DriverChallenge.sourcelink.json
+C:\Users\Pedro Spindola\Documents\DriverChallenge\obj\Debug\net8.0-windows\DriverChallenge.TelaEquipes.resources
