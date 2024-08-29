@@ -142,7 +142,7 @@ namespace DriverChallenge
 
 
             // Método para chamar uma Tela, onde jogador vai escolher a sua equipe inicial.
-            // EscolherEquipeInicialDoJogador();
+            EscolherEquipeInicialDoJogador();
 
             // Vai atribur os pilotos as suas equipes.
             for (int i = 0; i < (equipe.Length * 2); i++)
