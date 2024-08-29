@@ -26,7 +26,7 @@ namespace DriverChallenge
         Color corPrincipal;
         Color corSecundaria;
         Color corTexto;
-        private int indexDoJogador;
+        private int indexDoJogador = 1;
         public TelaPrincipal(Principal principal)
         {
             InitializeComponent();
@@ -82,44 +82,67 @@ namespace DriverChallenge
                     piloto[i] = newPiloto;
                 }
             }
-            // Gerando as Equipes
-            equipe[0] = new Equipe("Red Bull", "#03183B", "#C70101", "#FFFFFF", "Austria", 100, 100, 100, 100, 100, 100, 100, 100, "Honda", "F1", motor);
-            equipe[1] = new Equipe("Mercedes", "#C4C4C4", "#09BF81", "#000000", "Alemanha", 85, 85, 85, 85, 85, 85, 85, 85, "Mercedes", "F1", motor);
-            equipe[2] = new Equipe("Ferrari", "#FF0000", "#FFFFFF", "#000000", "Itália", 85, 85, 85, 85, 85, 85, 85, 85, "Ferrari", "F1", motor);
-            equipe[3] = new Equipe("Williams", "#112685", "#FFFFFF", "#FFFFFF", "Inglaterra", 75, 75, 75, 75, 75, 75, 75, 75, "TAG", "F1", motor);
-            equipe[4] = new Equipe("Aston Martin", "#004039", "#FFFFFF", "#FFFFFF", "Inglaterra", 80, 80, 80, 80, 80, 80, 80, 80, "Mercedes", "F1", motor);
-            equipe[5] = new Equipe("McLaren", "#FF8D36", "#000000", "#FFFFFF", "Inglaterra", 90, 90, 90, 90, 90, 90, 90, 90, "Honda", "F1", motor);
-            equipe[6] = new Equipe("Alpine", "#CE4A8D", "#2075DC", "#000000", "França", 80, 80, 80, 80, 80, 80, 80, 80, "Renault", "F1", motor);
-            equipe[7] = new Equipe("Visa Cash", "#0456D9", "#B10407", "#000000", "Itália", 75, 75, 75, 75, 75, 75, 75, 75, "TAG", "F1", motor);
-            equipe[8] = new Equipe("Stake Sauber", "#000000", "#0BEE23", "#FFFFFF", "Suíça", 70, 70, 70, 70, 70, 70, 70, 70, "Ferrari", "F1", motor);
-            equipe[9] = new Equipe("Haas", "#002420", "#000000", "#FFFFFF", "Estados Unidos", 70, 70, 70, 70, 70, 70, 70, 70, "Ferrari", "F1", motor);
+            /*
+            piloto[0] = new Piloto("Max", "Verstappen", "Holanda", 26, 32, 40, 100, 100, 100, 95, 100, 100, 95, 95);
+            piloto[1] = new Piloto("Sergio", "Perez", "México", 34, 32, 38, 90, 90, 90, 95, 80, 90, 90, 90);
+            piloto[2] = new Piloto("Lewis", "Hamilton", "Inglaterra", 39, 32, 40, 90, 90, 90, 100, 80, 90, 90, 80);
+            piloto[3] = new Piloto("George", "Russell", "Inglaterra", 26, 33, 37, 90, 90, 90, 80, 80, 80, 80, 90);
+            piloto[4] = new Piloto("Charles", "Leclerc", "Mônaco", 27, 32, 37, 100, 90, 100, 90, 100, 90, 100, 90);
+            piloto[5] = new Piloto("Carlos", "Sainz", "Espanha", 30, 31, 36, 90, 90, 100, 100, 90, 90, 90, 90);
+            piloto[6] = new Piloto("Alexander", "Albon", "Tailândia", 28, 33, 35, 70, 80, 80, 80, 70, 80, 80, 80);
+            piloto[7] = new Piloto("Logan", "Sargeant", "Estados Unidos", 24, 31, 36, 70, 70, 70, 70, 70, 70, 70, 80);
+            piloto[8] = new Piloto("Fernando", "Alonso", "Espanha", 43, 33, 43, 100, 90, 90, 100, 80, 80, 90, 90);
+            piloto[9] = new Piloto("Lance", "Stroll", "Canadá", 26, 30, 35, 80, 70, 75, 75, 80, 80, 85, 80);
+            piloto[10] = new Piloto("Lando", "Norris", "Inglaterra", 25, 33, 37, 90, 90, 85, 85, 90, 90, 90, 80);
+            piloto[11] = new Piloto("Oscar", "Piastri", "Austrália", 27, 33, 40, 80, 80, 80, 85, 85, 80, 85, 90);
+            piloto[12] = new Piloto("Esteban", "Ocon", "França", 28, 33, 36, 80, 80, 80, 75, 75, 80, 80, 80);
+            piloto[13] = new Piloto("Pierre", "Gasly", "França", 28, 32, 40, 80, 80, 85, 85, 90, 85, 80, 80);
+            piloto[14] = new Piloto("Daniel", "Ricciardo", "Austrália", 35, 33, 36, 80, 80, 70, 100, 80, 75, 85, 80);
+            piloto[15] = new Piloto("Yuki", "Tsunoda", "Japão", 24, 30, 36, 75, 75, 80, 80, 70, 75, 80, 90);
+            piloto[16] = new Piloto("Valtteri", "Bottas", "Finlândia", 35, 32, 38, 70, 80, 80, 70, 80, 85, 75, 85);
+            piloto[17] = new Piloto("Guanyu", "Zhou", "China", 25, 33, 35, 80, 70, 80, 70, 75, 85, 75, 70);
+            piloto[18] = new Piloto("Kevin", "Magnussen", "Dinamarca", 32, 33, 40, 80, 80, 85, 85, 85, 80, 80, 85);
+            piloto[19] = new Piloto("Nico", "Hülkenberg", "Alemanha", 37, 33, 39, 80, 80, 80, 100, 85, 75, 75, 80);
+            */
+            // Gerando as Equipes F1 (média entre 80 a 100)
+            equipe[0] = new Equipe("Red Bull", "#03183B", "#C70101", "#FFFFFF", "Austria", 98, 95, 97, 99, 96, 94, 95, 100, "Honda", "F1", motor);
+            equipe[1] = new Equipe("Mercedes", "#C4C4C4", "#09BF81", "#000000", "Alemanha", 90, 91, 89, 92, 90, 88, 87, 91, "Mercedes", "F1", motor);
+            equipe[2] = new Equipe("Ferrari", "#FF0000", "#FFFFFF", "#000000", "Itália", 85, 87, 88, 86, 84, 90, 85, 89, "Ferrari", "F1", motor);
+            equipe[3] = new Equipe("Williams", "#112685", "#FFFFFF", "#FFFFFF", "Inglaterra", 82, 84, 80, 81, 83, 85, 82, 86, "TAG", "F1", motor);
+            equipe[4] = new Equipe("Aston Martin", "#004039", "#FFFFFF", "#FFFFFF", "Inglaterra", 85, 87, 89, 83, 86, 84, 82, 88, "Mercedes", "F1", motor);
+            equipe[5] = new Equipe("McLaren", "#FF8D36", "#000000", "#FFFFFF", "Inglaterra", 90, 92, 91, 93, 88, 87, 89, 91, "Honda", "F1", motor);
+            equipe[6] = new Equipe("Alpine", "#CE4A8D", "#2075DC", "#000000", "França", 80, 83, 85, 82, 84, 81, 80, 82, "Renault", "F1", motor);
+            equipe[7] = new Equipe("Visa Cash", "#0456D9", "#B10407", "#000000", "Itália", 82, 81, 84, 83, 80, 82, 81, 84, "TAG", "F1", motor);
+            equipe[8] = new Equipe("Stake Sauber", "#000000", "#0BEE23", "#FFFFFF", "Suíça", 80, 82, 81, 83, 80, 84, 81, 82, "Ferrari", "F1", motor);
+            equipe[9] = new Equipe("Haas", "#002420", "#000000", "#FFFFFF", "Estados Unidos", 81, 83, 82, 84, 80, 82, 81, 85, "Ferrari", "F1", motor);
 
-            // Equipes F2
-            equipe[10] = new Equipe("MP Motorsport", "#FF883C", "#FF883C", "#FFFFFF", "Holanda", 65, 65, 65, 65, 65, 65, 65, 65, "TAG", "F2", motor);
-            equipe[11] = new Equipe("Infinity Audi", "#CCCCCC", "#991F21", "#000000", "Alemanha", 65, 65, 65, 65, 65, 65, 65, 65, "Audi", "F2", motor);
-            equipe[12] = new Equipe("Carlin", "#2151B0", "#75FF07", "#000000", "Inglaterra", 60, 60, 60, 60, 60, 60, 60, 60, "Renault", "F2", motor);
-            equipe[13] = new Equipe("Jordan", "#FFE120", "#000000", "#FFFFFF", "Inglaterra", 60, 60, 60, 60, 60, 60, 60, 60, "Mercedes", "F2", motor);
-            equipe[14] = new Equipe("Prema", "#FF3622", "#FFFFFF", "#000000", "Itália", 55, 55, 55, 55, 55, 55, 55, 55, "TAG", "F2", motor);
-            equipe[15] = new Equipe("Hitech", "#808080", "#000000", "#000000", "Inglaterra", 50, 50, 50, 50, 50, 50, 50, 50, "BMW", "F2", motor);
-            equipe[16] = new Equipe("DAMS", "#113861", "#48D4FF", "#FFFFFF", "França", 45, 45, 45, 45, 45, 45, 45, 45, "Renault", "F2", motor);
-            equipe[17] = new Equipe("Amersfoort", "#000000", "#FF883C", "#FFFFFF", "Holanda", 45, 45, 45, 45, 45, 45, 45, 45, "Ford", "F2", motor);
-            equipe[18] = new Equipe("Lamborghini", "#000000", "#FFAC11", "#FFFFFF", "Itália", 40, 40, 40, 40, 40, 40, 40, 40, "Lamborghini", "F2", motor);
-            equipe[19] = new Equipe("Trident", "#3706BF", "#FF3024", "#000000", "Itália", 40, 40, 40, 40, 40, 40, 40, 40, "Toyota", "F2", motor);
+            // Equipes F2 (média entre 60 a 80)
+            equipe[10] = new Equipe("MP Motorsport", "#FF883C", "#FF883C", "#FFFFFF", "Holanda", 72, 71, 75, 74, 73, 70, 72, 71, "TAG", "F2", motor);
+            equipe[11] = new Equipe("Infinity Audi", "#CCCCCC", "#991F21", "#000000", "Alemanha", 68, 70, 67, 66, 72, 69, 71, 70, "Audi", "F2", motor);
+            equipe[12] = new Equipe("Carlin", "#2151B0", "#75FF07", "#000000", "Inglaterra", 60, 63, 65, 62, 64, 61, 66, 65, "Renault", "F2", motor);
+            equipe[13] = new Equipe("Jordan", "#FFE120", "#000000", "#FFFFFF", "Inglaterra", 75, 74, 72, 71, 73, 76, 70, 74, "Mercedes", "F2", motor);
+            equipe[14] = new Equipe("Prema", "#FF3622", "#FFFFFF", "#000000", "Itália", 65, 67, 66, 69, 64, 63, 68, 70, "TAG", "F2", motor);
+            equipe[15] = new Equipe("Hitech", "#808080", "#000000", "#000000", "Inglaterra", 61, 63, 60, 62, 64, 66, 65, 64, "BMW", "F2", motor);
+            equipe[16] = new Equipe("DAMS", "#113861", "#48D4FF", "#FFFFFF", "França", 70, 71, 72, 73, 68, 66, 69, 70, "Renault", "F2", motor);
+            equipe[17] = new Equipe("Amersfoort", "#000000", "#FF883C", "#FFFFFF", "Holanda", 64, 65, 63, 66, 62, 60, 67, 65, "Ford", "F2", motor);
+            equipe[18] = new Equipe("Lamborghini", "#000000", "#FFAC11", "#FFFFFF", "Itália", 62, 63, 64, 65, 66, 60, 61, 64, "Lamborghini", "F2", motor);
+            equipe[19] = new Equipe("Trident", "#3706BF", "#FF3024", "#000000", "Itália", 60, 62, 61, 64, 63, 65, 66, 67, "Toyota", "F2", motor);
 
-            // Equipes F3
-            equipe[20] = new Equipe("BMW", "#117CFF", "#FFFFFF", "#000000", "Alemanha", 35, 35, 35, 35, 35, 35, 35, 35, "BMW", "F3", motor);
-            equipe[21] = new Equipe("Penske Porsche", "#FFFFFF", "#FF3629", "#000000", "Alemanha", 35, 35, 35, 35, 35, 35, 35, 35, "Audi", "F3", motor);
-            equipe[22] = new Equipe("Toyota Gazoo", "#C22A1F", "#C22A1F", "#FFFFFF", "Japão", 30, 30, 30, 30, 30, 30, 30, 30, "Ford", "F3", motor);
-            equipe[23] = new Equipe("Campos", "#FFB22A", "#EB3326", "#000000", "Espanha", 25, 25, 25, 25, 25, 25, 25, 25, "BMW", "F3", motor);
-            equipe[24] = new Equipe("Tower Motorsports", "#FF9A1C", "#3444FF", "#000000", "Canadá", 20, 20, 20, 20, 20, 20, 20, 20, "Ford", "F3", motor);
-            equipe[25] = new Equipe("Team WRT", "#55BEFF", "#55BEFF", "#FFFFFF", "Bélgica", 20, 20, 20, 20, 20, 20, 20, 20, "Lamborghini", "F3", motor);
-            equipe[26] = new Equipe("Proton", "#9551FF", "#9551FF", "#FFFFFF", "Alemanha", 15, 15, 15, 15, 15, 15, 15, 15, "Toyota", "F3", motor);
-            equipe[27] = new Equipe("Kessel", "#FF0081", "#236EFF", "#FFFFFF", "Suíça", 10, 10, 10, 10, 10, 10, 10, 10, "Ford", "F3", motor);
-            equipe[28] = new Equipe("Action Express", "#FF6E63", "#CCCCCC", "#000000", "Estados Unidos", 10, 10, 10, 10, 10, 10, 10, 10, "Toyota", "F3", motor);
-            equipe[29] = new Equipe("Team Senna", "#2D7D4E", "#FFD91C", "#000000", "Brasil", 10, 10, 10, 10, 10, 10, 10, 10, "Lamborghini", "F3", motor);
+            // Equipes F3 (média entre 40 a 60)
+            equipe[20] = new Equipe("BMW", "#117CFF", "#FFFFFF", "#000000", "Alemanha", 55, 53, 54, 52, 50, 56, 55, 54, "BMW", "F3", motor);
+            equipe[21] = new Equipe("Penske Porsche", "#FFFFFF", "#FF3629", "#000000", "Alemanha", 50, 52, 51, 49, 53, 55, 48, 50, "Audi", "F3", motor);
+            equipe[22] = new Equipe("Toyota Gazoo", "#C22A1F", "#C22A1F", "#FFFFFF", "Japão", 45, 47, 46, 44, 50, 48, 49, 46, "Ford", "F3", motor);
+            equipe[23] = new Equipe("Campos", "#FFB22A", "#EB3326", "#000000", "Espanha", 55, 54, 52, 53, 50, 48, 49, 51, "BMW", "F3", motor);
+            equipe[24] = new Equipe("Tower Motorsports", "#FF9A1C", "#3444FF", "#000000", "Canadá", 48, 46, 47, 45, 49, 50, 51, 48, "Ford", "F3", motor);
+            equipe[25] = new Equipe("Team WRT", "#55BEFF", "#55BEFF", "#FFFFFF", "Bélgica", 42, 45, 44, 43, 46, 40, 41, 44, "Lamborghini", "F3", motor);
+            equipe[26] = new Equipe("Proton", "#9551FF", "#9551FF", "#FFFFFF", "Alemanha", 44, 43, 46, 42, 45, 40, 41, 44, "Toyota", "F3", motor);
+            equipe[27] = new Equipe("Kessel", "#FF0081", "#236EFF", "#FFFFFF", "Suíça", 39, 41, 43, 42, 44, 40, 45, 46, "Ford", "F3", motor);
+            equipe[28] = new Equipe("Action Express", "#FF6E63", "#CCCCCC", "#000000", "Estados Unidos", 40, 43, 42, 41, 45, 39, 44, 46, "Toyota", "F3", motor);
+            equipe[29] = new Equipe("Team Senna", "#2D7D4E", "#FFD91C", "#000000", "Brasil", 45, 47, 46, 44, 48, 49, 50, 46, "Lamborghini", "F3", motor);
+
 
             // Método para chamar uma Tela, onde jogador vai escolher a sua equipe inicial.
-            //EscolherEquipeInicialDoJogador();
+            // EscolherEquipeInicialDoJogador();
 
             // Vai atribur os pilotos as suas equipes.
             for (int i = 0; i < (equipe.Length * 2); i++)
@@ -204,7 +227,6 @@ namespace DriverChallenge
                     }
                 }
             }
-
             principal.XpTurnoSemanal(piloto);
             CriandoOsDadosPistas();
             EmbaralharPistas();
@@ -256,7 +278,7 @@ namespace DriverChallenge
             pista[0] = new Pista("Austrália", "Melbourne", 58, 44, 56, 76800);
             pista[1] = new Pista("Itália", "Monza", 53, 35, 65, 70200);
             pista[2] = new Pista("Brasil", "Interlagos", 71, 42, 58, 65400);
-            /**/
+
             pista[3] = new Pista("Bahrein", "Sakhir", 57, 43, 57, 77400);
             pista[4] = new Pista("Arábia Saudita", "Corniche Circuit", 50, 58, 42, 76200);
             pista[5] = new Pista("Japão", "Suzuka", 53, 59, 41, 75420);
@@ -279,7 +301,7 @@ namespace DriverChallenge
             pista[22] = new Pista("Estados Unidos", "Las Vegas", 50, 70, 30, 81100);
             pista[23] = new Pista("Emirados Árabes Unidos", "Yas Marina", 58, 39, 61, 74400);
             pista[24] = new Pista("Alemanha", "Hockenheimring", 67, 42, 58, 68400);
-            /**/
+
 
         }
         public void EmbaralharPistas()
@@ -298,7 +320,7 @@ namespace DriverChallenge
             pista[0].SemanaDaProva = 5;
             pista[1].SemanaDaProva = 7;
             pista[2].SemanaDaProva = 8;
-            /**/
+
             pista[3].SemanaDaProva = 10;
             pista[4].SemanaDaProva = 12;
             pista[5].SemanaDaProva = 15;
@@ -321,7 +343,7 @@ namespace DriverChallenge
             pista[22].SemanaDaProva = 44;
             pista[23].SemanaDaProva = 46;
             pista[24].SemanaDaProva = 48;
-            /**/
+
 
         }
         public void AtualizaStatusProxCorrida(int contador) // Depois de finalizar os testem desbloquear o restantes das pistas.
@@ -338,7 +360,7 @@ namespace DriverChallenge
             {
                 FuncaoParaStatusDaProximaCorrida(2);
             }
-            /**/
+
             else if (contador > 8 && contador <= 10)
             {
                 FuncaoParaStatusDaProximaCorrida(3);
@@ -426,7 +448,7 @@ namespace DriverChallenge
             else if (contador > 46 && contador <= 48)
             {
                 FuncaoParaStatusDaProximaCorrida(24);
-            }/**/
+            }
             else
             {
                 principal.ProximoGp = "";

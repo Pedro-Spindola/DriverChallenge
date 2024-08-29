@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
 
 namespace DriverChallenge
 {
@@ -63,12 +64,50 @@ namespace DriverChallenge
         public int TempoCorrida { get; set; } = 0;
         public int ResultadoCorrida { get; set; } = 0;
         public int DiferancaPri { get; set; } = 0;
+        public int BonusRandom { get; set; } = 0;
         // Outros atributos.
         public string Cor1 { get; set; } = "";
         public string Cor2 { get; set; } = "";
         public double RandomNacionalidade { get; set; } = 0;
 
         public Piloto() {}
+
+        public Piloto(string nome, string sobrenome, string nacionalidad, int idade, int auge, int aposentadoria, int largad, int concent, int ultrapassag, int experience, int rapid, int chuv, int acerto, int fisic)
+        {
+            PaisPiloto paisPilotos = new PaisPiloto();
+            string nacionalidade = nacionalidad;
+
+            NacionalidadePiloto = nacionalidad;
+            NomePiloto = nome;
+            SobrenomePiloto = sobrenome;
+            XpPiloto = 0;
+            PotencialPiloto = random.Next(60, 81);
+            PotencialPiloto = (PotencialPiloto / 100);
+
+            // Definir de forma aleatória a idade do piloto (18 até 21)
+            IdadePiloto = idade;
+
+            // Definir de forma aleatória o auge do piloto (30 até 36)
+            AugePiloto = auge;
+
+            // Definir de forma aleatória a aposentadoria do piloto (36 até 41)
+            AposentadoriaPiloto = aposentadoria;
+
+            // Definir a visibilidade do piloto para patrocinador (entre 0 a 50)
+            VisibilidadePiloto = random.Next(0, 51);
+
+            // Atribuindo de formas aleatória, a qualidade de cada atributos (10 a 30)
+            Largada = largad;
+            Concentracao = concent;
+            Ultrapassagem = ultrapassag;
+            Experiencia = experience;
+            Rapidez = rapid;
+            Chuva = chuv;
+            AcertoDoCarro = acerto;
+            Fisico = fisic;
+
+            MediaPiloto = ((Largada + Concentracao + Ultrapassagem + Experiencia + Rapidez + Chuva + AcertoDoCarro + Fisico) / 8);
+        }
 
         public void GeraPiloto()
         {

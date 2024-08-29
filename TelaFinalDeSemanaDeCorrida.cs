@@ -96,6 +96,7 @@ namespace DriverChallenge
                     pilotos[j].PosicaoNaCorrida = 0;
                     pilotos[j].DiferancaAnt = 0;
                     pilotos[j].DiferancaPri = 0;
+                    pilotos[j].BonusRandom = 0;
                 }
                 MetodoParaQualificarEquipes(0, 10);
                 MetodoParaQualificarEquipes(10, 20);
@@ -616,7 +617,7 @@ namespace DriverChallenge
                             {
                                 int tempoDaVoltaAtual = AlgoritmoParaVoltas(equipes[k].ValorDoMotor, equipes[k].Aerodinamica, equipes[k].Freio, equipes[k].AsaDianteira, equipes[k].AsaTraseira, equipes[k].Cambio,
                                 equipes[k].Eletrico, equipes[k].Direcao, equipes[k].Confiabilidade, pilotos[j].Largada, pilotos[j].Concentracao, pilotos[j].Ultrapassagem, pilotos[j].Experiencia, pilotos[j].Rapidez,
-                                pilotos[j].Chuva, pilotos[j].AcertoDoCarro, pilotos[j].Fisico, principal.ImportanciaPilotoTemporada, principal.ImportanciaCarroTemporada, pistas[principal.EtapaAtual].Curvas, pistas[principal.EtapaAtual].Retas, pistas[principal.EtapaAtual].TempoBase);
+                                pilotos[j].Chuva, pilotos[j].AcertoDoCarro, pilotos[j].Fisico, principal.ImportanciaPilotoTemporada, principal.ImportanciaCarroTemporada, pistas[principal.EtapaAtual].Curvas, pistas[principal.EtapaAtual].Retas, pistas[principal.EtapaAtual].TempoBase, 0);
                                 // Está ordenando a volta mais rapida do piloto.
                                 if (pilotos[j].TempoDeVoltaQualificacao > tempoDaVoltaAtual || pilotos[j].TempoDeVoltaQualificacao == 0)
                                 {
@@ -685,9 +686,19 @@ namespace DriverChallenge
                         {
                             if (equipes[k].NomeEquipe == pilotos[j].EquipePiloto && pilotos[j].Categoria == fCategoria)
                             {
+                                GerarBonusRandom(numberVoltasT, pilotos[j].BonusRandom);
+                                int bonus = pilotos[j].BonusRandom;
+                                if (pilotos[j].DiferancaAnt < 1000)
+                                {
+                                    bonus += 300;
+                                }
+                                if (pilotos[j].DiferancaAnt > 2000)
+                                {
+                                    bonus += 100;
+                                }
                                 int tempoDaVoltaAtual = AlgoritmoParaVoltas(equipes[k].ValorDoMotor, equipes[k].Aerodinamica, equipes[k].Freio, equipes[k].AsaDianteira, equipes[k].AsaTraseira, equipes[k].Cambio,
                                 equipes[k].Eletrico, equipes[k].Direcao, equipes[k].Confiabilidade, pilotos[j].Largada, pilotos[j].Concentracao, pilotos[j].Ultrapassagem, pilotos[j].Experiencia, pilotos[j].Rapidez,
-                                pilotos[j].Chuva, pilotos[j].AcertoDoCarro, pilotos[j].Fisico, principal.ImportanciaPilotoTemporada, principal.ImportanciaCarroTemporada, pistas[principal.EtapaAtual].Curvas, pistas[principal.EtapaAtual].Retas, pistas[principal.EtapaAtual].TempoBase);
+                                pilotos[j].Chuva, pilotos[j].AcertoDoCarro, pilotos[j].Fisico, principal.ImportanciaPilotoTemporada, principal.ImportanciaCarroTemporada, pistas[principal.EtapaAtual].Curvas, pistas[principal.EtapaAtual].Retas, pistas[principal.EtapaAtual].TempoBase, bonus);
                                 pilotos[j].TempoCorrida = pilotos[j].TempoCorrida + tempoDaVoltaAtual;
                                 pilotos[j].TempoDeVoltaCorrida = tempoDaVoltaAtual;
                                 // Está ordenando a volta mais rapida do piloto.
@@ -924,6 +935,7 @@ namespace DriverChallenge
                     pilotos[j].PosicaoNaCorrida = 0;
                     pilotos[j].DiferancaAnt = 0;
                     pilotos[j].DiferancaPri = 0;
+                    pilotos[j].BonusRandom = 0;
                 }
                 MetodoParaQualificarEquipes(0, 10);
                 MetodoParaQualificarEquipes(10, 20);
@@ -933,6 +945,33 @@ namespace DriverChallenge
                 MetodoParaQualificarPilotos("F3");
                 this.Close();
             }
+        }
+        private int GerarBonusRandom(int voltas, int bonusAtual)
+        {
+            Random r = new Random();
+
+            if (voltas == 10 || voltas == 20 || voltas == 30 || voltas == 40 || voltas == 50 || voltas == 60 || voltas == 70 || voltas == 80 || voltas == 90)
+            {
+                int x = r.Next(1,4);
+                if(x == 1)
+                {
+                    return bonusAtual += 20;
+                }
+                if (x == 2)
+                {
+                    return bonusAtual;
+                }
+                    return bonusAtual -= 20;
+            }
+            return bonusAtual;
+        }
+        private int PitStop(Piloto piloto)
+        {
+            Random r = new Random();
+            int x = (r.Next(piloto.Largada, 101) + r.Next(piloto.Experiencia, 101));
+            x = ((x * 10) + 12000);
+
+            return x;
         }
         private void MetodoParaQualificarEquipes(int equipeMin, int equipeMax)
         {
@@ -1048,7 +1087,7 @@ namespace DriverChallenge
                         {
                             int tempoDaVoltaAtual = AlgoritmoParaVoltas(equipes[k].ValorDoMotor, equipes[k].Aerodinamica, equipes[k].Freio, equipes[k].AsaDianteira, equipes[k].AsaTraseira, equipes[k].Cambio,
                             equipes[k].Eletrico, equipes[k].Direcao, equipes[k].Confiabilidade, pilotos[j].Largada, pilotos[j].Concentracao, pilotos[j].Ultrapassagem, pilotos[j].Experiencia, pilotos[j].Rapidez,
-                            pilotos[j].Chuva, pilotos[j].AcertoDoCarro, pilotos[j].Fisico, principal.ImportanciaPilotoTemporada, principal.ImportanciaCarroTemporada, pistas[principal.EtapaAtual].Curvas, pistas[principal.EtapaAtual].Retas, pistas[principal.EtapaAtual].TempoBase);
+                            pilotos[j].Chuva, pilotos[j].AcertoDoCarro, pilotos[j].Fisico, principal.ImportanciaPilotoTemporada, principal.ImportanciaCarroTemporada, pistas[principal.EtapaAtual].Curvas, pistas[principal.EtapaAtual].Retas, pistas[principal.EtapaAtual].TempoBase, 0);
                             // Está ordenando a volta mais rapida do piloto.
                             if (pilotos[j].TempoDeVoltaQualificacao > tempoDaVoltaAtual || pilotos[j].TempoDeVoltaQualificacao == 0)
                             {
@@ -1099,9 +1138,10 @@ namespace DriverChallenge
                     {
                         if (equipes[k].NomeEquipe == pilotos[j].EquipePiloto && pilotos[j].Categoria == fCategoria)
                         {
+                            GerarBonusRandom(numberVoltasT, pilotos[j].BonusRandom);
                             int tempoDaVoltaAtual = AlgoritmoParaVoltas(equipes[k].ValorDoMotor, equipes[k].Aerodinamica, equipes[k].Freio, equipes[k].AsaDianteira, equipes[k].AsaTraseira, equipes[k].Cambio,
                             equipes[k].Eletrico, equipes[k].Direcao, equipes[k].Confiabilidade, pilotos[j].Largada, pilotos[j].Concentracao, pilotos[j].Ultrapassagem, pilotos[j].Experiencia, pilotos[j].Rapidez,
-                            pilotos[j].Chuva, pilotos[j].AcertoDoCarro, pilotos[j].Fisico, principal.ImportanciaPilotoTemporada, principal.ImportanciaCarroTemporada, pistas[principal.EtapaAtual].Curvas, pistas[principal.EtapaAtual].Retas, pistas[principal.EtapaAtual].TempoBase);
+                            pilotos[j].Chuva, pilotos[j].AcertoDoCarro, pilotos[j].Fisico, principal.ImportanciaPilotoTemporada, principal.ImportanciaCarroTemporada, pistas[principal.EtapaAtual].Curvas, pistas[principal.EtapaAtual].Retas, pistas[principal.EtapaAtual].TempoBase, pilotos[j].BonusRandom);
                             pilotos[j].TempoCorrida = pilotos[j].TempoCorrida + tempoDaVoltaAtual;
                             pilotos[j].TempoDeVoltaCorrida = tempoDaVoltaAtual;
                             // Está ordenando a volta mais rapida do piloto.
@@ -1304,7 +1344,7 @@ namespace DriverChallenge
         }
         private int AlgoritmoParaVoltas(int motor, int aerodinamica, int freio, int asaDianteira, int asaTraseira, int cambio,
         int eletrico, int direcao, int confiabilidade, int largada, int concentracao, int ultrapassagem, int experiencia, int rapidez,
-        int chuva, int acertoCarro, int fisico, int importanciPiloto, int importanciaCarro, int curvas, int retas, int tempoBase)
+        int chuva, int acertoCarro, int fisico, int importanciPiloto, int importanciaCarro, int curvas, int retas, int tempoBase, int bonusRandom)
         {
             Random r = new Random();
 
@@ -1328,8 +1368,7 @@ namespace DriverChallenge
             int atributo09 = (medPilotVel + medPilotFis) * ((retas / 100) + 1);
             int atributo10 = (medCarroVel + medCarroQual) * ((curvas / 100) + 1);
 
-            int somaDosAtributos = (((atributo01 + atributo02 + atributo03 + atributo04 + atributo05 + (atributo06 * 2) + atributo07 + atributo08 + atributo09 + atributo10) * 7) + r.Next(0, 10));
-
+            int somaDosAtributos = ((r.Next((atributo01 / 2), atributo01) + r.Next((atributo02 / 2), atributo02) + r.Next((atributo03 / 2), atributo03) + r.Next((atributo04 / 2), atributo04) + r.Next((atributo05 / 2), atributo05) + (r.Next((atributo06 / 2), atributo06) * 2) + r.Next((atributo07 / 2), atributo07) + r.Next((atributo08 / 2), atributo08) + r.Next((atributo09 / 2), atributo09) + r.Next((atributo10 / 2), atributo10) + bonusRandom) * 3);
             int volta = ((tempoBase + t) - somaDosAtributos);
 
             return volta;
