@@ -48,8 +48,8 @@ namespace DriverChallenge
         private void labelAssinar3_Click(object sender, EventArgs e)
         {
             pilotos[99].SalarioPiloto = c;
-            pilotos[99].Categoria = equipes[0].Categoria; // pilotos[99].Categoria = equipes[29].Categoria;
-            principal.Transferencia(pilotos, 1, 99); // principal.Transferencia(pilotos, 59, 99);
+            pilotos[99].Categoria = equipes[29].Categoria; // pilotos[99].Categoria = equipes[29].Categoria;
+            principal.Transferencia(pilotos, 59, 99); // principal.Transferencia(pilotos, 59, 99);
             this.Close();
         }
 

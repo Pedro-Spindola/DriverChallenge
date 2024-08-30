@@ -686,19 +686,22 @@ namespace DriverChallenge
                         {
                             if (equipes[k].NomeEquipe == pilotos[j].EquipePiloto && pilotos[j].Categoria == fCategoria)
                             {
-                                GerarBonusRandom(numberVoltasT, pilotos[j].BonusRandom);
-                                int bonus = pilotos[j].BonusRandom;
-                                if (pilotos[j].DiferancaAnt < 1000)
+                                int bonusCadaDezVoltas = GerarBonusRandom(numberVoltasF, pilotos[j].BonusRandom);
+                                int bonusAdversario = 0;
+                                if (numberVoltasT != 1 && pilotos[j].DiferancaAnt < 1000)
                                 {
-                                    bonus += 300;
+                                    bonusAdversario = random.Next(0, 100);
                                 }
-                                if (pilotos[j].DiferancaAnt > 2000)
+                                if (numberVoltasT != 1 && pilotos[j].DiferancaAnt > 2000)
                                 {
-                                    bonus += 100;
+                                    bonusAdversario = random.Next(0, 40);
                                 }
+                                pilotos[j].BonusRandom += bonusCadaDezVoltas;
+                                int bonusTotalDaVolta = pilotos[j].BonusRandom + bonusAdversario;
+
                                 int tempoDaVoltaAtual = AlgoritmoParaVoltas(equipes[k].ValorDoMotor, equipes[k].Aerodinamica, equipes[k].Freio, equipes[k].AsaDianteira, equipes[k].AsaTraseira, equipes[k].Cambio,
                                 equipes[k].Eletrico, equipes[k].Direcao, equipes[k].Confiabilidade, pilotos[j].Largada, pilotos[j].Concentracao, pilotos[j].Ultrapassagem, pilotos[j].Experiencia, pilotos[j].Rapidez,
-                                pilotos[j].Chuva, pilotos[j].AcertoDoCarro, pilotos[j].Fisico, principal.ImportanciaPilotoTemporada, principal.ImportanciaCarroTemporada, pistas[principal.EtapaAtual].Curvas, pistas[principal.EtapaAtual].Retas, pistas[principal.EtapaAtual].TempoBase, bonus);
+                                pilotos[j].Chuva, pilotos[j].AcertoDoCarro, pilotos[j].Fisico, principal.ImportanciaPilotoTemporada, principal.ImportanciaCarroTemporada, pistas[principal.EtapaAtual].Curvas, pistas[principal.EtapaAtual].Retas, pistas[principal.EtapaAtual].TempoBase, bonusTotalDaVolta);
                                 pilotos[j].TempoCorrida = pilotos[j].TempoCorrida + tempoDaVoltaAtual;
                                 pilotos[j].TempoDeVoltaCorrida = tempoDaVoltaAtual;
                                 // Está ordenando a volta mais rapida do piloto.
@@ -955,15 +958,15 @@ namespace DriverChallenge
                 int x = r.Next(1,4);
                 if(x == 1)
                 {
-                    return bonusAtual += 20;
+                    return 40;
                 }
                 if (x == 2)
                 {
                     return bonusAtual;
                 }
-                    return bonusAtual -= 20;
+                    return -40;
             }
-            return bonusAtual;
+            return 0;
         }
         private int PitStop(Piloto piloto)
         {
