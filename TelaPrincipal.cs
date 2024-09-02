@@ -19,7 +19,7 @@ namespace DriverChallenge
         Principal principal;
         private Equipe[] equipe = new Equipe[30];      // Criando array com a quantidade de equipes.
         private Piloto[] piloto = new Piloto[100];     // Criando array com a quantidade de pilotos.
-        private Pista[] pista = new Pista[25];          // Crinado array com a quantidade de pistas. -> Mudar para o padrão depois de teste = 25 para teste e = 3
+        private Pista[] pista = new Pista[3];          // Crinado array com a quantidade de pistas. -> Mudar para o padrão depois de teste = 25 para teste e = 3
         private Random random = new Random();
         private Financia financia = new Financia();
         private Motor motor = new Motor();
@@ -49,6 +49,7 @@ namespace DriverChallenge
             else if (principal.ConfiguracaoInicioDoGame == 2)
             {
                 CarregarDadosDosArquivos();
+                Console.WriteLine("Carregado");
             }
             // Converte a string hexadecimal em um objeto Color
             indexDoJogador = principal.IndexDoJogador;
@@ -103,6 +104,38 @@ namespace DriverChallenge
             piloto[17] = new Piloto("Guanyu", "Zhou", "China", 25, 33, 35, 80, 70, 80, 70, 75, 85, 75, 70);
             piloto[18] = new Piloto("Kevin", "Magnussen", "Dinamarca", 32, 33, 40, 80, 80, 85, 85, 85, 80, 80, 85);
             piloto[19] = new Piloto("Nico", "Hülkenberg", "Alemanha", 37, 33, 39, 80, 80, 80, 100, 85, 75, 75, 80);
+
+            equipe[0] = new Equipe("Blue Falcon", "#03183B", "#C70101", "#FFFFFF", "Austria", 92, 91, 94, 90, 93, 96, 94, 91, "Honda", "F1", motor);
+            equipe[1] = new Equipe("Silver Arrow", "#C4C4C4", "#09BF81", "#000000", "Alemanha", 86, 87, 84, 85, 86, 85, 84, 87, "Mercedes", "F1", motor);
+            equipe[2] = new Equipe("Scarlet Horse", "#FF0000", "#FFFFFF", "#000000", "Itália", 83, 82, 88, 86, 85, 84, 85, 84, "Ferrari", "F1", motor);
+            equipe[3] = new Equipe("Royal Racing", "#112685", "#FFFFFF", "#FFFFFF", "Inglaterra", 77, 74, 76, 75, 76, 74, 77, 76, "TAG", "F1", motor);
+            equipe[4] = new Equipe("Green Viper", "#004039", "#FFFFFF", "#FFFFFF", "Inglaterra", 81, 79, 82, 80, 78, 81, 79, 80, "Mercedes", "F1", motor);
+            equipe[5] = new Equipe("Orange Rocket", "#FF8D36", "#000000", "#FFFFFF", "Inglaterra", 91, 89, 92, 90, 91, 88, 90, 91, "Honda", "F1", motor);
+            equipe[6] = new Equipe("Pink Panther", "#CE4A8D", "#2075DC", "#000000", "França", 82, 80, 79, 81, 83, 80, 81, 80, "Renault", "F1", motor);
+            equipe[7] = new Equipe("Cash Chariot", "#0456D9", "#B10407", "#000000", "Itália", 76, 74, 75, 77, 74, 75, 76, 75, "TAG", "F1", motor);
+            equipe[8] = new Equipe("Shadow Wolf", "#000000", "#0BEE23", "#FFFFFF", "Suíça", 71, 70, 69, 72, 70, 71, 70, 71, "Ferrari", "F1", motor);
+            equipe[9] = new Equipe("Eagle Racing", "#002420", "#000000", "#FFFFFF", "Estados Unidos", 72, 69, 71, 70, 70, 71, 69, 71, "Ferrari", "F1", motor);
+            equipe[10] = new Equipe("Speed Masters", "#FF883C", "#FF883C", "#FFFFFF", "Holanda", 67, 64, 65, 66, 64, 66, 67, 64, "TAG", "F2", motor);
+            equipe[11] = new Equipe("Infinity Power", "#CCCCCC", "#991F21", "#000000", "Alemanha", 66, 64, 65, 66, 66, 65, 64, 66, "Audi", "F2", motor);
+            equipe[12] = new Equipe("Blue Wings", "#2151B0", "#75FF07", "#000000", "Inglaterra", 61, 62, 60, 63, 61, 60, 62, 61, "Renault", "F2", motor);
+            equipe[13] = new Equipe("Golden Arrow", "#FFE120", "#000000", "#FFFFFF", "Inglaterra", 62, 60, 61, 60, 59, 60, 61, 60, "Mercedes", "F2", motor);
+            equipe[14] = new Equipe("Red Blaze", "#FF3622", "#FFFFFF", "#000000", "Itália", 56, 54, 55, 55, 57, 55, 54, 55, "TAG", "F2", motor);
+            equipe[15] = new Equipe("Steel Phoenix", "#808080", "#000000", "#000000", "Inglaterra", 51, 49, 50, 50, 51, 52, 50, 51, "BMW", "F2", motor);
+            equipe[16] = new Equipe("Frostbite Racing", "#113861", "#48D4FF", "#FFFFFF", "França", 46, 44, 45, 46, 47, 45, 44, 46, "Renault", "F2", motor);
+            equipe[17] = new Equipe("Black Stallion", "#000000", "#FF883C", "#FFFFFF", "Holanda", 46, 44, 45, 46, 45, 46, 45, 46, "Ford", "F2", motor);
+            equipe[18] = new Equipe("Lambro Racing", "#000000", "#FFAC11", "#FFFFFF", "Itália", 41, 39, 40, 40, 41, 40, 39, 41, "Lamborghini", "F2", motor);
+            equipe[19] = new Equipe("Aqua Force", "#3706BF", "#FF3024", "#000000", "Itália", 42, 40, 41, 41, 43, 41, 40, 42, "Toyota", "F2", motor);
+            equipe[20] = new Equipe("Blue Thunder", "#117CFF", "#FFFFFF", "#000000", "Alemanha", 36, 34, 35, 36, 35, 36, 34, 35, "BMW", "F3", motor);
+            equipe[21] = new Equipe("White Hawk", "#FFFFFF", "#FF3629", "#000000", "Alemanha", 34, 36, 35, 34, 35, 34, 36, 34, "Audi", "F3", motor);
+            equipe[22] = new Equipe("Red Tiger", "#C22A1F", "#C22A1F", "#FFFFFF", "Japão", 31, 29, 30, 31, 30, 31, 29, 30, "Ford", "F3", motor);
+            equipe[23] = new Equipe("Fire Fox", "#FFB22A", "#EB3326", "#000000", "Espanha", 26, 24, 25, 26, 25, 26, 24, 25, "BMW", "F3", motor);
+            equipe[24] = new Equipe("Maple Leaf Racing", "#FF9A1C", "#3444FF", "#000000", "Canadá", 21, 20, 22, 21, 20, 21, 20, 22, "Ford", "F3", motor);
+            equipe[25] = new Equipe("Bright Light", "#55BEFF", "#55BEFF", "#FFFFFF", "Bélgica", 22, 21, 23, 22, 20, 22, 21, 22, "Lamborghini", "F3", motor);
+            equipe[26] = new Equipe("Purple Lightning", "#9551FF", "#9551FF", "#FFFFFF", "Alemanha", 16, 14, 15, 16, 15, 16, 14, 15, "Toyota", "F3", motor);
+            equipe[27] = new Equipe("Swiss Blaze", "#FF0081", "#236EFF", "#FFFFFF", "Suíça", 11, 10, 12, 11, 10, 11, 10, 12, "Ford", "F3", motor);
+            equipe[28] = new Equipe("Iron Eagle", "#FF6E63", "#CCCCCC", "#000000", "Estados Unidos", 12, 10, 11, 12, 10, 12, 10, 12, "Toyota", "F3", motor);
+            equipe[29] = new Equipe("Green Lightning", "#2D7D4E", "#FFD91C", "#000000", "Brasil", 13, 10, 12, 13, 10, 13, 10, 12, "Lamborghini", "F3", motor);
+
             */
             // Equipes F1 (média entre 70 a 100)
             equipe[0] = new Equipe("Red Bull", "#03183B", "#C70101", "#FFFFFF", "Austria", 92, 91, 94, 90, 93, 96, 94, 91, "Honda", "F1", motor);
@@ -160,6 +193,7 @@ namespace DriverChallenge
                     piloto[i].Categoria = equipeSelecionada.Categoria;
                     if (piloto[i].Categoria == "F1") piloto[i].XpPiloto = 400;
                     if (piloto[i].Categoria == "F2") piloto[i].XpPiloto = 200;
+                    principal.XpTurnoSemanal(piloto);
                     if (piloto[i].ContratoPiloto == 0) piloto[i].ContratoPiloto = ((random.Next(1, 4) + principal.ContadorDeAno) - 1);
                     if (piloto[i].SalarioPiloto == 0) piloto[i].SalarioPiloto = DefinirSalario(piloto[i].MediaPiloto, equipeSelecionada.Categoria);
                     equipeSelecionada.PrimeiroPiloto = $"{piloto[i].NomePiloto} {piloto[i].SobrenomePiloto}";
@@ -198,6 +232,7 @@ namespace DriverChallenge
                     piloto[i].Categoria = equipeSelecionada.Categoria;
                     if (piloto[i].Categoria == "F1") piloto[i].XpPiloto = 400;
                     if (piloto[i].Categoria == "F2") piloto[i].XpPiloto = 200;
+                    principal.XpTurnoSemanal(piloto);
                     if (piloto[i].ContratoPiloto == 0) piloto[i].ContratoPiloto = ((random.Next(1, 4) + principal.ContadorDeAno) - 1);
                     if (piloto[i].SalarioPiloto == 0) piloto[i].SalarioPiloto = DefinirSalario(piloto[i].MediaPiloto, equipeSelecionada.Categoria);
                     equipeSelecionada.SegundoPiloto = $"{piloto[i].NomePiloto} {piloto[i].SobrenomePiloto}";
@@ -276,31 +311,33 @@ namespace DriverChallenge
         }
         public void CriandoOsDadosPistas() // Depois de finalizar os testem desbloquear o restantes das pistas.
         {
-            pista[0] = new Pista("Austrália", "Melbourne", 58, 44, 56, 76800);
-            pista[1] = new Pista("Itália", "Monza", 53, 35, 65, 70200);
-            pista[2] = new Pista("Brasil", "Interlagos", 71, 42, 58, 65400);
-            pista[3] = new Pista("Bahrein", "Sakhir", 57, 43, 57, 77400);
-            pista[4] = new Pista("Arábia Saudita", "Corniche Circuit", 50, 58, 42, 76200);
-            pista[5] = new Pista("Japão", "Suzuka", 53, 59, 41, 75420);
-            pista[6] = new Pista("China", "Shanghai", 56, 48, 52, 81000);
-            pista[7] = new Pista("Estados Unidos", "Miami", 57, 56, 44, 73200);
-            pista[8] = new Pista("Itália", "Imola", 63, 32, 62, 72600);
-            pista[9] = new Pista("Mônaco", "Monte Carlo", 78, 64, 36, 67800);
-            pista[10] = new Pista("Canadá", "Gilles Vileneuve", 70, 40, 60, 67200);
-            pista[11] = new Pista("Espanha", "Catalunha", 66, 40, 60, 69000);
-            pista[12] = new Pista("Áustri", "Red Bull Ring", 71, 25, 75, 63600);
-            pista[13] = new Pista("Reino Unido", "Silverstone", 52, 43, 57, 74400);
-            pista[14] = new Pista("Holanda", "Zandvoort", 72, 48, 52, 67200);
-            pista[15] = new Pista("Hungria", "Hungaroring", 70, 46, 54, 72000);
-            pista[16] = new Pista("Bélgica", "Spa-Francorchamps", 44, 47, 53, 88200);
-            pista[17] = new Pista("África do Sul", "Kyalami", 45, 55, 72, 70800);
-            pista[18] = new Pista("México", "Hermanos Rodríguez", 71, 38, 62, 67800);
-            pista[19] = new Pista("Azerbaijão", "Baku", 51, 59, 41, 88200);
-            pista[20] = new Pista("Cingapura", "Marina Bay", 62, 52, 48, 82200);
-            pista[21] = new Pista("Qatar", "Lusail Circuit", 57, 59, 41, 72480);
-            pista[22] = new Pista("Estados Unidos", "Las Vegas", 50, 70, 30, 81100);
-            pista[23] = new Pista("Emirados Árabes Unidos", "Yas Marina", 58, 39, 61, 74400);
-            pista[24] = new Pista("Alemanha", "Hockenheimring", 67, 42, 58, 68400);
+            pista[0] = new Pista("Austrália", "Melbourne", 58, 44, 56, 76800, 7, 8, 9, 10, 11);
+            pista[1] = new Pista("Itália", "Monza", 53, 35, 65, 70200, 4, 5, 6, 7, 8, 9);
+            pista[2] = new Pista("Brasil", "Interlagos", 71, 42, 58, 65400, 16, 17, 18, 19, 20, 21);
+            /*
+            pista[3] = new Pista("Bahrein", "Sakhir", 57, 43, 57, 77400, 7, 8, 9, 10, 11);
+            pista[4] = new Pista("Arábia Saudita", "Corniche Circuit", 49, 58, 42, 76200, 3, 4, 5, 6);
+            pista[5] = new Pista("Japão", "Suzuka", 53, 59, 41, 75420, 4, 5, 6, 10, 11);
+            pista[6] = new Pista("China", "Shanghai", 56, 48, 52, 81000, 7, 8, 9, 10, 11);
+            pista[7] = new Pista("Estados Unidos", "Miami", 57, 56, 44, 73200, 7, 8, 9, 10, 11);
+            pista[8] = new Pista("Itália", "Imola", 63, 32, 62, 72600, 12, 13, 14, 15);
+            pista[9] = new Pista("Mônaco", "Monte Carlo", 78, 64, 36, 67800, 22, 23, 24, 25, 26, 27);
+            pista[10] = new Pista("Canadá", "Gilles Vileneuve", 70, 40, 60, 67200, 16, 17, 18, 19, 20, 21);
+            pista[11] = new Pista("Espanha", "Catalunha", 66, 40, 60, 69000, 12, 13, 14, 15);
+            pista[12] = new Pista("Áustri", "Red Bull Ring", 71, 25, 75, 63600, 16, 17, 18, 19, 20, 21);
+            pista[13] = new Pista("Reino Unido", "Silverstone", 52, 43, 57, 74400, 4, 5, 6, 10, 11);
+            pista[14] = new Pista("Holanda", "Zandvoort", 72, 48, 52, 67200, 16, 17, 18, 19, 20, 21);
+            pista[15] = new Pista("Hungria", "Hungaroring", 70, 46, 54, 72000, 16, 17, 18, 19, 20, 21);
+            pista[16] = new Pista("Bélgica", "Spa-Francorchamps", 44, 47, 53, 88200, 1, 2, 3, 4, 5, 6);
+            pista[17] = new Pista("África do Sul", "Kyalami", 45, 55, 72, 70800, 1, 2, 3, 4, 5, 6);
+            pista[18] = new Pista("México", "Hermanos Rodríguez", 71, 38, 62, 67800, 16, 17, 18, 19, 20, 21);
+            pista[19] = new Pista("Azerbaijão", "Baku", 51, 59, 41, 88200, 3, 4, 5, 6);
+            pista[20] = new Pista("Cingapura", "Marina Bay", 62, 52, 48, 82200, 12, 13, 14, 15);
+            pista[21] = new Pista("Qatar", "Lusail Circuit", 57, 59, 41, 72480, 7, 8, 9, 10, 11);
+            pista[22] = new Pista("Estados Unidos", "Las Vegas", 50, 70, 30, 81100, 3, 4, 5, 6);
+            pista[23] = new Pista("Emirados Árabes Unidos", "Yas Marina", 58, 39, 61, 74400, 7, 8, 9, 10, 11);
+            pista[24] = new Pista("Alemanha", "Hockenheimring", 67, 42, 58, 68400, 15, 16, 17, 18, 19, 20, 21);
+            */
         }
         public void EmbaralharPistas()
         {
@@ -318,7 +355,7 @@ namespace DriverChallenge
             pista[0].SemanaDaProva = 5;
             pista[1].SemanaDaProva = 7;
             pista[2].SemanaDaProva = 8;
-
+            /*
             pista[3].SemanaDaProva = 10;
             pista[4].SemanaDaProva = 12;
             pista[5].SemanaDaProva = 15;
@@ -341,7 +378,7 @@ namespace DriverChallenge
             pista[22].SemanaDaProva = 44;
             pista[23].SemanaDaProva = 46;
             pista[24].SemanaDaProva = 48;
-
+            */
 
         }
         public void AtualizaStatusProxCorrida(int contador) // Depois de finalizar os testem desbloquear o restantes das pistas.
@@ -358,7 +395,7 @@ namespace DriverChallenge
             {
                 FuncaoParaStatusDaProximaCorrida(2);
             }
-
+            /*
             else if (contador > 8 && contador <= 10)
             {
                 FuncaoParaStatusDaProximaCorrida(3);
@@ -447,6 +484,7 @@ namespace DriverChallenge
             {
                 FuncaoParaStatusDaProximaCorrida(24);
             }
+            */
             else
             {
                 principal.ProximoGp = "";
@@ -573,7 +611,7 @@ namespace DriverChallenge
             for (int i = 0; i < dgvClassificacaoEquipes.Rows.Count; i++)
             {
                 // Obter os valores das células C1 e C2 como representações de texto das cores
-                string cor1Texto = dgvClassificacaoEquipes.Rows[i].Cells["C1"].Value.ToString();
+                string cor1Texto = dgvClassificacaoEquipes.Rows[i].Cells["C1"].Value?.ToString() ?? string.Empty;
 
                 // Converter as representações de texto das cores em cores reais
                 Color cor1 = ColorTranslator.FromHtml(cor1Texto);
@@ -585,7 +623,7 @@ namespace DriverChallenge
             for (int i = 0; i < dgvClassificacaoPilotos.Rows.Count; i++)
             {
                 // Obter os valores das células C1 e C2 como representações de texto das cores
-                string cor1Texto = dgvClassificacaoPilotos.Rows[i].Cells["C1"].Value.ToString();
+                string cor1Texto = dgvClassificacaoPilotos.Rows[i].Cells["C1"].Value?.ToString() ?? string.Empty;
 
                 // Converter as representações de texto das cores em cores reais
                 Color cor1 = ColorTranslator.FromHtml(cor1Texto);
@@ -726,7 +764,7 @@ namespace DriverChallenge
             // Percorra as linhas da tabela classF1
             foreach (DataRow row in classEquipes.Rows)
             {
-                string imagePath = row["Path"].ToString();
+                string imagePath = row["Path"]?.ToString() ?? string.Empty;
                 if (!string.IsNullOrEmpty(imagePath)) // Verifica se o caminho do arquivo n�o est� vazio
                 {
                     row["Sede"] = Image.FromFile(imagePath);
@@ -856,7 +894,7 @@ namespace DriverChallenge
             // Percorra as linhas da tabela classF1
             foreach (DataRow row in classPilotos.Rows)
             {
-                string imagePath = row["Path"].ToString();
+                string imagePath = row["Path"]?.ToString() ?? string.Empty;
                 row["Nac"] = Image.FromFile(imagePath);
 
             }
@@ -890,7 +928,7 @@ namespace DriverChallenge
             for (int i = 0; i < dgvClassificacaoEquipes.Rows.Count; i++)
             {
                 // Obter os valores das células C1 e C2 como representações de texto das cores
-                string cor1Texto = dgvClassificacaoEquipes.Rows[i].Cells["C1"].Value.ToString();
+                string cor1Texto = dgvClassificacaoEquipes.Rows[i].Cells["C1"].Value?.ToString() ?? string.Empty;
 
                 // Converter as representações de texto das cores em cores reais
                 Color cor1 = ColorTranslator.FromHtml(cor1Texto);
@@ -902,7 +940,7 @@ namespace DriverChallenge
             for (int i = 0; i < dgvClassificacaoPilotos.Rows.Count; i++)
             {
                 // Obter os valores das células C1 e C2 como representações de texto das cores
-                string cor1Texto = dgvClassificacaoPilotos.Rows[i].Cells["C1"].Value.ToString();
+                string cor1Texto = dgvClassificacaoPilotos.Rows[i].Cells["C1"].Value?.ToString() ?? string.Empty;
 
                 // Converter as representações de texto das cores em cores reais
                 Color cor1 = ColorTranslator.FromHtml(cor1Texto);
@@ -913,11 +951,152 @@ namespace DriverChallenge
             }
             for (int i = 0; i < 1; i++)
             {
-                principal.AdicionarPilotoCampeao(cata, principal.ContadorDeAno, dgvClassificacaoPilotos.Rows[i].Cells["Nacionalidade"].Value.ToString(), dgvClassificacaoPilotos.Rows[i].Cells["Nome"].Value.ToString(), Convert.ToInt32(dgvClassificacaoPilotos.Rows[i].Cells["P"].Value.ToString()), dgvClassificacaoPilotos.Rows[i].Cells["C1"].Value.ToString(), dgvClassificacaoPilotos.Rows[i].Cells["Equipe"].Value.ToString());
-                principal.AdicionarEquipeCampeao(cata, principal.ContadorDeAno, dgvClassificacaoEquipes.Rows[i].Cells["Nacionalidade"].Value.ToString(), dgvClassificacaoEquipes.Rows[i].Cells["C1"].Value.ToString(), dgvClassificacaoEquipes.Rows[i].Cells["Nome"].Value.ToString(), Convert.ToInt32(dgvClassificacaoEquipes.Rows[i].Cells["P"].Value.ToString()));
+                principal.AdicionarPilotoCampeao(cata, principal.ContadorDeAno, dgvClassificacaoPilotos.Rows[i].Cells["Nacionalidade"].Value?.ToString() ?? string.Empty, dgvClassificacaoPilotos.Rows[i].Cells["Nome"].Value?.ToString() ?? string.Empty, Convert.ToInt32(dgvClassificacaoPilotos.Rows[i].Cells["P"].Value.ToString()), dgvClassificacaoPilotos.Rows[i].Cells["C1"].Value?.ToString() ?? string.Empty, dgvClassificacaoPilotos.Rows[i].Cells["Equipe"].Value?.ToString() ?? string.Empty);
+                principal.AdicionarEquipeCampeao(cata, principal.ContadorDeAno, dgvClassificacaoEquipes.Rows[i].Cells["Nacionalidade"].Value?.ToString() ?? string.Empty, dgvClassificacaoEquipes.Rows[i].Cells["C1"].Value?.ToString() ?? string.Empty, dgvClassificacaoEquipes.Rows[i].Cells["Nome"].Value?.ToString() ?? string.Empty, Convert.ToInt32(dgvClassificacaoEquipes.Rows[i].Cells["P"].Value.ToString()));
             }
             dgvClassificacaoEquipes.ClearSelection();
             dgvClassificacaoPilotos.ClearSelection();
+        }
+        public void FinalDeTemporadaRankEquipe()
+        {
+            for (int i = 0; i < equipe.Length; i++)
+            {
+                int posicaoFinal = equipe[i].PosicaoAtualCampeonato;
+
+                // Verifica e atualiza a pontuação para a categoria F1
+                if (equipe[i].Categoria == "F1")
+                {
+                    switch (posicaoFinal)
+                    {
+                        case 1:
+                            equipe[i].TitulosF1++;
+                            equipe[i].PontuacaoRank += 30;
+                            break;
+                        case 2:
+                            equipe[i].PontuacaoRank += 29;
+                            break;
+                        case 3:
+                            equipe[i].PontuacaoRank += 28;
+                            break;
+                        case 4:
+                            equipe[i].PontuacaoRank += 27;
+                            break;
+                        case 5:
+                            equipe[i].PontuacaoRank += 26;
+                            break;
+                        case 6:
+                            equipe[i].PontuacaoRank += 25;
+                            break;
+                        case 7:
+                            equipe[i].PontuacaoRank += 24;
+                            break;
+                        case 8:
+                            equipe[i].PontuacaoRank += 23;
+                            break;
+                        case 9:
+                            equipe[i].PontuacaoRank += 22;
+                            break;
+                        case 10:
+                            equipe[i].PontuacaoRank += 21;
+                            break;
+                        default:
+                            break;
+                    }
+                }
+
+                // Verifica e atualiza a pontuação para a categoria F2
+                if (equipe[i].Categoria == "F2")
+                {
+                    switch (posicaoFinal)
+                    {
+                        case 1:
+                            equipe[i].TitulosF2++;
+                            equipe[i].PontuacaoRank += 20;
+                            break;
+                        case 2:
+                            equipe[i].PontuacaoRank += 19;
+                            break;
+                        case 3:
+                            equipe[i].PontuacaoRank += 18;
+                            break;
+                        case 4:
+                            equipe[i].PontuacaoRank += 17;
+                            break;
+                        case 5:
+                            equipe[i].PontuacaoRank += 16;
+                            break;
+                        case 6:
+                            equipe[i].PontuacaoRank += 15;
+                            break;
+                        case 7:
+                            equipe[i].PontuacaoRank += 14;
+                            break;
+                        case 8:
+                            equipe[i].PontuacaoRank += 13;
+                            break;
+                        case 9:
+                            equipe[i].PontuacaoRank += 12;
+                            break;
+                        case 10:
+                            equipe[i].PontuacaoRank += 11;
+                            break;
+                        default:
+                            break;
+                    }
+                }
+
+                // Verifica e atualiza a pontuação para a categoria F3
+                if (equipe[i].Categoria == "F3")
+                {
+                    switch (posicaoFinal)
+                    {
+                        case 1:
+                            equipe[i].TitulosF3++;
+                            equipe[i].PontuacaoRank += 10;
+                            break;
+                        case 2:
+                            equipe[i].PontuacaoRank += 9;
+                            break;
+                        case 3:
+                            equipe[i].PontuacaoRank += 8;
+                            break;
+                        case 4:
+                            equipe[i].PontuacaoRank += 7;
+                            break;
+                        case 5:
+                            equipe[i].PontuacaoRank += 6;
+                            break;
+                        case 6:
+                            equipe[i].PontuacaoRank += 5;
+                            break;
+                        case 7:
+                            equipe[i].PontuacaoRank += 4;
+                            break;
+                        case 8:
+                            equipe[i].PontuacaoRank += 3;
+                            break;
+                        case 9:
+                            equipe[i].PontuacaoRank += 2;
+                            break;
+                        case 10:
+                            equipe[i].PontuacaoRank += 1;
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            }
+            for (int i = 0; i < equipe.Length; i++)
+            {
+                equipe[i].PosicaoDoRank = 1;
+                for (int j = 0; i < equipe.Length; i++)
+                {
+                    if (equipe[i].PontuacaoRank < equipe[j].PontuacaoRank)
+                    {
+                        equipe[i].PosicaoDoRank++;
+                    }
+                }
+            }
         }
         public void FinalDeTemporadaHistoricosDosPilotos()
         {
@@ -1433,7 +1612,13 @@ namespace DriverChallenge
             try
             {
                 // Serializa os dados para JSON e salva no arquivo.
-                string json = JsonSerializer.Serialize(dadosCompletos);
+                var options = new JsonSerializerOptions
+                {
+                    WriteIndented = true, // Formata JSON com indentação
+                    DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull
+                };
+
+                string json = JsonSerializer.Serialize(dadosCompletos, options);
                 File.WriteAllText("dados_completos.json", json);
                 MessageBox.Show("Dados das equipes e pilotos salvos com sucesso.");
             }
@@ -1451,7 +1636,7 @@ namespace DriverChallenge
                 {
                     // Lê o arquivo JSON e desserializa os dados.
                     string json = File.ReadAllText("dados_completos.json");
-                    DadosCompletos dadosCompletos = JsonSerializer.Deserialize<DadosCompletos>(json);
+                    DadosCompletos? dadosCompletos = JsonSerializer.Deserialize<DadosCompletos>(json);
 
                     if (dadosCompletos != null)
                     {
@@ -1555,6 +1740,7 @@ namespace DriverChallenge
                 InicioDeTemporadaAtualizarContratos();
                 ContratoDeMotores();
                 AposentarPilot();
+                FinalDeTemporadaRankEquipe();
 
                 FinalDeTemporadaLimpaTable();
 

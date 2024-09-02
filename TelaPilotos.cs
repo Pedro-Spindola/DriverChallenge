@@ -15,7 +15,6 @@ namespace DriverChallenge
         Principal principal;
         Equipe[] equipe;
         Piloto[] piloto;
-        Pista[] pista;
         public TelaPilotos(Principal principal, Equipe[] equipe, Piloto[] piloto)
         {
             InitializeComponent();
@@ -23,7 +22,7 @@ namespace DriverChallenge
             this.equipe = equipe;
             this.piloto = piloto;
             // Manipular o evento CellDoubleClick
-            dvgTelaPilotoExibirTodosPilotos.CellDoubleClick += DataGridViewPilotos_CellDoubleClick;
+            dvgTelaPilotoExibirTodosPilotos.CellContentClick += DataGridViewPilotos_CellContentClick;
         }
 
         private void TelaPilotos_Load(object sender, EventArgs e)
@@ -33,7 +32,7 @@ namespace DriverChallenge
             CriarDataGridViewHistoricoDoPiloto(dgvTelaPilotoExibirHistoricoPiloto);
 
         }
-        private void DataGridViewPilotos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void DataGridViewPilotos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             // Verifica se o clique duplo foi feito em uma célula válida
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
@@ -57,7 +56,7 @@ namespace DriverChallenge
                 TpStatusPiloto.Text = piloto[i].StatusPiloto;
                 TpDuracaoPiloto.Text = piloto[i].ContratoPiloto.ToString();
 
-                PreencherDataGridViewHistoricoPilotos(piloto[i].pilotosTemporadas, dgvTelaPilotoExibirHistoricoPiloto);
+                PreencherDataGridViewHistoricoPilotos(piloto[i].PilotosTemporadas, dgvTelaPilotoExibirHistoricoPiloto);
                 AtualizarTabelas(dgvTelaPilotoExibirHistoricoPiloto);
 
                 Color corPrincipal;
@@ -196,7 +195,7 @@ namespace DriverChallenge
             // Percorra as linhas da tabela classF1
             foreach (DataRow row in classPilotos.Rows)
             {
-                string imagePath = row["Path"].ToString();
+                string imagePath = row["Path"]?.ToString() ?? string.Empty;
                 row["Nac"] = Image.FromFile(imagePath);
             }
             // Atualize o DataGridView para refletir as mudan�as
@@ -303,7 +302,7 @@ namespace DriverChallenge
             for (int i = 0; i < dgv.Rows.Count; i++)
             {
                 // Obter os valores das células C1 e C2 como representações de texto das cores
-                string cor1Texto = dgv.Rows[i].Cells["C1"].Value.ToString();
+                string cor1Texto = dgv.Rows[i].Cells["C1"].Value?.ToString() ?? string.Empty;
 
                 // Converter as representações de texto das cores em cores reais
                 Color cor1 = ColorTranslator.FromHtml(cor1Texto);

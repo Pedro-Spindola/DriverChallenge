@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static DriverChallenge.Equipe;
 
 namespace DriverChallenge
 {
@@ -97,11 +98,11 @@ namespace DriverChallenge
             if (TotalSemanas > ContadorDeSemana)
             {
                 ContadorDeSemana++;
-                if (ContadorDeSemana > 4 && ContadorDeSemana <= 48)
+                if (ContadorDeSemana > 4 && ContadorDeSemana <= 9)
                 {
-                    StatusDaTemporada = "Andamento"; // *Atualizar o valor apos finalizar os teste. -> (ContadorDeSemana > 4 && ContadorDeSemana <= 48)
+                    StatusDaTemporada = "Andamento"; // *Atualizar o valor apos finalizar os teste. -> (ContadorDeSemana > 4 && ContadorDeSemana <= 48) Para teste  (ContadorDeSemana > 4 && ContadorDeSemana <= 9)
                 }
-                else if (ContadorDeSemana > 48)
+                else if (ContadorDeSemana > 9)
                 {
                     StatusDaTemporada = "Fim-Temporada"; // *Atualizar o valor apos finalizar os teste. -> (ContadorDeSemana > 48)
                 }
@@ -153,24 +154,24 @@ namespace DriverChallenge
         }
         
         // Inicio das criação das lista para guarda historicos dos pilotos e equipes campeões.
-        public List<Historico.PilotoCampeao> pilotosCampeoesF1 = new List<Historico.PilotoCampeao>();
-        public List<Historico.PilotoCampeao> pilotosCampeoesF2 = new List<Historico.PilotoCampeao>();
-        public List<Historico.PilotoCampeao> pilotosCampeoesF3 = new List<Historico.PilotoCampeao>();
-        public List<Historico.EquipeCampeao> equipesCampeoesF1 = new List<Historico.EquipeCampeao>();
-        public List<Historico.EquipeCampeao> equipesCampeoesF2 = new List<Historico.EquipeCampeao>();
-        public List<Historico.EquipeCampeao> equipesCampeoesF3 = new List<Historico.EquipeCampeao>();
+        public List<Historico.PilotoCampeao> PilotosCampeoesF1 { get; set; } = new List<Historico.PilotoCampeao>();
+        public List<Historico.PilotoCampeao> PilotosCampeoesF2 { get; set; } = new List<Historico.PilotoCampeao>();
+        public List<Historico.PilotoCampeao> PilotosCampeoesF3 { get; set; } = new List<Historico.PilotoCampeao>();
+        public List<Historico.EquipeCampeao> EquipesCampeoesF1 { get; set; } = new List<Historico.EquipeCampeao>();
+        public List<Historico.EquipeCampeao> EquipesCampeoesF2 { get; set; } = new List<Historico.EquipeCampeao>();
+        public List<Historico.EquipeCampeao> EquipesCampeoesF3 { get; set; } = new List<Historico.EquipeCampeao>();
 
         public void AdicionarPilotoCampeao(string categoria, int ano, string sede, string nome, int pontos, string cor1, string equipe) // Método para adicionar um piloto campeão à lista
         {
-            if (categoria == "F1") pilotosCampeoesF1.Add(new Historico.PilotoCampeao { Ano = ano, Sede = sede, Nome = nome, Pontos = pontos, C1 = cor1, Equipe = equipe });
-            if (categoria == "F2") pilotosCampeoesF2.Add(new Historico.PilotoCampeao { Ano = ano, Sede = sede, Nome = nome, Pontos = pontos, C1 = cor1, Equipe = equipe });
-            if (categoria == "F3") pilotosCampeoesF3.Add(new Historico.PilotoCampeao { Ano = ano, Sede = sede, Nome = nome, Pontos = pontos, C1 = cor1, Equipe = equipe });
+            if (categoria == "F1") PilotosCampeoesF1.Add(new Historico.PilotoCampeao { Ano = ano, Sede = sede, Nome = nome, Pontos = pontos, C1 = cor1, Equipe = equipe });
+            if (categoria == "F2") PilotosCampeoesF2.Add(new Historico.PilotoCampeao { Ano = ano, Sede = sede, Nome = nome, Pontos = pontos, C1 = cor1, Equipe = equipe });
+            if (categoria == "F3") PilotosCampeoesF3.Add(new Historico.PilotoCampeao { Ano = ano, Sede = sede, Nome = nome, Pontos = pontos, C1 = cor1, Equipe = equipe });
         }
         public void AdicionarEquipeCampeao(string categoria, int ano, string sede, string cor1, string nome, int pontos) // Método para adicionar um equipe campeão à lista
         {
-            if (categoria == "F1") equipesCampeoesF1.Add(new Historico.EquipeCampeao { Ano = ano, Sede = sede, C1 = cor1, Nome = nome, Pontos = pontos });
-            if (categoria == "F2") equipesCampeoesF2.Add(new Historico.EquipeCampeao { Ano = ano, Sede = sede, C1 = cor1, Nome = nome, Pontos = pontos });
-            if (categoria == "F3") equipesCampeoesF3.Add(new Historico.EquipeCampeao { Ano = ano, Sede = sede, C1 = cor1, Nome = nome, Pontos = pontos });
+            if (categoria == "F1") EquipesCampeoesF1.Add(new Historico.EquipeCampeao { Ano = ano, Sede = sede, C1 = cor1, Nome = nome, Pontos = pontos });
+            if (categoria == "F2") EquipesCampeoesF2.Add(new Historico.EquipeCampeao { Ano = ano, Sede = sede, C1 = cor1, Nome = nome, Pontos = pontos });
+            if (categoria == "F3") EquipesCampeoesF3.Add(new Historico.EquipeCampeao { Ano = ano, Sede = sede, C1 = cor1, Nome = nome, Pontos = pontos });
         }
         public void Transferencia(Piloto[] pilot, int indice1, int indice2) // NÃO GOSTEI, FAZER MUDANÇAS PARA MANTER O JOGADOR COM O INDEX 99 (Metodo para adicionar o piloto a equipe no inicio do game.
         {

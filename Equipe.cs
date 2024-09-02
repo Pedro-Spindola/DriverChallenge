@@ -50,6 +50,28 @@ namespace DriverChallenge
         public string ProximoAnoSegundoPiloto { get; set; } = "";
         public int ProximoAnoSegundoPilotoContrato { get; set; } = 0;
         public double ProximoAnoSegundoPilotoSalario { get; set; } = 0;
+        // Atributos do primeiro piloto para pitStop.
+        public int PneuAtualPrimeiroPiloto { get; set; } = 0;
+        public int QuantidadeDeParadaPrimeiroPiloto { get; set; } = 0;
+        public int VoltaParaPitStopPrimeiroPiloto { get; set; } = 0;
+        public string TrocaDePneuParada01PrimeiroPiloto { get; set; } = "";
+        public string TrocaDePneuParada02PrimeiroPiloto { get; set; } = "";
+        public string TrocaDePneuParada03PrimeiroPiloto { get; set; } = "";
+        // Atributos do segundo piloto para pitStop.
+        public int PneuAtualSegundoPiloto { get; set; } = 0;
+        public int QuantidadeDeParadaSegundoPiloto { get; set; } = 0;
+        public int VoltaParaPitStopSegundoPiloto { get; set; } = 0;
+        public string TrocaDePneuParada01SegundoPiloto { get; set; } = "";
+        public string TrocaDePneuParada02SegundoPiloto { get; set; } = "";
+        public string TrocaDePneuParada03SegundoPiloto { get; set; } = "";
+        // Atributos do Rank.
+        public int PosicaoDoRank { get; set; } = 0;
+        public int PontuacaoRank { get; set; } = 0;
+        public int TitulosF1 { get; set; } = 0;
+        public int TitulosF2 { get; set; } = 0;
+        public int TitulosF3 { get; set; } = 0;
+        // Lista das temporadas.
+        public List<EquipeTemporada> EquipeTemporadas { get; set; } = [];
 
         // Método para criar uma nova equiepe.
         public Equipe() {}
@@ -80,11 +102,9 @@ namespace DriverChallenge
             this.Categoria = categoria;
 
         }
-        // Criando um class, lista é um método para adicionar o historicos dos anos da equipe.
-        public List<Equipe.EquipeTemporada> equipeTemporadas = new List<Equipe.EquipeTemporada>();
         public void AdicionarHistoricosEquipe(int position, int ano, string motor, string cor1, int pontos, int primeiro, int segundo, int terceiro, string categoriaAtual)
         {
-            equipeTemporadas.Add(new Equipe.EquipeTemporada { Position = position, Ano = ano, Motor = motor, Cor1 = cor1, Pontos = pontos, Primeiro = primeiro, Segundo = segundo, Terceiro = terceiro, CategoriaAtual = categoriaAtual });
+            EquipeTemporadas.Add(new EquipeTemporada { Position = position, Ano = ano, Motor = motor, Cor1 = cor1, Pontos = pontos, Primeiro = primeiro, Segundo = segundo, Terceiro = terceiro, CategoriaAtual = categoriaAtual });
         }
         public class EquipeTemporada
         {

@@ -15,7 +15,6 @@ namespace DriverChallenge
         Principal principal;
         Equipe[] equipe;
         Piloto[] piloto;
-        Pista[] pista;
         public TelaEquipes(Principal principal, Equipe[] equipe, Piloto[] piloto)
         {
             InitializeComponent();
@@ -29,10 +28,14 @@ namespace DriverChallenge
             PreencherDataGridViewClassEquipes(dvgTelaEquipesExibirTodasEquipes);
             AtualizarTabelas(dvgTelaEquipesExibirTodasEquipes);
 
-            CriarDataGridViewHistoricoDoPiloto(dgvTelaEquipeExibirHistoricoEquipe);
+            CriarDataGridViewHistoricoMotor(dgvTelaEquipeExibirHistoricoEquipe);
 
-            // Manipular o evento CellDoubleClick
-            dvgTelaEquipesExibirTodasEquipes.CellDoubleClick += dvgTelaEquipesExibirTodasEquipes_CellContentClick;
+            CriarDataGridViewRankEquipes(dgvTelaEquipeRankEquipes);
+            PreencherDataGridViewClassRankDeEquipes(dgvTelaEquipeRankEquipes);
+            AtualizarTabelaRank(dgvTelaEquipeRankEquipes);
+
+            // Manipular o evento CellContentClick
+            dvgTelaEquipesExibirTodasEquipes.CellContentClick += dvgTelaEquipesExibirTodasEquipes_CellContentClick;
         }
         private void dvgTelaEquipesExibirTodasEquipes_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -64,7 +67,7 @@ namespace DriverChallenge
                 TpMotor.Text = equipe[i].NameMotor;
                 label25.Text = equipe[i].ValorDoMotor.ToString();
 
-                PreencherDataGridViewHistoricoPilotos(equipe[i].equipeTemporadas, dgvTelaEquipeExibirHistoricoEquipe);
+                PreencherDataGridViewHistoricoPilotos(equipe[i].EquipeTemporadas, dgvTelaEquipeExibirHistoricoEquipe);
                 AtualizarTabelasHistorico(dgvTelaEquipeExibirHistoricoEquipe);
 
                 Color corPrincipal;
@@ -131,9 +134,9 @@ namespace DriverChallenge
             dataGridViewEquipes.DataSource = classEquipes;
 
             // Altura das linhas
-            dataGridViewEquipes.RowTemplate.Height = 26;
+            dataGridViewEquipes.RowTemplate.Height = 28;
             // Define a altura do cabeçalho das colunas
-            dataGridViewEquipes.ColumnHeadersHeight = 30;
+            dataGridViewEquipes.ColumnHeadersHeight = 24;
 
             // Defina a ordem de exibi��o das colunas com base nos �ndices
             dataGridViewEquipes.Columns["#"].DisplayIndex = 0;
@@ -151,7 +154,7 @@ namespace DriverChallenge
 
             dataGridViewEquipes.Columns[0].Width = 30;
             dataGridViewEquipes.Columns[1].Width = 40;
-            dataGridViewEquipes.Columns[2].Width = 250;
+            dataGridViewEquipes.Columns[2].Width = 245;
             dataGridViewEquipes.Columns[3].Width = 50;
             dataGridViewEquipes.Columns[4].Width = 40;
             dataGridViewEquipes.Columns[5].Width = 40;
@@ -181,7 +184,7 @@ namespace DriverChallenge
             // Percorra as linhas da tabela classF1
             foreach (DataRow row in classEquipes.Rows)
             {
-                string imagePath = row["Path"].ToString();
+                string imagePath = row["Path"]?.ToString() ?? string.Empty;
                 if (!string.IsNullOrEmpty(imagePath)) // Verifica se o caminho do arquivo n�o est� vazio
                 {
                     row["Sede"] = Image.FromFile(imagePath);
@@ -194,7 +197,7 @@ namespace DriverChallenge
             dataGridViewEquipes.ClearSelection();
 
         }
-        private void CriarDataGridViewHistoricoDoPiloto(DataGridView dgv)
+        private void CriarDataGridViewHistoricoMotor(DataGridView dgv)
         {
             DataTable histoticoEquipe = new DataTable();
 
@@ -232,7 +235,7 @@ namespace DriverChallenge
             // Altura das linhas
             dgv.RowTemplate.Height = 26;
             // Define a altura do cabeçalho das colunas
-            dgv.ColumnHeadersHeight = 30;
+            dgv.ColumnHeadersHeight = 24;
 
             // Defina a ordem de exibiçao das colunas com base nos índices
             dgv.Columns["#"].DisplayIndex = 0;
@@ -289,7 +292,116 @@ namespace DriverChallenge
             // Define o DataTable como a fonte de dados do DataGridView
             dgv.DataSource = histoticoEquipe;
         }
-        public void AtualizarTabelasHistorico(DataGridView dgv)
+        private void CriarDataGridViewRankEquipes(DataGridView dgvTelaEquipeRankEquipes)
+        {
+            DataTable histoticoEquipe = new DataTable();
+
+            histoticoEquipe.Columns.Add("#", typeof(int));
+            histoticoEquipe.Columns.Add("C1", typeof(string));
+            histoticoEquipe.Columns.Add("Nome", typeof(string));
+            histoticoEquipe.Columns.Add("F1", typeof(int));
+            histoticoEquipe.Columns.Add("F2", typeof(int));
+            histoticoEquipe.Columns.Add("F3", typeof(int));
+            histoticoEquipe.Columns.Add("Pontos", typeof(string));
+
+            // Configurando Layout
+            dgvTelaEquipeRankEquipes.RowHeadersVisible = false;
+            dgvTelaEquipeRankEquipes.AllowUserToAddRows = false;
+            dgvTelaEquipeRankEquipes.AllowUserToDeleteRows = false;
+            dgvTelaEquipeRankEquipes.AllowUserToOrderColumns = false;
+            dgvTelaEquipeRankEquipes.AllowUserToResizeColumns = false;
+            dgvTelaEquipeRankEquipes.AllowUserToResizeColumns = false;
+            dgvTelaEquipeRankEquipes.AllowUserToResizeRows = false;
+            dgvTelaEquipeRankEquipes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dgvTelaEquipeRankEquipes.ScrollBars = ScrollBars.Vertical;
+            dgvTelaEquipeRankEquipes.AllowUserToAddRows = false;
+            dgvTelaEquipeRankEquipes.RowHeadersDefaultCellStyle.BackColor = Color.FromArgb(180, 180, 180); // Define a cor das linhas do cabe�alho
+            dgvTelaEquipeRankEquipes.DefaultCellStyle.BackColor = Color.FromArgb(255, 255, 255);
+            dgvTelaEquipeRankEquipes.DefaultCellStyle.SelectionBackColor = Color.FromArgb(255, 255, 255);
+            dgvTelaEquipeRankEquipes.DefaultCellStyle.SelectionForeColor = Color.Black;
+            dgvTelaEquipeRankEquipes.GridColor = Color.FromArgb(220, 220, 220);
+            dgvTelaEquipeRankEquipes.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvTelaEquipeRankEquipes.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+            dgvTelaEquipeRankEquipes.DataSource = histoticoEquipe;
+
+            // Altura das linhas
+            dgvTelaEquipeRankEquipes.RowTemplate.Height = 27;
+            // Define a altura do cabeçalho das colunas
+            dgvTelaEquipeRankEquipes.ColumnHeadersHeight = 30;
+
+            // Defina a ordem de exibiçao das colunas com base nos índices
+            dgvTelaEquipeRankEquipes.Columns["#"].DisplayIndex = 0;
+            dgvTelaEquipeRankEquipes.Columns["C1"].DisplayIndex = 1;
+            dgvTelaEquipeRankEquipes.Columns["Nome"].DisplayIndex = 2;
+            dgvTelaEquipeRankEquipes.Columns["F1"].DisplayIndex = 3;
+            dgvTelaEquipeRankEquipes.Columns["F2"].DisplayIndex = 4;
+            dgvTelaEquipeRankEquipes.Columns["F3"].DisplayIndex = 5;
+            dgvTelaEquipeRankEquipes.Columns["Pontos"].DisplayIndex = 6;
+
+            dgvTelaEquipeRankEquipes.Columns["C1"].HeaderText = string.Empty;
+
+            dgvTelaEquipeRankEquipes.Columns[0].Width = 30;
+            dgvTelaEquipeRankEquipes.Columns[1].Width = 10;
+            dgvTelaEquipeRankEquipes.Columns[2].Width = 165;
+            dgvTelaEquipeRankEquipes.Columns[3].Width = 35;
+            dgvTelaEquipeRankEquipes.Columns[4].Width = 35;
+            dgvTelaEquipeRankEquipes.Columns[5].Width = 35;
+            dgvTelaEquipeRankEquipes.Columns[6].Width = 70;
+        }
+        private void PreencherDataGridViewClassRankDeEquipes(DataGridView dgvTelaEquipeRankEquipes)
+        {
+            DataTable classEquipes = (DataTable)dgvTelaEquipeRankEquipes.DataSource;
+
+            // Limpe todas as linhas existentes no DataTable
+            classEquipes.Rows.Clear();
+
+            // Percorra o array de equipes usando um loop for
+            for (int i = 0; i < equipe.Length; i++)
+            {
+                DataRow row = classEquipes.NewRow();
+                row["#"] = equipe[i].PosicaoDoRank;
+                row["C1"] = equipe[i].Cor1;
+                row["Nome"] = equipe[i].NomeEquipe;
+                row["F1"] = equipe[i].TitulosF1;
+                row["F2"] = equipe[i].TitulosF2;
+                row["F3"] = equipe[i].TitulosF3;
+                row["Pontos"] = equipe[i].PontuacaoRank;
+                classEquipes.Rows.Add(row);
+            }
+            // Atualize o DataGridView para refletir as mudan�as
+            dgvTelaEquipeRankEquipes.DataSource = classEquipes;
+
+            // Limpe a seleção inicial
+            dgvTelaEquipeRankEquipes.ClearSelection();
+
+        }
+        private void AtualizarTabelaRank(DataGridView dgv)
+        {
+            DataTable histoticoEquipe = (DataTable)dgv.DataSource;
+
+            // Desative a opção de ordenação em todas as colunas
+            foreach (DataGridViewColumn column in dgv.Columns)
+            {
+                column.SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
+            // Ordene automaticamente a coluna 0 do maior para o menor
+            dgv.Sort(dgv.Columns[0], ListSortDirection.Ascending);
+            for (int i = 0; i < dgv.Rows.Count; i++)
+            {
+                // Obter os valores das células C1 e C2 como representações de texto das cores
+                string cor1Texto = dgv.Rows[i].Cells["C1"].Value?.ToString() ?? string.Empty;
+
+                // Converter as representações de texto das cores em cores reais
+                Color cor1 = ColorTranslator.FromHtml(cor1Texto);
+
+                // Definir as cores de fundo das células C1 e C2
+                dgv.Rows[i].Cells["C1"].Style.BackColor = cor1;
+                dgv.Rows[i].Cells["C1"].Style.ForeColor = cor1;
+            }
+            dgv.ClearSelection();
+        }
+        private void AtualizarTabelasHistorico(DataGridView dgv)
         {
             DataTable histoticoEquipe = (DataTable)dgv.DataSource;
 
@@ -304,7 +416,7 @@ namespace DriverChallenge
             for (int i = 0; i < dgv.Rows.Count; i++)
             {
                 // Obter os valores das células C1 e C2 como representações de texto das cores
-                string cor1Texto = dgv.Rows[i].Cells["C1"].Value.ToString();
+                string cor1Texto = dgv.Rows[i].Cells["C1"].Value?.ToString() ?? string.Empty;
 
                 // Converter as representações de texto das cores em cores reais
                 Color cor1 = ColorTranslator.FromHtml(cor1Texto);
@@ -315,7 +427,7 @@ namespace DriverChallenge
             }
             dgv.ClearSelection();
         }
-        public void AtualizarTabelas(DataGridView dgv)
+        private void AtualizarTabelas(DataGridView dgv)
         {
             DataTable classEquipes = (DataTable)dgv.DataSource;
 

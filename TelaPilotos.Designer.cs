@@ -115,7 +115,7 @@
             dvgTelaPilotoExibirTodosPilotos.RowTemplate.Height = 25;
             dvgTelaPilotoExibirTodosPilotos.Size = new Size(500, 640);
             dvgTelaPilotoExibirTodosPilotos.TabIndex = 2;
-            dvgTelaPilotoExibirTodosPilotos.CellContentClick += DataGridViewPilotos_CellDoubleClick;
+            dvgTelaPilotoExibirTodosPilotos.CellContentClick += DataGridViewPilotos_CellContentClick;
             // 
             // panel1
             // 

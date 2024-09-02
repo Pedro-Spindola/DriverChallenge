@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static DriverChallenge.Equipe;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
 
 namespace DriverChallenge
@@ -69,7 +70,7 @@ namespace DriverChallenge
         public string Cor1 { get; set; } = "";
         public string Cor2 { get; set; } = "";
         public double RandomNacionalidade { get; set; } = 0;
-
+        public List<PilotoTemporada> PilotosTemporadas { get; set; } = [];
         public Piloto() {}
 
         public Piloto(string nome, string sobrenome, string nacionalidad, int idade, int auge, int aposentadoria, int largad, int concent, int ultrapassag, int experience, int rapid, int chuv, int acerto, int fisic)
@@ -208,11 +209,9 @@ namespace DriverChallenge
         {
             MediaPiloto = ((Largada + Concentracao + Ultrapassagem + Experiencia + Rapidez + Chuva + AcertoDoCarro + Fisico) / 8);
         }
-        // Criando um class, lista é um método para adicionar o historicos dos anos do piloto.
-        public List<Piloto.PilotoTemporada> pilotosTemporadas = new List<Piloto.PilotoTemporada>();
         public void AdicionarHistoricosPiloto(int position, int ano, string cor1, string equipe, int pontos, string categoriaAtual)
         {
-            pilotosTemporadas.Add(new Piloto.PilotoTemporada { Position = position, Ano = ano, Cor1 = cor1, Equipe = equipe, Pontos = pontos, CategoriaAtual = categoriaAtual });
+            PilotosTemporadas.Add(new PilotoTemporada { Position = position, Ano = ano, Cor1 = cor1, Equipe = equipe, Pontos = pontos, CategoriaAtual = categoriaAtual });
         }
         public class PilotoTemporada
         {

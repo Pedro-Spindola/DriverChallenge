@@ -52,24 +52,24 @@ namespace DriverChallenge
                 PreencherDataGridViewClassPilotos(0, 10, dvgTelaClassificacaoPiloto);
                 PreencherDataGridViewClassEquipes(0, 10, dvgTelaClassificacaoEquipe);
                 // Informa a categoria
-                PreencherDataGridViewCampeosPilotos(principal.pilotosCampeoesF1, dvgTelaCampeosPiloto);
-                PreencherDataGridViewCampeosEquipe(principal.equipesCampeoesF1, dvgTelaCampeosEquipes);
+                PreencherDataGridViewCampeosPilotos(principal.PilotosCampeoesF1, dvgTelaCampeosPiloto);
+                PreencherDataGridViewCampeosEquipe(principal.EquipesCampeoesF1, dvgTelaCampeosEquipes);
             }
             else if (principal.Categoria == "F2")
             {
                 PreencherDataGridViewClassPilotos(10, 20, dvgTelaClassificacaoPiloto);
                 PreencherDataGridViewClassEquipes(10, 20, dvgTelaClassificacaoEquipe);
                 // Informa a categoria
-                PreencherDataGridViewCampeosPilotos(principal.pilotosCampeoesF2, dvgTelaCampeosPiloto);
-                PreencherDataGridViewCampeosEquipe(principal.equipesCampeoesF2, dvgTelaCampeosEquipes);
+                PreencherDataGridViewCampeosPilotos(principal.PilotosCampeoesF2, dvgTelaCampeosPiloto);
+                PreencherDataGridViewCampeosEquipe(principal.EquipesCampeoesF2, dvgTelaCampeosEquipes);
             }
             else if (principal.Categoria == "F3")
             {
                 PreencherDataGridViewClassPilotos(20, 30, dvgTelaClassificacaoPiloto);
                 PreencherDataGridViewClassEquipes(20, 30, dvgTelaClassificacaoEquipe);
                 // Informa a categoria
-                PreencherDataGridViewCampeosPilotos(principal.pilotosCampeoesF3, dvgTelaCampeosPiloto);
-                PreencherDataGridViewCampeosEquipe(principal.equipesCampeoesF3, dvgTelaCampeosEquipes);
+                PreencherDataGridViewCampeosPilotos(principal.PilotosCampeoesF3, dvgTelaCampeosPiloto);
+                PreencherDataGridViewCampeosEquipe(principal.EquipesCampeoesF3, dvgTelaCampeosEquipes);
             }
         }
         public void AtualizarTabelas(DataGridView dataGridViewPilotos, DataGridView dataGridViewEquipes, DataGridView dvgTelaCampeosPiloto, DataGridView dvgTelaCampeosEquipes)
@@ -115,7 +115,7 @@ namespace DriverChallenge
             for (int i = 0; i < dvgTelaCampeosPiloto.Rows.Count; i++)
             {
                 // Obter os valores das células C1 e C2 como representações de texto das cores
-                string cor1Texto = dvgTelaCampeosPiloto.Rows[i].Cells["C1"].Value.ToString();
+                string cor1Texto = dvgTelaCampeosPiloto.Rows[i].Cells["C1"].Value?.ToString() ?? string.Empty;
 
                 // Converter as representações de texto das cores em cores reais
                 Color cor1 = ColorTranslator.FromHtml(cor1Texto);
@@ -127,7 +127,7 @@ namespace DriverChallenge
             for (int i = 0; i < dvgTelaCampeosEquipes.Rows.Count; i++)
             {
                 // Obter os valores das células C1 e C2 como representações de texto das cores
-                string cor1Texto = dvgTelaCampeosEquipes.Rows[i].Cells["C1"].Value.ToString();
+                string cor1Texto = dvgTelaCampeosEquipes.Rows[i].Cells["C1"].Value?.ToString() ?? string.Empty;
 
                 // Converter as representações de texto das cores em cores reais
                 Color cor1 = ColorTranslator.FromHtml(cor1Texto);
@@ -140,7 +140,7 @@ namespace DriverChallenge
             {
                 //dataGridViewEquipes.Rows[i].Cells["#"].Value = i + 1;
                 // Obter os valores das células C1 e C2 como representações de texto das cores
-                string cor1Texto = dataGridViewEquipes.Rows[i].Cells["C1"].Value.ToString();
+                string cor1Texto = dataGridViewEquipes.Rows[i].Cells["C1"].Value?.ToString() ?? string.Empty;
 
                 // Converter as representações de texto das cores em cores reais
                 Color cor1 = ColorTranslator.FromHtml(cor1Texto);
@@ -153,7 +153,7 @@ namespace DriverChallenge
             {
                 //dataGridViewPilotos.Rows[i].Cells["#"].Value = i + 1;
                 // Obter os valores das células C1 e C2 como representações de texto das cores
-                string cor1Texto = dataGridViewPilotos.Rows[i].Cells["C1"].Value.ToString();
+                string cor1Texto = dataGridViewPilotos.Rows[i].Cells["C1"].Value?.ToString() ?? string.Empty;
 
                 // Converter as representações de texto das cores em cores reais
                 Color cor1 = ColorTranslator.FromHtml(cor1Texto);
@@ -279,7 +279,7 @@ namespace DriverChallenge
             // Percorra as linhas da tabela classF1
             foreach (DataRow row in classPilotos.Rows)
             {
-                string imagePath = row["Path"].ToString();
+                string imagePath = row["Path"]?.ToString() ?? string.Empty;
                 row["Nac"] = Image.FromFile(imagePath);
             }
             // Atualize o DataGridView para refletir as mudan�as
@@ -386,7 +386,7 @@ namespace DriverChallenge
             // Percorra as linhas da tabela classF1
             foreach (DataRow row in classEquipes.Rows)
             {
-                string imagePath = row["Path"].ToString();
+                string imagePath = row["Path"]?.ToString() ?? string.Empty;
                 if (!string.IsNullOrEmpty(imagePath)) // Verifica se o caminho do arquivo n�o est� vazio
                 {
                     row["Sede"] = Image.FromFile(imagePath);
@@ -560,7 +560,7 @@ namespace DriverChallenge
                 DataRow row = classEquipes.NewRow();
 
                 row["Path"] = Path.Combine("Paises", piloto.Sede + ".png");
-                string path = row["Path"].ToString();
+                string path = row["Path"]?.ToString() ?? string.Empty;
 
                 // Carrega a imagem da sede do piloto
                 Image sedeImage = Image.FromFile(path);
@@ -594,7 +594,7 @@ namespace DriverChallenge
                 DataRow row = classEquipes.NewRow();
 
                 row["Path"] = Path.Combine("Paises", equipe.Sede + ".png");
-                string path = row["Path"].ToString();
+                string path = row["Path"]?.ToString() ?? string.Empty;
 
                 // Carrega a imagem da sede do piloto
                 Image sedeImage = Image.FromFile(path);

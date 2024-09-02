@@ -167,7 +167,7 @@ namespace DriverChallenge
             {
                 dvgTableQualificacaoF1.Rows[i].Cells["#"].Value = i + 1;
                 // Obter os valores das células C1 e C2 como representações de texto das cores
-                string cor1Texto = dvgTableQualificacaoF1.Rows[i].Cells["C1"].Value.ToString();
+                string cor1Texto = dvgTableQualificacaoF1.Rows[i].Cells["C1"].Value?.ToString() ?? string.Empty;
 
                 // Converter as representações de texto das cores em cores reais
                 Color cor1 = ColorTranslator.FromHtml(cor1Texto);
@@ -281,7 +281,7 @@ namespace DriverChallenge
             // Percorra as linhas da tabela classF1
             foreach (DataRow row in classPilotos.Rows)
             {
-                string imagePath = row["Path"].ToString();
+                string imagePath = row["Path"]?.ToString() ?? string.Empty;
                 row["Nac"] = Image.FromFile(imagePath);
 
             }
@@ -322,7 +322,7 @@ namespace DriverChallenge
             // Percorra as linhas da tabela classF1
             foreach (DataRow row in classPilotos.Rows)
             {
-                string imagePath = row["Path"].ToString();
+                string imagePath = row["Path"]?.ToString() ?? string.Empty;
                 row["Nac"] = Image.FromFile(imagePath);
 
             }
@@ -350,7 +350,7 @@ namespace DriverChallenge
             {
                 dvgTableQualificacaoF1.Rows[i].Cells["#"].Value = i + 1;
                 // Obter os valores das células C1 e C2 como representações de texto das cores
-                string cor1Texto = dvgTableQualificacaoF1.Rows[i].Cells["C1"].Value.ToString();
+                string cor1Texto = dvgTableQualificacaoF1.Rows[i].Cells["C1"].Value?.ToString() ?? string.Empty;
 
                 // Converter as representações de texto das cores em cores reais
                 Color cor1 = ColorTranslator.FromHtml(cor1Texto);
@@ -379,7 +379,7 @@ namespace DriverChallenge
             {
                 dvgTableQualificacaoF1.Rows[i].Cells["#"].Value = i + 1;
                 // Obter os valores das células C1 e C2 como representações de texto das cores
-                string cor1Texto = dvgTableQualificacaoF1.Rows[i].Cells["C1"].Value.ToString();
+                string cor1Texto = dvgTableQualificacaoF1.Rows[i].Cells["C1"].Value?.ToString() ?? string.Empty;
 
                 // Converter as representações de texto das cores em cores reais
                 Color cor1 = ColorTranslator.FromHtml(cor1Texto);
@@ -509,7 +509,7 @@ namespace DriverChallenge
             // Percorra as linhas da tabela classF1
             foreach (DataRow row in classPilotos.Rows)
             {
-                string imagePath = row["Path"].ToString();
+                string imagePath = row["Path"]?.ToString() ?? string.Empty;
                 row["Nac"] = Image.FromFile(imagePath);
 
             }
@@ -568,7 +568,7 @@ namespace DriverChallenge
             // Percorra as linhas da tabela classF1
             foreach (DataRow row in classPilotos.Rows)
             {
-                string imagePath = row["Path"].ToString();
+                string imagePath = row["Path"]?.ToString() ?? string.Empty;
                 row["Nac"] = Image.FromFile(imagePath);
 
             }
@@ -662,6 +662,7 @@ namespace DriverChallenge
             else if (btnclick == 3)
             {
                 progressBarQualificacao.Maximum = numberVoltasT;
+                AtribuirEstrategiaDePitStop(equipeF1Min, equipeF1Max, fCategoria);
                 // Vai executar as voltas da cominha corrida.
                 for (int i = 1; i <= numberVoltasT; i++)
                 {
@@ -686,8 +687,11 @@ namespace DriverChallenge
                         {
                             if (equipes[k].NomeEquipe == pilotos[j].EquipePiloto && pilotos[j].Categoria == fCategoria)
                             {
-                                int bonusCadaDezVoltas = GerarBonusRandom(numberVoltasF, pilotos[j].BonusRandom);
+                                pilotos[j].BonusRandom += GerarBonusRandom(numberVoltasF, pilotos[j].BonusRandom);
+                                int bonusCadaDezVoltas = pilotos[j].BonusRandom;
                                 int bonusAdversario = 0;
+                                int bonusTotalDaVolta = 0;
+                                int bonusPitStop = 0;
                                 if (numberVoltasT != 1 && pilotos[j].DiferancaAnt < 1000)
                                 {
                                     bonusAdversario = random.Next(0, 100);
@@ -696,8 +700,72 @@ namespace DriverChallenge
                                 {
                                     bonusAdversario = random.Next(0, 40);
                                 }
-                                pilotos[j].BonusRandom += bonusCadaDezVoltas;
-                                int bonusTotalDaVolta = pilotos[j].BonusRandom + bonusAdversario;
+
+                                if (pilotos[j].StatusPiloto == "1º Piloto")
+                                {
+                                    if (equipes[k].VoltaParaPitStopPrimeiroPiloto == numberVoltasF)
+                                    {
+                                        if (equipes[k].QuantidadeDeParadaPrimeiroPiloto == 0)
+                                        {
+                                            bonusPitStop = PitStop(pilotos[j]);
+                                            equipes[k].QuantidadeDeParadaPrimeiroPiloto++;
+                                            if (equipes[k].TrocaDePneuParada02PrimeiroPiloto == "Macio") equipes[k].VoltaParaPitStopPrimeiroPiloto += 15;
+                                            if (equipes[k].TrocaDePneuParada02PrimeiroPiloto == "Médio") equipes[k].VoltaParaPitStopPrimeiroPiloto += 26;
+                                            if (equipes[k].TrocaDePneuParada02PrimeiroPiloto == "Duro") equipes[k].VoltaParaPitStopPrimeiroPiloto += 34;
+                                            if (equipes[k].TrocaDePneuParada02PrimeiroPiloto == "Macio") equipes[k].PneuAtualPrimeiroPiloto = 300;
+                                            if (equipes[k].TrocaDePneuParada02PrimeiroPiloto == "Médio") equipes[k].PneuAtualPrimeiroPiloto = 200;
+                                            if (equipes[k].TrocaDePneuParada02PrimeiroPiloto == "Duro") equipes[k].PneuAtualPrimeiroPiloto = 100;
+                                        }
+                                        else if (equipes[k].QuantidadeDeParadaPrimeiroPiloto == 1)
+                                        {
+                                            bonusPitStop = PitStop(pilotos[j]);
+                                            equipes[k].QuantidadeDeParadaPrimeiroPiloto++;
+                                            if (equipes[k].TrocaDePneuParada03PrimeiroPiloto == "Macio") equipes[k].VoltaParaPitStopPrimeiroPiloto += 15;
+                                            if (equipes[k].TrocaDePneuParada03PrimeiroPiloto == "Médio") equipes[k].VoltaParaPitStopPrimeiroPiloto += 26;
+                                            if (equipes[k].TrocaDePneuParada03PrimeiroPiloto == "Duro") equipes[k].VoltaParaPitStopPrimeiroPiloto += 34;
+                                            if (equipes[k].TrocaDePneuParada03PrimeiroPiloto == "Macio") equipes[k].PneuAtualPrimeiroPiloto = 300;
+                                            if (equipes[k].TrocaDePneuParada03PrimeiroPiloto == "Médio") equipes[k].PneuAtualPrimeiroPiloto = 200;
+                                            if (equipes[k].TrocaDePneuParada03PrimeiroPiloto == "Duro") equipes[k].PneuAtualPrimeiroPiloto = 100;
+                                        }
+                                    }
+                                }
+                                if (pilotos[j].StatusPiloto == "2º Piloto")
+                                {
+                                    if (equipes[k].VoltaParaPitStopSegundoPiloto == numberVoltasF)
+                                    {
+                                        if (equipes[k].QuantidadeDeParadaSegundoPiloto == 0)
+                                        {
+                                            bonusPitStop = PitStop(pilotos[j]);
+                                            equipes[k].QuantidadeDeParadaSegundoPiloto++;
+                                            if (equipes[k].TrocaDePneuParada02SegundoPiloto == "Macio") equipes[k].VoltaParaPitStopSegundoPiloto += 15;
+                                            if (equipes[k].TrocaDePneuParada02SegundoPiloto == "Médio") equipes[k].VoltaParaPitStopSegundoPiloto += 26;
+                                            if (equipes[k].TrocaDePneuParada02SegundoPiloto == "Duro") equipes[k].VoltaParaPitStopSegundoPiloto += 34;
+                                            if (equipes[k].TrocaDePneuParada02SegundoPiloto == "Macio") equipes[k].PneuAtualSegundoPiloto = 300;
+                                            if (equipes[k].TrocaDePneuParada02SegundoPiloto == "Médio") equipes[k].PneuAtualSegundoPiloto = 200;
+                                            if (equipes[k].TrocaDePneuParada02SegundoPiloto == "Duro") equipes[k].PneuAtualSegundoPiloto = 100;
+                                        }
+                                        else if (equipes[k].QuantidadeDeParadaSegundoPiloto == 1)
+                                        {
+                                            bonusPitStop = PitStop(pilotos[j]);
+                                            equipes[k].QuantidadeDeParadaSegundoPiloto++;
+                                            if (equipes[k].TrocaDePneuParada03SegundoPiloto == "Macio") equipes[k].VoltaParaPitStopSegundoPiloto += 15;
+                                            if (equipes[k].TrocaDePneuParada03SegundoPiloto == "Médio") equipes[k].VoltaParaPitStopSegundoPiloto += 26;
+                                            if (equipes[k].TrocaDePneuParada03SegundoPiloto == "Duro") equipes[k].VoltaParaPitStopSegundoPiloto += 34;
+                                            if (equipes[k].TrocaDePneuParada03SegundoPiloto == "Macio") equipes[k].PneuAtualSegundoPiloto = 300;
+                                            if (equipes[k].TrocaDePneuParada03SegundoPiloto == "Médio") equipes[k].PneuAtualSegundoPiloto = 200;
+                                            if (equipes[k].TrocaDePneuParada03SegundoPiloto == "Duro") equipes[k].PneuAtualSegundoPiloto = 100;
+                                        }
+                                    }
+                                }
+
+                                if (pilotos[j].StatusPiloto == "1º Piloto")
+                                {
+                                    bonusTotalDaVolta = pilotos[j].BonusRandom + bonusAdversario + equipes[k].PneuAtualPrimeiroPiloto + bonusPitStop;
+                                }
+                                else
+                                {
+                                    bonusTotalDaVolta = pilotos[j].BonusRandom + bonusAdversario + equipes[k].PneuAtualSegundoPiloto + bonusPitStop;
+                                }
 
                                 int tempoDaVoltaAtual = AlgoritmoParaVoltas(equipes[k].ValorDoMotor, equipes[k].Aerodinamica, equipes[k].Freio, equipes[k].AsaDianteira, equipes[k].AsaTraseira, equipes[k].Cambio,
                                 equipes[k].Eletrico, equipes[k].Direcao, equipes[k].Confiabilidade, pilotos[j].Largada, pilotos[j].Concentracao, pilotos[j].Ultrapassagem, pilotos[j].Experiencia, pilotos[j].Rapidez,
@@ -940,6 +1008,22 @@ namespace DriverChallenge
                     pilotos[j].DiferancaPri = 0;
                     pilotos[j].BonusRandom = 0;
                 }
+                for (int k = equipeF1Min; k < equipeF1Max; k++)
+                {
+                    equipes[k].QuantidadeDeParadaPrimeiroPiloto = 0;
+                    equipes[k].PneuAtualPrimeiroPiloto = 0;
+                    equipes[k].VoltaParaPitStopPrimeiroPiloto = 0;
+                    equipes[k].TrocaDePneuParada01PrimeiroPiloto = "";
+                    equipes[k].TrocaDePneuParada02PrimeiroPiloto = "";
+                    equipes[k].TrocaDePneuParada03PrimeiroPiloto = "";
+                    equipes[k].QuantidadeDeParadaSegundoPiloto = 0;
+                    equipes[k].PneuAtualSegundoPiloto = 0;
+                    equipes[k].VoltaParaPitStopSegundoPiloto = 0;
+                    equipes[k].TrocaDePneuParada01SegundoPiloto = "";
+                    equipes[k].TrocaDePneuParada02SegundoPiloto = "";
+                    equipes[k].TrocaDePneuParada03SegundoPiloto = "";
+                }
+                
                 MetodoParaQualificarEquipes(0, 10);
                 MetodoParaQualificarEquipes(10, 20);
                 MetodoParaQualificarEquipes(20, 30);
@@ -953,7 +1037,7 @@ namespace DriverChallenge
         {
             Random r = new Random();
 
-            if (voltas == 10 || voltas == 20 || voltas == 30 || voltas == 40 || voltas == 50 || voltas == 60 || voltas == 70 || voltas == 80 || voltas == 90)
+            if (voltas == 0 || voltas == 10 || voltas == 20 || voltas == 30 || voltas == 40 || voltas == 50 || voltas == 60 || voltas == 70 || voltas == 80 || voltas == 90)
             {
                 int x = r.Next(1,4);
                 if(x == 1)
@@ -962,7 +1046,7 @@ namespace DriverChallenge
                 }
                 if (x == 2)
                 {
-                    return bonusAtual;
+                    return 0;
                 }
                     return -40;
             }
@@ -971,10 +1055,69 @@ namespace DriverChallenge
         private int PitStop(Piloto piloto)
         {
             Random r = new Random();
-            int x = (r.Next(piloto.Largada, 101) + r.Next(piloto.Experiencia, 101));
-            x = ((x * 10) + 12000);
+            int x = (r.Next(piloto.Largada, 201) + r.Next(piloto.Experiencia, 201));
+            x = ((x * 10) + 2500);
+            return -x;
+        }
+        private void AtribuirEstrategiaDePitStop(int equipeF1Min, int equipeF1Max, string fCategoria)
+        {
+            Random random = new Random();
+            for (int j = 0; j < pilotos.Length; j++)
+            {
+                for (int k = equipeF1Min; k < equipeF1Max; k++)
+                {
+                    if (equipes[k].NomeEquipe == pilotos[j].EquipePiloto && pilotos[j].Categoria == fCategoria && pilotos[j].StatusPiloto == "1º Piloto")
+                    {
+                        // Recupera o dicionário combinacaoPitStop da classe Pista
+                        var combinacaoPitStop = pistas[principal.EtapaAtual].CombinacaoPitStop;
 
-            return x;
+                        // Seleciona uma chave aleatória do dicionário
+                        int randomIndex = random.Next(combinacaoPitStop.Count);
+                        int randomKey = combinacaoPitStop.Keys.ElementAt(randomIndex);
+
+                        // Recupera o valor correspondente à chave selecionada aleatoriamente
+                        var pitStopInfo = combinacaoPitStop[randomKey];
+
+                        // Atribui cada item da tupla a uma variável separada
+                        equipes[k].TrocaDePneuParada01PrimeiroPiloto = pitStopInfo.Item1;
+                        equipes[k].TrocaDePneuParada02PrimeiroPiloto = pitStopInfo.Item2;
+                        equipes[k].TrocaDePneuParada03PrimeiroPiloto = pitStopInfo.Item3;
+
+                        if (equipes[k].TrocaDePneuParada01PrimeiroPiloto == "Macio") equipes[k].VoltaParaPitStopPrimeiroPiloto = 15;
+                        if (equipes[k].TrocaDePneuParada01PrimeiroPiloto == "Médio") equipes[k].VoltaParaPitStopPrimeiroPiloto = 26;
+                        if (equipes[k].TrocaDePneuParada01PrimeiroPiloto == "Duro") equipes[k].VoltaParaPitStopPrimeiroPiloto = 34;
+
+                        if (equipes[k].TrocaDePneuParada01PrimeiroPiloto == "Macio") equipes[k].PneuAtualPrimeiroPiloto = 300;
+                        if (equipes[k].TrocaDePneuParada01PrimeiroPiloto == "Médio") equipes[k].PneuAtualPrimeiroPiloto = 200; 
+                        if (equipes[k].TrocaDePneuParada01PrimeiroPiloto == "Duro") equipes[k].PneuAtualPrimeiroPiloto = 100;
+                    }
+                    if (equipes[k].NomeEquipe == pilotos[j].EquipePiloto && pilotos[j].Categoria == fCategoria && pilotos[j].StatusPiloto == "2º Piloto")
+                    {
+                        // Recupera o dicionário combinacaoPitStop da classe Pista
+                        var combinacaoPitStop = pistas[principal.EtapaAtual].CombinacaoPitStop;
+
+                        // Seleciona uma chave aleatória do dicionário
+                        int randomIndex = random.Next(combinacaoPitStop.Count);
+                        int randomKey = combinacaoPitStop.Keys.ElementAt(randomIndex);
+
+                        // Recupera o valor correspondente à chave selecionada aleatoriamente
+                        var pitStopInfo = combinacaoPitStop[randomKey];
+
+                        // Atribui cada item da tupla a uma variável separada
+                        equipes[k].TrocaDePneuParada01SegundoPiloto = pitStopInfo.Item1;
+                        equipes[k].TrocaDePneuParada02SegundoPiloto = pitStopInfo.Item2;
+                        equipes[k].TrocaDePneuParada03SegundoPiloto = pitStopInfo.Item3;
+
+                        if (equipes[k].TrocaDePneuParada01SegundoPiloto == "Macio") equipes[k].VoltaParaPitStopSegundoPiloto = 15;
+                        if (equipes[k].TrocaDePneuParada01SegundoPiloto == "Médio") equipes[k].VoltaParaPitStopSegundoPiloto = 26;
+                        if (equipes[k].TrocaDePneuParada01SegundoPiloto == "Duro") equipes[k].VoltaParaPitStopSegundoPiloto = 34;
+
+                        if (equipes[k].TrocaDePneuParada01SegundoPiloto == "Macio") equipes[k].PneuAtualSegundoPiloto = 300;
+                        if (equipes[k].TrocaDePneuParada01SegundoPiloto == "Médio") equipes[k].PneuAtualSegundoPiloto = 200;
+                        if (equipes[k].TrocaDePneuParada01SegundoPiloto == "Duro") equipes[k].PneuAtualSegundoPiloto = 100;
+                    }
+                }
+            }
         }
         private void MetodoParaQualificarEquipes(int equipeMin, int equipeMax)
         {
@@ -1118,6 +1261,7 @@ namespace DriverChallenge
                 }
             }
             // Vai executar as voltas da cominha corrida.
+            AtribuirEstrategiaDePitStop(equipeF1Min, equipeF1Max, fCategoria);
             for (int i = 1; i <= pistas[principal.EtapaAtual].NumerosDeVoltas; i++)
             {
                 // Distribui as vantagem da classificação
@@ -1141,7 +1285,86 @@ namespace DriverChallenge
                     {
                         if (equipes[k].NomeEquipe == pilotos[j].EquipePiloto && pilotos[j].Categoria == fCategoria)
                         {
-                            GerarBonusRandom(numberVoltasT, pilotos[j].BonusRandom);
+                            pilotos[j].BonusRandom += GerarBonusRandom(numberVoltasF, pilotos[j].BonusRandom);
+                            int bonusCadaDezVoltas = pilotos[j].BonusRandom;
+                            int bonusAdversario = 0;
+                            int bonusTotalDaVolta = 0;
+                            int bonusPitStop = 0;
+                            if (numberVoltasT != 1 && pilotos[j].DiferancaAnt < 1000)
+                            {
+                                bonusAdversario = random.Next(0, 100);
+                            }
+                            if (numberVoltasT != 1 && pilotos[j].DiferancaAnt > 2000)
+                            {
+                                bonusAdversario = random.Next(0, 40);
+                            }
+
+                            if (pilotos[j].StatusPiloto == "1º Piloto")
+                            {
+                                if (equipes[k].VoltaParaPitStopPrimeiroPiloto == numberVoltasF)
+                                {
+                                    if (equipes[k].QuantidadeDeParadaPrimeiroPiloto == 0)
+                                    {
+                                        bonusPitStop = PitStop(pilotos[j]);
+                                        equipes[k].QuantidadeDeParadaPrimeiroPiloto++;
+                                        if (equipes[k].TrocaDePneuParada02PrimeiroPiloto == "Macio") equipes[k].VoltaParaPitStopPrimeiroPiloto += 15;
+                                        if (equipes[k].TrocaDePneuParada02PrimeiroPiloto == "Médio") equipes[k].VoltaParaPitStopPrimeiroPiloto += 26;
+                                        if (equipes[k].TrocaDePneuParada02PrimeiroPiloto == "Duro") equipes[k].VoltaParaPitStopPrimeiroPiloto += 34;
+                                        if (equipes[k].TrocaDePneuParada02PrimeiroPiloto == "Macio") equipes[k].PneuAtualPrimeiroPiloto = 300;
+                                        if (equipes[k].TrocaDePneuParada02PrimeiroPiloto == "Médio") equipes[k].PneuAtualPrimeiroPiloto = 200;
+                                        if (equipes[k].TrocaDePneuParada02PrimeiroPiloto == "Duro") equipes[k].PneuAtualPrimeiroPiloto = 100;
+                                    }
+                                    else if (equipes[k].QuantidadeDeParadaPrimeiroPiloto == 1)
+                                    {
+                                        bonusPitStop = PitStop(pilotos[j]);
+                                        equipes[k].QuantidadeDeParadaPrimeiroPiloto++;
+                                        if (equipes[k].TrocaDePneuParada03PrimeiroPiloto == "Macio") equipes[k].VoltaParaPitStopPrimeiroPiloto += 15;
+                                        if (equipes[k].TrocaDePneuParada03PrimeiroPiloto == "Médio") equipes[k].VoltaParaPitStopPrimeiroPiloto += 26;
+                                        if (equipes[k].TrocaDePneuParada03PrimeiroPiloto == "Duro") equipes[k].VoltaParaPitStopPrimeiroPiloto += 34;
+                                        if (equipes[k].TrocaDePneuParada03PrimeiroPiloto == "Macio") equipes[k].PneuAtualPrimeiroPiloto = 300;
+                                        if (equipes[k].TrocaDePneuParada03PrimeiroPiloto == "Médio") equipes[k].PneuAtualPrimeiroPiloto = 200;
+                                        if (equipes[k].TrocaDePneuParada03PrimeiroPiloto == "Duro") equipes[k].PneuAtualPrimeiroPiloto = 100;
+                                    }
+                                }
+                            }
+                            if (pilotos[j].StatusPiloto == "2º Piloto")
+                            {
+                                if (equipes[k].VoltaParaPitStopSegundoPiloto == numberVoltasF)
+                                {
+                                    if (equipes[k].QuantidadeDeParadaSegundoPiloto == 0)
+                                    {
+                                        bonusPitStop = PitStop(pilotos[j]);
+                                        equipes[k].QuantidadeDeParadaSegundoPiloto++;
+                                        if (equipes[k].TrocaDePneuParada02SegundoPiloto == "Macio") equipes[k].VoltaParaPitStopSegundoPiloto += 15;
+                                        if (equipes[k].TrocaDePneuParada02SegundoPiloto == "Médio") equipes[k].VoltaParaPitStopSegundoPiloto += 26;
+                                        if (equipes[k].TrocaDePneuParada02SegundoPiloto == "Duro") equipes[k].VoltaParaPitStopSegundoPiloto += 34;
+                                        if (equipes[k].TrocaDePneuParada02SegundoPiloto == "Macio") equipes[k].PneuAtualSegundoPiloto = 300;
+                                        if (equipes[k].TrocaDePneuParada02SegundoPiloto == "Médio") equipes[k].PneuAtualSegundoPiloto = 200;
+                                        if (equipes[k].TrocaDePneuParada02SegundoPiloto == "Duro") equipes[k].PneuAtualSegundoPiloto = 100;
+                                    }
+                                    else if (equipes[k].QuantidadeDeParadaSegundoPiloto == 1)
+                                    {
+                                        bonusPitStop = PitStop(pilotos[j]);
+                                        equipes[k].QuantidadeDeParadaSegundoPiloto++;
+                                        if (equipes[k].TrocaDePneuParada03SegundoPiloto == "Macio") equipes[k].VoltaParaPitStopSegundoPiloto += 15;
+                                        if (equipes[k].TrocaDePneuParada03SegundoPiloto == "Médio") equipes[k].VoltaParaPitStopSegundoPiloto += 26;
+                                        if (equipes[k].TrocaDePneuParada03SegundoPiloto == "Duro") equipes[k].VoltaParaPitStopSegundoPiloto += 34;
+                                        if (equipes[k].TrocaDePneuParada03SegundoPiloto == "Macio") equipes[k].PneuAtualSegundoPiloto = 300;
+                                        if (equipes[k].TrocaDePneuParada03SegundoPiloto == "Médio") equipes[k].PneuAtualSegundoPiloto = 200;
+                                        if (equipes[k].TrocaDePneuParada03SegundoPiloto == "Duro") equipes[k].PneuAtualSegundoPiloto = 100;
+                                    }
+                                }
+                            }
+
+                            if (pilotos[j].StatusPiloto == "1º Piloto")
+                            {
+                                bonusTotalDaVolta = pilotos[j].BonusRandom + bonusAdversario + equipes[k].PneuAtualPrimeiroPiloto + bonusPitStop;
+                            }
+                            else
+                            {
+                                bonusTotalDaVolta = pilotos[j].BonusRandom + bonusAdversario + equipes[k].PneuAtualSegundoPiloto + bonusPitStop;
+                            }
+
                             int tempoDaVoltaAtual = AlgoritmoParaVoltas(equipes[k].ValorDoMotor, equipes[k].Aerodinamica, equipes[k].Freio, equipes[k].AsaDianteira, equipes[k].AsaTraseira, equipes[k].Cambio,
                             equipes[k].Eletrico, equipes[k].Direcao, equipes[k].Confiabilidade, pilotos[j].Largada, pilotos[j].Concentracao, pilotos[j].Ultrapassagem, pilotos[j].Experiencia, pilotos[j].Rapidez,
                             pilotos[j].Chuva, pilotos[j].AcertoDoCarro, pilotos[j].Fisico, principal.ImportanciaPilotoTemporada, principal.ImportanciaCarroTemporada, pistas[principal.EtapaAtual].Curvas, pistas[principal.EtapaAtual].Retas, pistas[principal.EtapaAtual].TempoBase, pilotos[j].BonusRandom);
