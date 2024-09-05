@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DriverChallenge")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c21ffa58536accd6fd808db5c47c9d8da11efe51")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3a1b34a99f5080095a4184e53a526ab24c68df8f")]
 [assembly: System.Reflection.AssemblyProductAttribute("DriverChallenge")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DriverChallenge")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -59,7 +59,7 @@ namespace DriverChallenge
             panelCorS1.BackColor = ColorTranslator.FromHtml(equipes[27].Cor2);
             labelNomeEquipe1.Text = equipes[27].NomeEquipe;
             a = DefinirSalario(pilotos[99].MediaPiloto, equipes[27].Categoria);
-            labelSalario1.Text = "Salário: " + string.Format("R$ {0:N2}", a);
+            labelSalario1.Text = "Salário: " + a.ToString("C", new System.Globalization.CultureInfo("pt-BR"));
             d = ((random.Next(1, 4) + principal.ContadorDeAno) - 1);
             labelContrato1.Text = "Contrato: " + d + " ano(s)";
             labelStatus1.Text = "Status: 2º Piloto";
@@ -71,7 +71,7 @@ namespace DriverChallenge
             panelCorS2.BackColor = ColorTranslator.FromHtml(equipes[28].Cor2);
             labelNomeEquipe2.Text = equipes[28].NomeEquipe;
             b = DefinirSalario(pilotos[99].MediaPiloto, equipes[28].Categoria);
-            labelSalario2.Text = "Salário: " + string.Format("R$ {0:N2}", b);
+            labelSalario2.Text = "Salário: " + b.ToString("C", new System.Globalization.CultureInfo("pt-BR"));
             ee = ((random.Next(1, 4) + principal.ContadorDeAno) - 1);
             labelContrato2.Text = "Contrato: " + ee + " ano(s)";
             labelStatus2.Text = "Status: 2º Piloto";
@@ -83,7 +83,7 @@ namespace DriverChallenge
             panelCorS3.BackColor = ColorTranslator.FromHtml(equipes[29].Cor1);
             labelNomeEquipe3.Text = equipes[29].NomeEquipe;
             c = DefinirSalario(pilotos[99].MediaPiloto, equipes[29].Categoria);
-            labelSalario3.Text = "Salário: " + string.Format("R$ {0:N2}", c);
+            labelSalario3.Text = "Salário: " + c.ToString("C", new System.Globalization.CultureInfo("pt-BR"));
             f = ((random.Next(1, 4) + principal.ContadorDeAno) - 1);
             labelContrato3.Text = "Contrato: " + f + " ano(s)";
             labelStatus3.Text = "Status: 2º Piloto";

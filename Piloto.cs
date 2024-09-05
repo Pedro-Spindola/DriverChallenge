@@ -95,7 +95,7 @@ namespace DriverChallenge
             AposentadoriaPiloto = aposentadoria;
 
             // Definir a visibilidade do piloto para patrocinador (entre 0 a 50)
-            VisibilidadePiloto = random.Next(0, 51);
+            VisibilidadePiloto = random.Next(1, 51);
 
             // Atribuindo de formas aleatória, a qualidade de cada atributos (10 a 30)
             Largada = largad;

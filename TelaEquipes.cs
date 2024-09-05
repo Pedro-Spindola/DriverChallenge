@@ -56,11 +56,11 @@ namespace DriverChallenge
                 TpConfiabilidade.Text = equipe[i].Confiabilidade.ToString();
                 TpMedia.Text = equipe[i].MediaEquipe.ToString();
 
-                TpSalarioPiloto1.Text = string.Format("R$ {0:N2}", equipe[i].PrimeiroPilotoSalario);
+                TpSalarioPiloto1.Text = equipe[i].PrimeiroPilotoSalario.ToString("C", new System.Globalization.CultureInfo("pt-BR"));
                 TpContratoPiloto1.Text = string.Format(equipe[i].PrimeiroPilotoContrato.ToString());
                 TpPiloto1.Text = string.Format(equipe[i].PrimeiroPiloto);
 
-                TpSalarioPiloto2.Text = string.Format("R$ {0:N2}", equipe[i].SegundoPilotoSalario);
+                TpSalarioPiloto2.Text = equipe[i].SegundoPilotoSalario.ToString("C", new System.Globalization.CultureInfo("pt-BR"));
                 TpContratoPiloto2.Text = string.Format(equipe[i].SegundoPilotoContrato.ToString());
                 TpPiloto2.Text = string.Format(equipe[i].SegundoPiloto);
 

@@ -58,7 +58,6 @@ namespace DriverChallenge
             corPrincipal = ColorTranslator.FromHtml(principal.CorPrincipal);
             corSecundaria = ColorTranslator.FromHtml(principal.CorSecundaria);
             AtualizarCores();
-            AtualizarFinanciasSemanal();
             AtualizarNomesNaTelaInicial();
             CriarDataGridViewClassEquipes();
             CriarDataGridViewClassPilotos();
@@ -563,15 +562,19 @@ namespace DriverChallenge
         }
         public void AtualizarFinanciasSemanal()
         {
-            financia.DinheiroJogadorTotal += financia.DinheiroJogadorSemanal;
+            if (piloto[indexDoJogador].SalarioPiloto != financia.SalarioDaEquipe)
+            {
+                financia.SalarioDaEquipe = piloto[indexDoJogador].SalarioPiloto;
+            }
+            financia.AtualizarSemana();
         }
         public void AtualizarNomesNaTelaInicial()
         {
             labelNomeJogador.Text = string.Format("{0} {1}", principal.NomeJogador, principal.SobrenomeJogador);
             labelIdadeJogador.Text = string.Format("Idade: {0:N0}", principal.IdadeJogador.ToString());
             pictureBoxNacionalidadePiloto.ImageLocation = Path.Combine("Paises", principal.NacionalidadeJogador + ".png");
-            labelSaldoNaConta.Text = string.Format("R$ {0:N0}", financia.DinheiroJogadorTotal);
-            labelSaldoPorSemana.Text = string.Format("R$ {0:N0}", financia.DinheiroJogadorSemanal);
+            labelSaldoNaConta.Text = financia.DinheiroJogadorTotal.ToString("C", new System.Globalization.CultureInfo("pt-BR"));
+            labelSaldoPorSemana.Text = financia.retonarSalarioTotalSemanal().ToString("C", new System.Globalization.CultureInfo("pt-BR"));
             labelDataTemporada.Text = string.Format("Semana {0:D2} / {1}", principal.ContadorDeSemana, principal.ContadorDeAno);
             labelStatusTemporada.Text = principal.StatusDaTemporada;
             if (principal.StatusDaTemporada == "Fim-Temporada")
@@ -1089,7 +1092,7 @@ namespace DriverChallenge
             for (int i = 0; i < equipe.Length; i++)
             {
                 equipe[i].PosicaoDoRank = 1;
-                for (int j = 0; i < equipe.Length; i++)
+                for (int j = 0; j < equipe.Length; j++)
                 {
                     if (equipe[i].PontuacaoRank < equipe[j].PontuacaoRank)
                     {
@@ -1474,6 +1477,26 @@ namespace DriverChallenge
                 piloto[i].PontosCampeonato = 0;
             }
         }
+        public void OfertaDeContratoPatrocinadores()
+        {
+            if (financia.EspacoContratoDisponivel != 0)
+            {
+                Random r = new Random();
+                int opcaoDeContrato = 1;
+                //int opcaoDeContrato = r.Next(1, 6);
+                if (opcaoDeContrato == 1)
+                {
+                    for (int i = 0; i < 4; i++)
+                    {
+                        if (financia.Patrocinadores[i].ContratoValido == false && financia.Patrocinadores[i].TempoPropostaContrato == 0)
+                        {
+                            financia.Patrocinadores[i] = financia.AdicionarNovoContrato(piloto[indexDoJogador]);
+                            break;
+                        }
+                    }
+                }
+            }
+        }
         public static void Shuffle<T>(IList<T> list)
         {
             Random rng = new Random();
@@ -1694,6 +1717,7 @@ namespace DriverChallenge
 
                 AtualizarTabelas();
                 OfertaDeContrato();
+                OfertaDeContratoPatrocinadores();
                 principal.PotenciaMotoresEquipe(motor, equipe);
                 principal.XpTurnoSemanal(piloto);
                 principal.XpEquipeSemanal(equipe);
@@ -1729,6 +1753,7 @@ namespace DriverChallenge
                     }
                 }
                 OfertaDeContrato();
+                OfertaDeContratoPatrocinadores();
                 // PREENCHER TODOS OS CONTRATOS
                 OfertaDeContratoFimDeAno();
                 principal.XpTurnoSemanal(piloto);
@@ -1756,6 +1781,7 @@ namespace DriverChallenge
             else
             {
                 OfertaDeContrato();
+                OfertaDeContratoPatrocinadores();
                 principal.XpTurnoSemanal(piloto);
                 principal.XpEquipeSemanal(equipe);
                 principal.ContinuarTurno();

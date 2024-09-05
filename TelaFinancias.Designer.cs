@@ -28,35 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             label1 = new Label();
             panel1 = new Panel();
             tf_contratoPatrocinador1 = new Label();
             tf_nacPatrocinador1 = new PictureBox();
             tf_nomePatrocinador1 = new Label();
-            label9 = new Label();
-            label6 = new Label();
+            tf_aceitar1_btn = new Label();
+            tf_rejeitar1_btn = new Label();
             tf_valorPatrocinador1 = new Label();
             label3 = new Label();
             label2 = new Label();
             tf_name02 = new Label();
             tf_name01 = new Label();
             panel2 = new Panel();
-            label29 = new Label();
+            tf_valorDeSalario = new Label();
+            label31 = new Label();
+            tf_despesasContratos = new Label();
             label28 = new Label();
             label27 = new Label();
             label26 = new Label();
-            label25 = new Label();
-            label24 = new Label();
+            tf_despesasEscritorio = new Label();
+            tf_valorTotalPatrocinadores = new Label();
             label23 = new Label();
             label20 = new Label();
             label19 = new Label();
             label18 = new Label();
             label5 = new Label();
-            label4 = new Label();
+            tf_valorTotalEmConta = new Label();
             panel6 = new Panel();
-            label13 = new Label();
-            label10 = new Label();
+            tf_aceitar2_btn = new Label();
+            tf_rejeitar2_btn = new Label();
             tf_nacPatrocinador2 = new PictureBox();
             tf_nomePatrocinador2 = new Label();
             tf_contratoPatrocinador2 = new Label();
@@ -66,8 +67,8 @@
             tf_name04 = new Label();
             tf_name03 = new Label();
             panel3 = new Panel();
-            label16 = new Label();
-            label11 = new Label();
+            tf_aceitar3_btn = new Label();
+            tf_rejeitar3_btn = new Label();
             tf_nacPatrocinador3 = new PictureBox();
             tf_nomePatrocinador3 = new Label();
             tf_contratoPatrocinador3 = new Label();
@@ -77,8 +78,8 @@
             tf_name06 = new Label();
             tf_name05 = new Label();
             panel4 = new Panel();
-            label17 = new Label();
-            label12 = new Label();
+            tf_aceitar4_btn = new Label();
+            tf_rejeitar4_btn = new Label();
             tf_nacPatrocinador4 = new PictureBox();
             tf_nomePatrocinador4 = new Label();
             tf_contratoPatrocinador4 = new Label();
@@ -103,7 +104,7 @@
             // 
             // label1
             // 
-            label1.Font = new Font("Comic Sans MS", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Font = new Font("Comic Sans MS", 20.25F, FontStyle.Bold);
             label1.Location = new Point(20, 20);
             label1.Margin = new Padding(0);
             label1.Name = "label1";
@@ -118,8 +119,8 @@
             panel1.Controls.Add(tf_contratoPatrocinador1);
             panel1.Controls.Add(tf_nacPatrocinador1);
             panel1.Controls.Add(tf_nomePatrocinador1);
-            panel1.Controls.Add(label9);
-            panel1.Controls.Add(label6);
+            panel1.Controls.Add(tf_aceitar1_btn);
+            panel1.Controls.Add(tf_rejeitar1_btn);
             panel1.Controls.Add(tf_valorPatrocinador1);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(label2);
@@ -133,7 +134,7 @@
             // 
             // tf_contratoPatrocinador1
             // 
-            tf_contratoPatrocinador1.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            tf_contratoPatrocinador1.Font = new Font("Segoe UI", 10F);
             tf_contratoPatrocinador1.Location = new Point(520, 80);
             tf_contratoPatrocinador1.Margin = new Padding(0);
             tf_contratoPatrocinador1.Name = "tf_contratoPatrocinador1";
@@ -153,7 +154,7 @@
             // 
             // tf_nomePatrocinador1
             // 
-            tf_nomePatrocinador1.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            tf_nomePatrocinador1.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             tf_nomePatrocinador1.Location = new Point(0, 50);
             tf_nomePatrocinador1.Margin = new Padding(0);
             tf_nomePatrocinador1.Name = "tf_nomePatrocinador1";
@@ -162,33 +163,35 @@
             tf_nomePatrocinador1.Text = "---";
             tf_nomePatrocinador1.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // label9
+            // tf_aceitar1_btn
             // 
-            label9.BackColor = Color.FromArgb(77, 177, 77);
-            label9.Font = new Font("Segoe UI Semibold", 6.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label9.Location = new Point(570, 125);
-            label9.Margin = new Padding(0);
-            label9.Name = "label9";
-            label9.Size = new Size(60, 25);
-            label9.TabIndex = 9;
-            label9.Text = "ACEITAR";
-            label9.TextAlign = ContentAlignment.MiddleCenter;
+            tf_aceitar1_btn.BackColor = Color.FromArgb(77, 177, 77);
+            tf_aceitar1_btn.Font = new Font("Comic Sans MS", 8.25F, FontStyle.Bold);
+            tf_aceitar1_btn.Location = new Point(550, 125);
+            tf_aceitar1_btn.Margin = new Padding(0);
+            tf_aceitar1_btn.Name = "tf_aceitar1_btn";
+            tf_aceitar1_btn.Size = new Size(70, 25);
+            tf_aceitar1_btn.TabIndex = 9;
+            tf_aceitar1_btn.Text = "ACEITAR";
+            tf_aceitar1_btn.TextAlign = ContentAlignment.MiddleCenter;
+            tf_aceitar1_btn.Click += tf_aceitar1_btn_Click;
             // 
-            // label6
+            // tf_rejeitar1_btn
             // 
-            label6.BackColor = Color.FromArgb(210, 82, 82);
-            label6.Font = new Font("Segoe UI Semibold", 6.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label6.Location = new Point(410, 125);
-            label6.Margin = new Padding(0);
-            label6.Name = "label6";
-            label6.Size = new Size(60, 25);
-            label6.TabIndex = 8;
-            label6.Text = "REJEITAR";
-            label6.TextAlign = ContentAlignment.MiddleCenter;
+            tf_rejeitar1_btn.BackColor = Color.FromArgb(210, 82, 82);
+            tf_rejeitar1_btn.Font = new Font("Comic Sans MS", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            tf_rejeitar1_btn.Location = new Point(410, 125);
+            tf_rejeitar1_btn.Margin = new Padding(0);
+            tf_rejeitar1_btn.Name = "tf_rejeitar1_btn";
+            tf_rejeitar1_btn.Size = new Size(70, 25);
+            tf_rejeitar1_btn.TabIndex = 8;
+            tf_rejeitar1_btn.Text = "REJEITAR";
+            tf_rejeitar1_btn.TextAlign = ContentAlignment.MiddleCenter;
+            tf_rejeitar1_btn.Click += tf_rejeitar1_btn_Click;
             // 
             // tf_valorPatrocinador1
             // 
-            tf_valorPatrocinador1.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            tf_valorPatrocinador1.Font = new Font("Segoe UI", 10F);
             tf_valorPatrocinador1.Location = new Point(400, 80);
             tf_valorPatrocinador1.Margin = new Padding(0);
             tf_valorPatrocinador1.Name = "tf_valorPatrocinador1";
@@ -199,7 +202,7 @@
             // 
             // label3
             // 
-            label3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.Font = new Font("Comic Sans MS", 9F, FontStyle.Bold);
             label3.Location = new Point(520, 50);
             label3.Margin = new Padding(0);
             label3.Name = "label3";
@@ -210,7 +213,7 @@
             // 
             // label2
             // 
-            label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Font = new Font("Comic Sans MS", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.Location = new Point(400, 50);
             label2.Margin = new Padding(0);
             label2.Name = "label2";
@@ -221,7 +224,7 @@
             // 
             // tf_name02
             // 
-            tf_name02.Font = new Font("Comic Sans MS", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            tf_name02.Font = new Font("Comic Sans MS", 10F, FontStyle.Bold);
             tf_name02.Location = new Point(400, 0);
             tf_name02.Margin = new Padding(0);
             tf_name02.Name = "tf_name02";
@@ -232,7 +235,7 @@
             // 
             // tf_name01
             // 
-            tf_name01.Font = new Font("Comic Sans MS", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            tf_name01.Font = new Font("Comic Sans MS", 10F, FontStyle.Bold);
             tf_name01.Location = new Point(0, 0);
             tf_name01.Margin = new Padding(0);
             tf_name01.Name = "tf_name01";
@@ -244,38 +247,62 @@
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(230, 240, 240);
-            panel2.Controls.Add(label29);
+            panel2.Controls.Add(tf_valorDeSalario);
+            panel2.Controls.Add(label31);
+            panel2.Controls.Add(tf_despesasContratos);
             panel2.Controls.Add(label28);
             panel2.Controls.Add(label27);
             panel2.Controls.Add(label26);
-            panel2.Controls.Add(label25);
-            panel2.Controls.Add(label24);
+            panel2.Controls.Add(tf_despesasEscritorio);
+            panel2.Controls.Add(tf_valorTotalPatrocinadores);
             panel2.Controls.Add(label23);
             panel2.Controls.Add(label20);
             panel2.Controls.Add(label19);
             panel2.Controls.Add(label18);
             panel2.Controls.Add(label5);
-            panel2.Controls.Add(label4);
+            panel2.Controls.Add(tf_valorTotalEmConta);
             panel2.Location = new Point(20, 100);
             panel2.Margin = new Padding(0);
             panel2.Name = "panel2";
             panel2.Size = new Size(640, 580);
             panel2.TabIndex = 22;
             // 
-            // label29
+            // tf_valorDeSalario
             // 
-            label29.Font = new Font("Comic Sans MS", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            label29.Location = new Point(320, 181);
-            label29.Margin = new Padding(0);
-            label29.Name = "label29";
-            label29.Size = new Size(320, 20);
-            label29.TabIndex = 12;
-            label29.Text = "R$ -";
-            label29.TextAlign = ContentAlignment.MiddleCenter;
+            tf_valorDeSalario.Font = new Font("Comic Sans MS", 10F);
+            tf_valorDeSalario.Location = new Point(0, 241);
+            tf_valorDeSalario.Margin = new Padding(0);
+            tf_valorDeSalario.Name = "tf_valorDeSalario";
+            tf_valorDeSalario.Size = new Size(320, 20);
+            tf_valorDeSalario.TabIndex = 14;
+            tf_valorDeSalario.Text = "R$ -";
+            tf_valorDeSalario.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label31
+            // 
+            label31.Font = new Font("Comic Sans MS", 9F, FontStyle.Bold);
+            label31.Location = new Point(0, 221);
+            label31.Margin = new Padding(0);
+            label31.Name = "label31";
+            label31.Size = new Size(320, 20);
+            label31.TabIndex = 13;
+            label31.Text = "Contrato Equipe";
+            label31.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // tf_despesasContratos
+            // 
+            tf_despesasContratos.Font = new Font("Comic Sans MS", 10F);
+            tf_despesasContratos.Location = new Point(320, 181);
+            tf_despesasContratos.Margin = new Padding(0);
+            tf_despesasContratos.Name = "tf_despesasContratos";
+            tf_despesasContratos.Size = new Size(320, 20);
+            tf_despesasContratos.TabIndex = 12;
+            tf_despesasContratos.Text = "R$ -";
+            tf_despesasContratos.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label28
             // 
-            label28.Font = new Font("Comic Sans MS", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label28.Font = new Font("Comic Sans MS", 10F);
             label28.Location = new Point(0, 181);
             label28.Margin = new Padding(0);
             label28.Name = "label28";
@@ -286,7 +313,7 @@
             // 
             // label27
             // 
-            label27.Font = new Font("Comic Sans MS", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label27.Font = new Font("Comic Sans MS", 9F, FontStyle.Bold);
             label27.Location = new Point(320, 161);
             label27.Margin = new Padding(0);
             label27.Name = "label27";
@@ -297,7 +324,7 @@
             // 
             // label26
             // 
-            label26.Font = new Font("Comic Sans MS", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label26.Font = new Font("Comic Sans MS", 9F, FontStyle.Bold);
             label26.Location = new Point(0, 161);
             label26.Margin = new Padding(0);
             label26.Name = "label26";
@@ -306,31 +333,31 @@
             label26.Text = "Ofertas";
             label26.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // label25
+            // tf_despesasEscritorio
             // 
-            label25.Font = new Font("Comic Sans MS", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            label25.Location = new Point(320, 121);
-            label25.Margin = new Padding(0);
-            label25.Name = "label25";
-            label25.Size = new Size(320, 20);
-            label25.TabIndex = 8;
-            label25.Text = "R$ -";
-            label25.TextAlign = ContentAlignment.MiddleCenter;
+            tf_despesasEscritorio.Font = new Font("Comic Sans MS", 10F);
+            tf_despesasEscritorio.Location = new Point(320, 121);
+            tf_despesasEscritorio.Margin = new Padding(0);
+            tf_despesasEscritorio.Name = "tf_despesasEscritorio";
+            tf_despesasEscritorio.Size = new Size(320, 20);
+            tf_despesasEscritorio.TabIndex = 8;
+            tf_despesasEscritorio.Text = "R$ -";
+            tf_despesasEscritorio.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // label24
+            // tf_valorTotalPatrocinadores
             // 
-            label24.Font = new Font("Comic Sans MS", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            label24.Location = new Point(0, 121);
-            label24.Margin = new Padding(0);
-            label24.Name = "label24";
-            label24.Size = new Size(320, 20);
-            label24.TabIndex = 7;
-            label24.Text = "R$ -";
-            label24.TextAlign = ContentAlignment.MiddleCenter;
+            tf_valorTotalPatrocinadores.Font = new Font("Comic Sans MS", 10F);
+            tf_valorTotalPatrocinadores.Location = new Point(0, 121);
+            tf_valorTotalPatrocinadores.Margin = new Padding(0);
+            tf_valorTotalPatrocinadores.Name = "tf_valorTotalPatrocinadores";
+            tf_valorTotalPatrocinadores.Size = new Size(320, 20);
+            tf_valorTotalPatrocinadores.TabIndex = 7;
+            tf_valorTotalPatrocinadores.Text = "R$ -";
+            tf_valorTotalPatrocinadores.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label23
             // 
-            label23.Font = new Font("Comic Sans MS", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label23.Font = new Font("Comic Sans MS", 9F, FontStyle.Bold);
             label23.Location = new Point(320, 101);
             label23.Margin = new Padding(0);
             label23.Name = "label23";
@@ -341,7 +368,7 @@
             // 
             // label20
             // 
-            label20.Font = new Font("Comic Sans MS", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label20.Font = new Font("Comic Sans MS", 9F, FontStyle.Bold);
             label20.Location = new Point(0, 101);
             label20.Margin = new Padding(0);
             label20.Name = "label20";
@@ -352,7 +379,7 @@
             // 
             // label19
             // 
-            label19.Font = new Font("Comic Sans MS", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            label19.Font = new Font("Comic Sans MS", 10F, FontStyle.Bold);
             label19.Location = new Point(320, 51);
             label19.Margin = new Padding(0);
             label19.Name = "label19";
@@ -363,7 +390,7 @@
             // 
             // label18
             // 
-            label18.Font = new Font("Comic Sans MS", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            label18.Font = new Font("Comic Sans MS", 10F, FontStyle.Bold);
             label18.Location = new Point(0, 51);
             label18.Margin = new Padding(0);
             label18.Name = "label18";
@@ -375,7 +402,7 @@
             // label5
             // 
             label5.BackColor = Color.FromArgb(80, 80, 80);
-            label5.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point);
+            label5.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
             label5.Location = new Point(20, 50);
             label5.Margin = new Padding(0);
             label5.Name = "label5";
@@ -383,22 +410,22 @@
             label5.TabIndex = 2;
             label5.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // label4
+            // tf_valorTotalEmConta
             // 
-            label4.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(0, 0);
-            label4.Margin = new Padding(0);
-            label4.Name = "label4";
-            label4.Size = new Size(640, 50);
-            label4.TabIndex = 1;
-            label4.Text = "R$ 10.000";
-            label4.TextAlign = ContentAlignment.MiddleCenter;
+            tf_valorTotalEmConta.Font = new Font("Comic Sans MS", 12F, FontStyle.Bold);
+            tf_valorTotalEmConta.Location = new Point(0, 0);
+            tf_valorTotalEmConta.Margin = new Padding(0);
+            tf_valorTotalEmConta.Name = "tf_valorTotalEmConta";
+            tf_valorTotalEmConta.Size = new Size(640, 50);
+            tf_valorTotalEmConta.TabIndex = 1;
+            tf_valorTotalEmConta.Text = "R$ 10.000";
+            tf_valorTotalEmConta.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // panel6
             // 
             panel6.BackColor = Color.FromArgb(230, 240, 240);
-            panel6.Controls.Add(label13);
-            panel6.Controls.Add(label10);
+            panel6.Controls.Add(tf_aceitar2_btn);
+            panel6.Controls.Add(tf_rejeitar2_btn);
             panel6.Controls.Add(tf_nacPatrocinador2);
             panel6.Controls.Add(tf_nomePatrocinador2);
             panel6.Controls.Add(tf_contratoPatrocinador2);
@@ -413,29 +440,31 @@
             panel6.Size = new Size(640, 165);
             panel6.TabIndex = 26;
             // 
-            // label13
+            // tf_aceitar2_btn
             // 
-            label13.BackColor = Color.FromArgb(77, 177, 77);
-            label13.Font = new Font("Segoe UI Semibold", 6.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label13.Location = new Point(570, 125);
-            label13.Margin = new Padding(0);
-            label13.Name = "label13";
-            label13.Size = new Size(60, 25);
-            label13.TabIndex = 10;
-            label13.Text = "ACEITAR";
-            label13.TextAlign = ContentAlignment.MiddleCenter;
+            tf_aceitar2_btn.BackColor = Color.FromArgb(77, 177, 77);
+            tf_aceitar2_btn.Font = new Font("Comic Sans MS", 8.25F, FontStyle.Bold);
+            tf_aceitar2_btn.Location = new Point(550, 125);
+            tf_aceitar2_btn.Margin = new Padding(0);
+            tf_aceitar2_btn.Name = "tf_aceitar2_btn";
+            tf_aceitar2_btn.Size = new Size(70, 25);
+            tf_aceitar2_btn.TabIndex = 10;
+            tf_aceitar2_btn.Text = "ACEITAR";
+            tf_aceitar2_btn.TextAlign = ContentAlignment.MiddleCenter;
+            tf_aceitar2_btn.Click += tf_aceitar2_btn_Click;
             // 
-            // label10
+            // tf_rejeitar2_btn
             // 
-            label10.BackColor = Color.FromArgb(210, 82, 82);
-            label10.Font = new Font("Segoe UI Semibold", 6.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label10.Location = new Point(410, 125);
-            label10.Margin = new Padding(0);
-            label10.Name = "label10";
-            label10.Size = new Size(60, 25);
-            label10.TabIndex = 9;
-            label10.Text = "REJEITAR";
-            label10.TextAlign = ContentAlignment.MiddleCenter;
+            tf_rejeitar2_btn.BackColor = Color.FromArgb(210, 82, 82);
+            tf_rejeitar2_btn.Font = new Font("Comic Sans MS", 8.25F, FontStyle.Bold);
+            tf_rejeitar2_btn.Location = new Point(410, 125);
+            tf_rejeitar2_btn.Margin = new Padding(0);
+            tf_rejeitar2_btn.Name = "tf_rejeitar2_btn";
+            tf_rejeitar2_btn.Size = new Size(70, 25);
+            tf_rejeitar2_btn.TabIndex = 9;
+            tf_rejeitar2_btn.Text = "REJEITAR";
+            tf_rejeitar2_btn.TextAlign = ContentAlignment.MiddleCenter;
+            tf_rejeitar2_btn.Click += tf_rejeitar2_btn_Click;
             // 
             // tf_nacPatrocinador2
             // 
@@ -448,7 +477,7 @@
             // 
             // tf_nomePatrocinador2
             // 
-            tf_nomePatrocinador2.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            tf_nomePatrocinador2.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             tf_nomePatrocinador2.Location = new Point(0, 50);
             tf_nomePatrocinador2.Margin = new Padding(0);
             tf_nomePatrocinador2.Name = "tf_nomePatrocinador2";
@@ -459,7 +488,7 @@
             // 
             // tf_contratoPatrocinador2
             // 
-            tf_contratoPatrocinador2.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            tf_contratoPatrocinador2.Font = new Font("Segoe UI", 10F);
             tf_contratoPatrocinador2.Location = new Point(520, 80);
             tf_contratoPatrocinador2.Margin = new Padding(0);
             tf_contratoPatrocinador2.Name = "tf_contratoPatrocinador2";
@@ -470,7 +499,7 @@
             // 
             // tf_valorPatrocinador2
             // 
-            tf_valorPatrocinador2.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            tf_valorPatrocinador2.Font = new Font("Segoe UI", 10F);
             tf_valorPatrocinador2.Location = new Point(400, 80);
             tf_valorPatrocinador2.Margin = new Padding(0);
             tf_valorPatrocinador2.Name = "tf_valorPatrocinador2";
@@ -481,7 +510,7 @@
             // 
             // label7
             // 
-            label7.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label7.Font = new Font("Comic Sans MS", 9F, FontStyle.Bold);
             label7.Location = new Point(520, 50);
             label7.Margin = new Padding(0);
             label7.Name = "label7";
@@ -492,7 +521,7 @@
             // 
             // label8
             // 
-            label8.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label8.Font = new Font("Comic Sans MS", 9F, FontStyle.Bold);
             label8.Location = new Point(400, 50);
             label8.Margin = new Padding(0);
             label8.Name = "label8";
@@ -503,7 +532,7 @@
             // 
             // tf_name04
             // 
-            tf_name04.Font = new Font("Comic Sans MS", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            tf_name04.Font = new Font("Comic Sans MS", 10F, FontStyle.Bold);
             tf_name04.Location = new Point(400, 0);
             tf_name04.Margin = new Padding(0);
             tf_name04.Name = "tf_name04";
@@ -514,7 +543,7 @@
             // 
             // tf_name03
             // 
-            tf_name03.Font = new Font("Comic Sans MS", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            tf_name03.Font = new Font("Comic Sans MS", 10F, FontStyle.Bold);
             tf_name03.Location = new Point(0, 0);
             tf_name03.Margin = new Padding(0);
             tf_name03.Name = "tf_name03";
@@ -526,8 +555,8 @@
             // panel3
             // 
             panel3.BackColor = Color.FromArgb(230, 240, 240);
-            panel3.Controls.Add(label16);
-            panel3.Controls.Add(label11);
+            panel3.Controls.Add(tf_aceitar3_btn);
+            panel3.Controls.Add(tf_rejeitar3_btn);
             panel3.Controls.Add(tf_nacPatrocinador3);
             panel3.Controls.Add(tf_nomePatrocinador3);
             panel3.Controls.Add(tf_contratoPatrocinador3);
@@ -542,29 +571,31 @@
             panel3.Size = new Size(640, 165);
             panel3.TabIndex = 27;
             // 
-            // label16
+            // tf_aceitar3_btn
             // 
-            label16.BackColor = Color.FromArgb(77, 177, 77);
-            label16.Font = new Font("Segoe UI Semibold", 6.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label16.Location = new Point(570, 125);
-            label16.Margin = new Padding(0);
-            label16.Name = "label16";
-            label16.Size = new Size(60, 25);
-            label16.TabIndex = 10;
-            label16.Text = "ACEITAR";
-            label16.TextAlign = ContentAlignment.MiddleCenter;
+            tf_aceitar3_btn.BackColor = Color.FromArgb(77, 177, 77);
+            tf_aceitar3_btn.Font = new Font("Comic Sans MS", 8.25F, FontStyle.Bold);
+            tf_aceitar3_btn.Location = new Point(550, 125);
+            tf_aceitar3_btn.Margin = new Padding(0);
+            tf_aceitar3_btn.Name = "tf_aceitar3_btn";
+            tf_aceitar3_btn.Size = new Size(70, 25);
+            tf_aceitar3_btn.TabIndex = 10;
+            tf_aceitar3_btn.Text = "ACEITAR";
+            tf_aceitar3_btn.TextAlign = ContentAlignment.MiddleCenter;
+            tf_aceitar3_btn.Click += tf_aceitar3_btn_Click;
             // 
-            // label11
+            // tf_rejeitar3_btn
             // 
-            label11.BackColor = Color.FromArgb(210, 82, 82);
-            label11.Font = new Font("Segoe UI Semibold", 6.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label11.Location = new Point(410, 125);
-            label11.Margin = new Padding(0);
-            label11.Name = "label11";
-            label11.Size = new Size(60, 25);
-            label11.TabIndex = 9;
-            label11.Text = "REJEITAR";
-            label11.TextAlign = ContentAlignment.MiddleCenter;
+            tf_rejeitar3_btn.BackColor = Color.FromArgb(210, 82, 82);
+            tf_rejeitar3_btn.Font = new Font("Comic Sans MS", 8.25F, FontStyle.Bold);
+            tf_rejeitar3_btn.Location = new Point(410, 125);
+            tf_rejeitar3_btn.Margin = new Padding(0);
+            tf_rejeitar3_btn.Name = "tf_rejeitar3_btn";
+            tf_rejeitar3_btn.Size = new Size(70, 25);
+            tf_rejeitar3_btn.TabIndex = 9;
+            tf_rejeitar3_btn.Text = "REJEITAR";
+            tf_rejeitar3_btn.TextAlign = ContentAlignment.MiddleCenter;
+            tf_rejeitar3_btn.Click += tf_rejeitar3_btn_Click;
             // 
             // tf_nacPatrocinador3
             // 
@@ -577,7 +608,7 @@
             // 
             // tf_nomePatrocinador3
             // 
-            tf_nomePatrocinador3.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            tf_nomePatrocinador3.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             tf_nomePatrocinador3.Location = new Point(0, 50);
             tf_nomePatrocinador3.Margin = new Padding(0);
             tf_nomePatrocinador3.Name = "tf_nomePatrocinador3";
@@ -588,7 +619,7 @@
             // 
             // tf_contratoPatrocinador3
             // 
-            tf_contratoPatrocinador3.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            tf_contratoPatrocinador3.Font = new Font("Segoe UI", 10F);
             tf_contratoPatrocinador3.Location = new Point(520, 80);
             tf_contratoPatrocinador3.Margin = new Padding(0);
             tf_contratoPatrocinador3.Name = "tf_contratoPatrocinador3";
@@ -599,7 +630,7 @@
             // 
             // tf_valorPatrocinador3
             // 
-            tf_valorPatrocinador3.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            tf_valorPatrocinador3.Font = new Font("Segoe UI", 10F);
             tf_valorPatrocinador3.Location = new Point(400, 80);
             tf_valorPatrocinador3.Margin = new Padding(0);
             tf_valorPatrocinador3.Name = "tf_valorPatrocinador3";
@@ -610,7 +641,7 @@
             // 
             // label14
             // 
-            label14.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label14.Font = new Font("Comic Sans MS", 9F, FontStyle.Bold);
             label14.Location = new Point(520, 50);
             label14.Margin = new Padding(0);
             label14.Name = "label14";
@@ -621,7 +652,7 @@
             // 
             // label15
             // 
-            label15.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label15.Font = new Font("Comic Sans MS", 9F, FontStyle.Bold);
             label15.Location = new Point(400, 50);
             label15.Margin = new Padding(0);
             label15.Name = "label15";
@@ -632,7 +663,7 @@
             // 
             // tf_name06
             // 
-            tf_name06.Font = new Font("Comic Sans MS", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            tf_name06.Font = new Font("Comic Sans MS", 10F, FontStyle.Bold);
             tf_name06.Location = new Point(400, 0);
             tf_name06.Margin = new Padding(0);
             tf_name06.Name = "tf_name06";
@@ -643,7 +674,7 @@
             // 
             // tf_name05
             // 
-            tf_name05.Font = new Font("Comic Sans MS", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            tf_name05.Font = new Font("Comic Sans MS", 10F, FontStyle.Bold);
             tf_name05.Location = new Point(0, 0);
             tf_name05.Margin = new Padding(0);
             tf_name05.Name = "tf_name05";
@@ -655,8 +686,8 @@
             // panel4
             // 
             panel4.BackColor = Color.FromArgb(230, 240, 240);
-            panel4.Controls.Add(label17);
-            panel4.Controls.Add(label12);
+            panel4.Controls.Add(tf_aceitar4_btn);
+            panel4.Controls.Add(tf_rejeitar4_btn);
             panel4.Controls.Add(tf_nacPatrocinador4);
             panel4.Controls.Add(tf_nomePatrocinador4);
             panel4.Controls.Add(tf_contratoPatrocinador4);
@@ -671,29 +702,31 @@
             panel4.Size = new Size(640, 165);
             panel4.TabIndex = 28;
             // 
-            // label17
+            // tf_aceitar4_btn
             // 
-            label17.BackColor = Color.FromArgb(77, 177, 77);
-            label17.Font = new Font("Segoe UI Semibold", 6.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label17.Location = new Point(570, 125);
-            label17.Margin = new Padding(0);
-            label17.Name = "label17";
-            label17.Size = new Size(60, 25);
-            label17.TabIndex = 10;
-            label17.Text = "ACEITAR";
-            label17.TextAlign = ContentAlignment.MiddleCenter;
+            tf_aceitar4_btn.BackColor = Color.FromArgb(77, 177, 77);
+            tf_aceitar4_btn.Font = new Font("Comic Sans MS", 8.25F, FontStyle.Bold);
+            tf_aceitar4_btn.Location = new Point(550, 125);
+            tf_aceitar4_btn.Margin = new Padding(0);
+            tf_aceitar4_btn.Name = "tf_aceitar4_btn";
+            tf_aceitar4_btn.Size = new Size(70, 25);
+            tf_aceitar4_btn.TabIndex = 10;
+            tf_aceitar4_btn.Text = "ACEITAR";
+            tf_aceitar4_btn.TextAlign = ContentAlignment.MiddleCenter;
+            tf_aceitar4_btn.Click += tf_aceitar4_btn_Click;
             // 
-            // label12
+            // tf_rejeitar4_btn
             // 
-            label12.BackColor = Color.FromArgb(210, 82, 82);
-            label12.Font = new Font("Segoe UI Semibold", 6.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label12.Location = new Point(410, 125);
-            label12.Margin = new Padding(0);
-            label12.Name = "label12";
-            label12.Size = new Size(60, 25);
-            label12.TabIndex = 9;
-            label12.Text = "REJEITAR";
-            label12.TextAlign = ContentAlignment.MiddleCenter;
+            tf_rejeitar4_btn.BackColor = Color.FromArgb(210, 82, 82);
+            tf_rejeitar4_btn.Font = new Font("Comic Sans MS", 8.25F, FontStyle.Bold);
+            tf_rejeitar4_btn.Location = new Point(410, 125);
+            tf_rejeitar4_btn.Margin = new Padding(0);
+            tf_rejeitar4_btn.Name = "tf_rejeitar4_btn";
+            tf_rejeitar4_btn.Size = new Size(70, 25);
+            tf_rejeitar4_btn.TabIndex = 9;
+            tf_rejeitar4_btn.Text = "REJEITAR";
+            tf_rejeitar4_btn.TextAlign = ContentAlignment.MiddleCenter;
+            tf_rejeitar4_btn.Click += tf_rejeitar4_btn_Click;
             // 
             // tf_nacPatrocinador4
             // 
@@ -706,7 +739,7 @@
             // 
             // tf_nomePatrocinador4
             // 
-            tf_nomePatrocinador4.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            tf_nomePatrocinador4.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             tf_nomePatrocinador4.Location = new Point(0, 50);
             tf_nomePatrocinador4.Margin = new Padding(0);
             tf_nomePatrocinador4.Name = "tf_nomePatrocinador4";
@@ -717,7 +750,7 @@
             // 
             // tf_contratoPatrocinador4
             // 
-            tf_contratoPatrocinador4.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            tf_contratoPatrocinador4.Font = new Font("Segoe UI", 10F);
             tf_contratoPatrocinador4.Location = new Point(520, 80);
             tf_contratoPatrocinador4.Margin = new Padding(0);
             tf_contratoPatrocinador4.Name = "tf_contratoPatrocinador4";
@@ -728,7 +761,7 @@
             // 
             // tf_valorPatrocinador4
             // 
-            tf_valorPatrocinador4.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            tf_valorPatrocinador4.Font = new Font("Segoe UI", 10F);
             tf_valorPatrocinador4.Location = new Point(400, 80);
             tf_valorPatrocinador4.Margin = new Padding(0);
             tf_valorPatrocinador4.Name = "tf_valorPatrocinador4";
@@ -739,7 +772,7 @@
             // 
             // label21
             // 
-            label21.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label21.Font = new Font("Comic Sans MS", 9F, FontStyle.Bold);
             label21.Location = new Point(520, 50);
             label21.Margin = new Padding(0);
             label21.Name = "label21";
@@ -750,7 +783,7 @@
             // 
             // label22
             // 
-            label22.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label22.Font = new Font("Comic Sans MS", 9F, FontStyle.Bold);
             label22.Location = new Point(400, 50);
             label22.Margin = new Padding(0);
             label22.Name = "label22";
@@ -761,7 +794,7 @@
             // 
             // tf_name08
             // 
-            tf_name08.Font = new Font("Comic Sans MS", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            tf_name08.Font = new Font("Comic Sans MS", 10F, FontStyle.Bold);
             tf_name08.Location = new Point(400, 0);
             tf_name08.Margin = new Padding(0);
             tf_name08.Name = "tf_name08";
@@ -772,7 +805,7 @@
             // 
             // tf_name07
             // 
-            tf_name07.Font = new Font("Comic Sans MS", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            tf_name07.Font = new Font("Comic Sans MS", 10F, FontStyle.Bold);
             tf_name07.Location = new Point(0, 0);
             tf_name07.Margin = new Padding(0);
             tf_name07.Name = "tf_name07";
@@ -794,7 +827,7 @@
             // label30
             // 
             label30.Anchor = AnchorStyles.None;
-            label30.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label30.Font = new Font("Comic Sans MS", 14F, FontStyle.Bold);
             label30.Location = new Point(0, 0);
             label30.Margin = new Padding(0);
             label30.Name = "label30";
@@ -820,6 +853,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "TelaFinancias";
             StartPosition = FormStartPosition.CenterScreen;
+            Text = "TelaFinancias";
             Load += TelaFinancias_Load;
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)tf_nacPatrocinador1).EndInit();
@@ -832,7 +866,6 @@
             ((System.ComponentModel.ISupportInitialize)tf_nacPatrocinador4).EndInit();
             panel7.ResumeLayout(false);
             ResumeLayout(false);
-            this.Text = "TelaFinancias";
         }
 
         #endregion
@@ -876,29 +909,31 @@
         private Label tf_name08;
         private Label tf_name07;
         private Label label5;
-        private Label label4;
-        private Label label9;
-        private Label label6;
-        private Label label13;
-        private Label label10;
-        private Label label16;
-        private Label label11;
-        private Label label17;
-        private Label label12;
+        private Label tf_valorTotalEmConta;
+        private Label tf_aceitar1_btn;
+        private Label tf_rejeitar1_btn;
+        private Label tf_aceitar2_btn;
+        private Label tf_rejeitar2_btn;
+        private Label tf_aceitar3_btn;
+        private Label tf_rejeitar3_btn;
+        private Label tf_aceitar4_btn;
+        private Label tf_rejeitar4_btn;
         private PictureBox tf_nacPatrocinador1;
         private Label tf_nomePatrocinador1;
         private Label label20;
         private Label label19;
         private Label label18;
-        private Label label25;
-        private Label label24;
+        private Label tf_despesasEscritorio;
+        private Label tf_valorTotalPatrocinadores;
         private Label label23;
-        private Label label29;
+        private Label tf_despesasContratos;
         private Label label28;
         private Label label27;
         private Label label26;
         private Label tf_contratoPatrocinador1;
         private Panel panel7;
         private Label label30;
+        private Label tf_valorDeSalario;
+        private Label label31;
     }
 }
