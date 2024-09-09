@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Pedro Spindola\\Documents\\DriverChallenge\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8CAFADBA-BA49-410B-8740-EB24FDB1ACC9}|DriverChallenge.csproj|c:\\users\\pedro spindola\\documents\\driverchallenge\\financia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8CAFADBA-BA49-410B-8740-EB24FDB1ACC9}|DriverChallenge.csproj|solutionrelative:financia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8CAFADBA-BA49-410B-8740-EB24FDB1ACC9}|DriverChallenge.csproj|c:\\users\\pedro spindola\\documents\\driverchallenge\\telaprincipal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8CAFADBA-BA49-410B-8740-EB24FDB1ACC9}|DriverChallenge.csproj|solutionrelative:telaprincipal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8CAFADBA-BA49-410B-8740-EB24FDB1ACC9}|DriverChallenge.csproj|c:\\users\\pedro spindola\\documents\\driverchallenge\\financia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8CAFADBA-BA49-410B-8740-EB24FDB1ACC9}|DriverChallenge.csproj|solutionrelative:financia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8CAFADBA-BA49-410B-8740-EB24FDB1ACC9}|DriverChallenge.csproj|c:\\users\\pedro spindola\\documents\\driverchallenge\\piloto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -58,47 +58,38 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Piloto.cs",
-              "DocumentMoniker": "C:\\Users\\Pedro Spindola\\Documents\\DriverChallenge\\Piloto.cs",
-              "RelativeDocumentMoniker": "Piloto.cs",
-              "ToolTip": "C:\\Users\\Pedro Spindola\\Documents\\DriverChallenge\\Piloto.cs",
-              "RelativeToolTip": "Piloto.cs",
-              "ViewState": "AQIAAEMAAAAAAAAAAAAkwGQAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-08T13:56:57.166Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "TelaPrincipal.cs",
               "DocumentMoniker": "C:\\Users\\Pedro Spindola\\Documents\\DriverChallenge\\TelaPrincipal.cs",
               "RelativeDocumentMoniker": "TelaPrincipal.cs",
               "ToolTip": "C:\\Users\\Pedro Spindola\\Documents\\DriverChallenge\\TelaPrincipal.cs",
               "RelativeToolTip": "TelaPrincipal.cs",
-              "ViewState": "AQIAADoFAAAAAAAAAAAkwO8GAABXAAAA",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAnwCwCAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-07T22:00:30.877Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Financia.cs",
               "DocumentMoniker": "C:\\Users\\Pedro Spindola\\Documents\\DriverChallenge\\Financia.cs",
               "RelativeDocumentMoniker": "Financia.cs",
               "ToolTip": "C:\\Users\\Pedro Spindola\\Documents\\DriverChallenge\\Financia.cs",
               "RelativeToolTip": "Financia.cs",
-              "ViewState": "AQIAACIAAAAAAAAAAAArwDEAAABAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-07T21:59:53.983Z",
               "EditorCaption": ""
@@ -126,8 +117,7 @@
               "RelativeToolTip": "Principal.cs",
               "ViewState": "AQIAABcAAAAAAAAAAAD4v1cDAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-07T21:19:45.13Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-07T21:19:45.13Z"
             },
             {
               "$type": "Document",
@@ -157,6 +147,30 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "TelaEscritorio.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\Pedro Spindola\\Documents\\DriverChallenge\\TelaEscritorio.Designer.cs",
+              "RelativeDocumentMoniker": "TelaEscritorio.Designer.cs",
+              "ToolTip": "C:\\Users\\Pedro Spindola\\Documents\\DriverChallenge\\TelaEscritorio.Designer.cs",
+              "RelativeToolTip": "TelaEscritorio.Designer.cs",
+              "ViewState": "AQIAAGYFAAAAAAAAAAAqwIIFAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-08T14:33:50.725Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Piloto.cs",
+              "DocumentMoniker": "C:\\Users\\Pedro Spindola\\Documents\\DriverChallenge\\Piloto.cs",
+              "RelativeDocumentMoniker": "Piloto.cs",
+              "ToolTip": "C:\\Users\\Pedro Spindola\\Documents\\DriverChallenge\\Piloto.cs",
+              "RelativeToolTip": "Piloto.cs",
+              "ViewState": "AQIAAEMAAAAAAAAAAAAkwGQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-08T13:56:57.166Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 7,
               "Title": "TelaEscritorio.cs [Projeto]",
               "DocumentMoniker": "C:\\Users\\Pedro Spindola\\Documents\\DriverChallenge\\TelaEscritorio.cs",
@@ -164,8 +178,7 @@
               "ToolTip": "C:\\Users\\Pedro Spindola\\Documents\\DriverChallenge\\TelaEscritorio.cs [Projeto]",
               "RelativeToolTip": "TelaEscritorio.cs [Projeto]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-07T21:54:41.653Z",
-              "EditorCaption": " [Projeto]"
+              "WhenOpened": "2024-09-07T21:54:41.653Z"
             },
             {
               "$type": "Document",
@@ -176,8 +189,7 @@
               "ToolTip": "C:\\Users\\Pedro Spindola\\Documents\\DriverChallenge\\TelaPrincipal.cs [Projeto]",
               "RelativeToolTip": "TelaPrincipal.cs [Projeto]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-07T21:55:46.941Z",
-              "EditorCaption": " [Projeto]"
+              "WhenOpened": "2024-09-07T21:55:46.941Z"
             },
             {
               "$type": "Document",
@@ -188,25 +200,7 @@
               "ToolTip": "C:\\Users\\Pedro Spindola\\Documents\\DriverChallenge\\TelaFinancias.cs [Projeto]",
               "RelativeToolTip": "TelaFinancias.cs [Projeto]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-07T23:59:16.399Z",
-              "EditorCaption": " [Projeto]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "TelaEscritorio.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\Pedro Spindola\\Documents\\DriverChallenge\\TelaEscritorio.Designer.cs",
-              "RelativeDocumentMoniker": "TelaEscritorio.Designer.cs",
-              "ToolTip": "C:\\Users\\Pedro Spindola\\Documents\\DriverChallenge\\TelaEscritorio.Designer.cs",
-              "RelativeToolTip": "TelaEscritorio.Designer.cs",
-              "ViewState": "AQIAAGYFAAAAAAAAAAAqwIIFAAAvAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-08T14:33:50.725Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+              "WhenOpened": "2024-09-07T23:59:16.399Z"
             },
             {
               "$type": "Document",

@@ -492,7 +492,7 @@ namespace DriverChallenge
         }
         public void FuncaoParaStatusDaProximaCorrida(int i)
         {
-            principal.ProximoGp = pista[i].NomeGp + " - " + (i + 1) + " / 25";
+            principal.ProximoGp = pista[i].NomeGp;
             principal.ProximoGpPais = pista[i].NomeCircuito;
             principal.ProximoGpSemana = pista[i].SemanaDaProva;
             principal.ProximoGpVoltas = pista[i].NumerosDeVoltas;
