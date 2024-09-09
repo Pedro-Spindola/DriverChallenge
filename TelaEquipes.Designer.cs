@@ -101,7 +101,7 @@
             // 
             // panel17
             // 
-            panel17.BackColor = Color.FromArgb(230, 240, 240);
+            panel17.BackColor = Color.FromArgb(240, 240, 240);
             panel17.Controls.Add(dvgTelaEquipesExibirTodasEquipes);
             panel17.Location = new Point(20, 100);
             panel17.Margin = new Padding(0);
@@ -127,7 +127,7 @@
             // 
             // panel1
             // 
-            panel1.BackColor = Color.FromArgb(230, 240, 240);
+            panel1.BackColor = Color.FromArgb(240, 240, 240);
             panel1.Controls.Add(TpLabelCor1B);
             panel1.Controls.Add(TpLabelCor1A);
             panel1.Controls.Add(TpPaisEquipe);
@@ -222,7 +222,7 @@
             // 
             // panel2
             // 
-            panel2.BackColor = Color.FromArgb(230, 240, 240);
+            panel2.BackColor = Color.FromArgb(240, 240, 240);
             panel2.Controls.Add(TpPiloto1);
             panel2.Controls.Add(label27);
             panel2.Controls.Add(TpPiloto2);
@@ -429,7 +429,7 @@
             // 
             // panel3
             // 
-            panel3.BackColor = Color.FromArgb(230, 240, 240);
+            panel3.BackColor = Color.FromArgb(240, 240, 240);
             panel3.Controls.Add(label25);
             panel3.Controls.Add(TpMedia);
             panel3.Controls.Add(label23);
@@ -724,7 +724,7 @@
             // 
             // panel5
             // 
-            panel5.BackColor = Color.FromArgb(230, 240, 240);
+            panel5.BackColor = Color.FromArgb(240, 240, 240);
             panel5.Controls.Add(dgvTelaEquipeExibirHistoricoEquipe);
             panel5.Location = new Point(930, 20);
             panel5.Margin = new Padding(0);
@@ -749,7 +749,7 @@
             // 
             // panel6
             // 
-            panel6.BackColor = Color.FromArgb(230, 240, 240);
+            panel6.BackColor = Color.FromArgb(240, 240, 240);
             panel6.Controls.Add(dgvTelaEquipeRankEquipes);
             panel6.Location = new Point(930, 380);
             panel6.Margin = new Padding(0);
@@ -775,6 +775,7 @@
             // label7
             // 
             label7.Anchor = AnchorStyles.None;
+            label7.Cursor = Cursors.Hand;
             label7.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             label7.Location = new Point(0, 0);
             label7.Margin = new Padding(0);
@@ -787,7 +788,7 @@
             // 
             // panel4
             // 
-            panel4.BackColor = Color.FromArgb(230, 240, 240);
+            panel4.BackColor = Color.FromArgb(240, 240, 240);
             panel4.Controls.Add(label7);
             panel4.Location = new Point(930, 690);
             panel4.Margin = new Padding(0);

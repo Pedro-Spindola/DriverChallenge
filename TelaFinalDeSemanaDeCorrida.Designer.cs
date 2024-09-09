@@ -31,7 +31,6 @@ namespace DriverChallenge
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             panel = new Panel();
             dvgTableF1 = new DataGridView();
             panel1 = new Panel();
@@ -79,7 +78,6 @@ namespace DriverChallenge
             dvgTableF1.Margin = new Padding(0);
             dvgTableF1.Name = "dvgTableF1";
             dvgTableF1.ReadOnly = true;
-            dvgTableF1.RowTemplate.Height = 25;
             dvgTableF1.Size = new Size(840, 550);
             dvgTableF1.TabIndex = 0;
             // 
@@ -100,7 +98,7 @@ namespace DriverChallenge
             // 
             // lbQualificacaoVoltas
             // 
-            lbQualificacaoVoltas.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            lbQualificacaoVoltas.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
             lbQualificacaoVoltas.ImageAlign = ContentAlignment.MiddleLeft;
             lbQualificacaoVoltas.Location = new Point(50, 10);
             lbQualificacaoVoltas.Margin = new Padding(0);
@@ -122,7 +120,7 @@ namespace DriverChallenge
             // 
             // lbQualificacaoClima
             // 
-            lbQualificacaoClima.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            lbQualificacaoClima.Font = new Font("Segoe UI", 8F);
             lbQualificacaoClima.ImageAlign = ContentAlignment.MiddleLeft;
             lbQualificacaoClima.Location = new Point(50, 45);
             lbQualificacaoClima.Margin = new Padding(0);
@@ -132,6 +130,7 @@ namespace DriverChallenge
             lbQualificacaoClima.TabIndex = 4;
             lbQualificacaoClima.Text = "Clima: Chuva";
             lbQualificacaoClima.TextAlign = ContentAlignment.MiddleLeft;
+            lbQualificacaoClima.Visible = false;
             // 
             // panel4
             // 
@@ -146,7 +145,7 @@ namespace DriverChallenge
             // 
             // labelNomeGp
             // 
-            labelNomeGp.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            labelNomeGp.Font = new Font("Segoe UI", 10F);
             labelNomeGp.Location = new Point(75, 30);
             labelNomeGp.Margin = new Padding(0);
             labelNomeGp.Name = "labelNomeGp";
@@ -157,7 +156,7 @@ namespace DriverChallenge
             // 
             // labelSemanaGP
             // 
-            labelSemanaGP.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            labelSemanaGP.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
             labelSemanaGP.Location = new Point(75, 50);
             labelSemanaGP.Margin = new Padding(0);
             labelSemanaGP.Name = "labelSemanaGP";
@@ -168,7 +167,7 @@ namespace DriverChallenge
             // 
             // labelNomePais
             // 
-            labelNomePais.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            labelNomePais.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
             labelNomePais.Location = new Point(75, 0);
             labelNomePais.Margin = new Padding(0);
             labelNomePais.Name = "labelNomePais";
@@ -180,7 +179,7 @@ namespace DriverChallenge
             // pictureBoxBtnContinuarQualificacao
             // 
             pictureBoxBtnContinuarQualificacao.Cursor = Cursors.Hand;
-            pictureBoxBtnContinuarQualificacao.Image = Properties.Resources.menu_continuar_b;
+            pictureBoxBtnContinuarQualificacao.Image = Resources.menu_continuar_b;
             pictureBoxBtnContinuarQualificacao.Location = new Point(1140, 15);
             pictureBoxBtnContinuarQualificacao.Margin = new Padding(0);
             pictureBoxBtnContinuarQualificacao.Name = "pictureBoxBtnContinuarQualificacao";
@@ -230,7 +229,7 @@ namespace DriverChallenge
             // labelTreinoCorrida
             // 
             labelTreinoCorrida.BackColor = Color.Transparent;
-            labelTreinoCorrida.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point);
+            labelTreinoCorrida.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
             labelTreinoCorrida.Location = new Point(570, 105);
             labelTreinoCorrida.Margin = new Padding(0);
             labelTreinoCorrida.Name = "labelTreinoCorrida";
@@ -239,7 +238,7 @@ namespace DriverChallenge
             labelTreinoCorrida.Text = "Treino Qualificação";
             labelTreinoCorrida.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // TelaQualificacao
+            // TelaFinalDeSemanaDeCorrida
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -258,6 +257,7 @@ namespace DriverChallenge
             MinimizeBox = false;
             Name = "TelaFinalDeSemanaDeCorrida";
             StartPosition = FormStartPosition.CenterScreen;
+            Text = "TelaFinalDeSemanaDeCorrida";
             Load += TelaQualificacao_Load;
             panel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dvgTableF1).EndInit();
@@ -267,7 +267,6 @@ namespace DriverChallenge
             ((System.ComponentModel.ISupportInitialize)pictureBoxBtnContinuarQualificacao).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxPaisGP).EndInit();
             ResumeLayout(false);
-            this.Text = "TelaFinalDeSemanaDeCorrida";
         }
 
         #endregion

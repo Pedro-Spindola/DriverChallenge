@@ -12,6 +12,7 @@ namespace DriverChallenge
         // Atributos fundamentais para o game.
         public Random random = new Random();
         public Historico historico = new Historico();
+        private MessagemEmail? email = null;
         // Atributos para definir as cores da tela.
         public string CorPrincipal { get; set; } = "";
         public string CorSecundaria { get; set; } = "";
@@ -27,7 +28,7 @@ namespace DriverChallenge
         public int ContadorDeSemana { get; set; } = 1;
         public int ContadorDeAno { get; set; } = 2024;
         public string StatusDaTemporada { get; set; } = "Pre-Temporada";
-        public int TotalSemanas { get; set; } = 10;  // Total de 52 semanas, mudar após os testes. para teste deixa em 10
+        public int TotalSemanas { get; set; } = 52;  // Total de 52 semanas, mudar após os testes. para teste deixa em 10
         // Atributos responsáveis pelas informações semanais do game.
         public string ProximoGp { get; set; } = "";
         public string ProximoGpPais { get; set; } = "";
@@ -37,7 +38,7 @@ namespace DriverChallenge
         // Variável sendo utilizada na Tela de Classificação.
         public string Categoria { get; set; } = "";
         public int ConfiguracaoInicioDoGame { get; set; } = 0;  // 1 = Novo Jogo, 2 = Continuar Game
-        public int TempoRodada { get; set; } = 200;  // Tempo que vai passar o game em milissegundos: Padrão vai ser 200
+        public int TempoRodada { get; set; } = 100;  // Tempo que vai passar o game em milissegundos: Padrão vai ser 200
         // Variável que vai decidir a importância do Carro e Piloto na temporada.
         public int ImportanciaCarroTemporada { get; set; } = 50;
         public int ImportanciaPilotoTemporada { get; set; } = 50;
@@ -63,7 +64,7 @@ namespace DriverChallenge
         public int DecimoNonoLugar { get; set; } = 0;
         public int VigessimoLugar { get; set; } = 0;
         public int PontoVoltaMaisRapida { get; set; } = 0;
-
+        public string OpcaoParaXP { get; set; } = "AUTOMÁTICO";
         public Principal(){}
         public void ConfigurarFaixaDePontuacao(String caminhoArquivo)   // Metodo para atribuir a pontução que vai ser utilizada no game.
         {
@@ -98,11 +99,11 @@ namespace DriverChallenge
             if (TotalSemanas > ContadorDeSemana)
             {
                 ContadorDeSemana++;
-                if (ContadorDeSemana > 4 && ContadorDeSemana <= 9)
+                if (ContadorDeSemana > 4 && ContadorDeSemana <= 48)
                 {
                     StatusDaTemporada = "Andamento"; // *Atualizar o valor apos finalizar os teste. -> (ContadorDeSemana > 4 && ContadorDeSemana <= 48) Para teste  (ContadorDeSemana > 4 && ContadorDeSemana <= 9)
                 }
-                else if (ContadorDeSemana > 9)
+                else if (ContadorDeSemana > 48)
                 {
                     StatusDaTemporada = "Fim-Temporada"; // *Atualizar o valor apos finalizar os teste. -> (ContadorDeSemana > 48)
                 }
@@ -152,7 +153,6 @@ namespace DriverChallenge
             };
             return listSerie;
         }
-        
         // Inicio das criação das lista para guarda historicos dos pilotos e equipes campeões.
         public List<Historico.PilotoCampeao> PilotosCampeoesF1 { get; set; } = new List<Historico.PilotoCampeao>();
         public List<Historico.PilotoCampeao> PilotosCampeoesF2 { get; set; } = new List<Historico.PilotoCampeao>();
@@ -160,7 +160,6 @@ namespace DriverChallenge
         public List<Historico.EquipeCampeao> EquipesCampeoesF1 { get; set; } = new List<Historico.EquipeCampeao>();
         public List<Historico.EquipeCampeao> EquipesCampeoesF2 { get; set; } = new List<Historico.EquipeCampeao>();
         public List<Historico.EquipeCampeao> EquipesCampeoesF3 { get; set; } = new List<Historico.EquipeCampeao>();
-
         public void AdicionarPilotoCampeao(string categoria, int ano, string sede, string nome, int pontos, string cor1, string equipe) // Método para adicionar um piloto campeão à lista
         {
             if (categoria == "F1") PilotosCampeoesF1.Add(new Historico.PilotoCampeao { Ano = ano, Sede = sede, Nome = nome, Pontos = pontos, C1 = cor1, Equipe = equipe });
@@ -202,94 +201,94 @@ namespace DriverChallenge
         };
         public void XpTurnoSemanal(Piloto[] piloto)
         {
-            foreach (Piloto pilotoSelecionado in piloto)
+            for(int i = 0; i  < piloto.Length; i++)
             {
-                double newXp = pilotoSelecionado.XpPiloto + pilotoSelecionado.PotencialPiloto;
-                pilotoSelecionado.XpPiloto = newXp;
+                double newXp = piloto[i].XpPiloto + piloto[i].PotencialPiloto;
+                piloto[i].XpPiloto = newXp;
 
-                if (pilotoSelecionado.XpPiloto >= 1)
+                if (piloto[i].XpPiloto >= 1)
                 {
-                    if (pilotoSelecionado.IdadePiloto <= pilotoSelecionado.AugePiloto)
+                    if (piloto[i].IdadePiloto <= piloto[i].AugePiloto && i != IndexDoJogador)
                     {
                         // Adicionar pontos para acrescentar.
                         do
                         {
-                            if (pilotoSelecionado.XpPiloto >= 1 && pilotoSelecionado.MediaPiloto < 100)
+                            if (piloto[i].XpPiloto >= 1 && piloto[i].MediaPiloto < 100)
                             {
                                 string atributoAleatorio = atributosListaPilotos[random.Next(atributosListaPilotos.Count)];
                                 switch (atributoAleatorio)
                                 {
                                     case "largada":
-                                        if (pilotoSelecionado.Largada < 100)
+                                        if (piloto[i].Largada < 100)
                                         {
-                                            pilotoSelecionado.XpPiloto--;
-                                            pilotoSelecionado.Largada++;
-                                            pilotoSelecionado.AtualizarMedia();
+                                            piloto[i].XpPiloto--;
+                                            piloto[i].Largada++;
+                                            piloto[i].AtualizarMedia();
                                         }
                                         break;
                                     case "concentracao":
-                                        if (pilotoSelecionado.Concentracao < 100)
+                                        if (piloto[i].Concentracao < 100)
                                         {
-                                            pilotoSelecionado.XpPiloto--;
-                                            pilotoSelecionado.Concentracao++;
-                                            pilotoSelecionado.AtualizarMedia();
+                                            piloto[i].XpPiloto--;
+                                            piloto[i].Concentracao++;
+                                            piloto[i].AtualizarMedia();
                                         }
                                         break;
                                     case "ultrapassagem":
-                                        if (pilotoSelecionado.Ultrapassagem < 100)
+                                        if (piloto[i].Ultrapassagem < 100)
                                         {
-                                            pilotoSelecionado.XpPiloto--;
-                                            pilotoSelecionado.Ultrapassagem++;
-                                            pilotoSelecionado.AtualizarMedia();
+                                            piloto[i].XpPiloto--;
+                                            piloto[i].Ultrapassagem++;
+                                            piloto[i].AtualizarMedia();
                                         }
                                         break;
                                     case "experiencia":
-                                        if (pilotoSelecionado.Experiencia < 100)
+                                        if (piloto[i].Experiencia < 100)
                                         {
-                                            pilotoSelecionado.XpPiloto--;
-                                            pilotoSelecionado.Experiencia++;
-                                            pilotoSelecionado.AtualizarMedia();
+                                            piloto[i].XpPiloto--;
+                                            piloto[i].Experiencia++;
+                                            piloto[i].AtualizarMedia();
                                         }
                                         break;
                                     case "rapidez":
-                                        if (pilotoSelecionado.Rapidez < 100)
+                                        if (piloto[i].Rapidez < 100)
                                         {
-                                            pilotoSelecionado.XpPiloto--;
-                                            pilotoSelecionado.Rapidez++;
-                                            pilotoSelecionado.AtualizarMedia();
+                                            piloto[i].XpPiloto--;
+                                            piloto[i].Rapidez++;
+                                            piloto[i].AtualizarMedia();
                                         }
                                         break;
                                     case "chuva":
-                                        if (pilotoSelecionado.Chuva < 100)
+                                        if (piloto[i].Chuva < 100)
                                         {
-                                            pilotoSelecionado.XpPiloto--;
-                                            pilotoSelecionado.Chuva++;
-                                            pilotoSelecionado.AtualizarMedia();
+                                            piloto[i].XpPiloto--;
+                                            piloto[i].Chuva++;
+                                            piloto[i].AtualizarMedia();
                                         }
                                         break;
                                     case "acertoDoCarro":
-                                        if (pilotoSelecionado.AcertoDoCarro < 100)
+                                        if (piloto[i].AcertoDoCarro < 100)
                                         {
-                                            pilotoSelecionado.XpPiloto--;
-                                            pilotoSelecionado.AcertoDoCarro++;
-                                            pilotoSelecionado.AtualizarMedia();
+                                            piloto[i].XpPiloto--;
+                                            piloto[i].AcertoDoCarro++;
+                                            piloto[i].AtualizarMedia();
                                         }
                                         break;
                                     case "fisico":
-                                        if (pilotoSelecionado.Fisico < 100)
+                                        if (piloto[i].Fisico < 100)
                                         {
-                                            pilotoSelecionado.XpPiloto--;
-                                            pilotoSelecionado.Fisico++;
-                                            pilotoSelecionado.AtualizarMedia();
+                                            piloto[i].XpPiloto--;
+                                            piloto[i].Fisico++;
+                                            piloto[i].AtualizarMedia();
                                         }
                                         break;
                                     default:
                                         break;
                                 }
                             }
-                            else if (pilotoSelecionado.MediaPiloto == 100)
+                            else if (piloto[i].MediaPiloto == 100)
                             {
-                                pilotoSelecionado.XpPiloto--;
+                                piloto[i].XpPiloto--;
                                 break;
                             }
                             else
@@ -298,76 +297,76 @@ namespace DriverChallenge
                             }
                         } while (true);
                     }
-                    else
+                    if (piloto[i].IdadePiloto > piloto[i].AugePiloto)
                     do
                     {
-                        if (pilotoSelecionado.XpPiloto >= 1 && pilotoSelecionado.MediaPiloto > 1)
+                        if (piloto[i].XpPiloto >= 1 && piloto[i].MediaPiloto > 1)
                         {
                             string atributoAleatorio = atributosListaPilotos[random.Next(atributosListaPilotos.Count)];
                             switch (atributoAleatorio)
                             {
                                 case "largada":
-                                    if (pilotoSelecionado.Largada > 0)
+                                    if (piloto[i].Largada > 0)
                                     {
-                                        pilotoSelecionado.XpPiloto--;
-                                        pilotoSelecionado.Largada--;
-                                        pilotoSelecionado.AtualizarMedia();
+                                        piloto[i].XpPiloto--;
+                                        piloto[i].Largada--;
+                                        piloto[i].AtualizarMedia();
                                     }
                                     break;
                                 case "concentracao":
-                                    if (pilotoSelecionado.Concentracao > 0)
+                                    if (piloto[i].Concentracao > 0)
                                     {
-                                        pilotoSelecionado.XpPiloto--;
-                                        pilotoSelecionado.Concentracao--;
-                                        pilotoSelecionado.AtualizarMedia();
+                                        piloto[i].XpPiloto--;
+                                        piloto[i].Concentracao--;
+                                        piloto[i].AtualizarMedia();
                                     }
                                     break;
                                 case "ultrapassagem":
-                                    if (pilotoSelecionado.Ultrapassagem > 0)
+                                    if (piloto[i].Ultrapassagem > 0)
                                     {
-                                        pilotoSelecionado.XpPiloto--;
-                                        pilotoSelecionado.Ultrapassagem--;
-                                        pilotoSelecionado.AtualizarMedia();
+                                        piloto[i].XpPiloto--;
+                                        piloto[i].Ultrapassagem--;
+                                        piloto[i].AtualizarMedia();
                                     }
                                     break;
                                 case "experiencia":
-                                    if (pilotoSelecionado.Experiencia > 0)
+                                    if (piloto[i].Experiencia > 0)
                                     {
-                                        pilotoSelecionado.XpPiloto--;
-                                        pilotoSelecionado.Experiencia--;
-                                        pilotoSelecionado.AtualizarMedia();
+                                        piloto[i].XpPiloto--;
+                                        piloto[i].Experiencia--;
+                                        piloto[i].AtualizarMedia();
                                     }
                                     break;
                                 case "rapidez":
-                                    if (pilotoSelecionado.Rapidez > 0)
+                                    if (piloto[i].Rapidez > 0)
                                     {
-                                        pilotoSelecionado.XpPiloto--;
-                                        pilotoSelecionado.Rapidez--;
-                                        pilotoSelecionado.AtualizarMedia();
+                                        piloto[i].XpPiloto--;
+                                        piloto[i].Rapidez--;
+                                        piloto[i].AtualizarMedia();
                                     }
                                     break;
                                 case "chuva":
-                                    if (pilotoSelecionado.Chuva > 0)
+                                    if (piloto[i].Chuva > 0)
                                     {
-                                        pilotoSelecionado.XpPiloto--;
-                                        pilotoSelecionado.Chuva--;
-                                        pilotoSelecionado.AtualizarMedia();
+                                        piloto[i].XpPiloto--;
+                                        piloto[i].Chuva--;
+                                        piloto[i].AtualizarMedia();
                                     }
                                     break;
                                 case "acertoDoCarro":
-                                    if (pilotoSelecionado.AcertoDoCarro > 0)
+                                    if (piloto[i].AcertoDoCarro > 0)
                                     {
-                                        pilotoSelecionado.XpPiloto--;
-                                        pilotoSelecionado.AcertoDoCarro--;
-                                        pilotoSelecionado.AtualizarMedia();
+                                        piloto[i].XpPiloto--;
+                                        piloto[i].AcertoDoCarro--;
+                                        piloto[i].AtualizarMedia();
                                     }
                                     break;
                                 case "fisico":
-                                    if (pilotoSelecionado.Fisico > 0)
+                                    if (piloto[i].Fisico > 0)
                                     {
-                                        pilotoSelecionado.XpPiloto--;
-                                        pilotoSelecionado.Fisico--;
-                                        pilotoSelecionado.AtualizarMedia();
+                                        piloto[i].XpPiloto--;
+                                        piloto[i].Fisico--;
+                                        piloto[i].AtualizarMedia();
                                     }
                                     break;
                                 default:
@@ -379,6 +378,145 @@ namespace DriverChallenge
                             break;
                         }
                     } while (true);
+                }
+            }
+        }
+        public void XpTurnoSemanalJogador(Piloto[] piloto)
+        {
+            if (piloto[IndexDoJogador].XpPiloto >= 1 && OpcaoParaXP == "AUTOMÁTICO")
+            {
+                if (piloto[IndexDoJogador].IdadePiloto <= piloto[IndexDoJogador].AugePiloto)
+                {
+                    do
+                    {
+                        if (piloto[IndexDoJogador].XpPiloto >= 1 && piloto[IndexDoJogador].MediaPiloto < 100)
+                        {
+                            string atributoAleatorio = atributosListaPilotos[random.Next(atributosListaPilotos.Count)];
+                            switch (atributoAleatorio)
+                            {
+                                case "largada":
+                                    if (piloto[IndexDoJogador].Largada < 100)
+                                    {
+                                        piloto[IndexDoJogador].XpPiloto--;
+                                        piloto[IndexDoJogador].Largada++;
+                                        piloto[IndexDoJogador].AtualizarMedia();
+                                    }
+                                    break;
+                                case "concentracao":
+                                    if (piloto[IndexDoJogador].Concentracao < 100)
+                                    {
+                                        piloto[IndexDoJogador].XpPiloto--;
+                                        piloto[IndexDoJogador].Concentracao++;
+                                        piloto[IndexDoJogador].AtualizarMedia();
+                                    }
+                                    break;
+                                case "ultrapassagem":
+                                    if (piloto[IndexDoJogador].Ultrapassagem < 100)
+                                    {
+                                        piloto[IndexDoJogador].XpPiloto--;
+                                        piloto[IndexDoJogador].Ultrapassagem++;
+                                        piloto[IndexDoJogador].AtualizarMedia();
+                                    }
+                                    break;
+                                case "experiencia":
+                                    if (piloto[IndexDoJogador].Experiencia < 100)
+                                    {
+                                        piloto[IndexDoJogador].XpPiloto--;
+                                        piloto[IndexDoJogador].Experiencia++;
+                                        piloto[IndexDoJogador].AtualizarMedia();
+                                    }
+                                    break;
+                                case "rapidez":
+                                    if (piloto[IndexDoJogador].Rapidez < 100)
+                                    {
+                                        piloto[IndexDoJogador].XpPiloto--;
+                                        piloto[IndexDoJogador].Rapidez++;
+                                        piloto[IndexDoJogador].AtualizarMedia();
+                                    }
+                                    break;
+                                case "chuva":
+                                    if (piloto[IndexDoJogador].Chuva < 100)
+                                    {
+                                        piloto[IndexDoJogador].XpPiloto--;
+                                        piloto[IndexDoJogador].Chuva++;
+                                        piloto[IndexDoJogador].AtualizarMedia();
+                                    }
+                                    break;
+                                case "acertoDoCarro":
+                                    if (piloto[IndexDoJogador].AcertoDoCarro < 100)
+                                    {
+                                        piloto[IndexDoJogador].XpPiloto--;
+                                        piloto[IndexDoJogador].AcertoDoCarro++;
+                                        piloto[IndexDoJogador].AtualizarMedia();
+                                    }
+                                    break;
+                                case "fisico":
+                                    if (piloto[IndexDoJogador].Fisico < 100)
+                                    {
+                                        piloto[IndexDoJogador].XpPiloto--;
+                                        piloto[IndexDoJogador].Fisico++;
+                                        piloto[IndexDoJogador].AtualizarMedia();
+                                    }
+                                    break;
+                                default:
+                                    break;
+                            }
+                        }
+                        else if (piloto[IndexDoJogador].MediaPiloto == 100)
+                        {
+                            piloto[IndexDoJogador].XpPiloto--;
+                            break;
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    } while (true);
+                }
+            }
+            else if (piloto[IndexDoJogador].XpPiloto >= 1 && piloto[IndexDoJogador].IdadePiloto <= piloto[IndexDoJogador].AugePiloto)
+            {
+                if (piloto[IndexDoJogador].Largada < 100 && piloto[IndexDoJogador].XpPiloto >= 1 && OpcaoParaXP == "LARGADA")
+                {
+                    piloto[IndexDoJogador].XpPiloto--;
+                    piloto[IndexDoJogador].Largada++;
+                    piloto[IndexDoJogador].AtualizarMedia();
+                }
+                if (piloto[IndexDoJogador].Ultrapassagem < 100 && piloto[IndexDoJogador].XpPiloto >= 1 && OpcaoParaXP == "ULTRAPASSAGEM")
+                {
+                    piloto[IndexDoJogador].XpPiloto--;
+                    piloto[IndexDoJogador].Ultrapassagem++;
+                    piloto[IndexDoJogador].AtualizarMedia();
+                }
+                if (piloto[IndexDoJogador].Experiencia < 100 && piloto[IndexDoJogador].XpPiloto >= 1 && OpcaoParaXP == "EXPERIÊNCIA")
+                {
+                    piloto[IndexDoJogador].XpPiloto--;
+                    piloto[IndexDoJogador].Experiencia++;
+                    piloto[IndexDoJogador].AtualizarMedia();
+                }
+                if (piloto[IndexDoJogador].Rapidez < 100 && piloto[IndexDoJogador].XpPiloto >= 1 && OpcaoParaXP == "RAPIDEZ")
+                {
+                    piloto[IndexDoJogador].XpPiloto--;
+                    piloto[IndexDoJogador].Rapidez++;
+                    piloto[IndexDoJogador].AtualizarMedia();
+                }
+                if (piloto[IndexDoJogador].Chuva < 100 && piloto[IndexDoJogador].XpPiloto >= 1 && OpcaoParaXP == "CHUVA")
+                {
+                    piloto[IndexDoJogador].XpPiloto--;
+                    piloto[IndexDoJogador].Chuva++;
+                    piloto[IndexDoJogador].AtualizarMedia();
+                }
+                if (piloto[IndexDoJogador].AcertoDoCarro < 100 && piloto[IndexDoJogador].XpPiloto >= 1 && OpcaoParaXP == "ACERTO DO CARRO")
+                {
+                    piloto[IndexDoJogador].XpPiloto--;
+                    piloto[IndexDoJogador].AcertoDoCarro++;
+                    piloto[IndexDoJogador].AtualizarMedia();
+                }
+                if (piloto[IndexDoJogador].Fisico < 100 && piloto[IndexDoJogador].XpPiloto >= 1 && OpcaoParaXP == "FÍSICO")
+                {
+                    piloto[IndexDoJogador].XpPiloto--;
+                    piloto[IndexDoJogador].Fisico++;
+                    piloto[IndexDoJogador].AtualizarMedia();
                 }
             }
         }
@@ -729,6 +867,33 @@ namespace DriverChallenge
             foreach (Equipe equipe in equipes)
             {
                 equipe.ValorDoMotor = motor.ObterValorDoMotor(equipe.NameMotor);
+            }
+        }
+        public List<MessagemEmail> ListaEmails { get; set; } = new List<MessagemEmail>();
+        public List<MessagemEmail> ObterListaEmails()
+        {
+            return ListaEmails;
+        }
+        public void NovaMessagemEmail(string tipo, string titulo)
+        {
+            email = new MessagemEmail(tipo, titulo, ContadorDeSemana + " / " + ContadorDeAno);
+            ListaEmails.Add(email);
+        }
+        public void ApagarTodosEmails()
+        {
+            ListaEmails.Clear();
+        }
+        public class MessagemEmail
+        {
+            public string TipoDaMessagem { get; set; }
+            public string TituloDaMessagem { get; set; }
+            public string DataDaMessagem { get; set; }
+
+            public MessagemEmail(string tipoDaMessagem, string tituloDaMessagem, string dataDaMessagem)
+            {
+                TipoDaMessagem = tipoDaMessagem;
+                TituloDaMessagem = tituloDaMessagem;
+                DataDaMessagem = dataDaMessagem;
             }
         }
     }

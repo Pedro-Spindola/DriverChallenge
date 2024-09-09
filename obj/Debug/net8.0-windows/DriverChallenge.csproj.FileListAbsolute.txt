@@ -24,3 +24,4 @@ C:\Users\Pedro Spindola\Documents\DriverChallenge\obj\Debug\net8.0-windows\Drive
 C:\Users\Pedro Spindola\Documents\DriverChallenge\obj\Debug\net8.0-windows\DriverChallenge.TelaPilotos.resources
 C:\Users\Pedro Spindola\Documents\DriverChallenge\obj\Debug\net8.0-windows\DriverChallenge.sourcelink.json
 C:\Users\Pedro Spindola\Documents\DriverChallenge\obj\Debug\net8.0-windows\DriverChallenge.TelaEquipes.resources
+C:\Users\Pedro Spindola\Documents\DriverChallenge\obj\Debug\net8.0-windows\DriverChallenge.TelaEscritorio.resources

@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static DriverChallenge.Equipe;
+using static DriverChallenge.Financia;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
 
 namespace DriverChallenge
@@ -71,8 +74,12 @@ namespace DriverChallenge
         public string Cor2 { get; set; } = "";
         public double RandomNacionalidade { get; set; } = 0;
         public List<PilotoTemporada> PilotosTemporadas { get; set; } = [];
+        public PropostaDeContratos[] PropostaDeContrato { get; set; } = new PropostaDeContratos[2]
+        {
+            new PropostaDeContratos(),
+            new PropostaDeContratos()
+        };
         public Piloto() {}
-
         public Piloto(string nome, string sobrenome, string nacionalidad, int idade, int auge, int aposentadoria, int largad, int concent, int ultrapassag, int experience, int rapid, int chuv, int acerto, int fisic)
         {
             PaisPiloto paisPilotos = new PaisPiloto();
@@ -85,19 +92,13 @@ namespace DriverChallenge
             PotencialPiloto = random.Next(60, 81);
             PotencialPiloto = (PotencialPiloto / 100);
 
-            // Definir de forma aleatória a idade do piloto (18 até 21)
             IdadePiloto = idade;
-
-            // Definir de forma aleatória o auge do piloto (30 até 36)
             AugePiloto = auge;
-
-            // Definir de forma aleatória a aposentadoria do piloto (36 até 41)
             AposentadoriaPiloto = aposentadoria;
 
             // Definir a visibilidade do piloto para patrocinador (entre 0 a 50)
             VisibilidadePiloto = random.Next(1, 51);
 
-            // Atribuindo de formas aleatória, a qualidade de cada atributos (10 a 30)
             Largada = largad;
             Concentracao = concent;
             Ultrapassagem = ultrapassag;
@@ -109,12 +110,11 @@ namespace DriverChallenge
 
             MediaPiloto = ((Largada + Concentracao + Ultrapassagem + Experiencia + Rapidez + Chuva + AcertoDoCarro + Fisico) / 8);
         }
-
         public void GeraPiloto()
         {
             PaisPiloto paisPilotos = new PaisPiloto();
             string nacionalidade = "";
-            RandomNacionalidade = 7; // Após finalizar os arquivos com todos os nomes das nacionalidade altera a linha para esse -> RandomNacionalidade = random.Next(0,19);
+            RandomNacionalidade = random.Next(0, 17); // Após finalizar os arquivos com todos os nomes das nacionalidade altera a linha para esse -> RandomNacionalidade = random.Next(0,19);
             // Seleciona uma nacionalidade aleatória
             if (RandomNacionalidade <= 9)
             {
@@ -221,6 +221,43 @@ namespace DriverChallenge
             public required string Equipe { get; set; }
             public required int Pontos { get; set; }
             public required string CategoriaAtual { get; set; }
+        }
+        public PropostaDeContratos NovaPropostaDeContrato(string nome, string nacionalidade, double valor, int contrato, string status)
+        {
+            PropostaDeContratos novaProposta = new PropostaDeContratos(nome, nacionalidade, valor, contrato, status);
+            return novaProposta;
+        }
+        public void LimparPropostaDeContrato(PropostaDeContratos propostaDeContratos)
+        {
+            propostaDeContratos.NomeDaEquipe = "";
+            propostaDeContratos.StatusDoPiloto = "";
+            propostaDeContratos.NacionalidadeDaEquipe = "null";
+            propostaDeContratos.ValorContrato = 0;
+            propostaDeContratos.TempoDeContrato = 0;
+            propostaDeContratos.TempoPropostaContrato = 0;
+            propostaDeContratos.PropostaAceita = false;
+        }
+        public class PropostaDeContratos
+        {
+            public string NomeDaEquipe { get; set; } = "";
+            public string StatusDoPiloto { get; set; } = "";
+            public string NacionalidadeDaEquipe { get; set; } = "null";
+            public double ValorContrato { get; set; } = 0;
+            public int TempoDeContrato { get; set; } = 0;
+            public int TempoPropostaContrato { get; set; } = 0;
+            public Boolean PropostaAceita { get; set; } = false;
+
+            public PropostaDeContratos() { }
+            public PropostaDeContratos(string nome, string nacionalidade, double valor, int contrato, string status)
+            {
+                NomeDaEquipe = nome;
+                NacionalidadeDaEquipe = nacionalidade;
+                ValorContrato = valor;
+                TempoDeContrato = contrato;
+                Random r = new Random();
+                TempoPropostaContrato = r.Next(1, 11);
+                StatusDoPiloto = status;
+            }
         }
     }
 }

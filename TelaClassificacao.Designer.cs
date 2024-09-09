@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             panel17 = new Panel();
             dvgTelaClassificacaoPiloto = new DataGridView();
             panel1 = new Panel();
@@ -75,7 +74,6 @@
             dvgTelaClassificacaoPiloto.Margin = new Padding(0);
             dvgTelaClassificacaoPiloto.Name = "dvgTelaClassificacaoPiloto";
             dvgTelaClassificacaoPiloto.ReadOnly = true;
-            dvgTelaClassificacaoPiloto.RowTemplate.Height = 25;
             dvgTelaClassificacaoPiloto.Size = new Size(500, 640);
             dvgTelaClassificacaoPiloto.TabIndex = 1;
             // 
@@ -101,7 +99,6 @@
             dvgTelaClassificacaoEquipe.Margin = new Padding(0);
             dvgTelaClassificacaoEquipe.Name = "dvgTelaClassificacaoEquipe";
             dvgTelaClassificacaoEquipe.ReadOnly = true;
-            dvgTelaClassificacaoEquipe.RowTemplate.Height = 25;
             dvgTelaClassificacaoEquipe.Size = new Size(500, 290);
             dvgTelaClassificacaoEquipe.TabIndex = 2;
             // 
@@ -127,7 +124,6 @@
             dvgTelaCampeosEquipes.Margin = new Padding(0);
             dvgTelaCampeosEquipes.Name = "dvgTelaCampeosEquipes";
             dvgTelaCampeosEquipes.ReadOnly = true;
-            dvgTelaCampeosEquipes.RowTemplate.Height = 25;
             dvgTelaCampeosEquipes.Size = new Size(500, 180);
             dvgTelaCampeosEquipes.TabIndex = 3;
             // 
@@ -153,7 +149,6 @@
             dvgTelaCampeosPiloto.Margin = new Padding(0);
             dvgTelaCampeosPiloto.Name = "dvgTelaCampeosPiloto";
             dvgTelaCampeosPiloto.ReadOnly = true;
-            dvgTelaCampeosPiloto.RowTemplate.Height = 25;
             dvgTelaCampeosPiloto.Size = new Size(500, 180);
             dvgTelaCampeosPiloto.TabIndex = 3;
             // 
@@ -169,7 +164,9 @@
             // 
             // btnVolta
             // 
-            btnVolta.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnVolta.BackColor = SystemColors.ButtonFace;
+            btnVolta.Cursor = Cursors.Hand;
+            btnVolta.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnVolta.Location = new Point(0, 0);
             btnVolta.Margin = new Padding(0);
             btnVolta.Name = "btnVolta";
@@ -184,7 +181,7 @@
             comboBoxSelectCategoria.Anchor = AnchorStyles.Left;
             comboBoxSelectCategoria.DropDownHeight = 150;
             comboBoxSelectCategoria.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBoxSelectCategoria.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            comboBoxSelectCategoria.Font = new Font("Segoe UI", 10F);
             comboBoxSelectCategoria.FormattingEnabled = true;
             comboBoxSelectCategoria.IntegralHeight = false;
             comboBoxSelectCategoria.ItemHeight = 17;
@@ -197,7 +194,7 @@
             // 
             // label1
             // 
-            label1.Font = new Font("Comic Sans MS", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Font = new Font("Comic Sans MS", 20.25F, FontStyle.Bold);
             label1.Location = new Point(20, 20);
             label1.Name = "label1";
             label1.Size = new Size(500, 60);
@@ -207,7 +204,7 @@
             // 
             // label2
             // 
-            label2.Font = new Font("Comic Sans MS", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Font = new Font("Comic Sans MS", 18F, FontStyle.Bold);
             label2.Location = new Point(530, 310);
             label2.Margin = new Padding(0);
             label2.Name = "label2";
@@ -236,6 +233,7 @@
             MinimizeBox = false;
             Name = "TelaClassificacao";
             StartPosition = FormStartPosition.CenterScreen;
+            Text = "TelaClassificacao";
             Load += TelaClassificacao_Load;
             panel17.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dvgTelaClassificacaoPiloto).EndInit();
@@ -247,7 +245,6 @@
             ((System.ComponentModel.ISupportInitialize)dvgTelaCampeosPiloto).EndInit();
             panel5.ResumeLayout(false);
             ResumeLayout(false);
-            this.Text = "TelaClassificacao";
         }
 
         #endregion

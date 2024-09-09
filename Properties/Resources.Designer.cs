@@ -63,9 +63,39 @@ namespace DriverChallenge.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap analise {
+            get {
+                object obj = ResourceManager.GetObject("analise", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap btn {
             get {
                 object obj = ResourceManager.GetObject("btn", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap calendario {
+            get {
+                object obj = ResourceManager.GetObject("calendario", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap contrato {
+            get {
+                object obj = ResourceManager.GetObject("contrato", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -106,6 +136,16 @@ namespace DriverChallenge.Properties {
         internal static System.Drawing.Bitmap cx_msg_w {
             get {
                 object obj = ResourceManager.GetObject("cx_msg_w", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap dinheiro {
+            get {
+                object obj = ResourceManager.GetObject("dinheiro", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -293,6 +333,16 @@ namespace DriverChallenge.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap patrocinador {
+            get {
+                object obj = ResourceManager.GetObject("patrocinador", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap qd_decicao {
             get {
                 object obj = ResourceManager.GetObject("qd_decicao", resourceCulture);
@@ -336,6 +386,16 @@ namespace DriverChallenge.Properties {
         internal static System.Drawing.Bitmap seta_b {
             get {
                 object obj = ResourceManager.GetObject("seta_b", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap simbolo_de_mais_preto {
+            get {
+                object obj = ResourceManager.GetObject("simbolo_de_mais_preto", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -30,13 +30,14 @@
         {
             label1 = new Label();
             panel1 = new Panel();
+            Tf_rescindir1_btn = new Label();
             tf_contratoPatrocinador1 = new Label();
             tf_nacPatrocinador1 = new PictureBox();
             tf_nomePatrocinador1 = new Label();
-            tf_aceitar1_btn = new Label();
-            tf_rejeitar1_btn = new Label();
+            Tf_aceitar1_btn = new Label();
+            Tf_rejeitar1_btn = new Label();
             tf_valorPatrocinador1 = new Label();
-            label3 = new Label();
+            labelContratoRestantes01 = new Label();
             label2 = new Label();
             tf_name02 = new Label();
             tf_name01 = new Label();
@@ -56,35 +57,38 @@
             label5 = new Label();
             tf_valorTotalEmConta = new Label();
             panel6 = new Panel();
-            tf_aceitar2_btn = new Label();
-            tf_rejeitar2_btn = new Label();
+            Tf_rescindir2_btn = new Label();
+            Tf_aceitar2_btn = new Label();
+            Tf_rejeitar2_btn = new Label();
             tf_nacPatrocinador2 = new PictureBox();
             tf_nomePatrocinador2 = new Label();
             tf_contratoPatrocinador2 = new Label();
             tf_valorPatrocinador2 = new Label();
-            label7 = new Label();
+            labelContratoRestantes02 = new Label();
             label8 = new Label();
             tf_name04 = new Label();
             tf_name03 = new Label();
             panel3 = new Panel();
-            tf_aceitar3_btn = new Label();
-            tf_rejeitar3_btn = new Label();
+            Tf_rescindir3_btn = new Label();
+            Tf_aceitar3_btn = new Label();
+            Tf_rejeitar3_btn = new Label();
             tf_nacPatrocinador3 = new PictureBox();
             tf_nomePatrocinador3 = new Label();
             tf_contratoPatrocinador3 = new Label();
             tf_valorPatrocinador3 = new Label();
-            label14 = new Label();
+            labelContratoRestantes03 = new Label();
             label15 = new Label();
             tf_name06 = new Label();
             tf_name05 = new Label();
             panel4 = new Panel();
-            tf_aceitar4_btn = new Label();
-            tf_rejeitar4_btn = new Label();
+            Tf_rescindir4_btn = new Label();
+            Tf_aceitar4_btn = new Label();
+            Tf_rejeitar4_btn = new Label();
             tf_nacPatrocinador4 = new PictureBox();
             tf_nomePatrocinador4 = new Label();
             tf_contratoPatrocinador4 = new Label();
             tf_valorPatrocinador4 = new Label();
-            label21 = new Label();
+            labelContratoRestantes04 = new Label();
             label22 = new Label();
             tf_name08 = new Label();
             tf_name07 = new Label();
@@ -115,14 +119,15 @@
             // 
             // panel1
             // 
-            panel1.BackColor = Color.FromArgb(230, 240, 240);
+            panel1.BackColor = Color.FromArgb(240, 240, 240);
+            panel1.Controls.Add(Tf_rescindir1_btn);
             panel1.Controls.Add(tf_contratoPatrocinador1);
             panel1.Controls.Add(tf_nacPatrocinador1);
             panel1.Controls.Add(tf_nomePatrocinador1);
-            panel1.Controls.Add(tf_aceitar1_btn);
-            panel1.Controls.Add(tf_rejeitar1_btn);
+            panel1.Controls.Add(Tf_aceitar1_btn);
+            panel1.Controls.Add(Tf_rejeitar1_btn);
             panel1.Controls.Add(tf_valorPatrocinador1);
-            panel1.Controls.Add(label3);
+            panel1.Controls.Add(labelContratoRestantes01);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(tf_name02);
             panel1.Controls.Add(tf_name01);
@@ -131,6 +136,20 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(640, 165);
             panel1.TabIndex = 21;
+            // 
+            // Tf_rescindir1_btn
+            // 
+            Tf_rescindir1_btn.BackColor = Color.CornflowerBlue;
+            Tf_rescindir1_btn.Cursor = Cursors.Hand;
+            Tf_rescindir1_btn.Font = new Font("Comic Sans MS", 8.25F, FontStyle.Bold);
+            Tf_rescindir1_btn.Location = new Point(475, 125);
+            Tf_rescindir1_btn.Margin = new Padding(0);
+            Tf_rescindir1_btn.Name = "Tf_rescindir1_btn";
+            Tf_rescindir1_btn.Size = new Size(80, 25);
+            Tf_rescindir1_btn.TabIndex = 13;
+            Tf_rescindir1_btn.Text = "ATIVO";
+            Tf_rescindir1_btn.TextAlign = ContentAlignment.MiddleCenter;
+            Tf_rescindir1_btn.Click += Tf_rescindir1_btn_Click;
             // 
             // tf_contratoPatrocinador1
             // 
@@ -145,6 +164,7 @@
             // 
             // tf_nacPatrocinador1
             // 
+            tf_nacPatrocinador1.BackColor = Color.Transparent;
             tf_nacPatrocinador1.Location = new Point(185, 100);
             tf_nacPatrocinador1.Margin = new Padding(0);
             tf_nacPatrocinador1.Name = "tf_nacPatrocinador1";
@@ -163,31 +183,33 @@
             tf_nomePatrocinador1.Text = "---";
             tf_nomePatrocinador1.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // tf_aceitar1_btn
+            // Tf_aceitar1_btn
             // 
-            tf_aceitar1_btn.BackColor = Color.FromArgb(77, 177, 77);
-            tf_aceitar1_btn.Font = new Font("Comic Sans MS", 8.25F, FontStyle.Bold);
-            tf_aceitar1_btn.Location = new Point(550, 125);
-            tf_aceitar1_btn.Margin = new Padding(0);
-            tf_aceitar1_btn.Name = "tf_aceitar1_btn";
-            tf_aceitar1_btn.Size = new Size(70, 25);
-            tf_aceitar1_btn.TabIndex = 9;
-            tf_aceitar1_btn.Text = "ACEITAR";
-            tf_aceitar1_btn.TextAlign = ContentAlignment.MiddleCenter;
-            tf_aceitar1_btn.Click += tf_aceitar1_btn_Click;
+            Tf_aceitar1_btn.BackColor = Color.FromArgb(77, 177, 77);
+            Tf_aceitar1_btn.Cursor = Cursors.Hand;
+            Tf_aceitar1_btn.Font = new Font("Comic Sans MS", 8.25F, FontStyle.Bold);
+            Tf_aceitar1_btn.Location = new Point(550, 125);
+            Tf_aceitar1_btn.Margin = new Padding(0);
+            Tf_aceitar1_btn.Name = "Tf_aceitar1_btn";
+            Tf_aceitar1_btn.Size = new Size(70, 25);
+            Tf_aceitar1_btn.TabIndex = 9;
+            Tf_aceitar1_btn.Text = "ACEITAR";
+            Tf_aceitar1_btn.TextAlign = ContentAlignment.MiddleCenter;
+            Tf_aceitar1_btn.Click += Tf_aceitar1_btn_Click;
             // 
-            // tf_rejeitar1_btn
+            // Tf_rejeitar1_btn
             // 
-            tf_rejeitar1_btn.BackColor = Color.FromArgb(210, 82, 82);
-            tf_rejeitar1_btn.Font = new Font("Comic Sans MS", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            tf_rejeitar1_btn.Location = new Point(410, 125);
-            tf_rejeitar1_btn.Margin = new Padding(0);
-            tf_rejeitar1_btn.Name = "tf_rejeitar1_btn";
-            tf_rejeitar1_btn.Size = new Size(70, 25);
-            tf_rejeitar1_btn.TabIndex = 8;
-            tf_rejeitar1_btn.Text = "REJEITAR";
-            tf_rejeitar1_btn.TextAlign = ContentAlignment.MiddleCenter;
-            tf_rejeitar1_btn.Click += tf_rejeitar1_btn_Click;
+            Tf_rejeitar1_btn.BackColor = Color.FromArgb(210, 82, 82);
+            Tf_rejeitar1_btn.Cursor = Cursors.Hand;
+            Tf_rejeitar1_btn.Font = new Font("Comic Sans MS", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Tf_rejeitar1_btn.Location = new Point(410, 125);
+            Tf_rejeitar1_btn.Margin = new Padding(0);
+            Tf_rejeitar1_btn.Name = "Tf_rejeitar1_btn";
+            Tf_rejeitar1_btn.Size = new Size(70, 25);
+            Tf_rejeitar1_btn.TabIndex = 8;
+            Tf_rejeitar1_btn.Text = "REJEITAR";
+            Tf_rejeitar1_btn.TextAlign = ContentAlignment.MiddleCenter;
+            Tf_rejeitar1_btn.Click += Tf_rejeitar1_btn_Click;
             // 
             // tf_valorPatrocinador1
             // 
@@ -200,16 +222,16 @@
             tf_valorPatrocinador1.Text = "R$ -";
             tf_valorPatrocinador1.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // label3
+            // labelContratoRestantes01
             // 
-            label3.Font = new Font("Comic Sans MS", 9F, FontStyle.Bold);
-            label3.Location = new Point(520, 50);
-            label3.Margin = new Padding(0);
-            label3.Name = "label3";
-            label3.Size = new Size(120, 30);
-            label3.TabIndex = 3;
-            label3.Text = "CONTRATO";
-            label3.TextAlign = ContentAlignment.MiddleCenter;
+            labelContratoRestantes01.Font = new Font("Comic Sans MS", 9F, FontStyle.Bold);
+            labelContratoRestantes01.Location = new Point(520, 50);
+            labelContratoRestantes01.Margin = new Padding(0);
+            labelContratoRestantes01.Name = "labelContratoRestantes01";
+            labelContratoRestantes01.Size = new Size(120, 30);
+            labelContratoRestantes01.TabIndex = 3;
+            labelContratoRestantes01.Text = "CONTRATO";
+            labelContratoRestantes01.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label2
             // 
@@ -246,7 +268,7 @@
             // 
             // panel2
             // 
-            panel2.BackColor = Color.FromArgb(230, 240, 240);
+            panel2.BackColor = Color.FromArgb(240, 240, 240);
             panel2.Controls.Add(tf_valorDeSalario);
             panel2.Controls.Add(label31);
             panel2.Controls.Add(tf_despesasContratos);
@@ -423,14 +445,15 @@
             // 
             // panel6
             // 
-            panel6.BackColor = Color.FromArgb(230, 240, 240);
-            panel6.Controls.Add(tf_aceitar2_btn);
-            panel6.Controls.Add(tf_rejeitar2_btn);
+            panel6.BackColor = Color.FromArgb(240, 240, 240);
+            panel6.Controls.Add(Tf_rescindir2_btn);
+            panel6.Controls.Add(Tf_aceitar2_btn);
+            panel6.Controls.Add(Tf_rejeitar2_btn);
             panel6.Controls.Add(tf_nacPatrocinador2);
             panel6.Controls.Add(tf_nomePatrocinador2);
             panel6.Controls.Add(tf_contratoPatrocinador2);
             panel6.Controls.Add(tf_valorPatrocinador2);
-            panel6.Controls.Add(label7);
+            panel6.Controls.Add(labelContratoRestantes02);
             panel6.Controls.Add(label8);
             panel6.Controls.Add(tf_name04);
             panel6.Controls.Add(tf_name03);
@@ -440,34 +463,51 @@
             panel6.Size = new Size(640, 165);
             panel6.TabIndex = 26;
             // 
-            // tf_aceitar2_btn
+            // Tf_rescindir2_btn
             // 
-            tf_aceitar2_btn.BackColor = Color.FromArgb(77, 177, 77);
-            tf_aceitar2_btn.Font = new Font("Comic Sans MS", 8.25F, FontStyle.Bold);
-            tf_aceitar2_btn.Location = new Point(550, 125);
-            tf_aceitar2_btn.Margin = new Padding(0);
-            tf_aceitar2_btn.Name = "tf_aceitar2_btn";
-            tf_aceitar2_btn.Size = new Size(70, 25);
-            tf_aceitar2_btn.TabIndex = 10;
-            tf_aceitar2_btn.Text = "ACEITAR";
-            tf_aceitar2_btn.TextAlign = ContentAlignment.MiddleCenter;
-            tf_aceitar2_btn.Click += tf_aceitar2_btn_Click;
+            Tf_rescindir2_btn.BackColor = Color.CornflowerBlue;
+            Tf_rescindir2_btn.Cursor = Cursors.Hand;
+            Tf_rescindir2_btn.Font = new Font("Comic Sans MS", 8.25F, FontStyle.Bold);
+            Tf_rescindir2_btn.Location = new Point(475, 125);
+            Tf_rescindir2_btn.Margin = new Padding(0);
+            Tf_rescindir2_btn.Name = "Tf_rescindir2_btn";
+            Tf_rescindir2_btn.Size = new Size(80, 25);
+            Tf_rescindir2_btn.TabIndex = 14;
+            Tf_rescindir2_btn.Text = "ATIVO";
+            Tf_rescindir2_btn.TextAlign = ContentAlignment.MiddleCenter;
+            Tf_rescindir2_btn.Click += Tf_rescindir2_btn_Click;
             // 
-            // tf_rejeitar2_btn
+            // Tf_aceitar2_btn
             // 
-            tf_rejeitar2_btn.BackColor = Color.FromArgb(210, 82, 82);
-            tf_rejeitar2_btn.Font = new Font("Comic Sans MS", 8.25F, FontStyle.Bold);
-            tf_rejeitar2_btn.Location = new Point(410, 125);
-            tf_rejeitar2_btn.Margin = new Padding(0);
-            tf_rejeitar2_btn.Name = "tf_rejeitar2_btn";
-            tf_rejeitar2_btn.Size = new Size(70, 25);
-            tf_rejeitar2_btn.TabIndex = 9;
-            tf_rejeitar2_btn.Text = "REJEITAR";
-            tf_rejeitar2_btn.TextAlign = ContentAlignment.MiddleCenter;
-            tf_rejeitar2_btn.Click += tf_rejeitar2_btn_Click;
+            Tf_aceitar2_btn.BackColor = Color.FromArgb(77, 177, 77);
+            Tf_aceitar2_btn.Cursor = Cursors.Hand;
+            Tf_aceitar2_btn.Font = new Font("Comic Sans MS", 8.25F, FontStyle.Bold);
+            Tf_aceitar2_btn.Location = new Point(550, 125);
+            Tf_aceitar2_btn.Margin = new Padding(0);
+            Tf_aceitar2_btn.Name = "Tf_aceitar2_btn";
+            Tf_aceitar2_btn.Size = new Size(70, 25);
+            Tf_aceitar2_btn.TabIndex = 10;
+            Tf_aceitar2_btn.Text = "ACEITAR";
+            Tf_aceitar2_btn.TextAlign = ContentAlignment.MiddleCenter;
+            Tf_aceitar2_btn.Click += Tf_aceitar2_btn_Click;
+            // 
+            // Tf_rejeitar2_btn
+            // 
+            Tf_rejeitar2_btn.BackColor = Color.FromArgb(210, 82, 82);
+            Tf_rejeitar2_btn.Cursor = Cursors.Hand;
+            Tf_rejeitar2_btn.Font = new Font("Comic Sans MS", 8.25F, FontStyle.Bold);
+            Tf_rejeitar2_btn.Location = new Point(410, 125);
+            Tf_rejeitar2_btn.Margin = new Padding(0);
+            Tf_rejeitar2_btn.Name = "Tf_rejeitar2_btn";
+            Tf_rejeitar2_btn.Size = new Size(70, 25);
+            Tf_rejeitar2_btn.TabIndex = 9;
+            Tf_rejeitar2_btn.Text = "REJEITAR";
+            Tf_rejeitar2_btn.TextAlign = ContentAlignment.MiddleCenter;
+            Tf_rejeitar2_btn.Click += Tf_rejeitar2_btn_Click;
             // 
             // tf_nacPatrocinador2
             // 
+            tf_nacPatrocinador2.BackColor = Color.Transparent;
             tf_nacPatrocinador2.Location = new Point(185, 100);
             tf_nacPatrocinador2.Margin = new Padding(0);
             tf_nacPatrocinador2.Name = "tf_nacPatrocinador2";
@@ -508,16 +548,16 @@
             tf_valorPatrocinador2.Text = "R$ -";
             tf_valorPatrocinador2.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // label7
+            // labelContratoRestantes02
             // 
-            label7.Font = new Font("Comic Sans MS", 9F, FontStyle.Bold);
-            label7.Location = new Point(520, 50);
-            label7.Margin = new Padding(0);
-            label7.Name = "label7";
-            label7.Size = new Size(120, 30);
-            label7.TabIndex = 3;
-            label7.Text = "CONTRATO";
-            label7.TextAlign = ContentAlignment.MiddleCenter;
+            labelContratoRestantes02.Font = new Font("Comic Sans MS", 9F, FontStyle.Bold);
+            labelContratoRestantes02.Location = new Point(520, 50);
+            labelContratoRestantes02.Margin = new Padding(0);
+            labelContratoRestantes02.Name = "labelContratoRestantes02";
+            labelContratoRestantes02.Size = new Size(120, 30);
+            labelContratoRestantes02.TabIndex = 3;
+            labelContratoRestantes02.Text = "CONTRATO";
+            labelContratoRestantes02.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label8
             // 
@@ -554,14 +594,15 @@
             // 
             // panel3
             // 
-            panel3.BackColor = Color.FromArgb(230, 240, 240);
-            panel3.Controls.Add(tf_aceitar3_btn);
-            panel3.Controls.Add(tf_rejeitar3_btn);
+            panel3.BackColor = Color.FromArgb(240, 240, 240);
+            panel3.Controls.Add(Tf_rescindir3_btn);
+            panel3.Controls.Add(Tf_aceitar3_btn);
+            panel3.Controls.Add(Tf_rejeitar3_btn);
             panel3.Controls.Add(tf_nacPatrocinador3);
             panel3.Controls.Add(tf_nomePatrocinador3);
             panel3.Controls.Add(tf_contratoPatrocinador3);
             panel3.Controls.Add(tf_valorPatrocinador3);
-            panel3.Controls.Add(label14);
+            panel3.Controls.Add(labelContratoRestantes03);
             panel3.Controls.Add(label15);
             panel3.Controls.Add(tf_name06);
             panel3.Controls.Add(tf_name05);
@@ -571,34 +612,51 @@
             panel3.Size = new Size(640, 165);
             panel3.TabIndex = 27;
             // 
-            // tf_aceitar3_btn
+            // Tf_rescindir3_btn
             // 
-            tf_aceitar3_btn.BackColor = Color.FromArgb(77, 177, 77);
-            tf_aceitar3_btn.Font = new Font("Comic Sans MS", 8.25F, FontStyle.Bold);
-            tf_aceitar3_btn.Location = new Point(550, 125);
-            tf_aceitar3_btn.Margin = new Padding(0);
-            tf_aceitar3_btn.Name = "tf_aceitar3_btn";
-            tf_aceitar3_btn.Size = new Size(70, 25);
-            tf_aceitar3_btn.TabIndex = 10;
-            tf_aceitar3_btn.Text = "ACEITAR";
-            tf_aceitar3_btn.TextAlign = ContentAlignment.MiddleCenter;
-            tf_aceitar3_btn.Click += tf_aceitar3_btn_Click;
+            Tf_rescindir3_btn.BackColor = Color.CornflowerBlue;
+            Tf_rescindir3_btn.Cursor = Cursors.Hand;
+            Tf_rescindir3_btn.Font = new Font("Comic Sans MS", 8.25F, FontStyle.Bold);
+            Tf_rescindir3_btn.Location = new Point(475, 125);
+            Tf_rescindir3_btn.Margin = new Padding(0);
+            Tf_rescindir3_btn.Name = "Tf_rescindir3_btn";
+            Tf_rescindir3_btn.Size = new Size(80, 25);
+            Tf_rescindir3_btn.TabIndex = 14;
+            Tf_rescindir3_btn.Text = "ATIVO";
+            Tf_rescindir3_btn.TextAlign = ContentAlignment.MiddleCenter;
+            Tf_rescindir3_btn.Click += Tf_rescindir3_btn_Click;
             // 
-            // tf_rejeitar3_btn
+            // Tf_aceitar3_btn
             // 
-            tf_rejeitar3_btn.BackColor = Color.FromArgb(210, 82, 82);
-            tf_rejeitar3_btn.Font = new Font("Comic Sans MS", 8.25F, FontStyle.Bold);
-            tf_rejeitar3_btn.Location = new Point(410, 125);
-            tf_rejeitar3_btn.Margin = new Padding(0);
-            tf_rejeitar3_btn.Name = "tf_rejeitar3_btn";
-            tf_rejeitar3_btn.Size = new Size(70, 25);
-            tf_rejeitar3_btn.TabIndex = 9;
-            tf_rejeitar3_btn.Text = "REJEITAR";
-            tf_rejeitar3_btn.TextAlign = ContentAlignment.MiddleCenter;
-            tf_rejeitar3_btn.Click += tf_rejeitar3_btn_Click;
+            Tf_aceitar3_btn.BackColor = Color.FromArgb(77, 177, 77);
+            Tf_aceitar3_btn.Cursor = Cursors.Hand;
+            Tf_aceitar3_btn.Font = new Font("Comic Sans MS", 8.25F, FontStyle.Bold);
+            Tf_aceitar3_btn.Location = new Point(550, 125);
+            Tf_aceitar3_btn.Margin = new Padding(0);
+            Tf_aceitar3_btn.Name = "Tf_aceitar3_btn";
+            Tf_aceitar3_btn.Size = new Size(70, 25);
+            Tf_aceitar3_btn.TabIndex = 10;
+            Tf_aceitar3_btn.Text = "ACEITAR";
+            Tf_aceitar3_btn.TextAlign = ContentAlignment.MiddleCenter;
+            Tf_aceitar3_btn.Click += Tf_aceitar3_btn_Click;
+            // 
+            // Tf_rejeitar3_btn
+            // 
+            Tf_rejeitar3_btn.BackColor = Color.FromArgb(210, 82, 82);
+            Tf_rejeitar3_btn.Cursor = Cursors.Hand;
+            Tf_rejeitar3_btn.Font = new Font("Comic Sans MS", 8.25F, FontStyle.Bold);
+            Tf_rejeitar3_btn.Location = new Point(410, 125);
+            Tf_rejeitar3_btn.Margin = new Padding(0);
+            Tf_rejeitar3_btn.Name = "Tf_rejeitar3_btn";
+            Tf_rejeitar3_btn.Size = new Size(70, 25);
+            Tf_rejeitar3_btn.TabIndex = 9;
+            Tf_rejeitar3_btn.Text = "REJEITAR";
+            Tf_rejeitar3_btn.TextAlign = ContentAlignment.MiddleCenter;
+            Tf_rejeitar3_btn.Click += Tf_rejeitar3_btn_Click;
             // 
             // tf_nacPatrocinador3
             // 
+            tf_nacPatrocinador3.BackColor = Color.Transparent;
             tf_nacPatrocinador3.Location = new Point(185, 100);
             tf_nacPatrocinador3.Margin = new Padding(0);
             tf_nacPatrocinador3.Name = "tf_nacPatrocinador3";
@@ -639,16 +697,16 @@
             tf_valorPatrocinador3.Text = "R$ -";
             tf_valorPatrocinador3.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // label14
+            // labelContratoRestantes03
             // 
-            label14.Font = new Font("Comic Sans MS", 9F, FontStyle.Bold);
-            label14.Location = new Point(520, 50);
-            label14.Margin = new Padding(0);
-            label14.Name = "label14";
-            label14.Size = new Size(120, 30);
-            label14.TabIndex = 3;
-            label14.Text = "CONTRATO";
-            label14.TextAlign = ContentAlignment.MiddleCenter;
+            labelContratoRestantes03.Font = new Font("Comic Sans MS", 9F, FontStyle.Bold);
+            labelContratoRestantes03.Location = new Point(520, 50);
+            labelContratoRestantes03.Margin = new Padding(0);
+            labelContratoRestantes03.Name = "labelContratoRestantes03";
+            labelContratoRestantes03.Size = new Size(120, 30);
+            labelContratoRestantes03.TabIndex = 3;
+            labelContratoRestantes03.Text = "CONTRATO";
+            labelContratoRestantes03.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label15
             // 
@@ -685,14 +743,15 @@
             // 
             // panel4
             // 
-            panel4.BackColor = Color.FromArgb(230, 240, 240);
-            panel4.Controls.Add(tf_aceitar4_btn);
-            panel4.Controls.Add(tf_rejeitar4_btn);
+            panel4.BackColor = Color.FromArgb(240, 240, 240);
+            panel4.Controls.Add(Tf_rescindir4_btn);
+            panel4.Controls.Add(Tf_aceitar4_btn);
+            panel4.Controls.Add(Tf_rejeitar4_btn);
             panel4.Controls.Add(tf_nacPatrocinador4);
             panel4.Controls.Add(tf_nomePatrocinador4);
             panel4.Controls.Add(tf_contratoPatrocinador4);
             panel4.Controls.Add(tf_valorPatrocinador4);
-            panel4.Controls.Add(label21);
+            panel4.Controls.Add(labelContratoRestantes04);
             panel4.Controls.Add(label22);
             panel4.Controls.Add(tf_name08);
             panel4.Controls.Add(tf_name07);
@@ -702,34 +761,51 @@
             panel4.Size = new Size(640, 165);
             panel4.TabIndex = 28;
             // 
-            // tf_aceitar4_btn
+            // Tf_rescindir4_btn
             // 
-            tf_aceitar4_btn.BackColor = Color.FromArgb(77, 177, 77);
-            tf_aceitar4_btn.Font = new Font("Comic Sans MS", 8.25F, FontStyle.Bold);
-            tf_aceitar4_btn.Location = new Point(550, 125);
-            tf_aceitar4_btn.Margin = new Padding(0);
-            tf_aceitar4_btn.Name = "tf_aceitar4_btn";
-            tf_aceitar4_btn.Size = new Size(70, 25);
-            tf_aceitar4_btn.TabIndex = 10;
-            tf_aceitar4_btn.Text = "ACEITAR";
-            tf_aceitar4_btn.TextAlign = ContentAlignment.MiddleCenter;
-            tf_aceitar4_btn.Click += tf_aceitar4_btn_Click;
+            Tf_rescindir4_btn.BackColor = Color.CornflowerBlue;
+            Tf_rescindir4_btn.Cursor = Cursors.Hand;
+            Tf_rescindir4_btn.Font = new Font("Comic Sans MS", 8.25F, FontStyle.Bold);
+            Tf_rescindir4_btn.Location = new Point(475, 125);
+            Tf_rescindir4_btn.Margin = new Padding(0);
+            Tf_rescindir4_btn.Name = "Tf_rescindir4_btn";
+            Tf_rescindir4_btn.Size = new Size(80, 25);
+            Tf_rescindir4_btn.TabIndex = 14;
+            Tf_rescindir4_btn.Text = "ATIVO";
+            Tf_rescindir4_btn.TextAlign = ContentAlignment.MiddleCenter;
+            Tf_rescindir4_btn.Click += Tf_rescindir4_btn_Click;
             // 
-            // tf_rejeitar4_btn
+            // Tf_aceitar4_btn
             // 
-            tf_rejeitar4_btn.BackColor = Color.FromArgb(210, 82, 82);
-            tf_rejeitar4_btn.Font = new Font("Comic Sans MS", 8.25F, FontStyle.Bold);
-            tf_rejeitar4_btn.Location = new Point(410, 125);
-            tf_rejeitar4_btn.Margin = new Padding(0);
-            tf_rejeitar4_btn.Name = "tf_rejeitar4_btn";
-            tf_rejeitar4_btn.Size = new Size(70, 25);
-            tf_rejeitar4_btn.TabIndex = 9;
-            tf_rejeitar4_btn.Text = "REJEITAR";
-            tf_rejeitar4_btn.TextAlign = ContentAlignment.MiddleCenter;
-            tf_rejeitar4_btn.Click += tf_rejeitar4_btn_Click;
+            Tf_aceitar4_btn.BackColor = Color.FromArgb(77, 177, 77);
+            Tf_aceitar4_btn.Cursor = Cursors.Hand;
+            Tf_aceitar4_btn.Font = new Font("Comic Sans MS", 8.25F, FontStyle.Bold);
+            Tf_aceitar4_btn.Location = new Point(550, 125);
+            Tf_aceitar4_btn.Margin = new Padding(0);
+            Tf_aceitar4_btn.Name = "Tf_aceitar4_btn";
+            Tf_aceitar4_btn.Size = new Size(70, 25);
+            Tf_aceitar4_btn.TabIndex = 10;
+            Tf_aceitar4_btn.Text = "ACEITAR";
+            Tf_aceitar4_btn.TextAlign = ContentAlignment.MiddleCenter;
+            Tf_aceitar4_btn.Click += Tf_aceitar4_btn_Click;
+            // 
+            // Tf_rejeitar4_btn
+            // 
+            Tf_rejeitar4_btn.BackColor = Color.FromArgb(210, 82, 82);
+            Tf_rejeitar4_btn.Cursor = Cursors.Hand;
+            Tf_rejeitar4_btn.Font = new Font("Comic Sans MS", 8.25F, FontStyle.Bold);
+            Tf_rejeitar4_btn.Location = new Point(410, 125);
+            Tf_rejeitar4_btn.Margin = new Padding(0);
+            Tf_rejeitar4_btn.Name = "Tf_rejeitar4_btn";
+            Tf_rejeitar4_btn.Size = new Size(70, 25);
+            Tf_rejeitar4_btn.TabIndex = 9;
+            Tf_rejeitar4_btn.Text = "REJEITAR";
+            Tf_rejeitar4_btn.TextAlign = ContentAlignment.MiddleCenter;
+            Tf_rejeitar4_btn.Click += Tf_rejeitar4_btn_Click;
             // 
             // tf_nacPatrocinador4
             // 
+            tf_nacPatrocinador4.BackColor = Color.Transparent;
             tf_nacPatrocinador4.Location = new Point(185, 100);
             tf_nacPatrocinador4.Margin = new Padding(0);
             tf_nacPatrocinador4.Name = "tf_nacPatrocinador4";
@@ -770,16 +846,16 @@
             tf_valorPatrocinador4.Text = "R$ -";
             tf_valorPatrocinador4.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // label21
+            // labelContratoRestantes04
             // 
-            label21.Font = new Font("Comic Sans MS", 9F, FontStyle.Bold);
-            label21.Location = new Point(520, 50);
-            label21.Margin = new Padding(0);
-            label21.Name = "label21";
-            label21.Size = new Size(120, 30);
-            label21.TabIndex = 3;
-            label21.Text = "CONTRATO";
-            label21.TextAlign = ContentAlignment.MiddleCenter;
+            labelContratoRestantes04.Font = new Font("Comic Sans MS", 9F, FontStyle.Bold);
+            labelContratoRestantes04.Location = new Point(520, 50);
+            labelContratoRestantes04.Margin = new Padding(0);
+            labelContratoRestantes04.Name = "labelContratoRestantes04";
+            labelContratoRestantes04.Size = new Size(120, 30);
+            labelContratoRestantes04.TabIndex = 3;
+            labelContratoRestantes04.Text = "CONTRATO";
+            labelContratoRestantes04.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label22
             // 
@@ -816,7 +892,7 @@
             // 
             // panel7
             // 
-            panel7.BackColor = Color.FromArgb(230, 240, 240);
+            panel7.BackColor = Color.FromArgb(240, 240, 240);
             panel7.Controls.Add(label30);
             panel7.Location = new Point(20, 690);
             panel7.Margin = new Padding(0);
@@ -827,6 +903,7 @@
             // label30
             // 
             label30.Anchor = AnchorStyles.None;
+            label30.Cursor = Cursors.Hand;
             label30.Font = new Font("Comic Sans MS", 14F, FontStyle.Bold);
             label30.Location = new Point(0, 0);
             label30.Margin = new Padding(0);
@@ -879,14 +956,14 @@
         private Label tf_nomePatrocinador;
         private Label tf_contratoPatrocinador;
         private Label tf_valorPatrocinador1;
-        private Label label3;
+        private Label labelContratoRestantes01;
         private Label label2;
         private Panel panel6;
         private PictureBox tf_nacPatrocinador2;
         private Label tf_nomePatrocinador2;
         private Label tf_contratoPatrocinador2;
         private Label tf_valorPatrocinador2;
-        private Label label7;
+        private Label labelContratoRestantes02;
         private Label label8;
         private Label tf_name04;
         private Label tf_name03;
@@ -895,7 +972,7 @@
         private Label tf_nomePatrocinador3;
         private Label tf_contratoPatrocinador3;
         private Label tf_valorPatrocinador3;
-        private Label label14;
+        private Label labelContratoRestantes03;
         private Label label15;
         private Label tf_name06;
         private Label tf_name05;
@@ -904,20 +981,20 @@
         private Label tf_nomePatrocinador4;
         private Label tf_contratoPatrocinador4;
         private Label tf_valorPatrocinador4;
-        private Label label21;
+        private Label labelContratoRestantes04;
         private Label label22;
         private Label tf_name08;
         private Label tf_name07;
         private Label label5;
         private Label tf_valorTotalEmConta;
-        private Label tf_aceitar1_btn;
-        private Label tf_rejeitar1_btn;
-        private Label tf_aceitar2_btn;
-        private Label tf_rejeitar2_btn;
-        private Label tf_aceitar3_btn;
-        private Label tf_rejeitar3_btn;
-        private Label tf_aceitar4_btn;
-        private Label tf_rejeitar4_btn;
+        private Label Tf_aceitar1_btn;
+        private Label Tf_rejeitar1_btn;
+        private Label Tf_aceitar2_btn;
+        private Label Tf_rejeitar2_btn;
+        private Label Tf_aceitar3_btn;
+        private Label Tf_rejeitar3_btn;
+        private Label Tf_aceitar4_btn;
+        private Label Tf_rejeitar4_btn;
         private PictureBox tf_nacPatrocinador1;
         private Label tf_nomePatrocinador1;
         private Label label20;
@@ -935,5 +1012,9 @@
         private Label label30;
         private Label tf_valorDeSalario;
         private Label label31;
+        private Label Tf_rescindir1_btn;
+        private Label Tf_rescindir2_btn;
+        private Label Tf_rescindir3_btn;
+        private Label Tf_rescindir4_btn;
     }
 }

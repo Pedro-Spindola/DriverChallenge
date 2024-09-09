@@ -65,7 +65,7 @@ namespace DriverChallenge
             // 
             // panel1
             // 
-            panel1.BackColor = Color.FromArgb(230, 240, 240);
+            panel1.BackColor = Color.FromArgb(240, 240, 240);
             panel1.Controls.Add(labelStatus2);
             panel1.Controls.Add(panelCorS2);
             panel1.Controls.Add(labelAssinar2);
@@ -160,7 +160,7 @@ namespace DriverChallenge
             // 
             // panel2
             // 
-            panel2.BackColor = Color.FromArgb(230, 240, 240);
+            panel2.BackColor = Color.FromArgb(240, 240, 240);
             panel2.Controls.Add(labelStatus1);
             panel2.Controls.Add(panelCorS1);
             panel2.Controls.Add(panelCorP1);
@@ -255,7 +255,7 @@ namespace DriverChallenge
             // 
             // panel5
             // 
-            panel5.BackColor = Color.FromArgb(230, 240, 240);
+            panel5.BackColor = Color.FromArgb(240, 240, 240);
             panel5.Controls.Add(labelStatus3);
             panel5.Controls.Add(panelCorS3);
             panel5.Controls.Add(panelCorP3);

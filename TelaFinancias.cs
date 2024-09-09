@@ -24,103 +24,206 @@ namespace DriverChallenge
         }
         private void TelaFinancias_Load(object sender, EventArgs e)
         {
+            LoadTela();
+        }
+
+        private void LoadTela()
+        {
+            if (financia.Patrocinadores[0].ContratoValido == false && financia.Patrocinadores[0].TempoPropostaContrato == 0)
+            {
+                Tf_rescindir1_btn.Visible = false;
+                Tf_aceitar1_btn.Visible = false;
+                Tf_rejeitar1_btn.Visible = false;
+                labelContratoRestantes01.Text = "CONTRATO";
+            }
+            else if (financia.Patrocinadores[0].ContratoValido == false)
+            {
+                Tf_rescindir1_btn.Visible = false;
+                labelContratoRestantes01.Text = "CONTRATO";
+            }
+            else
+            {
+                Tf_aceitar1_btn.Visible = false;
+                Tf_rejeitar1_btn.Visible = false;
+                labelContratoRestantes01.Text = "RESTANTES";
+            }
+            if (financia.Patrocinadores[1].ContratoValido == false && financia.Patrocinadores[1].TempoPropostaContrato == 0)
+            {
+                Tf_rescindir2_btn.Visible = false;
+                Tf_aceitar2_btn.Visible = false;
+                Tf_rejeitar2_btn.Visible = false;
+                labelContratoRestantes01.Text = "CONTRATO";
+            }
+            else if (financia.Patrocinadores[1].ContratoValido == false)
+            {
+                Tf_rescindir2_btn.Visible = false;
+                labelContratoRestantes01.Text = "CONTRATO";
+            }
+            else
+            {
+                Tf_aceitar2_btn.Visible = false;
+                Tf_rejeitar2_btn.Visible = false;
+                labelContratoRestantes01.Text = "RESTANTES";
+            }
+            if (financia.Patrocinadores[2].ContratoValido == false && financia.Patrocinadores[2].TempoPropostaContrato == 0)
+            {
+                Tf_rescindir3_btn.Visible = false;
+                Tf_aceitar3_btn.Visible = false;
+                Tf_rejeitar3_btn.Visible = false;
+                labelContratoRestantes01.Text = "CONTRATO";
+            }
+            else if (financia.Patrocinadores[2].ContratoValido == false)
+            {
+                Tf_rescindir3_btn.Visible = false;
+                labelContratoRestantes01.Text = "CONTRATO";
+            }
+            else
+            {
+                Tf_aceitar3_btn.Visible = false;
+                Tf_rejeitar3_btn.Visible = false;
+                labelContratoRestantes01.Text = "RESTANTES";
+            }
+            if (financia.Patrocinadores[3].ContratoValido == false && financia.Patrocinadores[3].TempoPropostaContrato == 0)
+            {
+                Tf_rescindir4_btn.Visible = false;
+                Tf_aceitar4_btn.Visible = false;
+                Tf_rejeitar4_btn.Visible = false;
+                labelContratoRestantes01.Text = "CONTRATO";
+            }
+            else if (financia.Patrocinadores[3].ContratoValido == false)
+            {
+                Tf_rescindir4_btn.Visible = false;
+                labelContratoRestantes01.Text = "CONTRATO";
+            }
+            else
+            {
+                Tf_aceitar4_btn.Visible = false;
+                Tf_rejeitar4_btn.Visible = false;
+                labelContratoRestantes01.Text = "RESTANTES";
+            }
+
             tf_valorDeSalario.Text = financia.SalarioDaEquipe.ToString("C", new System.Globalization.CultureInfo("pt-BR"));
             tf_valorTotalPatrocinadores.Text = financia.SalarioPatrocinadores.ToString("C", new System.Globalization.CultureInfo("pt-BR"));
             tf_valorTotalEmConta.Text = financia.DinheiroJogadorTotal.ToString("C", new System.Globalization.CultureInfo("pt-BR"));
+            tf_despesasEscritorio.Text = financia.CustoEscritorio.ToString("C", new System.Globalization.CultureInfo("pt-BR"));
 
             tf_nomePatrocinador1.Text = financia.Patrocinadores[0].NomeDaEmpresa;
             string caminhoImagem01 = Path.Combine("Paises", financia.Patrocinadores[0].NacionalidadeDaEmpresa + ".png");
             tf_nacPatrocinador1.Image = Image.FromFile(caminhoImagem01);
             tf_valorPatrocinador1.Text = financia.Patrocinadores[0].ValorContrato.ToString("C", new System.Globalization.CultureInfo("pt-BR"));
-            tf_contratoPatrocinador1.Text = financia.Patrocinadores[0].TempoDeContrato.ToString() + " meses";
+
+            if(financia.Patrocinadores[0].ContratoValido)tf_contratoPatrocinador1.Text = financia.Patrocinadores[0].TempoDeContratoSemanal.ToString() + " semanas";
+            if(financia.Patrocinadores[0].ContratoValido == false) tf_contratoPatrocinador1.Text = financia.Patrocinadores[0].TempoDeContrato.ToString() + " meses";
 
             tf_nomePatrocinador2.Text = financia.Patrocinadores[1].NomeDaEmpresa;
             string caminhoImagem02 = Path.Combine("Paises", financia.Patrocinadores[1].NacionalidadeDaEmpresa + ".png");
             tf_nacPatrocinador2.Image = Image.FromFile(caminhoImagem02);
             tf_valorPatrocinador2.Text = financia.Patrocinadores[1].ValorContrato.ToString("C", new System.Globalization.CultureInfo("pt-BR"));
-            tf_contratoPatrocinador2.Text = financia.Patrocinadores[1].TempoDeContrato.ToString() + " meses";
+            if (financia.Patrocinadores[1].ContratoValido) tf_contratoPatrocinador2.Text = financia.Patrocinadores[1].TempoDeContratoSemanal.ToString() + " semanas";
+            if (financia.Patrocinadores[1].ContratoValido == false) tf_contratoPatrocinador2.Text = financia.Patrocinadores[1].TempoDeContrato.ToString() + " meses";
 
             tf_nomePatrocinador3.Text = financia.Patrocinadores[2].NomeDaEmpresa;
             string caminhoImagem03 = Path.Combine("Paises", financia.Patrocinadores[2].NacionalidadeDaEmpresa + ".png");
             tf_nacPatrocinador3.Image = Image.FromFile(caminhoImagem03);
             tf_valorPatrocinador3.Text = financia.Patrocinadores[2].ValorContrato.ToString("C", new System.Globalization.CultureInfo("pt-BR"));
-            tf_contratoPatrocinador3.Text = financia.Patrocinadores[2].TempoDeContrato.ToString() + " meses";
+            if (financia.Patrocinadores[2].ContratoValido) tf_contratoPatrocinador3.Text = financia.Patrocinadores[2].TempoDeContratoSemanal.ToString() + " semanas";
+            if (financia.Patrocinadores[2].ContratoValido == false) tf_contratoPatrocinador3.Text = financia.Patrocinadores[2].TempoDeContrato.ToString() + " meses";
 
             tf_nomePatrocinador4.Text = financia.Patrocinadores[3].NomeDaEmpresa;
             string caminhoImagem04 = Path.Combine("Paises", financia.Patrocinadores[3].NacionalidadeDaEmpresa + ".png");
             tf_nacPatrocinador4.Image = Image.FromFile(caminhoImagem04);
             tf_valorPatrocinador4.Text = financia.Patrocinadores[3].ValorContrato.ToString("C", new System.Globalization.CultureInfo("pt-BR"));
-            tf_contratoPatrocinador4.Text = financia.Patrocinadores[3].TempoDeContrato.ToString() + " meses";
+            if (financia.Patrocinadores[3].ContratoValido) tf_contratoPatrocinador4.Text = financia.Patrocinadores[3].TempoDeContratoSemanal.ToString() + " semanas";
+            if (financia.Patrocinadores[3].ContratoValido == false) tf_contratoPatrocinador4.Text = financia.Patrocinadores[3].TempoDeContrato.ToString() + " meses";
         }
-
 
         private void label30_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void tf_aceitar1_btn_Click(object sender, EventArgs e)
+        private void Tf_aceitar1_btn_Click(object sender, EventArgs e)
         {
-            if (financia.Patrocinadores[0].ContratoValido == false)
-            {
-                financia.Patrocinadores[0].ContratoValido = true;
-            }
+            financia.Patrocinadores[0].ContratoValido = true;
+            Tf_aceitar1_btn.Visible = false;
+            Tf_rejeitar1_btn.Visible = false;
+            Tf_rescindir1_btn.Visible = true;
+            financia.EspacoContratoDisponivel--;
+            LoadTela();
         }
 
-        private void tf_rejeitar1_btn_Click(object sender, EventArgs e)
+        private void Tf_rejeitar1_btn_Click(object sender, EventArgs e)
         {
-            if (financia.Patrocinadores[0].ContratoValido == false)
-            {
-                financia.limparPatrocinador(financia.Patrocinadores[0]);
-            }
+            financia.limparPatrocinador(financia.Patrocinadores[0]);
+            LoadTela();
         }
 
-        private void tf_aceitar2_btn_Click(object sender, EventArgs e)
+        private void Tf_aceitar2_btn_Click(object sender, EventArgs e)
         {
-            if (financia.Patrocinadores[1].ContratoValido == false)
-            {
-                financia.Patrocinadores[1].ContratoValido = true;
-            }
+            financia.Patrocinadores[1].ContratoValido = true;
+            Tf_aceitar2_btn.Visible = false;
+            Tf_rejeitar2_btn.Visible = false;
+            Tf_rescindir2_btn.Visible = true;
+            financia.EspacoContratoDisponivel--;
+            LoadTela();
         }
 
-        private void tf_rejeitar2_btn_Click(object sender, EventArgs e)
+        private void Tf_rejeitar2_btn_Click(object sender, EventArgs e)
         {
-            if (financia.Patrocinadores[1].ContratoValido == false)
-            {
-                financia.limparPatrocinador(financia.Patrocinadores[1]);
-            }
+            financia.limparPatrocinador(financia.Patrocinadores[1]);
+            LoadTela();
         }
 
-        private void tf_aceitar3_btn_Click(object sender, EventArgs e)
+        private void Tf_aceitar3_btn_Click(object sender, EventArgs e)
         {
-            if (financia.Patrocinadores[2].ContratoValido == false)
-            {
-                financia.Patrocinadores[2].ContratoValido = true;
-            }
+            financia.Patrocinadores[2].ContratoValido = true;
+            Tf_aceitar3_btn.Visible = false;
+            Tf_rejeitar3_btn.Visible = false;
+            Tf_rescindir3_btn.Visible = true;
+            financia.EspacoContratoDisponivel--;
+            LoadTela();
         }
 
-        private void tf_rejeitar3_btn_Click(object sender, EventArgs e)
+        private void Tf_rejeitar3_btn_Click(object sender, EventArgs e)
         {
-            if (financia.Patrocinadores[2].ContratoValido == false)
-            {
-                financia.limparPatrocinador(financia.Patrocinadores[2]);
-            }
+            financia.limparPatrocinador(financia.Patrocinadores[2]);
+            LoadTela();
         }
 
-        private void tf_aceitar4_btn_Click(object sender, EventArgs e)
+        private void Tf_aceitar4_btn_Click(object sender, EventArgs e)
         {
-            if (financia.Patrocinadores[3].ContratoValido == false)
-            {
-                financia.Patrocinadores[3].ContratoValido = true;
-            }
+            financia.Patrocinadores[3].ContratoValido = true;
+            Tf_aceitar4_btn.Visible = false;
+            Tf_rejeitar4_btn.Visible = false;
+            Tf_rescindir4_btn.Visible = true;
+            financia.EspacoContratoDisponivel--;
+            LoadTela();
         }
 
-        private void tf_rejeitar4_btn_Click(object sender, EventArgs e)
+        private void Tf_rejeitar4_btn_Click(object sender, EventArgs e)
         {
-            if (financia.Patrocinadores[3].ContratoValido == false)
-            {
-                financia.limparPatrocinador(financia.Patrocinadores[3]);
-            }
+            financia.limparPatrocinador(financia.Patrocinadores[3]);
+            LoadTela();
+        }
+
+        private void Tf_rescindir1_btn_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(financia.Patrocinadores[0].TempoDeContratoSemanal.ToString());
+        }
+
+        private void Tf_rescindir2_btn_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(financia.Patrocinadores[1].TempoDeContratoSemanal.ToString());
+        }
+
+        private void Tf_rescindir3_btn_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(financia.Patrocinadores[2].TempoDeContratoSemanal.ToString());
+        }
+
+        private void Tf_rescindir4_btn_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(financia.Patrocinadores[3].TempoDeContratoSemanal.ToString());
         }
     }
 }

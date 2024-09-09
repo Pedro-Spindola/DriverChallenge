@@ -13,6 +13,7 @@ namespace DriverChallenge
         public double SalarioPatrocinadores { get; set; } = 0;
         public double EspacoContratoDisponivel { get; set; } = 4;
         public double SalarioDaEquipe { get; set; } = 0;
+        public double CustoEscritorio { get; set; } = 15000;
         public Patrocinador[] Patrocinadores { get; set; } = new Patrocinador[4]
         {
             new Patrocinador(),
@@ -20,31 +21,8 @@ namespace DriverChallenge
             new Patrocinador(),
             new Patrocinador()
         };
-
         public Financia() {
-
         }
-
-        public void AtualizarSemana()
-        {
-            for (int i = 0; i < Patrocinadores.Length; i++)
-            {
-                if (Patrocinadores[i].ContratoValido == false && Patrocinadores[i].TempoPropostaContrato != 0)
-                {
-                    Patrocinadores[i].TempoPropostaContrato--;
-                }
-                if (Patrocinadores[i].ContratoValido)
-                {
-                    Patrocinadores[i].TempoDeContratoSemanal--;
-                }
-                if (Patrocinadores[i].TempoDeContratoSemanal == 0)
-                {
-                    limparPatrocinador(Patrocinadores[i]);
-                }
-            }
-            DinheiroJogadorTotal += retonarSalarioTotalSemanal();
-        }
-
         public double retonarSalarioTotalSemanal()
         {
             double salarioPatrocinadoresTemporario = 0;
@@ -55,7 +33,8 @@ namespace DriverChallenge
                     salarioPatrocinadoresTemporario += Patrocinadores[i].ValorContrato;
                 }
             }
-            return (SalarioDaEquipe + SalarioPatrocinadores);
+            SalarioPatrocinadores = salarioPatrocinadoresTemporario;
+            return (SalarioDaEquipe + SalarioPatrocinadores - CustoEscritorio);
 
         }
         public void limparPatrocinador(Patrocinador patrocinador)
@@ -71,11 +50,29 @@ namespace DriverChallenge
         public Patrocinador AdicionarNovoContrato(Piloto piloto)
         {
             Random random = new Random();
-            int indiceAleatorio = random.Next(0, ListSelecionarPatrocinador.Count);
-            string patrocinadorSelecionado = ListSelecionarPatrocinador[indiceAleatorio];
-            string[] dadosPatrocinador = patrocinadorSelecionado.Split(',');
-            string nome = dadosPatrocinador[0];
-            string nacionalidade = dadosPatrocinador[1];
+            string nome = "";
+            string nacionalidade = "";
+            do
+            {
+                int indiceAleatorio = random.Next(0, ListSelecionarPatrocinador.Count);
+                string patrocinadorSelecionado = ListSelecionarPatrocinador[indiceAleatorio];
+                string[] dadosPatrocinador = patrocinadorSelecionado.Split(',');
+                nome = dadosPatrocinador[0];
+                nacionalidade = dadosPatrocinador[1];
+                int patrocinadorNaoRepetido = 0;
+                for (int i = 0; i < Patrocinadores.Length; i++)
+                {
+                    if (Patrocinadores[i].ContratoValido && Patrocinadores[i].NomeDaEmpresa == nome)
+                    {
+                        patrocinadorNaoRepetido++;
+                    }
+                }
+                if(patrocinadorNaoRepetido == 4)
+                {
+                    break;
+                }
+            } while (true);
+
             double valor = 0;
             if (piloto.Categoria == "F1")
             {
@@ -90,10 +87,11 @@ namespace DriverChallenge
                 valor = random.Next(4000, 10000) * ((piloto.VisibilidadePiloto + piloto.MediaPiloto) / 100.0);
 
             }
-
-            int contrato = random.Next(1, 5); // 24 a 105 semanas, porem contrato vai ser em mês no caso 6 a 24.   Para teste vou utilizar (1, 5) 
-            int tempoDeContrato = contrato * 4;
-            Patrocinador novoPatrocinador = new Patrocinador(nome, nacionalidade, valor, contrato, tempoDeContrato);
+            int valorArredondado = (int)(Math.Round(valor / 10.0) * 10);
+            int contrato = random.Next(6, 25); // 24 a 105 semanas, porem contrato vai ser em mês no caso 6 a 24.   Para teste vou utilizar (1, 5) 
+            int tempoDeContrato = (contrato * 4);
+            int tempoProposta = random.Next(2, 11);
+            Patrocinador novoPatrocinador = new Patrocinador(nome, nacionalidade, valorArredondado, contrato, tempoDeContrato, tempoProposta);
             return novoPatrocinador;
         }
         public class Patrocinador
@@ -107,15 +105,14 @@ namespace DriverChallenge
             public Boolean ContratoValido { get; set; } = false; 
 
             public Patrocinador() { }
-            public Patrocinador(string nome, string nacionalidade, double valor, int contrato, int contratoSemanal)
+            public Patrocinador(string nome, string nacionalidade, double valor, int contrato, int contratoSemanal, int tempoProposta)
             {
                 NomeDaEmpresa = nome;
                 NacionalidadeDaEmpresa = nacionalidade;
                 ValorContrato = valor;
                 TempoDeContrato = contrato;
                 TempoDeContratoSemanal = contratoSemanal;
-                Random r = new Random();
-                TempoPropostaContrato = r.Next(1, 11);
+                TempoPropostaContrato = tempoProposta;
             }
         }
         public List<string> ListSelecionarPatrocinador { get; } = new List<string>
@@ -289,6 +286,5 @@ namespace DriverChallenge
             "TSMC,Taiwan",
             "PDVSA,Venezuela"
         };
-
     }
 }

@@ -30,6 +30,7 @@
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             panel1 = new Panel();
             pictureBoxBtnFechar = new PictureBox();
             pictureBoxBtnOpcao = new PictureBox();
@@ -40,9 +41,10 @@
             labelSaldoPorSemana = new Label();
             labelSaldoNaConta = new Label();
             panel7 = new Panel();
-            pictureBoxNacionalidadePiloto = new PictureBox();
             labelIdadeJogador = new Label();
-            labelNomeJogador = new Label();
+            labelNomeDoJogador = new Label();
+            pictureBoxNacionalidadePiloto = new PictureBox();
+            labelEquipeDoJogador = new Label();
             panel6 = new Panel();
             labelSemanaGP = new Label();
             labelNomeGP = new Label();
@@ -72,7 +74,6 @@
             label4 = new Label();
             pictureBoxPilotos = new PictureBox();
             panelCorP4 = new Panel();
-            panel13 = new Panel();
             panel14 = new Panel();
             dgvClassificacaoEquipes = new DataGridView();
             panel15 = new Panel();
@@ -80,16 +81,17 @@
             panel16 = new Panel();
             label6 = new Label();
             panel17 = new Panel();
+            label7 = new Label();
+            DgvCaixaDeMessagem = new DataGridView();
             panelCorP7 = new Panel();
             pictureBoxMensagem = new PictureBox();
-            panelCorP6 = new Panel();
-            pictureBoxMensagemVisualizada = new PictureBox();
             panelCorS6 = new Panel();
             panel19 = new Panel();
             panelCorS5 = new Panel();
             panelCorP5 = new Panel();
             label5 = new Label();
             pictureBoxEquipes = new PictureBox();
+            panel13 = new Panel();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxBtnFechar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxBtnOpcao).BeginInit();
@@ -115,10 +117,9 @@
             ((System.ComponentModel.ISupportInitialize)dgvClassificacaoPilotos).BeginInit();
             panel16.SuspendLayout();
             panel17.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)DgvCaixaDeMessagem).BeginInit();
             panelCorP7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxMensagem).BeginInit();
-            panelCorP6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxMensagemVisualizada).BeginInit();
             panel19.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxEquipes).BeginInit();
             SuspendLayout();
@@ -240,48 +241,61 @@
             // panel7
             // 
             panel7.BackColor = Color.Transparent;
-            panel7.Controls.Add(pictureBoxNacionalidadePiloto);
             panel7.Controls.Add(labelIdadeJogador);
-            panel7.Controls.Add(labelNomeJogador);
+            panel7.Controls.Add(labelNomeDoJogador);
+            panel7.Controls.Add(pictureBoxNacionalidadePiloto);
+            panel7.Controls.Add(labelEquipeDoJogador);
             panel7.Location = new Point(550, 0);
             panel7.Margin = new Padding(0);
             panel7.Name = "panel7";
             panel7.Size = new Size(290, 91);
             panel7.TabIndex = 3;
             // 
-            // pictureBoxNacionalidadePiloto
-            // 
-            pictureBoxNacionalidadePiloto.Location = new Point(0, 50);
-            pictureBoxNacionalidadePiloto.Margin = new Padding(0);
-            pictureBoxNacionalidadePiloto.Name = "pictureBoxNacionalidadePiloto";
-            pictureBoxNacionalidadePiloto.Size = new Size(90, 30);
-            pictureBoxNacionalidadePiloto.SizeMode = PictureBoxSizeMode.CenterImage;
-            pictureBoxNacionalidadePiloto.TabIndex = 4;
-            pictureBoxNacionalidadePiloto.TabStop = false;
-            // 
             // labelIdadeJogador
             // 
             labelIdadeJogador.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             labelIdadeJogador.Font = new Font("Segoe UI", 10F);
-            labelIdadeJogador.Location = new Point(90, 50);
+            labelIdadeJogador.Location = new Point(145, 50);
             labelIdadeJogador.Margin = new Padding(0);
             labelIdadeJogador.Name = "labelIdadeJogador";
-            labelIdadeJogador.Size = new Size(110, 30);
+            labelIdadeJogador.Size = new Size(100, 30);
             labelIdadeJogador.TabIndex = 2;
-            labelIdadeJogador.Text = "Idade: 00";
+            labelIdadeJogador.Text = "Idade";
             labelIdadeJogador.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // labelNomeJogador
+            // labelNomeDoJogador
             // 
-            labelNomeJogador.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            labelNomeJogador.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            labelNomeJogador.Location = new Point(0, 0);
-            labelNomeJogador.Margin = new Padding(0);
-            labelNomeJogador.Name = "labelNomeJogador";
-            labelNomeJogador.Size = new Size(290, 50);
-            labelNomeJogador.TabIndex = 1;
-            labelNomeJogador.Text = "Nome Piloto";
-            labelNomeJogador.TextAlign = ContentAlignment.MiddleCenter;
+            labelNomeDoJogador.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            labelNomeDoJogador.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            labelNomeDoJogador.Location = new Point(0, 25);
+            labelNomeDoJogador.Margin = new Padding(0);
+            labelNomeDoJogador.Name = "labelNomeDoJogador";
+            labelNomeDoJogador.Size = new Size(290, 25);
+            labelNomeDoJogador.TabIndex = 1;
+            labelNomeDoJogador.Text = "Nome Piloto";
+            labelNomeDoJogador.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // pictureBoxNacionalidadePiloto
+            // 
+            pictureBoxNacionalidadePiloto.Location = new Point(85, 50);
+            pictureBoxNacionalidadePiloto.Margin = new Padding(0);
+            pictureBoxNacionalidadePiloto.Name = "pictureBoxNacionalidadePiloto";
+            pictureBoxNacionalidadePiloto.Size = new Size(60, 30);
+            pictureBoxNacionalidadePiloto.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBoxNacionalidadePiloto.TabIndex = 4;
+            pictureBoxNacionalidadePiloto.TabStop = false;
+            // 
+            // labelEquipeDoJogador
+            // 
+            labelEquipeDoJogador.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            labelEquipeDoJogador.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            labelEquipeDoJogador.Location = new Point(0, 0);
+            labelEquipeDoJogador.Margin = new Padding(0);
+            labelEquipeDoJogador.Name = "labelEquipeDoJogador";
+            labelEquipeDoJogador.Size = new Size(290, 25);
+            labelEquipeDoJogador.TabIndex = 2;
+            labelEquipeDoJogador.Text = "Nome Equipe";
+            labelEquipeDoJogador.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // panel6
             // 
@@ -386,7 +400,7 @@
             // 
             // panel10
             // 
-            panel10.BackColor = Color.FromArgb(230, 240, 240);
+            panel10.BackColor = SystemColors.ButtonFace;
             panel10.Controls.Add(panelCorS1);
             panel10.Controls.Add(panelCorP1);
             panel10.Controls.Add(label1);
@@ -436,10 +450,11 @@
             pictureBoxEscritorio.SizeMode = PictureBoxSizeMode.CenterImage;
             pictureBoxEscritorio.TabIndex = 0;
             pictureBoxEscritorio.TabStop = false;
+            pictureBoxEscritorio.Click += pictureBoxEscritorio_Click;
             // 
             // panel4
             // 
-            panel4.BackColor = Color.FromArgb(230, 240, 240);
+            panel4.BackColor = Color.FromArgb(240, 240, 240);
             panel4.Controls.Add(panelCorS2);
             panel4.Controls.Add(panelCorP2);
             panel4.Controls.Add(label2);
@@ -493,7 +508,7 @@
             // 
             // panel11
             // 
-            panel11.BackColor = Color.FromArgb(230, 240, 240);
+            panel11.BackColor = Color.FromArgb(240, 240, 240);
             panel11.Controls.Add(panelCorS3);
             panel11.Controls.Add(panelCorP3);
             panel11.Controls.Add(label3);
@@ -547,7 +562,7 @@
             // 
             // panel12
             // 
-            panel12.BackColor = Color.FromArgb(230, 240, 240);
+            panel12.BackColor = Color.FromArgb(240, 240, 240);
             panel12.Controls.Add(panelCorS4);
             panel12.Controls.Add(label4);
             panel12.Controls.Add(pictureBoxPilotos);
@@ -599,18 +614,9 @@
             panelCorP4.Size = new Size(14, 60);
             panelCorP4.TabIndex = 4;
             // 
-            // panel13
-            // 
-            panel13.BackColor = Color.FromArgb(230, 240, 240);
-            panel13.Location = new Point(20, 470);
-            panel13.Margin = new Padding(0);
-            panel13.Name = "panel13";
-            panel13.Size = new Size(320, 270);
-            panel13.TabIndex = 5;
-            // 
             // panel14
             // 
-            panel14.BackColor = Color.FromArgb(230, 240, 240);
+            panel14.BackColor = Color.FromArgb(240, 240, 240);
             panel14.Controls.Add(dgvClassificacaoEquipes);
             panel14.Location = new Point(350, 400);
             panel14.Margin = new Padding(0);
@@ -647,7 +653,7 @@
             // 
             // panel15
             // 
-            panel15.BackColor = Color.FromArgb(230, 240, 240);
+            panel15.BackColor = Color.FromArgb(240, 240, 240);
             panel15.Controls.Add(dgvClassificacaoPilotos);
             panel15.Location = new Point(820, 190);
             panel15.Margin = new Padding(0);
@@ -683,7 +689,7 @@
             // 
             // panel16
             // 
-            panel16.BackColor = Color.FromArgb(230, 240, 240);
+            panel16.BackColor = Color.FromArgb(240, 240, 240);
             panel16.Controls.Add(label6);
             panel16.Location = new Point(820, 120);
             panel16.Margin = new Padding(0);
@@ -703,15 +709,55 @@
             // 
             // panel17
             // 
-            panel17.BackColor = Color.FromArgb(230, 240, 240);
+            panel17.BackColor = Color.FromArgb(240, 240, 240);
+            panel17.Controls.Add(label7);
+            panel17.Controls.Add(DgvCaixaDeMessagem);
             panel17.Controls.Add(panelCorP7);
-            panel17.Controls.Add(panelCorP6);
             panel17.Controls.Add(panelCorS6);
             panel17.Location = new Point(350, 120);
             panel17.Margin = new Padding(0);
             panel17.Name = "panel17";
             panel17.Size = new Size(460, 270);
             panel17.TabIndex = 9;
+            // 
+            // label7
+            // 
+            label7.BackColor = Color.Transparent;
+            label7.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            label7.Location = new Point(60, 15);
+            label7.Margin = new Padding(0);
+            label7.Name = "label7";
+            label7.Padding = new Padding(10, 0, 0, 0);
+            label7.Size = new Size(216, 30);
+            label7.TabIndex = 4;
+            label7.Text = "Caixa de Messagem";
+            label7.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // DgvCaixaDeMessagem
+            // 
+            DgvCaixaDeMessagem.AllowUserToAddRows = false;
+            DgvCaixaDeMessagem.AllowUserToDeleteRows = false;
+            DgvCaixaDeMessagem.AllowUserToOrderColumns = true;
+            DgvCaixaDeMessagem.AllowUserToResizeColumns = false;
+            DgvCaixaDeMessagem.AllowUserToResizeRows = false;
+            DgvCaixaDeMessagem.BorderStyle = BorderStyle.None;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9.75F);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            DgvCaixaDeMessagem.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            DgvCaixaDeMessagem.ColumnHeadersHeight = 22;
+            DgvCaixaDeMessagem.Location = new Point(0, 60);
+            DgvCaixaDeMessagem.Margin = new Padding(0);
+            DgvCaixaDeMessagem.MultiSelect = false;
+            DgvCaixaDeMessagem.Name = "DgvCaixaDeMessagem";
+            DgvCaixaDeMessagem.ReadOnly = true;
+            DgvCaixaDeMessagem.RowHeadersVisible = false;
+            DgvCaixaDeMessagem.Size = new Size(460, 210);
+            DgvCaixaDeMessagem.TabIndex = 3;
             // 
             // panelCorP7
             // 
@@ -724,32 +770,16 @@
             // 
             // pictureBoxMensagem
             // 
-            pictureBoxMensagem.Location = new Point(10, 0);
+            pictureBoxMensagem.Cursor = Cursors.Hand;
+            pictureBoxMensagem.Dock = DockStyle.Fill;
+            pictureBoxMensagem.Location = new Point(0, 0);
             pictureBoxMensagem.Margin = new Padding(0);
             pictureBoxMensagem.Name = "pictureBoxMensagem";
-            pictureBoxMensagem.Size = new Size(60, 30);
+            pictureBoxMensagem.Size = new Size(80, 30);
             pictureBoxMensagem.SizeMode = PictureBoxSizeMode.CenterImage;
             pictureBoxMensagem.TabIndex = 1;
             pictureBoxMensagem.TabStop = false;
-            // 
-            // panelCorP6
-            // 
-            panelCorP6.Controls.Add(pictureBoxMensagemVisualizada);
-            panelCorP6.Location = new Point(80, 15);
-            panelCorP6.Margin = new Padding(0);
-            panelCorP6.Name = "panelCorP6";
-            panelCorP6.Size = new Size(80, 30);
-            panelCorP6.TabIndex = 1;
-            // 
-            // pictureBoxMensagemVisualizada
-            // 
-            pictureBoxMensagemVisualizada.Location = new Point(10, 0);
-            pictureBoxMensagemVisualizada.Margin = new Padding(0);
-            pictureBoxMensagemVisualizada.Name = "pictureBoxMensagemVisualizada";
-            pictureBoxMensagemVisualizada.Size = new Size(60, 30);
-            pictureBoxMensagemVisualizada.SizeMode = PictureBoxSizeMode.CenterImage;
-            pictureBoxMensagemVisualizada.TabIndex = 0;
-            pictureBoxMensagemVisualizada.TabStop = false;
+            pictureBoxMensagem.Click += pictureBoxMensagem_Click;
             // 
             // panelCorS6
             // 
@@ -761,7 +791,7 @@
             // 
             // panel19
             // 
-            panel19.BackColor = Color.FromArgb(230, 240, 240);
+            panel19.BackColor = Color.FromArgb(240, 240, 240);
             panel19.Controls.Add(panelCorS5);
             panel19.Controls.Add(panelCorP5);
             panel19.Controls.Add(label5);
@@ -812,6 +842,15 @@
             pictureBoxEquipes.TabIndex = 1;
             pictureBoxEquipes.TabStop = false;
             pictureBoxEquipes.Click += PictureBoxEquipes_Click;
+            // 
+            // panel13
+            // 
+            panel13.BackColor = SystemColors.ButtonFace;
+            panel13.Location = new Point(20, 470);
+            panel13.Margin = new Padding(0);
+            panel13.Name = "panel13";
+            panel13.Size = new Size(320, 270);
+            panel13.TabIndex = 5;
             // 
             // TelaPrincipal
             // 
@@ -864,10 +903,9 @@
             ((System.ComponentModel.ISupportInitialize)dgvClassificacaoPilotos).EndInit();
             panel16.ResumeLayout(false);
             panel17.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)DgvCaixaDeMessagem).EndInit();
             panelCorP7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBoxMensagem).EndInit();
-            panelCorP6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBoxMensagemVisualizada).EndInit();
             panel19.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBoxEquipes).EndInit();
             ResumeLayout(false);
@@ -886,7 +924,7 @@
         private Label labelSaldoPorSemana;
         private Label labelSaldoNaConta;
         private Label labelIdadeJogador;
-        private Label labelNomeJogador;
+        private Label labelNomeDoJogador;
         private Label labelSemanaGP;
         private Label labelNomeGP;
         private Label labelGpDoPais;
@@ -897,7 +935,6 @@
         private Panel panel4;
         private Panel panel11;
         private Panel panel12;
-        private Panel panel13;
         private Panel panel14;
         private Panel panel15;
         private Panel panel16;
@@ -931,8 +968,10 @@
         private Label label6;
         private Panel panelCorS6;
         private Panel panelCorP7;
-        private Panel panelCorP6;
         private PictureBox pictureBoxMensagem;
-        private PictureBox pictureBoxMensagemVisualizada;
+        private DataGridView DgvCaixaDeMessagem;
+        private Label label7;
+        private Label labelEquipeDoJogador;
+        private Panel panel13;
     }
 }

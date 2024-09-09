@@ -10,6 +10,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static DriverChallenge.Equipe;
+using static DriverChallenge.Financia;
 using static DriverChallenge.Piloto;
 
 namespace DriverChallenge
@@ -19,14 +20,13 @@ namespace DriverChallenge
         Principal principal;
         private Equipe[] equipe = new Equipe[30];      // Criando array com a quantidade de equipes.
         private Piloto[] piloto = new Piloto[100];     // Criando array com a quantidade de pilotos.
-        private Pista[] pista = new Pista[3];          // Crinado array com a quantidade de pistas. -> Mudar para o padrão depois de teste = 25 para teste e = 3
+        private Pista[] pista = new Pista[25];          // Crinado array com a quantidade de pistas. -> Mudar para o padrão depois de teste = 25 para teste e = 3
         private Random random = new Random();
         private Financia financia = new Financia();
         private Motor motor = new Motor();
         Color corPrincipal;
         Color corSecundaria;
         Color corTexto;
-        private int indexDoJogador = 1;
         public TelaPrincipal(Principal principal)
         {
             InitializeComponent();
@@ -52,18 +52,19 @@ namespace DriverChallenge
                 Console.WriteLine("Carregado");
             }
             // Converte a string hexadecimal em um objeto Color
-            indexDoJogador = principal.IndexDoJogador;
-            principal.CorPrincipal = piloto[indexDoJogador].Cor1;
-            principal.CorSecundaria = piloto[indexDoJogador].Cor2;
+            principal.CorPrincipal = piloto[principal.IndexDoJogador].Cor1;
+            principal.CorSecundaria = piloto[principal.IndexDoJogador].Cor2;
             corPrincipal = ColorTranslator.FromHtml(principal.CorPrincipal);
             corSecundaria = ColorTranslator.FromHtml(principal.CorSecundaria);
             AtualizarCores();
             AtualizarNomesNaTelaInicial();
             CriarDataGridViewClassEquipes();
             CriarDataGridViewClassPilotos();
+            CriarDataGridViewCaixaDeEmail();
             AtualizarNomesNaTelaInicial();
             AtualizarTabelaInicioDeTemporada();
             AtualizarTabelas();
+            PreencherDataGridViewCaixaDeEmail();
         }
         public void IniciarNovoGame()
         {
@@ -137,7 +138,7 @@ namespace DriverChallenge
 
             */
             // Equipes F1 (média entre 70 a 100)
-            equipe[0] = new Equipe("Red Bull", "#03183B", "#C70101", "#FFFFFF", "Austria", 92, 91, 94, 90, 93, 96, 94, 91, "Honda", "F1", motor);
+            equipe[0] = new Equipe("Red Bull", "#03183B", "#C70101", "#FFFFFF", "Áustria", 92, 91, 94, 90, 93, 96, 94, 91, "Honda", "F1", motor);
             equipe[1] = new Equipe("Mercedes", "#C4C4C4", "#09BF81", "#000000", "Alemanha", 86, 87, 84, 85, 86, 85, 84, 87, "Mercedes", "F1", motor);
             equipe[2] = new Equipe("Ferrari", "#FF0000", "#FFFFFF", "#000000", "Itália", 83, 82, 88, 86, 85, 84, 85, 84, "Ferrari", "F1", motor);
             equipe[3] = new Equipe("Williams", "#112685", "#FFFFFF", "#FFFFFF", "Inglaterra", 77, 74, 76, 75, 76, 74, 77, 76, "TAG", "F1", motor);
@@ -263,11 +264,12 @@ namespace DriverChallenge
                 }
             }
             principal.XpTurnoSemanal(piloto);
+            principal.XpTurnoSemanalJogador(piloto);
             CriandoOsDadosPistas();
             EmbaralharPistas();
             DefinirDataDaSemanaDeProvaDaPista();
 
-            principal.IdadeJogador = piloto[indexDoJogador].IdadePiloto;
+            principal.IdadeJogador = piloto[principal.IndexDoJogador].IdadePiloto;
 
             principal.ProximoGp = pista[0].NomeGp;
             principal.ProximoGpPais = pista[0].NomeCircuito;
@@ -283,7 +285,8 @@ namespace DriverChallenge
                 int bases = random.Next(10000, 12001);
                 int bonus = random.Next(5000, 10001);
                 int salario = (((habilidade * bases) / 200) + bonus);
-                return salario;
+                int valorArredondado = (int)(Math.Round(salario / 5.0) * 5);
+                return valorArredondado;
             }
             if (categoria == "F2")
             {
@@ -291,7 +294,8 @@ namespace DriverChallenge
                 int bases = random.Next(8000, 10001);
                 int bonus = random.Next(5000, 10001);
                 int salario = (((habilidade * bases) / 200) + bonus);
-                return salario;
+                int valorArredondado = (int)(Math.Round(salario / 5.0) * 5);
+                return valorArredondado;
             }
             if (categoria == "F3")
             {
@@ -299,7 +303,8 @@ namespace DriverChallenge
                 int bases = random.Next(6000, 8001);
                 int bonus = random.Next(5000, 10001);
                 int salario = (((habilidade * bases) / 200) + bonus);
-                return salario;
+                int valorArredondado = (int)(Math.Round(salario / 5.0) * 5);
+                return valorArredondado;
             }
             return 0;
         }
@@ -313,7 +318,6 @@ namespace DriverChallenge
             pista[0] = new Pista("Austrália", "Melbourne", 58, 44, 56, 76800, 7, 8, 9, 10, 11);
             pista[1] = new Pista("Itália", "Monza", 53, 35, 65, 70200, 4, 5, 6, 7, 8, 9);
             pista[2] = new Pista("Brasil", "Interlagos", 71, 42, 58, 65400, 16, 17, 18, 19, 20, 21);
-            /*
             pista[3] = new Pista("Bahrein", "Sakhir", 57, 43, 57, 77400, 7, 8, 9, 10, 11);
             pista[4] = new Pista("Arábia Saudita", "Corniche Circuit", 49, 58, 42, 76200, 3, 4, 5, 6);
             pista[5] = new Pista("Japão", "Suzuka", 53, 59, 41, 75420, 4, 5, 6, 10, 11);
@@ -323,7 +327,7 @@ namespace DriverChallenge
             pista[9] = new Pista("Mônaco", "Monte Carlo", 78, 64, 36, 67800, 22, 23, 24, 25, 26, 27);
             pista[10] = new Pista("Canadá", "Gilles Vileneuve", 70, 40, 60, 67200, 16, 17, 18, 19, 20, 21);
             pista[11] = new Pista("Espanha", "Catalunha", 66, 40, 60, 69000, 12, 13, 14, 15);
-            pista[12] = new Pista("Áustri", "Red Bull Ring", 71, 25, 75, 63600, 16, 17, 18, 19, 20, 21);
+            pista[12] = new Pista("Áustria", "Red Bull Ring", 71, 25, 75, 63600, 16, 17, 18, 19, 20, 21);
             pista[13] = new Pista("Reino Unido", "Silverstone", 52, 43, 57, 74400, 4, 5, 6, 10, 11);
             pista[14] = new Pista("Holanda", "Zandvoort", 72, 48, 52, 67200, 16, 17, 18, 19, 20, 21);
             pista[15] = new Pista("Hungria", "Hungaroring", 70, 46, 54, 72000, 16, 17, 18, 19, 20, 21);
@@ -331,12 +335,11 @@ namespace DriverChallenge
             pista[17] = new Pista("África do Sul", "Kyalami", 45, 55, 72, 70800, 1, 2, 3, 4, 5, 6);
             pista[18] = new Pista("México", "Hermanos Rodríguez", 71, 38, 62, 67800, 16, 17, 18, 19, 20, 21);
             pista[19] = new Pista("Azerbaijão", "Baku", 51, 59, 41, 88200, 3, 4, 5, 6);
-            pista[20] = new Pista("Cingapura", "Marina Bay", 62, 52, 48, 82200, 12, 13, 14, 15);
-            pista[21] = new Pista("Qatar", "Lusail Circuit", 57, 59, 41, 72480, 7, 8, 9, 10, 11);
+            pista[20] = new Pista("Singapura", "Marina Bay", 62, 52, 48, 82200, 12, 13, 14, 15);
+            pista[21] = new Pista("Catar", "Lusail Circuit", 57, 59, 41, 72480, 7, 8, 9, 10, 11);
             pista[22] = new Pista("Estados Unidos", "Las Vegas", 50, 70, 30, 81100, 3, 4, 5, 6);
             pista[23] = new Pista("Emirados Árabes Unidos", "Yas Marina", 58, 39, 61, 74400, 7, 8, 9, 10, 11);
             pista[24] = new Pista("Alemanha", "Hockenheimring", 67, 42, 58, 68400, 15, 16, 17, 18, 19, 20, 21);
-            */
         }
         public void EmbaralharPistas()
         {
@@ -354,7 +357,6 @@ namespace DriverChallenge
             pista[0].SemanaDaProva = 5;
             pista[1].SemanaDaProva = 7;
             pista[2].SemanaDaProva = 8;
-            /*
             pista[3].SemanaDaProva = 10;
             pista[4].SemanaDaProva = 12;
             pista[5].SemanaDaProva = 15;
@@ -377,8 +379,6 @@ namespace DriverChallenge
             pista[22].SemanaDaProva = 44;
             pista[23].SemanaDaProva = 46;
             pista[24].SemanaDaProva = 48;
-            */
-
         }
         public void AtualizaStatusProxCorrida(int contador) // Depois de finalizar os testem desbloquear o restantes das pistas.
         {
@@ -394,7 +394,6 @@ namespace DriverChallenge
             {
                 FuncaoParaStatusDaProximaCorrida(2);
             }
-            /*
             else if (contador > 8 && contador <= 10)
             {
                 FuncaoParaStatusDaProximaCorrida(3);
@@ -483,7 +482,6 @@ namespace DriverChallenge
             {
                 FuncaoParaStatusDaProximaCorrida(24);
             }
-            */
             else
             {
                 principal.ProximoGp = "";
@@ -494,7 +492,7 @@ namespace DriverChallenge
         }
         public void FuncaoParaStatusDaProximaCorrida(int i)
         {
-            principal.ProximoGp = pista[i].NomeGp;
+            principal.ProximoGp = pista[i].NomeGp + " - " + (i + 1) + " / 25";
             principal.ProximoGpPais = pista[i].NomeCircuito;
             principal.ProximoGpSemana = pista[i].SemanaDaProva;
             principal.ProximoGpVoltas = pista[i].NumerosDeVoltas;
@@ -528,7 +526,6 @@ namespace DriverChallenge
                     pictureBoxBtnSalvar.Image = Properties.Resources.salvar_w;
                     pictureBoxBtnOpcao.Image = Properties.Resources.opcao_w;
                     pictureBoxBtnContinuar.Image = Properties.Resources.menu_continuar_w;
-                    pictureBoxMensagemVisualizada.Image = Properties.Resources.cs_visual_w;
                     pictureBoxMensagem.Image = Properties.Resources.cx_msg_w;
                     panel1.ForeColor = Color.White;
                 }
@@ -538,7 +535,6 @@ namespace DriverChallenge
                     pictureBoxBtnSalvar.Image = Properties.Resources.salvar_b;
                     pictureBoxBtnOpcao.Image = Properties.Resources.opcao_b;
                     pictureBoxBtnContinuar.Image = Properties.Resources.menu_continuar_b;
-                    pictureBoxMensagemVisualizada.Image = Properties.Resources.cs_visual_b;
                     pictureBoxMensagem.Image = Properties.Resources.cx_msg_b;
                     panel1.ForeColor = Color.Black;
                 }
@@ -551,7 +547,6 @@ namespace DriverChallenge
             panelCorP3.BackColor = corPrincipal;
             panelCorP4.BackColor = corPrincipal;
             panelCorP5.BackColor = corPrincipal;
-            panelCorP6.BackColor = corPrincipal;
             panelCorP7.BackColor = corPrincipal;
             panelCorS1.BackColor = corSecundaria;
             panelCorS2.BackColor = corSecundaria;
@@ -560,17 +555,71 @@ namespace DriverChallenge
             panelCorS5.BackColor = corSecundaria;
             panelCorS6.BackColor = corSecundaria;
         }
+        public void AtualizarEscritorioSemanal()
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                if (piloto[principal.IndexDoJogador].PropostaDeContrato[i].PropostaAceita == false && piloto[principal.IndexDoJogador].PropostaDeContrato[i].TempoPropostaContrato != 0)
+                {
+                    piloto[principal.IndexDoJogador].PropostaDeContrato[i].TempoPropostaContrato--;
+                }
+                if (piloto[principal.IndexDoJogador].PropostaDeContrato[i].TempoPropostaContrato == 0)
+                {
+                    foreach (Equipe equipe in equipe)
+                    {
+                        if (equipe.NomeEquipe == piloto[principal.IndexDoJogador].PropostaDeContrato[0].NomeDaEquipe && piloto[principal.IndexDoJogador].PropostaDeContrato[i].PropostaAceita == false)
+                        {
+                            if (piloto[principal.IndexDoJogador].PropostaDeContrato[0].StatusDoPiloto == "1º Piloto")
+                            {
+                                equipe.ProximoAnoPrimeiroPiloto = "";
+                            }
+                            if(piloto[principal.IndexDoJogador].PropostaDeContrato[0].StatusDoPiloto == "2º Piloto")
+                            {
+                                equipe.ProximoAnoSegundoPiloto = "";
+                            }
+                        }
+                    }
+                    piloto[principal.IndexDoJogador].LimparPropostaDeContrato(piloto[principal.IndexDoJogador].PropostaDeContrato[i]);
+                }
+            }
+        }
         public void AtualizarFinanciasSemanal()
         {
-            if (piloto[indexDoJogador].SalarioPiloto != financia.SalarioDaEquipe)
+            if (piloto[principal.IndexDoJogador].SalarioPiloto != financia.SalarioDaEquipe)
             {
-                financia.SalarioDaEquipe = piloto[indexDoJogador].SalarioPiloto;
+                financia.SalarioDaEquipe = piloto[principal.IndexDoJogador].SalarioPiloto;
             }
-            financia.AtualizarSemana();
+            AtualizarSemanaPatrocinadores();
+        }
+        public void AtualizarSemanaPatrocinadores()
+        {
+            for (int i = 0; i < financia.Patrocinadores.Length; i++)
+            {
+                if (financia.Patrocinadores[i].ContratoValido == false && financia.Patrocinadores[i].TempoPropostaContrato != 0)
+                {
+                    financia.Patrocinadores[i].TempoPropostaContrato--;
+                    if (financia.Patrocinadores[i].TempoPropostaContrato == 0)
+                    {
+                        principal.NovaMessagemEmail("Patrocinador", "Oferta de patrocínio retirada.");
+                    }
+                }
+                if (financia.Patrocinadores[i].ContratoValido)
+                {
+                    financia.Patrocinadores[i].TempoDeContratoSemanal--;
+                }
+                if (financia.Patrocinadores[i].TempoDeContratoSemanal == 0 && financia.Patrocinadores[i].ContratoValido)
+                {
+                    principal.NovaMessagemEmail("Patrocinador", "Oferta de patrocínio encerrado.");
+                    financia.limparPatrocinador(financia.Patrocinadores[i]);
+                    financia.EspacoContratoDisponivel++;
+                }
+            }
+            financia.DinheiroJogadorTotal += financia.retonarSalarioTotalSemanal();
         }
         public void AtualizarNomesNaTelaInicial()
         {
-            labelNomeJogador.Text = string.Format("{0} {1}", principal.NomeJogador, principal.SobrenomeJogador);
+            labelNomeDoJogador.Text = string.Format("{0} {1}", principal.NomeJogador, principal.SobrenomeJogador);
+            labelEquipeDoJogador.Text = piloto[principal.IndexDoJogador].EquipePiloto;
             labelIdadeJogador.Text = string.Format("Idade: {0:N0}", principal.IdadeJogador.ToString());
             pictureBoxNacionalidadePiloto.ImageLocation = Path.Combine("Paises", principal.NacionalidadeJogador + ".png");
             labelSaldoNaConta.Text = financia.DinheiroJogadorTotal.ToString("C", new System.Globalization.CultureInfo("pt-BR"));
@@ -640,19 +689,19 @@ namespace DriverChallenge
         }
         public void AtualizarTabelaInicioDeTemporada()
         {
-            if (piloto[indexDoJogador].Categoria == "F1")
+            if (piloto[principal.IndexDoJogador].Categoria == "F1")
             {
                 PreencherDataGridViewClassEquipes(0, 10);
                 PreencherDataGridViewClassPilotos(0, 10);
                 AtualizarTabelas();
             }
-            else if (piloto[indexDoJogador].Categoria == "F2")
+            else if (piloto[principal.IndexDoJogador].Categoria == "F2")
             {
                 PreencherDataGridViewClassPilotos(10, 20);
                 PreencherDataGridViewClassEquipes(10, 20);
                 AtualizarTabelas();
             }
-            else if (piloto[indexDoJogador].Categoria == "F3")
+            else if (piloto[principal.IndexDoJogador].Categoria == "F3")
             {
                 PreencherDataGridViewClassPilotos(20, 30);
                 PreencherDataGridViewClassEquipes(20, 30);
@@ -702,8 +751,8 @@ namespace DriverChallenge
             dgvClassificacaoEquipes.Enabled = false;
             dgvClassificacaoEquipes.ScrollBars = ScrollBars.None;
             dgvClassificacaoEquipes.AllowUserToAddRows = false;
-            dgvClassificacaoEquipes.DefaultCellStyle.BackColor = Color.FromArgb(255, 255, 255);
-            dgvClassificacaoEquipes.GridColor = Color.FromArgb(220, 220, 220);
+            dgvClassificacaoEquipes.DefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240);
+            dgvClassificacaoEquipes.GridColor = Color.FromArgb(200, 200, 200);
             dgvClassificacaoEquipes.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvClassificacaoEquipes.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvClassificacaoEquipes.Refresh();
@@ -820,8 +869,8 @@ namespace DriverChallenge
             dgvClassificacaoPilotos.ScrollBars = ScrollBars.None;
             dgvClassificacaoPilotos.AllowUserToAddRows = false;
             dgvClassificacaoPilotos.RowHeadersDefaultCellStyle.BackColor = Color.FromArgb(180, 180, 180); // Define a cor das linhas do cabe�alho
-            dgvClassificacaoPilotos.DefaultCellStyle.BackColor = Color.FromArgb(255, 255, 255);
-            dgvClassificacaoPilotos.GridColor = Color.FromArgb(220, 220, 220);
+            dgvClassificacaoPilotos.DefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240);
+            dgvClassificacaoPilotos.GridColor = Color.FromArgb(200, 200, 200);
             dgvClassificacaoPilotos.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvClassificacaoPilotos.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
@@ -906,6 +955,121 @@ namespace DriverChallenge
 
             // Limpe a selecao inicial
             dgvClassificacaoPilotos.ClearSelection();
+        }
+        public void CriarDataGridViewCaixaDeEmail()
+        {
+            DataTable listMessagem = new DataTable();
+            DataColumn TipoColumn = new DataColumn("Tipo", typeof(Image));
+
+            listMessagem.Columns.Add("New", typeof(string));
+            listMessagem.Columns.Add(TipoColumn);
+            listMessagem.Columns.Add("Titulo", typeof(string));
+            listMessagem.Columns.Add("Data", typeof(string));
+
+            // Crie uma nova coluna de imagem para exibir as imagens
+            DataGridViewImageColumn imageColumn = new DataGridViewImageColumn();
+            imageColumn.HeaderText = "Tipo";
+            imageColumn.Name = "Tipo";
+            imageColumn.DataPropertyName = "Tipo";
+            imageColumn.ValueType = typeof(Image);
+            imageColumn.ImageLayout = DataGridViewImageCellLayout.Zoom; // Define o layout da imagem
+
+            // Adicione a coluna de imagem ao DataGridView
+            DgvCaixaDeMessagem.Columns.Add(imageColumn);
+
+            // Defina um estilo padr�o com preenchimento para a coluna da imagem
+            DataGridViewCellStyle cellStyle = new DataGridViewCellStyle();
+            cellStyle.Padding = new Padding(5, 5, 5, 5); // Define o preenchimento (margem) desejado
+            imageColumn.DefaultCellStyle = cellStyle;
+
+            // Configurando Layout
+            DgvCaixaDeMessagem.RowHeadersVisible = false;
+            DgvCaixaDeMessagem.AllowUserToAddRows = false;
+            DgvCaixaDeMessagem.AllowUserToDeleteRows = false;
+            DgvCaixaDeMessagem.AllowUserToOrderColumns = false;
+            DgvCaixaDeMessagem.AllowUserToResizeColumns = false;
+            DgvCaixaDeMessagem.AllowUserToResizeColumns = false;
+            DgvCaixaDeMessagem.AllowUserToResizeRows = false;
+            DgvCaixaDeMessagem.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            DgvCaixaDeMessagem.ScrollBars = ScrollBars.Vertical;
+            DgvCaixaDeMessagem.AllowUserToAddRows = false;
+            DgvCaixaDeMessagem.AllowUserToAddRows = false;
+            DgvCaixaDeMessagem.DefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240);
+            DgvCaixaDeMessagem.DefaultCellStyle.SelectionBackColor = Color.FromArgb(240, 240, 240);
+            DgvCaixaDeMessagem.DefaultCellStyle.SelectionForeColor = Color.Black;
+            DgvCaixaDeMessagem.GridColor = Color.FromArgb(240, 240, 240);
+            DgvCaixaDeMessagem.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+            // Oculta o cabeçalho das colunas
+            DgvCaixaDeMessagem.ColumnHeadersVisible = false;
+
+            DgvCaixaDeMessagem.DataSource = listMessagem;
+
+            // Altura das linhas
+            DgvCaixaDeMessagem.RowTemplate.Height = 30;
+
+            // Defina a ordem de exibicao das colunas com base nos indices
+            DgvCaixaDeMessagem.Columns["New"].DisplayIndex = 0;
+            DgvCaixaDeMessagem.Columns["Tipo"].DisplayIndex = 1;
+            DgvCaixaDeMessagem.Columns["Titulo"].DisplayIndex = 2;
+            DgvCaixaDeMessagem.Columns["Data"].DisplayIndex = 3;
+
+            DgvCaixaDeMessagem.Columns["Titulo"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+
+            DgvCaixaDeMessagem.Columns[0].Width = 5;
+            DgvCaixaDeMessagem.Columns[1].Width = 55;
+            DgvCaixaDeMessagem.Columns[2].Width = 300;
+            DgvCaixaDeMessagem.Columns[3].Width = 100;
+        }
+        public void PreencherDataGridViewCaixaDeEmail()
+        {
+            // Supondo que listMessagem seja o DataTable criado anteriormente
+            DataTable listMessagem = (DataTable)DgvCaixaDeMessagem.DataSource;
+
+            // Limpe o DataTable antes de preencher para evitar duplicatas
+            listMessagem.Rows.Clear();
+            int i = 0;
+            // Adiciona os objetos MessagemEmail da listaEmails ao DataTable
+            foreach (var email in principal.ObterListaEmails())
+            {
+                // Defina a imagem correspondente ao tipo de email
+                Image tipoImagem = GetTipoImagem(email.TipoDaMessagem);
+
+                // Adicione uma nova linha ao DataTable
+                listMessagem.Rows.Add("", tipoImagem, email.TituloDaMessagem, email.DataDaMessagem);
+
+                // Obter os valores das células C1 e C2 como representações de texto das cores
+                string cor1Texto = piloto[principal.IndexDoJogador].Cor1 ?? "ffffff";
+
+                // Converter as representações de texto das cores em cores reais
+                Color cor1 = ColorTranslator.FromHtml(cor1Texto);
+
+                // Definir as cores de fundo das células C1 e C2
+                DgvCaixaDeMessagem.Rows[i].Cells["New"].Style.BackColor = cor1;
+
+                i++;
+            }
+
+            // Redefina a fonte de dados do DataGridView
+            DgvCaixaDeMessagem.DataSource = listMessagem;
+
+            Image GetTipoImagem(string tipo)
+            {
+                switch (tipo)
+                {
+                    case "Patrocinador":
+                        return Properties.Resources.menu_patrocinio_b;
+                    case "Contrato":
+                        return Properties.Resources.menu_contratos_b;
+                    case "FinalDeTemporada":
+                        return Properties.Resources.calendario;
+                    default:
+                        return Properties.Resources.dinheiro;
+                }
+            }
+
+            // Limpe a selecao inicial
+            DgvCaixaDeMessagem.ClearSelection();
         }
         public void FinalDeTemporadaDataBaseCampeoes(string cata)
         {
@@ -1214,6 +1378,13 @@ namespace DriverChallenge
                 }
             }
         }
+        public void FinalDeTemporadaLimpaPropostasDeContrato()
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                piloto[principal.IndexDoJogador].LimparPropostaDeContrato(piloto[principal.IndexDoJogador].PropostaDeContrato[i]);
+            }
+        }
         public void InicioDeTemporadaAtualizarContratos()
         {
             for (int i = 0; i < equipe.Length; i++)
@@ -1273,12 +1444,12 @@ namespace DriverChallenge
             {
                 if (equipe.ProximoAnoPrimeiroPiloto == "")
                 {
-                    int opcaoDeOferta = random.Next(1, 6);  //20% de chance de fazer uma oferta na semana. (1 a 5, sendo 3 oferta concedida.)
-                    if (opcaoDeOferta == 3)
+                    int opcaoDeOferta = random.Next(1, 11);  //20% de chance de fazer uma oferta na semana. (1 a 5, sendo 3 oferta concedida.) -> alterado para 10% (1 a 11, sendo 4 oferta concedida.) 
+                    if (opcaoDeOferta == 4)
                     {
                         Shuffle(indicesAleatorios);
                         int decicaoDeRenovação = random.Next(1, 3); // Vai decidir se a oferta vai ser de renovação ou de um novo piloto.
-                        int mediaMin;
+                        int mediaMin = 0;
                         switch (equipe.Categoria)
                         {
                             case "F1":
@@ -1298,7 +1469,7 @@ namespace DriverChallenge
                                 if (piloto[indice].EquipePiloto == equipe.NomeEquipe && piloto[indice].ProximoAnoEquipePiloto == "" && piloto[indice].IdadePiloto < piloto[indice].AposentadoriaPiloto)
                                 {
                                     double ofertaDeSalario = DefinirSalario(piloto[indice].MediaPiloto, equipe.Categoria);
-                                    if (piloto[indice].SalarioPiloto < ofertaDeSalario)
+                                    if (piloto[indice].SalarioPiloto < ofertaDeSalario && indice != principal.IndexDoJogador)
                                     {
                                         piloto[indice].ProximoAnoContratoPiloto = (random.Next(1, 4) + principal.ContadorDeAno);
                                         piloto[indice].ProximoAnoEquipePiloto = equipe.NomeEquipe;
@@ -1308,7 +1479,19 @@ namespace DriverChallenge
                                         equipe.ProximoAnoPrimeiroPiloto = $"{piloto[indice].NomePiloto} {piloto[indice].SobrenomePiloto}";
                                         equipe.ProximoAnoPrimeiroPilotoContrato = piloto[indice].ProximoAnoContratoPiloto;
                                         equipe.ProximoAnoPrimeiroPilotoSalario = piloto[indice].ProximoAnoSalarioPiloto;
-
+                                    }
+                                    if (piloto[indice] == piloto[principal.IndexDoJogador])
+                                    {
+                                        for (int i = 0; i < 2; i++)
+                                        {
+                                            if (piloto[indice].PropostaDeContrato[i].PropostaAceita == false && piloto[indice].PropostaDeContrato[i].TempoPropostaContrato == 0)
+                                            {
+                                                equipe.ProximoAnoPrimeiroPiloto = "Negociando";
+                                                piloto[indice].PropostaDeContrato[i] = piloto[indice].NovaPropostaDeContrato(equipe.NomeEquipe, equipe.Sede, ofertaDeSalario, (random.Next(1, 4) + principal.ContadorDeAno), "1º Piloto");
+                                                principal.NovaMessagemEmail("Contrato", "Renovação de Contrato.");
+                                                break;
+                                            }
+                                        }
                                     }
                                     break;
                                 }
@@ -1318,7 +1501,7 @@ namespace DriverChallenge
                         {
                             foreach (int indice in indicesAleatorios)
                             {
-                                if (piloto[indice].MediaPiloto >= mediaMin && piloto[indice].ProximoAnoEquipePiloto == "" && piloto[indice].IdadePiloto < piloto[indice].AposentadoriaPiloto)
+                                if (piloto[indice].MediaPiloto <= mediaMin && piloto[indice].ProximoAnoEquipePiloto == "" && piloto[indice].IdadePiloto < piloto[indice].AposentadoriaPiloto && indice != principal.IndexDoJogador)
                                 {
                                     piloto[indice].ProximoAnoEquipePiloto = equipe.NomeEquipe;
                                     piloto[indice].ProximoAnoStatusPiloto = "1º Piloto";
@@ -1328,6 +1511,20 @@ namespace DriverChallenge
                                     equipe.ProximoAnoPrimeiroPiloto = $"{piloto[indice].NomePiloto} {piloto[indice].SobrenomePiloto}";
                                     equipe.ProximoAnoPrimeiroPilotoContrato = piloto[indice].ProximoAnoContratoPiloto;
                                     equipe.ProximoAnoPrimeiroPilotoSalario = piloto[indice].ProximoAnoSalarioPiloto;
+
+                                    if (piloto[indice] == piloto[principal.IndexDoJogador])
+                                    {
+                                        for (int i = 0; i < 2; i++)
+                                        {
+                                            if (piloto[indice].PropostaDeContrato[i].PropostaAceita == false && piloto[indice].PropostaDeContrato[i].TempoPropostaContrato == 0)
+                                            {
+                                                equipe.ProximoAnoPrimeiroPiloto = "Negociando";
+                                                piloto[indice].PropostaDeContrato[i] = piloto[indice].NovaPropostaDeContrato(equipe.NomeEquipe, equipe.Sede, DefinirSalario(piloto[indice].MediaPiloto, equipe.Categoria), (random.Next(1, 4) + principal.ContadorDeAno), "1º Piloto");
+                                                principal.NovaMessagemEmail("Contrato", "Oferta de Contrato.");
+                                                break;
+                                            }
+                                        }
+                                    }
                                     break;
                                 }
                             }
@@ -1361,7 +1558,7 @@ namespace DriverChallenge
                                 if (piloto[indice].EquipePiloto == equipe.NomeEquipe && piloto[indice].ProximoAnoEquipePiloto == "" && piloto[indice].IdadePiloto < piloto[indice].AposentadoriaPiloto)
                                 {
                                     double ofertaDeSalario = DefinirSalario(piloto[indice].MediaPiloto, equipe.Categoria);
-                                    if (piloto[indice].SalarioPiloto < ofertaDeSalario)
+                                    if (piloto[indice].SalarioPiloto < ofertaDeSalario && indice != principal.IndexDoJogador)
                                     {
                                         piloto[indice].ProximoAnoContratoPiloto = (random.Next(1, 4) + principal.ContadorDeAno);
                                         piloto[indice].ProximoAnoEquipePiloto = equipe.NomeEquipe;
@@ -1372,6 +1569,19 @@ namespace DriverChallenge
                                         equipe.ProximoAnoSegundoPilotoContrato = piloto[indice].ProximoAnoContratoPiloto;
                                         equipe.ProximoAnoSegundoPilotoSalario = piloto[indice].ProximoAnoSalarioPiloto;
                                     }
+                                    if (piloto[indice] == piloto[principal.IndexDoJogador])
+                                    {
+                                        for (int i = 0; i < 2; i++)
+                                        {
+                                            if (piloto[indice].PropostaDeContrato[i].PropostaAceita == false && piloto[indice].PropostaDeContrato[i].TempoPropostaContrato == 0)
+                                            {
+                                                equipe.ProximoAnoSegundoPiloto = "Negociando";
+                                                piloto[indice].PropostaDeContrato[i] = piloto[indice].NovaPropostaDeContrato(equipe.NomeEquipe, equipe.Sede, ofertaDeSalario, (random.Next(1, 4) + principal.ContadorDeAno), "2º Piloto");
+                                                principal.NovaMessagemEmail("Contrato", "Renovação de Contrato.");
+                                                break;
+                                            }
+                                        }
+                                    }
                                     break;
                                 }
                             }
@@ -1380,7 +1590,7 @@ namespace DriverChallenge
                         {
                             foreach (int indice in indicesAleatorios)
                             {
-                                if (piloto[indice].MediaPiloto >= mediaMin && piloto[indice].ProximoAnoEquipePiloto == "" && piloto[indice].IdadePiloto < piloto[indice].AposentadoriaPiloto)
+                                if (piloto[indice].MediaPiloto <= mediaMin && piloto[indice].ProximoAnoEquipePiloto == "" && piloto[indice].IdadePiloto < piloto[indice].AposentadoriaPiloto && indice != principal.IndexDoJogador)
                                 {
                                     piloto[indice].ProximoAnoEquipePiloto = equipe.NomeEquipe;
                                     piloto[indice].ProximoAnoStatusPiloto = "2º Piloto";
@@ -1390,6 +1600,19 @@ namespace DriverChallenge
                                     equipe.ProximoAnoSegundoPiloto = $"{piloto[indice].NomePiloto} {piloto[indice].SobrenomePiloto}";
                                     equipe.ProximoAnoSegundoPilotoContrato = piloto[indice].ProximoAnoContratoPiloto;
                                     equipe.ProximoAnoSegundoPilotoSalario = piloto[indice].ProximoAnoSalarioPiloto;
+                                    if (piloto[indice] == piloto[principal.IndexDoJogador])
+                                    {
+                                        for (int i = 0; i < 2; i++)
+                                        {
+                                            if (piloto[indice].PropostaDeContrato[i].PropostaAceita == false && piloto[indice].PropostaDeContrato[i].TempoPropostaContrato == 0)
+                                            {
+                                                equipe.ProximoAnoSegundoPiloto = "Negociando";
+                                                piloto[indice].PropostaDeContrato[i] = piloto[indice].NovaPropostaDeContrato(equipe.NomeEquipe, equipe.Sede, DefinirSalario(piloto[indice].MediaPiloto, equipe.Categoria), (random.Next(1, 4) + principal.ContadorDeAno), "2º Piloto");
+                                                principal.NovaMessagemEmail("Contrato", "Oferta de Contrato.");
+                                                break;
+                                            }
+                                        }
+                                    }
                                     break;
                                 }
                             }
@@ -1424,6 +1647,11 @@ namespace DriverChallenge
                             equipe.ProximoAnoPrimeiroPiloto = $"{piloto[indice].NomePiloto} {piloto[indice].SobrenomePiloto}";
                             equipe.ProximoAnoPrimeiroPilotoContrato = piloto[indice].ProximoAnoContratoPiloto;
                             equipe.ProximoAnoPrimeiroPilotoSalario = piloto[indice].ProximoAnoSalarioPiloto;
+                            if (piloto[indice] == piloto[principal.IndexDoJogador])
+                            {
+                                equipe.ProximoAnoPrimeiroPiloto = "Negociando";
+                                principal.NovaMessagemEmail("Contrato", "Oferta de Contrato.");
+                            }
                             break;
                         }
                     }
@@ -1433,6 +1661,62 @@ namespace DriverChallenge
                     foreach (int indice in indicesAleatorios)
                     {
                         if (piloto[indice].ProximoAnoEquipePiloto == "" && piloto[indice].IdadePiloto < piloto[indice].AposentadoriaPiloto)
+                        {
+                            piloto[indice].ProximoAnoEquipePiloto = equipe.NomeEquipe;
+                            piloto[indice].ProximoAnoStatusPiloto = "2º Piloto";
+                            piloto[indice].ProximoAnoContratoPiloto = (random.Next(1, 4) + principal.ContadorDeAno);
+                            piloto[indice].ProximoAnoSalarioPiloto = DefinirSalario(piloto[indice].MediaPiloto, equipe.Categoria);
+
+                            equipe.ProximoAnoSegundoPiloto = $"{piloto[indice].NomePiloto} {piloto[indice].SobrenomePiloto}";
+                            equipe.ProximoAnoSegundoPilotoContrato = piloto[indice].ProximoAnoContratoPiloto;
+                            equipe.ProximoAnoSegundoPilotoSalario = piloto[indice].ProximoAnoSalarioPiloto;
+                            if (piloto[indice] == piloto[principal.IndexDoJogador])
+                            {
+                                equipe.ProximoAnoSegundoPiloto = "Negociando";
+                                principal.NovaMessagemEmail("Contrato", "Oferta de Contrato.");
+                            }
+                            break;
+                        }
+                    }
+                }
+            }
+
+        }
+        public void OfertaDeContratoFimDeAnoIA()
+        {
+            List<int> indicesAleatorios = new List<int>();
+            for (int i = 0; i < piloto.Length; i++)
+            {
+                indicesAleatorios.Add(i);
+            }
+            indicesAleatorios.Sort((x, y) => piloto[y].MediaPiloto.CompareTo(piloto[x].MediaPiloto));
+
+            foreach (Equipe equipe in equipe)
+            {
+                if (equipe.ProximoAnoPrimeiroPiloto == "")
+                {
+
+                    foreach (int indice in indicesAleatorios)
+                    {
+                        if (piloto[indice].ProximoAnoEquipePiloto == "" && piloto[indice].IdadePiloto < piloto[indice].AposentadoriaPiloto && piloto[indice] != piloto[principal.IndexDoJogador])
+                        {
+                            piloto[indice].ProximoAnoEquipePiloto = equipe.NomeEquipe;
+                            piloto[indice].ProximoAnoStatusPiloto = "1º Piloto";
+                            piloto[indice].ProximoAnoContratoPiloto = (random.Next(1, 4) + principal.ContadorDeAno);
+                            piloto[indice].ProximoAnoSalarioPiloto = DefinirSalario(piloto[indice].MediaPiloto, equipe.Categoria);
+
+                            equipe.ProximoAnoPrimeiroPiloto = $"{piloto[indice].NomePiloto} {piloto[indice].SobrenomePiloto}";
+                            equipe.ProximoAnoPrimeiroPilotoContrato = piloto[indice].ProximoAnoContratoPiloto;
+                            equipe.ProximoAnoPrimeiroPilotoSalario = piloto[indice].ProximoAnoSalarioPiloto;
+                            break;
+                        }
+                    }
+                }
+                if (equipe.ProximoAnoSegundoPiloto == "")
+                {
+                    foreach (int indice in indicesAleatorios)
+                    {
+                        if (piloto[indice].ProximoAnoEquipePiloto == "" && piloto[indice].IdadePiloto < piloto[indice].AposentadoriaPiloto && piloto[indice] != piloto[principal.IndexDoJogador])
                         {
                             piloto[indice].ProximoAnoEquipePiloto = equipe.NomeEquipe;
                             piloto[indice].ProximoAnoStatusPiloto = "2º Piloto";
@@ -1482,15 +1766,15 @@ namespace DriverChallenge
             if (financia.EspacoContratoDisponivel != 0)
             {
                 Random r = new Random();
-                int opcaoDeContrato = 1;
-                //int opcaoDeContrato = r.Next(1, 6);
+                int opcaoDeContrato = r.Next(1, 11);
                 if (opcaoDeContrato == 1)
                 {
                     for (int i = 0; i < 4; i++)
                     {
                         if (financia.Patrocinadores[i].ContratoValido == false && financia.Patrocinadores[i].TempoPropostaContrato == 0)
                         {
-                            financia.Patrocinadores[i] = financia.AdicionarNovoContrato(piloto[indexDoJogador]);
+                            financia.Patrocinadores[i] = financia.AdicionarNovoContrato(piloto[principal.IndexDoJogador]);
+                            principal.NovaMessagemEmail("Patrocinador", "Oferta de patrocínio.");
                             break;
                         }
                     }
@@ -1694,17 +1978,17 @@ namespace DriverChallenge
                 TelaFinalDeSemanaDeCorrida telaFinalDeSemanaDeCorrida = new TelaFinalDeSemanaDeCorrida(principal, equipe, piloto, pista);
                 telaFinalDeSemanaDeCorrida.ShowDialog();
 
-                if (piloto[indexDoJogador].Categoria == "F1")
+                if (piloto[principal.IndexDoJogador].Categoria == "F1")
                 {
                     PreencherDataGridViewClassEquipes(0, 10);
                     PreencherDataGridViewClassPilotos(0, 10);
                 }
-                else if (piloto[indexDoJogador].Categoria == "F2")
+                else if (piloto[principal.IndexDoJogador].Categoria == "F2")
                 {
                     PreencherDataGridViewClassEquipes(10, 20);
                     PreencherDataGridViewClassPilotos(10, 20);
                 }
-                else if (piloto[indexDoJogador].Categoria == "F3")
+                else if (piloto[principal.IndexDoJogador].Categoria == "F3")
                 {
                     PreencherDataGridViewClassEquipes(20, 30);
                     PreencherDataGridViewClassPilotos(20, 30);
@@ -1720,12 +2004,28 @@ namespace DriverChallenge
                 OfertaDeContratoPatrocinadores();
                 principal.PotenciaMotoresEquipe(motor, equipe);
                 principal.XpTurnoSemanal(piloto);
+                principal.XpTurnoSemanalJogador(piloto);
                 principal.XpEquipeSemanal(equipe);
                 principal.ContinuarTurno();
                 AtualizaStatusProxCorrida(principal.ContadorDeSemana);
+                AtualizarEscritorioSemanal();
                 AtualizarFinanciasSemanal();
                 AtualizarNomesNaTelaInicial();
+                PreencherDataGridViewCaixaDeEmail();
 
+            }
+            else if (principal.ContadorDeSemana == principal.TotalSemanas - 1)
+            {
+                OfertaDeContratoFimDeAno();
+                principal.ContinuarTurno();
+                principal.XpTurnoSemanal(piloto);
+                principal.XpTurnoSemanalJogador(piloto);
+                principal.XpEquipeSemanal(equipe);
+                AtualizaStatusProxCorrida(principal.ContadorDeSemana);
+                AtualizarEscritorioSemanal();
+                AtualizarFinanciasSemanal();
+                AtualizarNomesNaTelaInicial();
+                PreencherDataGridViewCaixaDeEmail();
             }
             else if (principal.ContadorDeSemana == principal.TotalSemanas)
             {
@@ -1752,16 +2052,20 @@ namespace DriverChallenge
                         FinalDeTemporadaDataBaseCampeoes("F3");
                     }
                 }
+                principal.NovaMessagemEmail("FinalDeTemporada", "Temporada chegou ao fim.");
                 OfertaDeContrato();
                 OfertaDeContratoPatrocinadores();
                 // PREENCHER TODOS OS CONTRATOS
-                OfertaDeContratoFimDeAno();
+                OfertaDeContratoFimDeAnoIA();
                 principal.XpTurnoSemanal(piloto);
+                principal.XpTurnoSemanalJogador(piloto);
                 principal.XpEquipeSemanal(equipe);
                 principal.ContinuarTurno();
                 AtualizaStatusProxCorrida(principal.ContadorDeSemana);
+                AtualizarEscritorioSemanal();
                 AtualizarFinanciasSemanal();
                 FinalDeTemporadaAtualizarDB();
+                FinalDeTemporadaLimpaPropostasDeContrato();
                 InicioDeTemporadaAtualizarContratos();
                 ContratoDeMotores();
                 AposentarPilot();
@@ -1769,25 +2073,29 @@ namespace DriverChallenge
 
                 FinalDeTemporadaLimpaTable();
 
-                principal.CorPrincipal = piloto[indexDoJogador].Cor1;
-                principal.CorSecundaria = piloto[indexDoJogador].Cor2;
+                principal.CorPrincipal = piloto[principal.IndexDoJogador].Cor1;
+                principal.CorSecundaria = piloto[principal.IndexDoJogador].Cor2;
                 corPrincipal = ColorTranslator.FromHtml(principal.CorPrincipal);
                 corSecundaria = ColorTranslator.FromHtml(principal.CorSecundaria);
-                principal.IdadeJogador = piloto[indexDoJogador].IdadePiloto;
+                principal.IdadeJogador = piloto[principal.IndexDoJogador].IdadePiloto;
                 AtualizarTabelaInicioDeTemporada();
                 AtualizarCores();
                 AtualizarNomesNaTelaInicial();
+                PreencherDataGridViewCaixaDeEmail();
             }
             else
             {
                 OfertaDeContrato();
                 OfertaDeContratoPatrocinadores();
                 principal.XpTurnoSemanal(piloto);
+                principal.XpTurnoSemanalJogador(piloto);
                 principal.XpEquipeSemanal(equipe);
                 principal.ContinuarTurno();
                 AtualizaStatusProxCorrida(principal.ContadorDeSemana);
+                AtualizarEscritorioSemanal();
                 AtualizarFinanciasSemanal();
                 AtualizarNomesNaTelaInicial();
+                PreencherDataGridViewCaixaDeEmail();
             }
         }
         public void PictureBox1_Click(object sender, EventArgs e) // Botão de fechar o jogo.
@@ -1825,6 +2133,16 @@ namespace DriverChallenge
         {
             TelaFinancias telaFinancias = new TelaFinancias(principal, financia);
             telaFinancias.ShowDialog();
+        }
+        private void pictureBoxEscritorio_Click(object sender, EventArgs e)
+        {
+            TelaEscritorio telaEscritorio = new TelaEscritorio(principal, equipe, piloto, financia);
+            telaEscritorio.ShowDialog();
+        }
+        private void pictureBoxMensagem_Click(object sender, EventArgs e)
+        {
+            principal.ApagarTodosEmails();
+            PreencherDataGridViewCaixaDeEmail();
         }
     }
     class DadosCompletos

@@ -52,9 +52,15 @@ namespace DriverChallenge
                 TpAcertoDoCarro.Text = piloto[i].AcertoDoCarro.ToString();
                 TpFisico.Text = piloto[i].Fisico.ToString();
 
-                TpSalarioPiloto.Text = string.Format("R$ {0:N2}", piloto[i].SalarioPiloto);
+                TpEquipePiloto.Text = piloto[i].EquipePiloto;
+                TpSalarioPiloto.Text = piloto[i].SalarioPiloto == 0? "": piloto[i].SalarioPiloto.ToString("C", new System.Globalization.CultureInfo("pt-BR"));
                 TpStatusPiloto.Text = piloto[i].StatusPiloto;
-                TpDuracaoPiloto.Text = piloto[i].ContratoPiloto.ToString();
+                TpDuracaoPiloto.Text = piloto[i].ContratoPiloto == 0? "": piloto[i].ContratoPiloto.ToString();
+
+                TpEquipePilotoProximoAno.Text = piloto[i].ProximoAnoEquipePiloto;
+                TpSalarioPilotoProximoAno.Text = piloto[i].ProximoAnoSalarioPiloto == 0? "": piloto[i].ProximoAnoSalarioPiloto.ToString("C", new System.Globalization.CultureInfo("pt-BR"));
+                TpStatusPilotoProximoAno.Text = piloto[i].ProximoAnoStatusPiloto;
+                TpDuracaoPilotoProximoAno.Text = piloto[i].ProximoAnoContratoPiloto == 0? "": piloto[i].ProximoAnoContratoPiloto.ToString();
 
                 PreencherDataGridViewHistoricoPilotos(piloto[i].PilotosTemporadas, dgvTelaPilotoExibirHistoricoPiloto);
                 AtualizarTabelas(dgvTelaPilotoExibirHistoricoPiloto);
@@ -71,6 +77,8 @@ namespace DriverChallenge
                 TpLabelCor2B.BackColor = corSecundaria;
                 TpLabelCor3A.BackColor = corPrincipal;
                 TpLabelCor3B.BackColor = corSecundaria;
+                TpLabelCor4A.BackColor = corPrincipal;
+                TpLabelCor4B.BackColor = corSecundaria;
 
             }
         }
@@ -86,6 +94,7 @@ namespace DriverChallenge
             classPilotos.Columns.Add("Idade", typeof(string));
             classPilotos.Columns.Add("Equipe", typeof(string));
             classPilotos.Columns.Add("Contrato", typeof(string));
+            classPilotos.Columns.Add("Hab.", typeof(string));
             classPilotos.Columns.Add("Path", typeof(string));
             classPilotos.Columns.Add("Index", typeof(string));
 
@@ -127,9 +136,9 @@ namespace DriverChallenge
             dataGridViewPilotos.DataSource = classPilotos;
 
             // Altura das linhas
-            dataGridViewPilotos.RowTemplate.Height = 26;
+            dataGridViewPilotos.RowTemplate.Height = 28;
             // Define a altura do cabeçalho das colunas
-            dataGridViewPilotos.ColumnHeadersHeight = 30;
+            dataGridViewPilotos.ColumnHeadersHeight = 24;
 
             // Defina a ordem de exibição das colunas com base nos índices
             dataGridViewPilotos.Columns["#"].DisplayIndex = 0;
@@ -138,18 +147,20 @@ namespace DriverChallenge
             dataGridViewPilotos.Columns["Idade"].DisplayIndex = 3;
             dataGridViewPilotos.Columns["Equipe"].DisplayIndex = 4;
             dataGridViewPilotos.Columns["Contrato"].DisplayIndex = 5;
-            dataGridViewPilotos.Columns["Path"].DisplayIndex = 6;
-            dataGridViewPilotos.Columns["Index"].DisplayIndex = 7;
+            dataGridViewPilotos.Columns["Hab."].DisplayIndex = 6;
+            dataGridViewPilotos.Columns["Path"].DisplayIndex = 7;
+            dataGridViewPilotos.Columns["Index"].DisplayIndex = 8;
 
             dataGridViewPilotos.Columns["Nome"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewPilotos.Columns["Path"].Visible = false;
 
             dataGridViewPilotos.Columns[0].Width = 30;
             dataGridViewPilotos.Columns[1].Width = 40;
-            dataGridViewPilotos.Columns[2].Width = 140;
+            dataGridViewPilotos.Columns[2].Width = 110;
             dataGridViewPilotos.Columns[3].Width = 80;
             dataGridViewPilotos.Columns[4].Width = 100;
             dataGridViewPilotos.Columns[5].Width = 100;
+            dataGridViewPilotos.Columns[6].Width = 30;
         }
         private void PreencherDataGridViewClassPilotos(DataGridView dataGridViewPilotos)
         {
@@ -177,6 +188,7 @@ namespace DriverChallenge
                 {
                     row["Contrato"] = piloto[i].ContratoPiloto;
                 }
+                row["Hab."] = piloto[i].MediaPiloto;
                 row["Path"] = Path.Combine("Paises", piloto[i].NacionalidadePiloto + ".png");
                 row["Index"] = i;
 
@@ -237,7 +249,7 @@ namespace DriverChallenge
             dgv.DataSource = histoticoPiloto;
 
             // Altura das linhas
-            dgv.RowTemplate.Height = 26;
+            dgv.RowTemplate.Height = 27;
             // Define a altura do cabeçalho das colunas
             dgv.ColumnHeadersHeight = 30;
 
