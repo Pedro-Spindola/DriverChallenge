@@ -67,7 +67,7 @@ namespace DriverChallenge
                         patrocinadorNaoRepetido++;
                     }
                 }
-                if(patrocinadorNaoRepetido == 4)
+                if(patrocinadorNaoRepetido == 0)
                 {
                     break;
                 }

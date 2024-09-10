@@ -1766,10 +1766,10 @@ namespace DriverChallenge
             if (financia.EspacoContratoDisponivel != 0)
             {
                 Random r = new Random();
-                int opcaoDeContrato = r.Next(1, 11);
+                int opcaoDeContrato = r.Next(1, 3);//11
                 if (opcaoDeContrato == 1)
                 {
-                    for (int i = 0; i < 4; i++)
+                    for (int i = 0; i < financia.Patrocinadores.Length; i++)
                     {
                         if (financia.Patrocinadores[i].ContratoValido == false && financia.Patrocinadores[i].TempoPropostaContrato == 0)
                         {
@@ -2019,7 +2019,7 @@ namespace DriverChallenge
                 OfertaDeContratoFimDeAno();
                 principal.ContinuarTurno();
                 principal.XpTurnoSemanal(piloto);
-                principal.XpTurnoSemanalJogador(piloto);
+                //principal.XpTurnoSemanalJogador(piloto);
                 principal.XpEquipeSemanal(equipe);
                 AtualizaStatusProxCorrida(principal.ContadorDeSemana);
                 AtualizarEscritorioSemanal();
@@ -2086,7 +2086,7 @@ namespace DriverChallenge
             else
             {
                 OfertaDeContrato();
-                OfertaDeContratoPatrocinadores();
+                OfertaDeContratoPatrocinadores(); //Travou aqui
                 principal.XpTurnoSemanal(piloto);
                 principal.XpTurnoSemanalJogador(piloto);
                 principal.XpEquipeSemanal(equipe);
