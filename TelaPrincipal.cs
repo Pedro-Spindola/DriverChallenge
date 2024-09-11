@@ -567,13 +567,13 @@ namespace DriverChallenge
                 {
                     foreach (Equipe equipe in equipe)
                     {
-                        if (equipe.NomeEquipe == piloto[principal.IndexDoJogador].PropostaDeContrato[0].NomeDaEquipe && piloto[principal.IndexDoJogador].PropostaDeContrato[i].PropostaAceita == false)
+                        if (equipe.NomeEquipe == piloto[principal.IndexDoJogador].PropostaDeContrato[i].NomeDaEquipe && piloto[principal.IndexDoJogador].PropostaDeContrato[i].PropostaAceita == false)
                         {
-                            if (piloto[principal.IndexDoJogador].PropostaDeContrato[0].StatusDoPiloto == "1º Piloto")
+                            if (piloto[principal.IndexDoJogador].PropostaDeContrato[i].StatusDoPiloto == "1º Piloto")
                             {
                                 equipe.ProximoAnoPrimeiroPiloto = "";
                             }
-                            if(piloto[principal.IndexDoJogador].PropostaDeContrato[0].StatusDoPiloto == "2º Piloto")
+                            if(piloto[principal.IndexDoJogador].PropostaDeContrato[i].StatusDoPiloto == "2º Piloto")
                             {
                                 equipe.ProximoAnoSegundoPiloto = "";
                             }
@@ -1518,7 +1518,7 @@ namespace DriverChallenge
                                         {
                                             if (piloto[indice].PropostaDeContrato[i].PropostaAceita == false && piloto[indice].PropostaDeContrato[i].TempoPropostaContrato == 0)
                                             {
-                                                equipe.ProximoAnoPrimeiroPiloto = "Negociando";
+                                                equipe.ProximoAnoSegundoPiloto = "Negociando";
                                                 piloto[indice].PropostaDeContrato[i] = piloto[indice].NovaPropostaDeContrato(equipe.NomeEquipe, equipe.Sede, DefinirSalario(piloto[indice].MediaPiloto, equipe.Categoria), (random.Next(1, 4) + principal.ContadorDeAno), "1º Piloto");
                                                 principal.NovaMessagemEmail("Contrato", "Oferta de Contrato.");
                                                 break;
@@ -1766,7 +1766,7 @@ namespace DriverChallenge
             if (financia.EspacoContratoDisponivel != 0)
             {
                 Random r = new Random();
-                int opcaoDeContrato = r.Next(1, 3);//11
+                int opcaoDeContrato = r.Next(1, 11);//11
                 if (opcaoDeContrato == 1)
                 {
                     for (int i = 0; i < financia.Patrocinadores.Length; i++)
@@ -2108,6 +2108,7 @@ namespace DriverChallenge
         }
         public void PictureBox3_Click(object sender, EventArgs e) // Botão de configuração do jogo.
         {
+            MessageBox.Show(equipe[28].ProximoAnoSegundoPiloto + " - " + piloto[principal.IndexDoJogador].PropostaDeContrato[0].PropostaAceita + " - " + piloto[principal.IndexDoJogador].PropostaDeContrato[0].TempoPropostaContrato);
             /*
             TelaSettings telaSettings = new TelaSettings(principal);
             telaSettings.ShowDialog();

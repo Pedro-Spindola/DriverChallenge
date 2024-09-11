@@ -277,14 +277,14 @@ namespace DriverChallenge
         {
             foreach (Equipe equipe in equipe)
             {
-                if (equipe.NomeEquipe == piloto[principal.IndexDoJogador].PropostaDeContrato[0].NomeDaEquipe)
+                if (equipe.NomeEquipe == piloto[principal.IndexDoJogador].PropostaDeContrato[1].NomeDaEquipe)
                 {
-                    piloto[principal.IndexDoJogador].ProximoAnoContratoPiloto = piloto[principal.IndexDoJogador].PropostaDeContrato[0].TempoDeContrato;
-                    piloto[principal.IndexDoJogador].ProximoAnoEquipePiloto = piloto[principal.IndexDoJogador].PropostaDeContrato[0].NomeDaEquipe;
-                    piloto[principal.IndexDoJogador].ProximoAnoSalarioPiloto = piloto[principal.IndexDoJogador].PropostaDeContrato[0].ValorContrato;
-                    piloto[principal.IndexDoJogador].ProximoAnoStatusPiloto = piloto[principal.IndexDoJogador].PropostaDeContrato[0].StatusDoPiloto;
+                    piloto[principal.IndexDoJogador].ProximoAnoContratoPiloto = piloto[principal.IndexDoJogador].PropostaDeContrato[1].TempoDeContrato;
+                    piloto[principal.IndexDoJogador].ProximoAnoEquipePiloto = piloto[principal.IndexDoJogador].PropostaDeContrato[1].NomeDaEquipe;
+                    piloto[principal.IndexDoJogador].ProximoAnoSalarioPiloto = piloto[principal.IndexDoJogador].PropostaDeContrato[1].ValorContrato;
+                    piloto[principal.IndexDoJogador].ProximoAnoStatusPiloto = piloto[principal.IndexDoJogador].PropostaDeContrato[1].StatusDoPiloto;
 
-                    if (piloto[principal.IndexDoJogador].PropostaDeContrato[0].StatusDoPiloto == "1º Piloto")
+                    if (piloto[principal.IndexDoJogador].PropostaDeContrato[1].StatusDoPiloto == "1º Piloto")
                     {
                         equipe.ProximoAnoPrimeiroPiloto = $"{piloto[principal.IndexDoJogador].NomePiloto} {piloto[principal.IndexDoJogador].SobrenomePiloto}";
                         equipe.ProximoAnoPrimeiroPilotoContrato = piloto[principal.IndexDoJogador].ProximoAnoContratoPiloto;

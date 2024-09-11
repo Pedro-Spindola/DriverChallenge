@@ -283,7 +283,6 @@ namespace DriverChallenge
             "Securitas,Suíça",
             "TAG Heuer,Suíça",
             "Singha,Tailândia",
-            "TSMC,Taiwan",
             "PDVSA,Venezuela"
         };
     }
