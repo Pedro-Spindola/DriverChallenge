@@ -111,14 +111,14 @@ namespace DriverChallenge
             string caminhoImagem01 = Path.Combine("Paises", financia.Patrocinadores[0].NacionalidadeDaEmpresa + ".png");
             tf_nacPatrocinador1.Image = Image.FromFile(caminhoImagem01);
             
-            if (financia.Patrocinadores[0].ContratoValido == false) { tf_contratoPatrocinador1.Text = ""; tf_valorPatrocinador1.Text = ""; }
+            if (financia.Patrocinadores[0].ContratoValido == false && financia.Patrocinadores[0].TempoPropostaContrato == 0) { tf_contratoPatrocinador1.Text = ""; tf_valorPatrocinador1.Text = ""; tf_nomePatrocinador1.Text = ""; }
             if (financia.Patrocinadores[0].ContratoValido) { tf_contratoPatrocinador1.Text = financia.Patrocinadores[0].TempoDeContratoSemanal.ToString() + " semanas"; tf_valorPatrocinador1.Text = financia.Patrocinadores[0].ValorContrato.ToString("C", new System.Globalization.CultureInfo("pt-BR")); }
             if(financia.Patrocinadores[0].ContratoValido == false && financia.Patrocinadores[0].TempoPropostaContrato > 0) { tf_contratoPatrocinador1.Text = financia.Patrocinadores[0].TempoDeContrato.ToString() + " meses"; tf_valorPatrocinador1.Text = financia.Patrocinadores[0].ValorContrato.ToString("C", new System.Globalization.CultureInfo("pt-BR")); }
 
             tf_nomePatrocinador2.Text = financia.Patrocinadores[1].NomeDaEmpresa;
             string caminhoImagem02 = Path.Combine("Paises", financia.Patrocinadores[1].NacionalidadeDaEmpresa + ".png");
 
-            if (financia.Patrocinadores[1].ContratoValido == false) { tf_contratoPatrocinador2.Text = ""; tf_valorPatrocinador2.Text = ""; }
+            if (financia.Patrocinadores[1].ContratoValido == false && financia.Patrocinadores[1].TempoPropostaContrato == 0) { tf_contratoPatrocinador2.Text = ""; tf_valorPatrocinador2.Text = ""; tf_nomePatrocinador2.Text = ""; }
             if (financia.Patrocinadores[1].ContratoValido){ tf_contratoPatrocinador2.Text = financia.Patrocinadores[1].TempoDeContratoSemanal.ToString() + " semanas"; tf_nacPatrocinador2.Image = Image.FromFile(caminhoImagem02); tf_valorPatrocinador2.Text = financia.Patrocinadores[1].ValorContrato.ToString("C", new System.Globalization.CultureInfo("pt-BR"));}
             if (financia.Patrocinadores[1].ContratoValido == false && financia.Patrocinadores[1].TempoPropostaContrato > 0) {tf_contratoPatrocinador2.Text = financia.Patrocinadores[1].TempoDeContrato.ToString() + " meses"; tf_nacPatrocinador2.Image = Image.FromFile(caminhoImagem02); tf_valorPatrocinador2.Text = financia.Patrocinadores[1].ValorContrato.ToString("C", new System.Globalization.CultureInfo("pt-BR")); }
 
@@ -126,7 +126,7 @@ namespace DriverChallenge
             string caminhoImagem03 = Path.Combine("Paises", financia.Patrocinadores[2].NacionalidadeDaEmpresa + ".png");
             tf_nacPatrocinador3.Image = Image.FromFile(caminhoImagem03);
 
-            if (financia.Patrocinadores[2].ContratoValido == false) { tf_contratoPatrocinador3.Text = ""; tf_valorPatrocinador3.Text = ""; }
+            if (financia.Patrocinadores[2].ContratoValido == false && financia.Patrocinadores[2].TempoPropostaContrato == 0) { tf_contratoPatrocinador3.Text = ""; tf_valorPatrocinador3.Text = ""; tf_nomePatrocinador3.Text = ""; }
             if (financia.Patrocinadores[2].ContratoValido) { tf_contratoPatrocinador3.Text = financia.Patrocinadores[2].TempoDeContratoSemanal.ToString() + " semanas"; tf_valorPatrocinador3.Text = financia.Patrocinadores[2].ValorContrato.ToString("C", new System.Globalization.CultureInfo("pt-BR")); }
             if (financia.Patrocinadores[2].ContratoValido == false && financia.Patrocinadores[2].TempoPropostaContrato > 0) { tf_contratoPatrocinador3.Text = financia.Patrocinadores[2].TempoDeContrato.ToString() + " meses"; tf_valorPatrocinador3.Text = financia.Patrocinadores[2].ValorContrato.ToString("C", new System.Globalization.CultureInfo("pt-BR")); }
 
@@ -134,7 +134,7 @@ namespace DriverChallenge
             string caminhoImagem04 = Path.Combine("Paises", financia.Patrocinadores[3].NacionalidadeDaEmpresa + ".png");
             tf_nacPatrocinador4.Image = Image.FromFile(caminhoImagem04);
            
-            if (financia.Patrocinadores[3].ContratoValido == false){ tf_contratoPatrocinador4.Text = ""; tf_valorPatrocinador4.Text = ""; }
+            if (financia.Patrocinadores[3].ContratoValido == false && financia.Patrocinadores[3].TempoPropostaContrato == 0) { tf_contratoPatrocinador4.Text = ""; tf_valorPatrocinador4.Text = ""; tf_nomePatrocinador4.Text = ""; }
             if (financia.Patrocinadores[3].ContratoValido){ tf_contratoPatrocinador4.Text = financia.Patrocinadores[3].TempoDeContratoSemanal.ToString() + " semanas"; tf_valorPatrocinador4.Text = financia.Patrocinadores[3].ValorContrato.ToString("C", new System.Globalization.CultureInfo("pt-BR")); }
             if (financia.Patrocinadores[3].ContratoValido == false && financia.Patrocinadores[3].TempoPropostaContrato > 0) { tf_contratoPatrocinador4.Text = financia.Patrocinadores[3].TempoDeContrato.ToString() + " meses"; tf_valorPatrocinador4.Text = financia.Patrocinadores[3].ValorContrato.ToString("C", new System.Globalization.CultureInfo("pt-BR")); }
         }

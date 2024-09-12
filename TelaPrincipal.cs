@@ -1466,7 +1466,7 @@ namespace DriverChallenge
                         {
                             foreach (int indice in indicesAleatorios)
                             {
-                                if (piloto[indice].EquipePiloto == equipe.NomeEquipe && piloto[indice].ProximoAnoEquipePiloto == "" && piloto[indice].IdadePiloto < piloto[indice].AposentadoriaPiloto)
+                                if (piloto[indice].MediaPiloto >= mediaMin && piloto[indice].ProximoAnoEquipePiloto == "" && piloto[indice].IdadePiloto < piloto[indice].AposentadoriaPiloto)
                                 {
                                     double ofertaDeSalario = DefinirSalario(piloto[indice].MediaPiloto, equipe.Categoria);
                                     if (piloto[indice].SalarioPiloto < ofertaDeSalario && indice != principal.IndexDoJogador)
@@ -1501,7 +1501,7 @@ namespace DriverChallenge
                         {
                             foreach (int indice in indicesAleatorios)
                             {
-                                if (piloto[indice].MediaPiloto <= mediaMin && piloto[indice].ProximoAnoEquipePiloto == "" && piloto[indice].IdadePiloto < piloto[indice].AposentadoriaPiloto && indice != principal.IndexDoJogador)
+                                if (piloto[indice].MediaPiloto >= mediaMin && piloto[indice].ProximoAnoEquipePiloto == "" && piloto[indice].IdadePiloto < piloto[indice].AposentadoriaPiloto)
                                 {
                                     piloto[indice].ProximoAnoEquipePiloto = equipe.NomeEquipe;
                                     piloto[indice].ProximoAnoStatusPiloto = "1º Piloto";
@@ -1555,7 +1555,7 @@ namespace DriverChallenge
                         {
                             foreach (int indice in indicesAleatorios)
                             {
-                                if (piloto[indice].EquipePiloto == equipe.NomeEquipe && piloto[indice].ProximoAnoEquipePiloto == "" && piloto[indice].IdadePiloto < piloto[indice].AposentadoriaPiloto)
+                                if (piloto[indice].MediaPiloto >= mediaMin && piloto[indice].ProximoAnoEquipePiloto == "" && piloto[indice].IdadePiloto < piloto[indice].AposentadoriaPiloto)
                                 {
                                     double ofertaDeSalario = DefinirSalario(piloto[indice].MediaPiloto, equipe.Categoria);
                                     if (piloto[indice].SalarioPiloto < ofertaDeSalario && indice != principal.IndexDoJogador)
@@ -1590,7 +1590,7 @@ namespace DriverChallenge
                         {
                             foreach (int indice in indicesAleatorios)
                             {
-                                if (piloto[indice].MediaPiloto <= mediaMin && piloto[indice].ProximoAnoEquipePiloto == "" && piloto[indice].IdadePiloto < piloto[indice].AposentadoriaPiloto && indice != principal.IndexDoJogador)
+                                if (piloto[indice].MediaPiloto >= mediaMin && piloto[indice].ProximoAnoEquipePiloto == "" && piloto[indice].IdadePiloto < piloto[indice].AposentadoriaPiloto)
                                 {
                                     piloto[indice].ProximoAnoEquipePiloto = equipe.NomeEquipe;
                                     piloto[indice].ProximoAnoStatusPiloto = "2º Piloto";
@@ -2086,7 +2086,7 @@ namespace DriverChallenge
             else
             {
                 OfertaDeContrato();
-                OfertaDeContratoPatrocinadores(); //Travou aqui
+                OfertaDeContratoPatrocinadores();
                 principal.XpTurnoSemanal(piloto);
                 principal.XpTurnoSemanalJogador(piloto);
                 principal.XpEquipeSemanal(equipe);

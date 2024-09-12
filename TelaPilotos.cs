@@ -94,6 +94,7 @@ namespace DriverChallenge
             classPilotos.Columns.Add("Idade", typeof(string));
             classPilotos.Columns.Add("Equipe", typeof(string));
             classPilotos.Columns.Add("Contrato", typeof(string));
+            classPilotos.Columns.Add("Proximo", typeof(string));
             classPilotos.Columns.Add("Hab.", typeof(string));
             classPilotos.Columns.Add("Path", typeof(string));
             classPilotos.Columns.Add("Index", typeof(string));
@@ -147,20 +148,22 @@ namespace DriverChallenge
             dataGridViewPilotos.Columns["Idade"].DisplayIndex = 3;
             dataGridViewPilotos.Columns["Equipe"].DisplayIndex = 4;
             dataGridViewPilotos.Columns["Contrato"].DisplayIndex = 5;
-            dataGridViewPilotos.Columns["Hab."].DisplayIndex = 6;
-            dataGridViewPilotos.Columns["Path"].DisplayIndex = 7;
-            dataGridViewPilotos.Columns["Index"].DisplayIndex = 8;
+            dataGridViewPilotos.Columns["Proximo"].DisplayIndex = 6;
+            dataGridViewPilotos.Columns["Hab."].DisplayIndex = 7;
+            dataGridViewPilotos.Columns["Path"].DisplayIndex = 8;
+            dataGridViewPilotos.Columns["Index"].DisplayIndex = 9;
 
             dataGridViewPilotos.Columns["Nome"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewPilotos.Columns["Path"].Visible = false;
 
             dataGridViewPilotos.Columns[0].Width = 30;
             dataGridViewPilotos.Columns[1].Width = 40;
-            dataGridViewPilotos.Columns[2].Width = 110;
-            dataGridViewPilotos.Columns[3].Width = 80;
-            dataGridViewPilotos.Columns[4].Width = 100;
-            dataGridViewPilotos.Columns[5].Width = 100;
-            dataGridViewPilotos.Columns[6].Width = 30;
+            dataGridViewPilotos.Columns[2].Width = 100;
+            dataGridViewPilotos.Columns[3].Width = 50;
+            dataGridViewPilotos.Columns[4].Width = 80;
+            dataGridViewPilotos.Columns[5].Width = 80;
+            dataGridViewPilotos.Columns[6].Width = 80;
+            dataGridViewPilotos.Columns[7].Width = 30;
         }
         private void PreencherDataGridViewClassPilotos(DataGridView dataGridViewPilotos)
         {
@@ -188,6 +191,7 @@ namespace DriverChallenge
                 {
                     row["Contrato"] = piloto[i].ContratoPiloto;
                 }
+                row["Proximo"] = piloto[i].ProximoAnoEquipePiloto;
                 row["Hab."] = piloto[i].MediaPiloto;
                 row["Path"] = Path.Combine("Paises", piloto[i].NacionalidadePiloto + ".png");
                 row["Index"] = i;

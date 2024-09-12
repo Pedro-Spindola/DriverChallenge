@@ -85,16 +85,13 @@ namespace DriverChallenge
             tf_nomeEquipe01.Text = piloto[principal.IndexDoJogador].PropostaDeContrato[0].NomeDaEquipe;
             string caminhoImagem01 = Path.Combine("Paises", piloto[principal.IndexDoJogador].PropostaDeContrato[0].NacionalidadeDaEquipe + ".png");
             tf_nacEquipe01.Image = Image.FromFile(caminhoImagem01);
-            tf_valorProposta01.Text = piloto[principal.IndexDoJogador].PropostaDeContrato[0].ValorContrato.ToString("C", new System.Globalization.CultureInfo("pt-BR"));
-            tf_tempoContrato01.Text = "Até " + piloto[principal.IndexDoJogador].PropostaDeContrato[0].TempoDeContrato.ToString();
-            tf_statusContrato01.Text = piloto[principal.IndexDoJogador].PropostaDeContrato[0].StatusDoPiloto;
-
+            if(piloto[principal.IndexDoJogador].PropostaDeContrato[0].TempoPropostaContrato == 0) { tf_valorProposta01.Text = ""; tf_tempoContrato01.Text = ""; tf_statusContrato01.Text = ""; }
+            if(piloto[principal.IndexDoJogador].PropostaDeContrato[0].TempoPropostaContrato != 0) { tf_valorProposta01.Text = piloto[principal.IndexDoJogador].PropostaDeContrato[0].ValorContrato.ToString("C", new System.Globalization.CultureInfo("pt-BR")); tf_tempoContrato01.Text = "Até " + piloto[principal.IndexDoJogador].PropostaDeContrato[0].TempoDeContrato.ToString(); tf_statusContrato01.Text = piloto[principal.IndexDoJogador].PropostaDeContrato[0].StatusDoPiloto; }
             tf_nomeEquipe02.Text = piloto[principal.IndexDoJogador].PropostaDeContrato[1].NomeDaEquipe;
             string caminhoImagem02 = Path.Combine("Paises", piloto[principal.IndexDoJogador].PropostaDeContrato[1].NacionalidadeDaEquipe + ".png");
             tf_nacEquipe02.Image = Image.FromFile(caminhoImagem02);
-            tf_valorProposta02.Text = piloto[principal.IndexDoJogador].PropostaDeContrato[1].ValorContrato.ToString("C", new System.Globalization.CultureInfo("pt-BR"));
-            tf_tempoContrato02.Text = "Até " + piloto[principal.IndexDoJogador].PropostaDeContrato[1].TempoDeContrato.ToString();
-            tf_statusContrato02.Text = piloto[principal.IndexDoJogador].PropostaDeContrato[1].StatusDoPiloto;
+            if (piloto[principal.IndexDoJogador].PropostaDeContrato[1].TempoPropostaContrato == 0) { tf_valorProposta02.Text = ""; tf_tempoContrato02.Text = ""; tf_statusContrato02.Text = ""; }
+            if (piloto[principal.IndexDoJogador].PropostaDeContrato[1].TempoPropostaContrato != 0) { tf_valorProposta02.Text = piloto[principal.IndexDoJogador].PropostaDeContrato[1].ValorContrato.ToString("C", new System.Globalization.CultureInfo("pt-BR")); tf_tempoContrato02.Text = "Até " + piloto[principal.IndexDoJogador].PropostaDeContrato[1].TempoDeContrato.ToString(); tf_statusContrato02.Text = piloto[principal.IndexDoJogador].PropostaDeContrato[1].StatusDoPiloto; }
         }
         public void AtualizarAtributos()
         {

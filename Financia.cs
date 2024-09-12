@@ -37,15 +37,15 @@ namespace DriverChallenge
             return (SalarioDaEquipe + SalarioPatrocinadores - CustoEscritorio);
 
         }
-        public void limparPatrocinador(Patrocinador patrocinador)
+        public void limparPatrocinador(Patrocinador patrocinadorParaLimpar)
         {
-            patrocinador.NomeDaEmpresa = "";
-            patrocinador.NacionalidadeDaEmpresa = "null";
-            patrocinador.ValorContrato = 0;
-            patrocinador.TempoDeContrato = 0;
-            patrocinador.TempoDeContratoSemanal = 0;
-            patrocinador.TempoPropostaContrato = 0;
-            patrocinador.ContratoValido = false;
+            patrocinadorParaLimpar.NomeDaEmpresa = "";
+            patrocinadorParaLimpar.NacionalidadeDaEmpresa = "null";
+            patrocinadorParaLimpar.ValorContrato = 0;
+            patrocinadorParaLimpar.TempoDeContrato = 0;
+            patrocinadorParaLimpar.TempoDeContratoSemanal = 0;
+            patrocinadorParaLimpar.TempoPropostaContrato = 0;
+            patrocinadorParaLimpar.ContratoValido = false;
         }
         public Patrocinador AdicionarNovoContrato(Piloto piloto)
         {
