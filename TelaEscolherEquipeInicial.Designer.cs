@@ -30,7 +30,7 @@ namespace DriverChallenge
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaEscolherEquipeInicial));
             panel1 = new Panel();
             labelStatus2 = new Label();
             panelCorS2 = new Panel();
@@ -348,7 +348,7 @@ namespace DriverChallenge
             labelAssinar3.TextAlign = ContentAlignment.MiddleCenter;
             labelAssinar3.Click += labelAssinar3_Click;
             // 
-            // TelaEscolherEquipe
+            // TelaEscolherEquipeInicial
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -358,13 +358,14 @@ namespace DriverChallenge
             Controls.Add(panel2);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "TelaEscolherEquipe";
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Name = "TelaEscolherEquipeInicial";
             StartPosition = FormStartPosition.CenterScreen;
+            Text = "TelaEscolherEquipeInicial";
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel5.ResumeLayout(false);
             ResumeLayout(false);
-            this.Text = "TelaEscolherEquipeInicial";
         }
 
         #endregion

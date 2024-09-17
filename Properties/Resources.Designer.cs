@@ -153,6 +153,16 @@ namespace DriverChallenge.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Duro {
+            get {
+                object obj = ResourceManager.GetObject("Duro", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap fechar_b {
             get {
                 object obj = ResourceManager.GetObject("fechar_b", resourceCulture);
@@ -166,6 +176,16 @@ namespace DriverChallenge.Properties {
         internal static System.Drawing.Bitmap fechar_w {
             get {
                 object obj = ResourceManager.GetObject("fechar_w", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Macio {
+            get {
+                object obj = ResourceManager.GetObject("Macio", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -226,6 +246,16 @@ namespace DriverChallenge.Properties {
         internal static System.Drawing.Bitmap main_user_b {
             get {
                 object obj = ResourceManager.GetObject("main_user_b", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Médio {
+            get {
+                object obj = ResourceManager.GetObject("Médio", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

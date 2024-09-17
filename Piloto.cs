@@ -44,6 +44,7 @@ namespace DriverChallenge
         // Atributos de histórico.
         public int VitoriaCorrida { get; set; } = 0;
         public int PolePosition { get; set; } = 0;
+        public int GpDisputado { get; set; } = 0;
         public int TituloF1 { get; set; } = 0;
         public int TituloF2 { get; set; } = 0;
         public int TituloF3 { get; set; } = 0;
@@ -69,6 +70,7 @@ namespace DriverChallenge
         public int ResultadoCorrida { get; set; } = 0;
         public int DiferancaPri { get; set; } = 0;
         public int BonusRandom { get; set; } = 0;
+        public string TipoDePneuUtilizando { get; set; } = "";
         // Outros atributos.
         public string Cor1 { get; set; } = "";
         public string Cor2 { get; set; } = "";
@@ -88,13 +90,15 @@ namespace DriverChallenge
             NacionalidadePiloto = nacionalidad;
             NomePiloto = nome;
             SobrenomePiloto = sobrenome;
-            XpPiloto = 0;
-            PotencialPiloto = random.Next(60, 81);
-            PotencialPiloto = (PotencialPiloto / 100);
 
             IdadePiloto = idade;
             AugePiloto = auge;
             AposentadoriaPiloto = aposentadoria;
+
+            PotencialPiloto = random.Next(60, 81);
+            PotencialPiloto = (PotencialPiloto / 100);
+
+            XpPiloto = 0;
 
             // Definir a visibilidade do piloto para patrocinador (entre 0 a 50)
             VisibilidadePiloto = random.Next(1, 51);
@@ -109,6 +113,11 @@ namespace DriverChallenge
             Fisico = fisic;
 
             MediaPiloto = ((Largada + Concentracao + Ultrapassagem + Experiencia + Rapidez + Chuva + AcertoDoCarro + Fisico) / 8);
+        }
+        public void MetodoProvisorioParaAumentarIdade(int idadeAdc)
+        {
+            IdadePiloto += idadeAdc;
+            XpPiloto = ((PotencialPiloto * 52) * idadeAdc);
         }
         public void GeraPiloto()
         {

@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaEscritorio));
             panel1 = new Panel();
             tf_statusContrato01 = new Label();
             label5 = new Label();
@@ -57,6 +58,7 @@
             label11 = new Label();
             DgvHistoricoJogador = new DataGridView();
             panel3 = new Panel();
+            comboBoxXp = new ComboBox();
             labelPontosDisponivel = new Label();
             TpFisico_1 = new Label();
             TpAcertoDoCarro_1 = new Label();
@@ -101,10 +103,10 @@
             labelContratoAtualNomeEquipe = new Label();
             labelSaldoNaConta = new Label();
             label13 = new Label();
-            label48 = new Label();
-            label49 = new Label();
-            label50 = new Label();
-            label51 = new Label();
+            labelGpDisputadoTotal = new Label();
+            labelPolePositionTotal = new Label();
+            labelVitoriaTotal = new Label();
+            labelTitulosTotal = new Label();
             label52 = new Label();
             label44 = new Label();
             label45 = new Label();
@@ -130,7 +132,6 @@
             label25 = new Label();
             panel5 = new Panel();
             label14 = new Label();
-            comboBoxXp = new ComboBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)tf_nacEquipe01).BeginInit();
             panel2.SuspendLayout();
@@ -463,14 +464,14 @@
             DgvHistoricoJogador.AllowUserToResizeColumns = false;
             DgvHistoricoJogador.AllowUserToResizeRows = false;
             DgvHistoricoJogador.BorderStyle = BorderStyle.None;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = SystemColors.Control;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9.75F);
-            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            DgvHistoricoJogador.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9.75F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            DgvHistoricoJogador.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             DgvHistoricoJogador.ColumnHeadersHeight = 22;
             DgvHistoricoJogador.Location = new Point(10, 520);
             DgvHistoricoJogador.Margin = new Padding(0);
@@ -517,6 +518,18 @@
             panel3.Size = new Size(440, 260);
             panel3.TabIndex = 25;
             // 
+            // comboBoxXp
+            // 
+            comboBoxXp.FormattingEnabled = true;
+            comboBoxXp.Items.AddRange(new object[] { "MANUAL", "AUTOMÁTICO", "LARGADA", "CONCENTRAÇÃO", "ULTRAPASSAGEM", "EXPERIÊNCIA", "RAPIDEZ", "CHUVA", "ACERTO DO CARRO", "FÍSICO" });
+            comboBoxXp.Location = new Point(295, 27);
+            comboBoxXp.Margin = new Padding(0);
+            comboBoxXp.Name = "comboBoxXp";
+            comboBoxXp.Size = new Size(140, 23);
+            comboBoxXp.TabIndex = 69;
+            comboBoxXp.Visible = false;
+            comboBoxXp.SelectedIndexChanged += comboBoxXp_SelectedIndexChanged;
+            // 
             // labelPontosDisponivel
             // 
             labelPontosDisponivel.Font = new Font("Comic Sans MS", 10F, FontStyle.Bold);
@@ -527,6 +540,7 @@
             labelPontosDisponivel.TabIndex = 67;
             labelPontosDisponivel.Text = "PONTOS DISPONIVEL";
             labelPontosDisponivel.TextAlign = ContentAlignment.MiddleCenter;
+            labelPontosDisponivel.Visible = false;
             // 
             // TpFisico_1
             // 
@@ -540,6 +554,7 @@
             TpFisico_1.TabIndex = 66;
             TpFisico_1.Text = "+1";
             TpFisico_1.TextAlign = ContentAlignment.MiddleCenter;
+            TpFisico_1.Visible = false;
             TpFisico_1.Click += TpFisico_1_Click;
             // 
             // TpAcertoDoCarro_1
@@ -554,6 +569,7 @@
             TpAcertoDoCarro_1.TabIndex = 65;
             TpAcertoDoCarro_1.Text = "+1";
             TpAcertoDoCarro_1.TextAlign = ContentAlignment.MiddleCenter;
+            TpAcertoDoCarro_1.Visible = false;
             TpAcertoDoCarro_1.Click += TpAcertoDoCarro_1_Click;
             // 
             // TpChuva_1
@@ -568,6 +584,7 @@
             TpChuva_1.TabIndex = 64;
             TpChuva_1.Text = "+1";
             TpChuva_1.TextAlign = ContentAlignment.MiddleCenter;
+            TpChuva_1.Visible = false;
             TpChuva_1.Click += TpChuva_1_Click;
             // 
             // TpRapidez_1
@@ -582,6 +599,7 @@
             TpRapidez_1.TabIndex = 63;
             TpRapidez_1.Text = "+1";
             TpRapidez_1.TextAlign = ContentAlignment.MiddleCenter;
+            TpRapidez_1.Visible = false;
             TpRapidez_1.Click += TpRapidez_1_Click;
             // 
             // TpExperiencia_1
@@ -596,6 +614,7 @@
             TpExperiencia_1.TabIndex = 62;
             TpExperiencia_1.Text = "+1";
             TpExperiencia_1.TextAlign = ContentAlignment.MiddleCenter;
+            TpExperiencia_1.Visible = false;
             TpExperiencia_1.Click += TpExperiencia_1_Click;
             // 
             // TpUltrapassagem_1
@@ -610,6 +629,7 @@
             TpUltrapassagem_1.TabIndex = 61;
             TpUltrapassagem_1.Text = "+1";
             TpUltrapassagem_1.TextAlign = ContentAlignment.MiddleCenter;
+            TpUltrapassagem_1.Visible = false;
             TpUltrapassagem_1.Click += TpUltrapassagem_1_Click;
             // 
             // TpConcentracao_1
@@ -624,6 +644,7 @@
             TpConcentracao_1.TabIndex = 60;
             TpConcentracao_1.Text = "+1";
             TpConcentracao_1.TextAlign = ContentAlignment.MiddleCenter;
+            TpConcentracao_1.Visible = false;
             TpConcentracao_1.Click += TpConcentracao_1_Click;
             // 
             // TpLargada_1
@@ -638,6 +659,7 @@
             TpLargada_1.TabIndex = 59;
             TpLargada_1.Text = "+1";
             TpLargada_1.TextAlign = ContentAlignment.MiddleCenter;
+            TpLargada_1.Visible = false;
             TpLargada_1.Click += TpLargada_1_Click;
             // 
             // TpFisico
@@ -925,10 +947,10 @@
             panel13.Controls.Add(labelContratoAtualNomeEquipe);
             panel13.Controls.Add(labelSaldoNaConta);
             panel13.Controls.Add(label13);
-            panel13.Controls.Add(label48);
-            panel13.Controls.Add(label49);
-            panel13.Controls.Add(label50);
-            panel13.Controls.Add(label51);
+            panel13.Controls.Add(labelGpDisputadoTotal);
+            panel13.Controls.Add(labelPolePositionTotal);
+            panel13.Controls.Add(labelVitoriaTotal);
+            panel13.Controls.Add(labelTitulosTotal);
             panel13.Controls.Add(label52);
             panel13.Controls.Add(label44);
             panel13.Controls.Add(label45);
@@ -1063,49 +1085,49 @@
             label13.Text = "CARTEIRA";
             label13.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // label48
+            // labelGpDisputadoTotal
             // 
-            label48.Font = new Font("Segoe UI", 10F);
-            label48.Location = new Point(840, 135);
-            label48.Margin = new Padding(0);
-            label48.Name = "label48";
-            label48.Size = new Size(40, 30);
-            label48.TabIndex = 45;
-            label48.Text = "00";
-            label48.TextAlign = ContentAlignment.MiddleCenter;
+            labelGpDisputadoTotal.Font = new Font("Segoe UI", 10F);
+            labelGpDisputadoTotal.Location = new Point(840, 135);
+            labelGpDisputadoTotal.Margin = new Padding(0);
+            labelGpDisputadoTotal.Name = "labelGpDisputadoTotal";
+            labelGpDisputadoTotal.Size = new Size(40, 30);
+            labelGpDisputadoTotal.TabIndex = 45;
+            labelGpDisputadoTotal.Text = "00";
+            labelGpDisputadoTotal.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // label49
+            // labelPolePositionTotal
             // 
-            label49.Font = new Font("Segoe UI", 10F);
-            label49.Location = new Point(840, 105);
-            label49.Margin = new Padding(0);
-            label49.Name = "label49";
-            label49.Size = new Size(40, 30);
-            label49.TabIndex = 44;
-            label49.Text = "00";
-            label49.TextAlign = ContentAlignment.MiddleCenter;
+            labelPolePositionTotal.Font = new Font("Segoe UI", 10F);
+            labelPolePositionTotal.Location = new Point(840, 105);
+            labelPolePositionTotal.Margin = new Padding(0);
+            labelPolePositionTotal.Name = "labelPolePositionTotal";
+            labelPolePositionTotal.Size = new Size(40, 30);
+            labelPolePositionTotal.TabIndex = 44;
+            labelPolePositionTotal.Text = "00";
+            labelPolePositionTotal.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // label50
+            // labelVitoriaTotal
             // 
-            label50.Font = new Font("Segoe UI", 10F);
-            label50.Location = new Point(840, 75);
-            label50.Margin = new Padding(0);
-            label50.Name = "label50";
-            label50.Size = new Size(40, 30);
-            label50.TabIndex = 43;
-            label50.Text = "00";
-            label50.TextAlign = ContentAlignment.MiddleCenter;
+            labelVitoriaTotal.Font = new Font("Segoe UI", 10F);
+            labelVitoriaTotal.Location = new Point(840, 75);
+            labelVitoriaTotal.Margin = new Padding(0);
+            labelVitoriaTotal.Name = "labelVitoriaTotal";
+            labelVitoriaTotal.Size = new Size(40, 30);
+            labelVitoriaTotal.TabIndex = 43;
+            labelVitoriaTotal.Text = "00";
+            labelVitoriaTotal.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // label51
+            // labelTitulosTotal
             // 
-            label51.Font = new Font("Segoe UI", 10F);
-            label51.Location = new Point(840, 45);
-            label51.Margin = new Padding(0);
-            label51.Name = "label51";
-            label51.Size = new Size(40, 30);
-            label51.TabIndex = 42;
-            label51.Text = "00";
-            label51.TextAlign = ContentAlignment.MiddleCenter;
+            labelTitulosTotal.Font = new Font("Segoe UI", 10F);
+            labelTitulosTotal.Location = new Point(840, 45);
+            labelTitulosTotal.Margin = new Padding(0);
+            labelTitulosTotal.Name = "labelTitulosTotal";
+            labelTitulosTotal.Size = new Size(40, 30);
+            labelTitulosTotal.TabIndex = 42;
+            labelTitulosTotal.Text = "00";
+            labelTitulosTotal.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label52
             // 
@@ -1399,17 +1421,6 @@
             label14.TextAlign = ContentAlignment.MiddleCenter;
             label14.Click += label14_Click;
             // 
-            // comboBoxXp
-            // 
-            comboBoxXp.FormattingEnabled = true;
-            comboBoxXp.Items.AddRange(new object[] { "MANUAL", "AUTOMÁTICO", "LARGADA", "CONCENTRAÇÃO", "ULTRAPASSAGEM", "EXPERIÊNCIA", "RAPIDEZ", "CHUVA", "ACERTO DO CARRO", "FÍSICO" });
-            comboBoxXp.Location = new Point(295, 27);
-            comboBoxXp.Margin = new Padding(0);
-            comboBoxXp.Name = "comboBoxXp";
-            comboBoxXp.Size = new Size(140, 23);
-            comboBoxXp.TabIndex = 69;
-            comboBoxXp.SelectedIndexChanged += comboBoxXp_SelectedIndexChanged;
-            // 
             // TelaEscritorio
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -1425,6 +1436,7 @@
             Controls.Add(panel1);
             Controls.Add(panel13);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "TelaEscritorio";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "TelaEscritorio";
@@ -1520,10 +1532,10 @@
         private Label label38;
         private Label label27;
         private Label label26;
-        private Label label48;
-        private Label label49;
-        private Label label50;
-        private Label label51;
+        private Label labelGpDisputadoTotal;
+        private Label labelPolePositionTotal;
+        private Label labelVitoriaTotal;
+        private Label labelTitulosTotal;
         private Label label52;
         private Label labelSaldoNaConta;
         private Label label13;

@@ -52,12 +52,19 @@ namespace DriverChallenge
                 TpAcertoDoCarro.Text = piloto[i].AcertoDoCarro.ToString();
                 TpFisico.Text = piloto[i].Fisico.ToString();
 
-                TpEquipePiloto.Text = piloto[i].EquipePiloto;
+                TpTotalDeVitoria.Text = piloto[i].VitoriaCorrida.ToString();
+                TpPolePosition.Text = piloto[i].PolePosition.ToString();
+                TpGpDisputados.Text = piloto[i].GpDisputado.ToString();
+                TpTitulosF1.Text = piloto[i].TituloF1.ToString();
+                TpTitulosF2.Text = piloto[i].TituloF2.ToString();
+                TpTitulosF3.Text = piloto[i].TituloF3.ToString();
+
+                TpEquipePiloto.Text = "Contrato Atual - " + piloto[i].EquipePiloto;
                 TpSalarioPiloto.Text = piloto[i].SalarioPiloto == 0? "": piloto[i].SalarioPiloto.ToString("C", new System.Globalization.CultureInfo("pt-BR"));
                 TpStatusPiloto.Text = piloto[i].StatusPiloto;
                 TpDuracaoPiloto.Text = piloto[i].ContratoPiloto == 0? "": piloto[i].ContratoPiloto.ToString();
 
-                TpEquipePilotoProximoAno.Text = piloto[i].ProximoAnoEquipePiloto;
+                TpEquipePilotoProximoAno.Text = "Contrato Próximo Ano - " + piloto[i].ProximoAnoEquipePiloto;
                 TpSalarioPilotoProximoAno.Text = piloto[i].ProximoAnoSalarioPiloto == 0? "": piloto[i].ProximoAnoSalarioPiloto.ToString("C", new System.Globalization.CultureInfo("pt-BR"));
                 TpStatusPilotoProximoAno.Text = piloto[i].ProximoAnoStatusPiloto;
                 TpDuracaoPilotoProximoAno.Text = piloto[i].ProximoAnoContratoPiloto == 0? "": piloto[i].ProximoAnoContratoPiloto.ToString();

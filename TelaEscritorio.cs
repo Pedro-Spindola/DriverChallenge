@@ -46,6 +46,11 @@ namespace DriverChallenge
             labelTempoDeContratoJogador.Text = piloto[principal.IndexDoJogador].ContratoPiloto == 0 ? "" : piloto[principal.IndexDoJogador].ContratoPiloto.ToString();
             labelStatusDoJogador.Text = piloto[principal.IndexDoJogador].StatusPiloto;
             labelSaldoNaConta.Text = financia.DinheiroJogadorTotal.ToString("C", new System.Globalization.CultureInfo("pt-BR"));
+            int titulosTotal = (piloto[principal.IndexDoJogador].TituloF1 + piloto[principal.IndexDoJogador].TituloF2 + piloto[principal.IndexDoJogador].TituloF3);
+            labelTitulosTotal.Text = titulosTotal.ToString();
+            labelVitoriaTotal.Text = piloto[principal.IndexDoJogador].VitoriaCorrida.ToString();
+            labelPolePositionTotal.Text = piloto[principal.IndexDoJogador].PolePosition.ToString();
+            labelGpDisputadoTotal.Text = piloto[principal.IndexDoJogador].GpDisputado.ToString();
         }
         public void LoadingPropostas()
         {

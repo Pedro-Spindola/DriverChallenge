@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaClassificacao));
             panel17 = new Panel();
             dvgTelaClassificacaoPiloto = new DataGridView();
             panel1 = new Panel();
@@ -229,6 +230,7 @@
             Controls.Add(panel1);
             Controls.Add(panel17);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "TelaClassificacao";

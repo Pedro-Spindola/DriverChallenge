@@ -41,7 +41,7 @@
             // listEscolheNacionalidade
             // 
             listEscolheNacionalidade.DropDownStyle = ComboBoxStyle.DropDownList;
-            listEscolheNacionalidade.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            listEscolheNacionalidade.Font = new Font("Segoe UI", 10F);
             listEscolheNacionalidade.FormattingEnabled = true;
             listEscolheNacionalidade.Location = new Point(360, 215);
             listEscolheNacionalidade.Margin = new Padding(0);
@@ -53,7 +53,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Font = new Font("Segoe UI", 12F);
             label1.ForeColor = Color.White;
             label1.Location = new Point(312, 28);
             label1.Name = "label1";
@@ -63,7 +63,7 @@
             // 
             // inputNomePiloto
             // 
-            inputNomePiloto.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
+            inputNomePiloto.Font = new Font("Segoe UI", 14F);
             inputNomePiloto.ForeColor = SystemColors.WindowFrame;
             inputNomePiloto.Location = new Point(210, 64);
             inputNomePiloto.Margin = new Padding(0);
@@ -78,7 +78,7 @@
             buttonContinuar.BackgroundImageLayout = ImageLayout.None;
             buttonContinuar.FlatAppearance.BorderSize = 0;
             buttonContinuar.FlatStyle = FlatStyle.Flat;
-            buttonContinuar.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            buttonContinuar.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
             buttonContinuar.ForeColor = SystemColors.ControlText;
             buttonContinuar.Location = new Point(210, 310);
             buttonContinuar.Margin = new Padding(0);
@@ -92,7 +92,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label5.Font = new Font("Segoe UI", 12F);
             label5.ForeColor = Color.White;
             label5.Location = new Point(210, 217);
             label5.Name = "label5";
@@ -102,7 +102,7 @@
             // 
             // inputSobrenomePiloto
             // 
-            inputSobrenomePiloto.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
+            inputSobrenomePiloto.Font = new Font("Segoe UI", 14F);
             inputSobrenomePiloto.ForeColor = SystemColors.WindowFrame;
             inputSobrenomePiloto.Location = new Point(208, 152);
             inputSobrenomePiloto.Margin = new Padding(0);
@@ -114,7 +114,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Font = new Font("Segoe UI", 12F);
             label2.ForeColor = Color.White;
             label2.Location = new Point(286, 120);
             label2.Name = "label2";
@@ -122,7 +122,7 @@
             label2.TabIndex = 16;
             label2.Text = "INFORME O SEU SOBRENOME";
             // 
-            // TelaNewGame
+            // TelaIniciarNovoJogo
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -137,12 +137,12 @@
             Controls.Add(listEscolheNacionalidade);
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Name = "TelaNewGame";
+            Name = "TelaIniciarNovoJogo";
             StartPosition = FormStartPosition.CenterScreen;
+            Text = "TelaIniciarNovoJogo";
             Load += TelaIniciarNovoJogo_Load;
             ResumeLayout(false);
             PerformLayout();
-            this.Text = "TelaIniciarNovoJogo";
         }
 
         #endregion

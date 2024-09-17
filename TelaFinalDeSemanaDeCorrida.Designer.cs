@@ -31,6 +31,7 @@ namespace DriverChallenge
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaFinalDeSemanaDeCorrida));
             panel = new Panel();
             dvgTableF1 = new DataGridView();
             panel1 = new Panel();
@@ -253,6 +254,7 @@ namespace DriverChallenge
             Controls.Add(panel1);
             Controls.Add(panel);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "TelaFinalDeSemanaDeCorrida";

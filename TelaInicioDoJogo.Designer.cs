@@ -41,7 +41,7 @@
             buttonContinuar.BackgroundImageLayout = ImageLayout.None;
             buttonContinuar.FlatAppearance.BorderSize = 0;
             buttonContinuar.FlatStyle = FlatStyle.Flat;
-            buttonContinuar.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            buttonContinuar.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
             buttonContinuar.ForeColor = SystemColors.ControlText;
             buttonContinuar.Location = new Point(50, 50);
             buttonContinuar.Margin = new Padding(0);
@@ -58,7 +58,7 @@
             buttonNovoJogo.BackgroundImageLayout = ImageLayout.None;
             buttonNovoJogo.FlatAppearance.BorderSize = 0;
             buttonNovoJogo.FlatStyle = FlatStyle.Flat;
-            buttonNovoJogo.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            buttonNovoJogo.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
             buttonNovoJogo.ForeColor = SystemColors.ControlText;
             buttonNovoJogo.Location = new Point(50, 130);
             buttonNovoJogo.Margin = new Padding(0);
@@ -75,7 +75,7 @@
             buttonSobre.BackgroundImageLayout = ImageLayout.None;
             buttonSobre.FlatAppearance.BorderSize = 0;
             buttonSobre.FlatStyle = FlatStyle.Flat;
-            buttonSobre.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            buttonSobre.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
             buttonSobre.Location = new Point(50, 210);
             buttonSobre.Margin = new Padding(0);
             buttonSobre.Name = "buttonSobre";
@@ -90,7 +90,7 @@
             buttonConfiguracao.BackgroundImageLayout = ImageLayout.None;
             buttonConfiguracao.FlatAppearance.BorderSize = 0;
             buttonConfiguracao.FlatStyle = FlatStyle.Flat;
-            buttonConfiguracao.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            buttonConfiguracao.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
             buttonConfiguracao.Location = new Point(50, 290);
             buttonConfiguracao.Margin = new Padding(0);
             buttonConfiguracao.Name = "buttonConfiguracao";
@@ -99,22 +99,21 @@
             buttonConfiguracao.Text = "CONFIGURAÇÃO";
             buttonConfiguracao.UseVisualStyleBackColor = false;
             // 
-            // TelaInicial
+            // TelaInicioDoJogo
             // 
-            this.components = new System.ComponentModel.Container();
             AutoScaleDimensions = new SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(80, 80, 80);
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            ClientSize = new Size(800, 450);
             Controls.Add(buttonConfiguracao);
             Controls.Add(buttonSobre);
             Controls.Add(buttonNovoJogo);
             Controls.Add(buttonContinuar);
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Name = "TelaInicial";
+            Name = "TelaInicioDoJogo";
             StartPosition = FormStartPosition.CenterScreen;
-            this.Text = "TelaInicioDoJogo";
+            Text = "TelaInicioDoJogo";
             Load += TelaInicioDoJogo_Load;
             ResumeLayout(false);
         }

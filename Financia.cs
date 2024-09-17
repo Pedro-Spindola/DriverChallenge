@@ -171,7 +171,7 @@ namespace DriverChallenge
             "Carlsberg,Dinamarca",
             "Novo Nordisk,Dinamarca",
             "Emirates,Emirados Árabes Unidos",
-            "Johnnie Walker,Escócia",
+            "Johnnie Walker,Reino Unido",
             "Estrella Galicia,Espanha",
             "Iberdrola,Espanha",
             "Inditex,Espanha",

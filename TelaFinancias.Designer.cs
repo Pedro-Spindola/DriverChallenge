@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaFinancias));
             label1 = new Label();
             panel1 = new Panel();
             Tf_rescindir1_btn = new Label();
@@ -928,6 +929,7 @@
             Controls.Add(panel1);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "TelaFinancias";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "TelaFinancias";

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaEquipes));
             panel17 = new Panel();
             dvgTelaEquipesExibirTodasEquipes = new DataGridView();
             panel1 = new Panel();
@@ -751,10 +752,10 @@
             // 
             panel6.BackColor = Color.FromArgb(240, 240, 240);
             panel6.Controls.Add(dgvTelaEquipeRankEquipes);
-            panel6.Location = new Point(930, 380);
+            panel6.Location = new Point(930, 400);
             panel6.Margin = new Padding(0);
             panel6.Name = "panel6";
-            panel6.Size = new Size(390, 300);
+            panel6.Size = new Size(390, 280);
             panel6.TabIndex = 15;
             // 
             // dgvTelaEquipeRankEquipes
@@ -769,7 +770,7 @@
             dgvTelaEquipeRankEquipes.Margin = new Padding(0);
             dgvTelaEquipeRankEquipes.Name = "dgvTelaEquipeRankEquipes";
             dgvTelaEquipeRankEquipes.ReadOnly = true;
-            dgvTelaEquipeRankEquipes.Size = new Size(390, 300);
+            dgvTelaEquipeRankEquipes.Size = new Size(390, 280);
             dgvTelaEquipeRankEquipes.TabIndex = 5;
             // 
             // label7
@@ -798,20 +799,22 @@
             // 
             // label1
             // 
+            label1.BackColor = SystemColors.ButtonFace;
             label1.Font = new Font("Comic Sans MS", 20.25F, FontStyle.Bold);
-            label1.Location = new Point(20, 29);
+            label1.Location = new Point(20, 20);
             label1.Name = "label1";
-            label1.Size = new Size(500, 60);
+            label1.Size = new Size(500, 69);
             label1.TabIndex = 20;
             label1.Text = "EQUIPES";
             label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label4
             // 
+            label4.BackColor = SystemColors.ButtonFace;
             label4.Font = new Font("Comic Sans MS", 16F, FontStyle.Bold);
             label4.Location = new Point(930, 340);
             label4.Name = "label4";
-            label4.Size = new Size(390, 30);
+            label4.Size = new Size(390, 50);
             label4.TabIndex = 21;
             label4.Text = "RANK";
             label4.TextAlign = ContentAlignment.MiddleCenter;
@@ -833,6 +836,7 @@
             Controls.Add(panel1);
             Controls.Add(panel17);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "TelaEquipes";

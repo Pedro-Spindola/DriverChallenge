@@ -208,7 +208,7 @@ namespace DriverChallenge
 
                 if (piloto[i].XpPiloto >= 1)
                 {
-                    if (piloto[i].IdadePiloto <= piloto[i].AugePiloto && i != IndexDoJogador)
+                    if (piloto[i].IdadePiloto <= piloto[i].AugePiloto)
                     {
                         // Adicionar pontos para acrescentar.
                         do

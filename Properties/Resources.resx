@@ -226,4 +226,13 @@
   <data name="simbolo_de_mais_preto" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\simbolo-de-mais-preto.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Duro" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Duro.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Macio" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Macio.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Médio" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Médio.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

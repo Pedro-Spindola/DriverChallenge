@@ -31,6 +31,7 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaPrincipal));
             panel1 = new Panel();
             pictureBoxBtnFechar = new PictureBox();
             pictureBoxBtnOpcao = new PictureBox();
@@ -874,6 +875,7 @@
             Controls.Add(panel1);
             Font = new Font("Segoe UI", 9.75F);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "TelaPrincipal";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "TelaPrincipal";

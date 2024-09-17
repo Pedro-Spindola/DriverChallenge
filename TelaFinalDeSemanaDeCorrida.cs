@@ -882,12 +882,18 @@ namespace DriverChallenge
                     {
                         if (equipes[k].NomeEquipe == pilotos[i].EquipePiloto)
                         {
+                            pilotos[i].GpDisputado++;
+                            if(pilotos[i].QualificacaoParaCorrida == 1)
+                            {
+                                pilotos[i].PolePosition++;
+                            }
                             if (pilotos[i].PosicaoNaCorrida == 0)
                             {
                                 pilotos[i].PontosCampeonato = pilotos[i].PontosCampeonato + principal.PrimeiroLugar;
                                 equipes[k].PontosCampeonato = equipes[k].PontosCampeonato + principal.PrimeiroLugar;
                                 pilotos[i].PrimeiroColocado++;
                                 equipes[k].PrimeiroColocado++;
+                                pilotos[i].VitoriaCorrida++;
                             }
                             else if (pilotos[i].PosicaoNaCorrida == 1)
                             {
@@ -1395,7 +1401,6 @@ namespace DriverChallenge
                             }
                         }
                     }
-                    if (pilotos[j].PosicaoNaCorrida == 1) pilotos[j].PolePosition++;
                 }
                 // Calcula a diferença de tempo do piloto para o primeiro.
                 for (int j = 0; j < pilotos.Length; j++)
@@ -1475,6 +1480,11 @@ namespace DriverChallenge
                 {
                     if (equipes[k].NomeEquipe == pilotos[i].EquipePiloto)
                     {
+                        pilotos[i].GpDisputado++;
+                        if (pilotos[i].QualificacaoParaCorrida == 1)
+                        {
+                            pilotos[i].PolePosition++;
+                        }
                         if (pilotos[i].PosicaoNaCorrida == 0)
                         {
                             pilotos[i].PontosCampeonato = pilotos[i].PontosCampeonato + principal.PrimeiroLugar;

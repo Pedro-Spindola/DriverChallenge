@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaPilotos));
             panel17 = new Panel();
             dvgTelaPilotoExibirTodosPilotos = new DataGridView();
             panel1 = new Panel();
@@ -76,8 +77,6 @@
             label10 = new Label();
             label11 = new Label();
             label12 = new Label();
-            label6 = new Label();
-            panel6 = new Panel();
             label1 = new Label();
             panel7 = new Panel();
             TpLabelCor4B = new Label();
@@ -89,7 +88,23 @@
             label27 = new Label();
             label28 = new Label();
             label29 = new Label();
-            label30 = new Label();
+            panel6 = new Panel();
+            TpTitulosF3 = new Label();
+            TpTitulosF2 = new Label();
+            label38 = new Label();
+            label37 = new Label();
+            label36 = new Label();
+            label15 = new Label();
+            TpTitulosF1 = new Label();
+            label19 = new Label();
+            label21 = new Label();
+            TpGpDisputados = new Label();
+            TpPolePosition = new Label();
+            TpTotalDeVitoria = new Label();
+            label32 = new Label();
+            label33 = new Label();
+            label34 = new Label();
+            label35 = new Label();
             panel17.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dvgTelaPilotoExibirTodosPilotos).BeginInit();
             panel1.SuspendLayout();
@@ -99,6 +114,7 @@
             ((System.ComponentModel.ISupportInitialize)dgvTelaPilotoExibirHistoricoPiloto).BeginInit();
             panel5.SuspendLayout();
             panel7.SuspendLayout();
+            panel6.SuspendLayout();
             SuspendLayout();
             // 
             // panel17
@@ -144,14 +160,14 @@
             panel1.Location = new Point(530, 20);
             panel1.Margin = new Padding(0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(390, 120);
+            panel1.Size = new Size(390, 140);
             panel1.TabIndex = 12;
             // 
             // TpLabelCor1B
             // 
             TpLabelCor1B.Anchor = AnchorStyles.None;
             TpLabelCor1B.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            TpLabelCor1B.Location = new Point(0, 80);
+            TpLabelCor1B.Location = new Point(0, 100);
             TpLabelCor1B.Margin = new Padding(0);
             TpLabelCor1B.Name = "TpLabelCor1B";
             TpLabelCor1B.Size = new Size(10, 40);
@@ -162,7 +178,7 @@
             // 
             TpHabPiloto.Anchor = AnchorStyles.None;
             TpHabPiloto.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
-            TpHabPiloto.Location = new Point(265, 85);
+            TpHabPiloto.Location = new Point(265, 95);
             TpHabPiloto.Margin = new Padding(0);
             TpHabPiloto.Name = "TpHabPiloto";
             TpHabPiloto.Size = new Size(100, 25);
@@ -173,7 +189,7 @@
             // 
             label13.Anchor = AnchorStyles.None;
             label13.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            label13.Location = new Point(240, 60);
+            label13.Location = new Point(240, 70);
             label13.Margin = new Padding(0);
             label13.Name = "label13";
             label13.Size = new Size(150, 25);
@@ -188,7 +204,7 @@
             TpLabelCor1A.Location = new Point(0, 0);
             TpLabelCor1A.Margin = new Padding(0);
             TpLabelCor1A.Name = "TpLabelCor1A";
-            TpLabelCor1A.Size = new Size(10, 80);
+            TpLabelCor1A.Size = new Size(10, 100);
             TpLabelCor1A.TabIndex = 26;
             TpLabelCor1A.TextAlign = ContentAlignment.MiddleRight;
             // 
@@ -196,7 +212,7 @@
             // 
             TpPaisPiloto.Anchor = AnchorStyles.None;
             TpPaisPiloto.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
-            TpPaisPiloto.Location = new Point(110, 85);
+            TpPaisPiloto.Location = new Point(110, 95);
             TpPaisPiloto.Margin = new Padding(0);
             TpPaisPiloto.Name = "TpPaisPiloto";
             TpPaisPiloto.Size = new Size(155, 25);
@@ -207,7 +223,7 @@
             // 
             TpIdadePiloto.Anchor = AnchorStyles.None;
             TpIdadePiloto.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
-            TpIdadePiloto.Location = new Point(110, 60);
+            TpIdadePiloto.Location = new Point(110, 70);
             TpIdadePiloto.Margin = new Padding(0);
             TpIdadePiloto.Name = "TpIdadePiloto";
             TpIdadePiloto.Size = new Size(100, 25);
@@ -218,7 +234,7 @@
             // 
             TpNomeCompletoPiloto.Anchor = AnchorStyles.None;
             TpNomeCompletoPiloto.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
-            TpNomeCompletoPiloto.Location = new Point(110, 35);
+            TpNomeCompletoPiloto.Location = new Point(110, 45);
             TpNomeCompletoPiloto.Margin = new Padding(0);
             TpNomeCompletoPiloto.Name = "TpNomeCompletoPiloto";
             TpNomeCompletoPiloto.Size = new Size(280, 25);
@@ -229,7 +245,7 @@
             // 
             label5.Anchor = AnchorStyles.None;
             label5.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            label5.Location = new Point(10, 35);
+            label5.Location = new Point(10, 45);
             label5.Margin = new Padding(0);
             label5.Name = "label5";
             label5.Size = new Size(100, 25);
@@ -241,7 +257,7 @@
             // 
             label4.Anchor = AnchorStyles.None;
             label4.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            label4.Location = new Point(10, 60);
+            label4.Location = new Point(10, 70);
             label4.Margin = new Padding(0);
             label4.Name = "label4";
             label4.Size = new Size(100, 25);
@@ -255,7 +271,7 @@
             label3.Location = new Point(10, 0);
             label3.Margin = new Padding(0);
             label3.Name = "label3";
-            label3.Size = new Size(380, 25);
+            label3.Size = new Size(380, 30);
             label3.TabIndex = 20;
             label3.Text = "Dados Pessoais";
             label3.TextAlign = ContentAlignment.MiddleCenter;
@@ -264,7 +280,7 @@
             // 
             label2.Anchor = AnchorStyles.None;
             label2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            label2.Location = new Point(10, 85);
+            label2.Location = new Point(10, 95);
             label2.Margin = new Padding(0);
             label2.Name = "label2";
             label2.Size = new Size(100, 25);
@@ -318,17 +334,17 @@
             panel3.Controls.Add(label9);
             panel3.Controls.Add(TpLargada);
             panel3.Controls.Add(label8);
-            panel3.Location = new Point(530, 150);
+            panel3.Location = new Point(530, 170);
             panel3.Margin = new Padding(0);
             panel3.Name = "panel3";
-            panel3.Size = new Size(390, 270);
+            panel3.Size = new Size(390, 360);
             panel3.TabIndex = 15;
             // 
             // TpLabelCor3B
             // 
             TpLabelCor3B.Anchor = AnchorStyles.None;
             TpLabelCor3B.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            TpLabelCor3B.Location = new Point(0, 175);
+            TpLabelCor3B.Location = new Point(0, 220);
             TpLabelCor3B.Margin = new Padding(0);
             TpLabelCor3B.Name = "TpLabelCor3B";
             TpLabelCor3B.Size = new Size(10, 95);
@@ -339,7 +355,7 @@
             // 
             TpFisico.Anchor = AnchorStyles.None;
             TpFisico.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            TpFisico.Location = new Point(150, 224);
+            TpFisico.Location = new Point(150, 269);
             TpFisico.Margin = new Padding(0);
             TpFisico.Name = "TpFisico";
             TpFisico.Size = new Size(40, 25);
@@ -350,7 +366,7 @@
             // 
             label26.Anchor = AnchorStyles.None;
             label26.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            label26.Location = new Point(10, 224);
+            label26.Location = new Point(10, 269);
             label26.Margin = new Padding(0);
             label26.Name = "label26";
             label26.Size = new Size(140, 25);
@@ -362,7 +378,7 @@
             // 
             TpAcertoDoCarro.Anchor = AnchorStyles.None;
             TpAcertoDoCarro.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            TpAcertoDoCarro.Location = new Point(150, 197);
+            TpAcertoDoCarro.Location = new Point(150, 242);
             TpAcertoDoCarro.Margin = new Padding(0);
             TpAcertoDoCarro.Name = "TpAcertoDoCarro";
             TpAcertoDoCarro.Size = new Size(40, 25);
@@ -373,7 +389,7 @@
             // 
             label24.Anchor = AnchorStyles.None;
             label24.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            label24.Location = new Point(10, 197);
+            label24.Location = new Point(10, 242);
             label24.Margin = new Padding(0);
             label24.Name = "label24";
             label24.Size = new Size(140, 25);
@@ -385,7 +401,7 @@
             // 
             TpChuva.Anchor = AnchorStyles.None;
             TpChuva.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            TpChuva.Location = new Point(150, 170);
+            TpChuva.Location = new Point(150, 215);
             TpChuva.Margin = new Padding(0);
             TpChuva.Name = "TpChuva";
             TpChuva.Size = new Size(40, 25);
@@ -396,7 +412,7 @@
             // 
             label22.Anchor = AnchorStyles.None;
             label22.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            label22.Location = new Point(10, 170);
+            label22.Location = new Point(10, 215);
             label22.Margin = new Padding(0);
             label22.Name = "label22";
             label22.Size = new Size(140, 25);
@@ -408,7 +424,7 @@
             // 
             TpRapidez.Anchor = AnchorStyles.None;
             TpRapidez.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            TpRapidez.Location = new Point(150, 143);
+            TpRapidez.Location = new Point(150, 188);
             TpRapidez.Margin = new Padding(0);
             TpRapidez.Name = "TpRapidez";
             TpRapidez.Size = new Size(40, 25);
@@ -419,7 +435,7 @@
             // 
             label20.Anchor = AnchorStyles.None;
             label20.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            label20.Location = new Point(10, 143);
+            label20.Location = new Point(10, 188);
             label20.Margin = new Padding(0);
             label20.Name = "label20";
             label20.Size = new Size(140, 25);
@@ -431,7 +447,7 @@
             // 
             TpExperiencia.Anchor = AnchorStyles.None;
             TpExperiencia.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            TpExperiencia.Location = new Point(150, 116);
+            TpExperiencia.Location = new Point(150, 161);
             TpExperiencia.Margin = new Padding(0);
             TpExperiencia.Name = "TpExperiencia";
             TpExperiencia.Size = new Size(40, 25);
@@ -442,7 +458,7 @@
             // 
             label18.Anchor = AnchorStyles.None;
             label18.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            label18.Location = new Point(10, 116);
+            label18.Location = new Point(10, 161);
             label18.Margin = new Padding(0);
             label18.Name = "label18";
             label18.Size = new Size(140, 25);
@@ -454,7 +470,7 @@
             // 
             TpUltrapassagem.Anchor = AnchorStyles.None;
             TpUltrapassagem.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            TpUltrapassagem.Location = new Point(150, 89);
+            TpUltrapassagem.Location = new Point(150, 134);
             TpUltrapassagem.Margin = new Padding(0);
             TpUltrapassagem.Name = "TpUltrapassagem";
             TpUltrapassagem.Size = new Size(40, 25);
@@ -465,7 +481,7 @@
             // 
             label16.Anchor = AnchorStyles.None;
             label16.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            label16.Location = new Point(10, 89);
+            label16.Location = new Point(10, 134);
             label16.Margin = new Padding(0);
             label16.Name = "label16";
             label16.Size = new Size(140, 25);
@@ -477,7 +493,7 @@
             // 
             TpConcentracao.Anchor = AnchorStyles.None;
             TpConcentracao.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            TpConcentracao.Location = new Point(150, 62);
+            TpConcentracao.Location = new Point(150, 107);
             TpConcentracao.Margin = new Padding(0);
             TpConcentracao.Name = "TpConcentracao";
             TpConcentracao.Size = new Size(40, 25);
@@ -488,7 +504,7 @@
             // 
             label14.Anchor = AnchorStyles.None;
             label14.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            label14.Location = new Point(10, 62);
+            label14.Location = new Point(10, 107);
             label14.Margin = new Padding(0);
             label14.Name = "label14";
             label14.Size = new Size(140, 25);
@@ -500,7 +516,7 @@
             // 
             TpLabelCor3A.Anchor = AnchorStyles.None;
             TpLabelCor3A.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            TpLabelCor3A.Location = new Point(0, 0);
+            TpLabelCor3A.Location = new Point(0, 45);
             TpLabelCor3A.Margin = new Padding(0);
             TpLabelCor3A.Name = "TpLabelCor3A";
             TpLabelCor3A.Size = new Size(10, 175);
@@ -513,7 +529,7 @@
             label9.Location = new Point(10, 0);
             label9.Margin = new Padding(0);
             label9.Name = "label9";
-            label9.Size = new Size(380, 25);
+            label9.Size = new Size(380, 30);
             label9.TabIndex = 26;
             label9.Text = "Atributos";
             label9.TextAlign = ContentAlignment.MiddleCenter;
@@ -522,7 +538,7 @@
             // 
             TpLargada.Anchor = AnchorStyles.None;
             TpLargada.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            TpLargada.Location = new Point(150, 35);
+            TpLargada.Location = new Point(150, 80);
             TpLargada.Margin = new Padding(0);
             TpLargada.Name = "TpLargada";
             TpLargada.Size = new Size(40, 25);
@@ -533,7 +549,7 @@
             // 
             label8.Anchor = AnchorStyles.None;
             label8.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            label8.Location = new Point(10, 35);
+            label8.Location = new Point(10, 80);
             label8.Margin = new Padding(0);
             label8.Name = "label8";
             label8.Size = new Size(140, 25);
@@ -545,10 +561,10 @@
             // 
             panel2.BackColor = Color.FromArgb(240, 240, 240);
             panel2.Controls.Add(dgvTelaPilotoExibirHistoricoPiloto);
-            panel2.Location = new Point(930, 21);
+            panel2.Location = new Point(930, 20);
             panel2.Margin = new Padding(0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(390, 300);
+            panel2.Size = new Size(390, 360);
             panel2.TabIndex = 16;
             // 
             // dgvTelaPilotoExibirHistoricoPiloto
@@ -563,7 +579,7 @@
             dgvTelaPilotoExibirHistoricoPiloto.Margin = new Padding(0);
             dgvTelaPilotoExibirHistoricoPiloto.Name = "dgvTelaPilotoExibirHistoricoPiloto";
             dgvTelaPilotoExibirHistoricoPiloto.ReadOnly = true;
-            dgvTelaPilotoExibirHistoricoPiloto.Size = new Size(390, 300);
+            dgvTelaPilotoExibirHistoricoPiloto.Size = new Size(390, 360);
             dgvTelaPilotoExibirHistoricoPiloto.TabIndex = 3;
             // 
             // panel5
@@ -578,18 +594,17 @@
             panel5.Controls.Add(label10);
             panel5.Controls.Add(label11);
             panel5.Controls.Add(label12);
-            panel5.Controls.Add(label6);
-            panel5.Location = new Point(530, 430);
+            panel5.Location = new Point(930, 390);
             panel5.Margin = new Padding(0);
             panel5.Name = "panel5";
-            panel5.Size = new Size(390, 120);
+            panel5.Size = new Size(390, 140);
             panel5.TabIndex = 17;
             // 
             // TpLabelCor2B
             // 
             TpLabelCor2B.Anchor = AnchorStyles.None;
             TpLabelCor2B.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            TpLabelCor2B.Location = new Point(0, 80);
+            TpLabelCor2B.Location = new Point(0, 100);
             TpLabelCor2B.Margin = new Padding(0);
             TpLabelCor2B.Name = "TpLabelCor2B";
             TpLabelCor2B.Size = new Size(10, 40);
@@ -603,26 +618,26 @@
             TpLabelCor2A.Location = new Point(0, 0);
             TpLabelCor2A.Margin = new Padding(0);
             TpLabelCor2A.Name = "TpLabelCor2A";
-            TpLabelCor2A.Size = new Size(10, 80);
+            TpLabelCor2A.Size = new Size(10, 100);
             TpLabelCor2A.TabIndex = 33;
             TpLabelCor2A.TextAlign = ContentAlignment.MiddleRight;
             // 
             // TpEquipePiloto
             // 
             TpEquipePiloto.Font = new Font("Comic Sans MS", 10F, FontStyle.Bold);
-            TpEquipePiloto.Location = new Point(200, 0);
+            TpEquipePiloto.Location = new Point(10, 0);
             TpEquipePiloto.Margin = new Padding(0);
             TpEquipePiloto.Name = "TpEquipePiloto";
-            TpEquipePiloto.Size = new Size(190, 25);
+            TpEquipePiloto.Size = new Size(380, 30);
             TpEquipePiloto.TabIndex = 32;
             TpEquipePiloto.Text = "Equipe";
-            TpEquipePiloto.TextAlign = ContentAlignment.MiddleLeft;
+            TpEquipePiloto.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // TpStatusPiloto
             // 
             TpStatusPiloto.Anchor = AnchorStyles.None;
             TpStatusPiloto.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            TpStatusPiloto.Location = new Point(110, 85);
+            TpStatusPiloto.Location = new Point(110, 95);
             TpStatusPiloto.Margin = new Padding(0);
             TpStatusPiloto.Name = "TpStatusPiloto";
             TpStatusPiloto.Size = new Size(100, 25);
@@ -633,7 +648,7 @@
             // 
             TpDuracaoPiloto.Anchor = AnchorStyles.None;
             TpDuracaoPiloto.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            TpDuracaoPiloto.Location = new Point(110, 60);
+            TpDuracaoPiloto.Location = new Point(110, 70);
             TpDuracaoPiloto.Margin = new Padding(0);
             TpDuracaoPiloto.Name = "TpDuracaoPiloto";
             TpDuracaoPiloto.Size = new Size(100, 25);
@@ -644,7 +659,7 @@
             // 
             TpSalarioPiloto.Anchor = AnchorStyles.None;
             TpSalarioPiloto.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            TpSalarioPiloto.Location = new Point(110, 35);
+            TpSalarioPiloto.Location = new Point(110, 45);
             TpSalarioPiloto.Margin = new Padding(0);
             TpSalarioPiloto.Name = "TpSalarioPiloto";
             TpSalarioPiloto.Size = new Size(100, 25);
@@ -655,7 +670,7 @@
             // 
             label10.Anchor = AnchorStyles.None;
             label10.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            label10.Location = new Point(10, 35);
+            label10.Location = new Point(10, 45);
             label10.Margin = new Padding(0);
             label10.Name = "label10";
             label10.Size = new Size(100, 25);
@@ -667,7 +682,7 @@
             // 
             label11.Anchor = AnchorStyles.None;
             label11.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            label11.Location = new Point(10, 60);
+            label11.Location = new Point(10, 70);
             label11.Margin = new Padding(0);
             label11.Name = "label11";
             label11.Size = new Size(100, 25);
@@ -679,7 +694,7 @@
             // 
             label12.Anchor = AnchorStyles.None;
             label12.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            label12.Location = new Point(10, 85);
+            label12.Location = new Point(10, 95);
             label12.Margin = new Padding(0);
             label12.Name = "label12";
             label12.Size = new Size(100, 25);
@@ -687,32 +702,14 @@
             label12.Text = "STATUS:";
             label12.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // label6
-            // 
-            label6.Font = new Font("Comic Sans MS", 10F, FontStyle.Bold);
-            label6.Location = new Point(10, 0);
-            label6.Margin = new Padding(0);
-            label6.Name = "label6";
-            label6.Size = new Size(190, 25);
-            label6.TabIndex = 21;
-            label6.Text = "Contrato -";
-            label6.TextAlign = ContentAlignment.MiddleRight;
-            // 
-            // panel6
-            // 
-            panel6.BackColor = Color.FromArgb(240, 240, 240);
-            panel6.Location = new Point(930, 330);
-            panel6.Margin = new Padding(0);
-            panel6.Name = "panel6";
-            panel6.Size = new Size(390, 350);
-            panel6.TabIndex = 18;
-            // 
             // label1
             // 
+            label1.BackColor = SystemColors.ButtonFace;
             label1.Font = new Font("Comic Sans MS", 20.25F, FontStyle.Bold);
             label1.Location = new Point(20, 20);
+            label1.Margin = new Padding(0);
             label1.Name = "label1";
-            label1.Size = new Size(500, 60);
+            label1.Size = new Size(500, 70);
             label1.TabIndex = 19;
             label1.Text = "PILOTOS";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -729,18 +726,17 @@
             panel7.Controls.Add(label27);
             panel7.Controls.Add(label28);
             panel7.Controls.Add(label29);
-            panel7.Controls.Add(label30);
-            panel7.Location = new Point(530, 560);
+            panel7.Location = new Point(930, 540);
             panel7.Margin = new Padding(0);
             panel7.Name = "panel7";
-            panel7.Size = new Size(390, 120);
+            panel7.Size = new Size(390, 140);
             panel7.TabIndex = 20;
             // 
             // TpLabelCor4B
             // 
             TpLabelCor4B.Anchor = AnchorStyles.None;
             TpLabelCor4B.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            TpLabelCor4B.Location = new Point(0, 80);
+            TpLabelCor4B.Location = new Point(0, 100);
             TpLabelCor4B.Margin = new Padding(0);
             TpLabelCor4B.Name = "TpLabelCor4B";
             TpLabelCor4B.Size = new Size(10, 40);
@@ -754,26 +750,26 @@
             TpLabelCor4A.Location = new Point(0, 0);
             TpLabelCor4A.Margin = new Padding(0);
             TpLabelCor4A.Name = "TpLabelCor4A";
-            TpLabelCor4A.Size = new Size(10, 80);
+            TpLabelCor4A.Size = new Size(10, 100);
             TpLabelCor4A.TabIndex = 33;
             TpLabelCor4A.TextAlign = ContentAlignment.MiddleRight;
             // 
             // TpEquipePilotoProximoAno
             // 
             TpEquipePilotoProximoAno.Font = new Font("Comic Sans MS", 10F, FontStyle.Bold);
-            TpEquipePilotoProximoAno.Location = new Point(250, 0);
+            TpEquipePilotoProximoAno.Location = new Point(10, 0);
             TpEquipePilotoProximoAno.Margin = new Padding(0);
             TpEquipePilotoProximoAno.Name = "TpEquipePilotoProximoAno";
-            TpEquipePilotoProximoAno.Size = new Size(140, 25);
+            TpEquipePilotoProximoAno.Size = new Size(380, 30);
             TpEquipePilotoProximoAno.TabIndex = 32;
             TpEquipePilotoProximoAno.Text = "Equipe";
-            TpEquipePilotoProximoAno.TextAlign = ContentAlignment.MiddleLeft;
+            TpEquipePilotoProximoAno.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // TpStatusPilotoProximoAno
             // 
             TpStatusPilotoProximoAno.Anchor = AnchorStyles.None;
             TpStatusPilotoProximoAno.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            TpStatusPilotoProximoAno.Location = new Point(110, 85);
+            TpStatusPilotoProximoAno.Location = new Point(110, 95);
             TpStatusPilotoProximoAno.Margin = new Padding(0);
             TpStatusPilotoProximoAno.Name = "TpStatusPilotoProximoAno";
             TpStatusPilotoProximoAno.Size = new Size(100, 25);
@@ -784,7 +780,7 @@
             // 
             TpDuracaoPilotoProximoAno.Anchor = AnchorStyles.None;
             TpDuracaoPilotoProximoAno.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            TpDuracaoPilotoProximoAno.Location = new Point(110, 60);
+            TpDuracaoPilotoProximoAno.Location = new Point(110, 70);
             TpDuracaoPilotoProximoAno.Margin = new Padding(0);
             TpDuracaoPilotoProximoAno.Name = "TpDuracaoPilotoProximoAno";
             TpDuracaoPilotoProximoAno.Size = new Size(100, 25);
@@ -795,7 +791,7 @@
             // 
             TpSalarioPilotoProximoAno.Anchor = AnchorStyles.None;
             TpSalarioPilotoProximoAno.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            TpSalarioPilotoProximoAno.Location = new Point(110, 35);
+            TpSalarioPilotoProximoAno.Location = new Point(110, 45);
             TpSalarioPilotoProximoAno.Margin = new Padding(0);
             TpSalarioPilotoProximoAno.Name = "TpSalarioPilotoProximoAno";
             TpSalarioPilotoProximoAno.Size = new Size(100, 25);
@@ -806,7 +802,7 @@
             // 
             label27.Anchor = AnchorStyles.None;
             label27.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            label27.Location = new Point(10, 35);
+            label27.Location = new Point(10, 45);
             label27.Margin = new Padding(0);
             label27.Name = "label27";
             label27.Size = new Size(100, 25);
@@ -818,7 +814,7 @@
             // 
             label28.Anchor = AnchorStyles.None;
             label28.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            label28.Location = new Point(10, 60);
+            label28.Location = new Point(10, 70);
             label28.Margin = new Padding(0);
             label28.Name = "label28";
             label28.Size = new Size(100, 25);
@@ -830,7 +826,7 @@
             // 
             label29.Anchor = AnchorStyles.None;
             label29.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            label29.Location = new Point(10, 85);
+            label29.Location = new Point(10, 95);
             label29.Margin = new Padding(0);
             label29.Name = "label29";
             label29.Size = new Size(100, 25);
@@ -838,16 +834,213 @@
             label29.Text = "STATUS:";
             label29.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // label30
+            // panel6
             // 
-            label30.Font = new Font("Comic Sans MS", 10F, FontStyle.Bold);
-            label30.Location = new Point(10, 0);
-            label30.Margin = new Padding(0);
-            label30.Name = "label30";
-            label30.Size = new Size(240, 25);
-            label30.TabIndex = 21;
-            label30.Text = "Contrato Próximo Ano -";
-            label30.TextAlign = ContentAlignment.MiddleRight;
+            panel6.BackColor = Color.FromArgb(240, 240, 240);
+            panel6.Controls.Add(TpTitulosF3);
+            panel6.Controls.Add(TpTitulosF2);
+            panel6.Controls.Add(label38);
+            panel6.Controls.Add(label37);
+            panel6.Controls.Add(label36);
+            panel6.Controls.Add(label15);
+            panel6.Controls.Add(TpTitulosF1);
+            panel6.Controls.Add(label19);
+            panel6.Controls.Add(label21);
+            panel6.Controls.Add(TpGpDisputados);
+            panel6.Controls.Add(TpPolePosition);
+            panel6.Controls.Add(TpTotalDeVitoria);
+            panel6.Controls.Add(label32);
+            panel6.Controls.Add(label33);
+            panel6.Controls.Add(label34);
+            panel6.Controls.Add(label35);
+            panel6.Location = new Point(530, 540);
+            panel6.Margin = new Padding(0);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(390, 140);
+            panel6.TabIndex = 21;
+            // 
+            // TpTitulosF3
+            // 
+            TpTitulosF3.Anchor = AnchorStyles.None;
+            TpTitulosF3.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
+            TpTitulosF3.Location = new Point(340, 95);
+            TpTitulosF3.Margin = new Padding(0);
+            TpTitulosF3.Name = "TpTitulosF3";
+            TpTitulosF3.Size = new Size(50, 25);
+            TpTitulosF3.TabIndex = 35;
+            TpTitulosF3.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // TpTitulosF2
+            // 
+            TpTitulosF2.Anchor = AnchorStyles.None;
+            TpTitulosF2.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
+            TpTitulosF2.Location = new Point(290, 95);
+            TpTitulosF2.Margin = new Padding(0);
+            TpTitulosF2.Name = "TpTitulosF2";
+            TpTitulosF2.Size = new Size(50, 25);
+            TpTitulosF2.TabIndex = 34;
+            TpTitulosF2.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label38
+            // 
+            label38.Anchor = AnchorStyles.None;
+            label38.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            label38.Location = new Point(340, 70);
+            label38.Margin = new Padding(0);
+            label38.Name = "label38";
+            label38.Size = new Size(50, 25);
+            label38.TabIndex = 33;
+            label38.Text = "F3";
+            label38.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label37
+            // 
+            label37.Anchor = AnchorStyles.None;
+            label37.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            label37.Location = new Point(290, 70);
+            label37.Margin = new Padding(0);
+            label37.Name = "label37";
+            label37.Size = new Size(50, 25);
+            label37.TabIndex = 32;
+            label37.Text = "F2";
+            label37.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label36
+            // 
+            label36.Anchor = AnchorStyles.None;
+            label36.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            label36.Location = new Point(240, 70);
+            label36.Margin = new Padding(0);
+            label36.Name = "label36";
+            label36.Size = new Size(50, 25);
+            label36.TabIndex = 31;
+            label36.Text = "F1";
+            label36.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label15
+            // 
+            label15.Anchor = AnchorStyles.None;
+            label15.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            label15.Location = new Point(0, 100);
+            label15.Margin = new Padding(0);
+            label15.Name = "label15";
+            label15.Size = new Size(10, 40);
+            label15.TabIndex = 30;
+            label15.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // TpTitulosF1
+            // 
+            TpTitulosF1.Anchor = AnchorStyles.None;
+            TpTitulosF1.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
+            TpTitulosF1.Location = new Point(240, 95);
+            TpTitulosF1.Margin = new Padding(0);
+            TpTitulosF1.Name = "TpTitulosF1";
+            TpTitulosF1.Size = new Size(50, 25);
+            TpTitulosF1.TabIndex = 29;
+            TpTitulosF1.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label19
+            // 
+            label19.Anchor = AnchorStyles.None;
+            label19.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            label19.Location = new Point(240, 45);
+            label19.Margin = new Padding(0);
+            label19.Name = "label19";
+            label19.Size = new Size(150, 25);
+            label19.TabIndex = 28;
+            label19.Text = "TITULOS";
+            label19.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label21
+            // 
+            label21.Anchor = AnchorStyles.None;
+            label21.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            label21.Location = new Point(0, 0);
+            label21.Margin = new Padding(0);
+            label21.Name = "label21";
+            label21.Size = new Size(10, 100);
+            label21.TabIndex = 26;
+            label21.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // TpGpDisputados
+            // 
+            TpGpDisputados.Anchor = AnchorStyles.None;
+            TpGpDisputados.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
+            TpGpDisputados.Location = new Point(150, 95);
+            TpGpDisputados.Margin = new Padding(0);
+            TpGpDisputados.Name = "TpGpDisputados";
+            TpGpDisputados.Size = new Size(60, 25);
+            TpGpDisputados.TabIndex = 25;
+            TpGpDisputados.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // TpPolePosition
+            // 
+            TpPolePosition.Anchor = AnchorStyles.None;
+            TpPolePosition.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
+            TpPolePosition.Location = new Point(150, 70);
+            TpPolePosition.Margin = new Padding(0);
+            TpPolePosition.Name = "TpPolePosition";
+            TpPolePosition.Size = new Size(60, 25);
+            TpPolePosition.TabIndex = 24;
+            TpPolePosition.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // TpTotalDeVitoria
+            // 
+            TpTotalDeVitoria.Anchor = AnchorStyles.None;
+            TpTotalDeVitoria.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
+            TpTotalDeVitoria.Location = new Point(150, 45);
+            TpTotalDeVitoria.Margin = new Padding(0);
+            TpTotalDeVitoria.Name = "TpTotalDeVitoria";
+            TpTotalDeVitoria.Size = new Size(60, 25);
+            TpTotalDeVitoria.TabIndex = 23;
+            TpTotalDeVitoria.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // label32
+            // 
+            label32.Anchor = AnchorStyles.None;
+            label32.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            label32.Location = new Point(10, 45);
+            label32.Margin = new Padding(0);
+            label32.Name = "label32";
+            label32.Size = new Size(140, 25);
+            label32.TabIndex = 22;
+            label32.Text = "VITÓRIA:";
+            label32.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // label33
+            // 
+            label33.Anchor = AnchorStyles.None;
+            label33.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            label33.Location = new Point(10, 70);
+            label33.Margin = new Padding(0);
+            label33.Name = "label33";
+            label33.Size = new Size(140, 25);
+            label33.TabIndex = 21;
+            label33.Text = "POLE POSITION:";
+            label33.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // label34
+            // 
+            label34.Font = new Font("Comic Sans MS", 10F, FontStyle.Bold);
+            label34.Location = new Point(10, 0);
+            label34.Margin = new Padding(0);
+            label34.Name = "label34";
+            label34.Size = new Size(380, 30);
+            label34.TabIndex = 20;
+            label34.Text = "Dados Pessoais";
+            label34.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label35
+            // 
+            label35.Anchor = AnchorStyles.None;
+            label35.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            label35.Location = new Point(10, 95);
+            label35.Margin = new Padding(0);
+            label35.Name = "label35";
+            label35.Size = new Size(140, 25);
+            label35.TabIndex = 0;
+            label35.Text = "GP DISPUTADOS:";
+            label35.TextAlign = ContentAlignment.MiddleRight;
             // 
             // TelaPilotos
             // 
@@ -855,9 +1048,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(80, 80, 80);
             ClientSize = new Size(1340, 760);
+            Controls.Add(panel6);
             Controls.Add(panel7);
             Controls.Add(label1);
-            Controls.Add(panel6);
             Controls.Add(panel5);
             Controls.Add(panel2);
             Controls.Add(panel3);
@@ -865,6 +1058,7 @@
             Controls.Add(panel1);
             Controls.Add(panel17);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "TelaPilotos";
@@ -880,6 +1074,7 @@
             ((System.ComponentModel.ISupportInitialize)dgvTelaPilotoExibirHistoricoPiloto).EndInit();
             panel5.ResumeLayout(false);
             panel7.ResumeLayout(false);
+            panel6.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -890,7 +1085,6 @@
         private Panel panel3;
         private Panel panel2;
         private Panel panel5;
-        private Panel panel6;
         private DataGridView dvgTelaPilotoExibirTodosPilotos;
         private Label label1;
         private Label label5;
@@ -906,7 +1100,6 @@
         private Label label10;
         private Label label11;
         private Label label12;
-        private Label label6;
         private Label TpEquipePiloto;
         private Label TpLabelCor1A;
         private Label TpLabelCor2;
@@ -946,6 +1139,22 @@
         private Label label27;
         private Label label28;
         private Label label29;
-        private Label label30;
+        private Panel panel6;
+        private Label label15;
+        private Label TpTitulosF1;
+        private Label label19;
+        private Label label21;
+        private Label TpGpDisputados;
+        private Label TpPolePosition;
+        private Label TpTotalDeVitoria;
+        private Label label32;
+        private Label label33;
+        private Label label34;
+        private Label label35;
+        private Label TpTitulosF3;
+        private Label TpTitulosF2;
+        private Label label38;
+        private Label label37;
+        private Label label36;
     }
 }
