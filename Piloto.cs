@@ -236,6 +236,7 @@ namespace DriverChallenge
             PropostaDeContratos novaProposta = new PropostaDeContratos(nome, nacionalidade, valor, contrato, status);
             return novaProposta;
         }
+
         public void LimparPropostaDeContrato(PropostaDeContratos propostaDeContratos)
         {
             propostaDeContratos.NomeDaEquipe = "";

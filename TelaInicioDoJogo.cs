@@ -36,6 +36,19 @@ namespace DriverChallenge
             this.Close();
         }
 
-        private void TelaInicioDoJogo_Load(object sender, EventArgs e){}
+        private void TelaInicioDoJogo_Load(object sender, EventArgs e) { }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            TelaDeRegistro telaDeRegistro = new TelaDeRegistro();
+            this.Hide();
+            telaDeRegistro.ShowDialog();
+            this.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

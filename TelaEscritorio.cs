@@ -247,11 +247,30 @@ namespace DriverChallenge
                         equipe.ProximoAnoSegundoPilotoSalario = piloto[principal.IndexDoJogador].ProximoAnoSalarioPiloto;
                     }
                 }
+
+                if (equipe.NomeEquipe == piloto[principal.IndexDoJogador].PropostaDeContrato[1].NomeDaEquipe)
+                {
+                    if (piloto[principal.IndexDoJogador].PropostaDeContrato[1].StatusDoPiloto == "1º Piloto")
+                    {
+                        equipe.ProximoAnoPrimeiroPiloto = "";
+                    }
+                    else
+                    {
+                        equipe.ProximoAnoSegundoPiloto = "";
+                    }
+                }
             }
+            piloto[principal.IndexDoJogador].LimparPropostaDeContrato(piloto[principal.IndexDoJogador].PropostaDeContrato[1]);
+
             piloto[principal.IndexDoJogador].PropostaDeContrato[0].PropostaAceita = true;
             labelPropostaAceita1.Visible = true;
             Tf_aceitar1_btn.Visible = false;
             Tf_rejeitar1_btn.Visible = false;
+
+            labelPropostaAceita2.Visible = true;
+            Tf_aceitar2_btn.Visible = false;
+            Tf_rejeitar2_btn.Visible = false;
+
             LoadingPropostas();
         }
         private void Tf_rejeitar1_btn_Click(object sender, EventArgs e)
@@ -299,11 +318,29 @@ namespace DriverChallenge
                         equipe.ProximoAnoSegundoPilotoSalario = piloto[principal.IndexDoJogador].ProximoAnoSalarioPiloto;
                     }
                 }
+                if (equipe.NomeEquipe == piloto[principal.IndexDoJogador].PropostaDeContrato[0].NomeDaEquipe)
+                {
+                    if (piloto[principal.IndexDoJogador].PropostaDeContrato[0].StatusDoPiloto == "1º Piloto")
+                    {
+                        equipe.ProximoAnoPrimeiroPiloto = "";
+                    }
+                    else
+                    {
+                        equipe.ProximoAnoSegundoPiloto = "";
+                    }
+                }
             }
+            piloto[principal.IndexDoJogador].LimparPropostaDeContrato(piloto[principal.IndexDoJogador].PropostaDeContrato[0]);
+
             piloto[principal.IndexDoJogador].PropostaDeContrato[1].PropostaAceita = true;
             labelPropostaAceita2.Visible = true;
             Tf_aceitar2_btn.Visible = false;
             Tf_rejeitar2_btn.Visible = false;
+
+            labelPropostaAceita1.Visible = true;
+            Tf_aceitar1_btn.Visible = false;
+            Tf_rejeitar1_btn.Visible = false;
+
             LoadingPropostas();
         }
         private void Tf_rejeitar2_btn_Click(object sender, EventArgs e)

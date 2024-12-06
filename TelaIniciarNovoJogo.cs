@@ -60,5 +60,10 @@ namespace DriverChallenge
                 MessageBox.Show(principal.NomeJogador);
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

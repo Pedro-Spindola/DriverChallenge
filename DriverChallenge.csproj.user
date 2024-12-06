@@ -4,6 +4,9 @@
     <Compile Update="TelaClassificacao.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="TelaDeRegistro.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="TelaEquipes.cs">
       <SubType>Form</SubType>
     </Compile>

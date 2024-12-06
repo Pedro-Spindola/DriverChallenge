@@ -94,10 +94,10 @@
             label38 = new Label();
             label37 = new Label();
             label36 = new Label();
-            label15 = new Label();
+            TpLabelCor5B = new Label();
             TpTitulosF1 = new Label();
             label19 = new Label();
-            label21 = new Label();
+            TpLabelCor5A = new Label();
             TpGpDisputados = new Label();
             TpPolePosition = new Label();
             TpTotalDeVitoria = new Label();
@@ -344,10 +344,10 @@
             // 
             TpLabelCor3B.Anchor = AnchorStyles.None;
             TpLabelCor3B.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            TpLabelCor3B.Location = new Point(0, 220);
+            TpLabelCor3B.Location = new Point(0, 260);
             TpLabelCor3B.Margin = new Padding(0);
             TpLabelCor3B.Name = "TpLabelCor3B";
-            TpLabelCor3B.Size = new Size(10, 95);
+            TpLabelCor3B.Size = new Size(10, 100);
             TpLabelCor3B.TabIndex = 42;
             TpLabelCor3B.TextAlign = ContentAlignment.MiddleRight;
             // 
@@ -516,10 +516,10 @@
             // 
             TpLabelCor3A.Anchor = AnchorStyles.None;
             TpLabelCor3A.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            TpLabelCor3A.Location = new Point(0, 45);
+            TpLabelCor3A.Location = new Point(0, 0);
             TpLabelCor3A.Margin = new Padding(0);
             TpLabelCor3A.Name = "TpLabelCor3A";
-            TpLabelCor3A.Size = new Size(10, 175);
+            TpLabelCor3A.Size = new Size(10, 260);
             TpLabelCor3A.TabIndex = 27;
             TpLabelCor3A.TextAlign = ContentAlignment.MiddleRight;
             // 
@@ -842,10 +842,10 @@
             panel6.Controls.Add(label38);
             panel6.Controls.Add(label37);
             panel6.Controls.Add(label36);
-            panel6.Controls.Add(label15);
+            panel6.Controls.Add(TpLabelCor5B);
             panel6.Controls.Add(TpTitulosF1);
             panel6.Controls.Add(label19);
-            panel6.Controls.Add(label21);
+            panel6.Controls.Add(TpLabelCor5A);
             panel6.Controls.Add(TpGpDisputados);
             panel6.Controls.Add(TpPolePosition);
             panel6.Controls.Add(TpTotalDeVitoria);
@@ -917,16 +917,16 @@
             label36.Text = "F1";
             label36.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // label15
+            // TpLabelCor5B
             // 
-            label15.Anchor = AnchorStyles.None;
-            label15.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            label15.Location = new Point(0, 100);
-            label15.Margin = new Padding(0);
-            label15.Name = "label15";
-            label15.Size = new Size(10, 40);
-            label15.TabIndex = 30;
-            label15.TextAlign = ContentAlignment.MiddleRight;
+            TpLabelCor5B.Anchor = AnchorStyles.None;
+            TpLabelCor5B.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            TpLabelCor5B.Location = new Point(0, 100);
+            TpLabelCor5B.Margin = new Padding(0);
+            TpLabelCor5B.Name = "TpLabelCor5B";
+            TpLabelCor5B.Size = new Size(10, 40);
+            TpLabelCor5B.TabIndex = 30;
+            TpLabelCor5B.TextAlign = ContentAlignment.MiddleRight;
             // 
             // TpTitulosF1
             // 
@@ -951,16 +951,16 @@
             label19.Text = "TITULOS";
             label19.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // label21
+            // TpLabelCor5A
             // 
-            label21.Anchor = AnchorStyles.None;
-            label21.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            label21.Location = new Point(0, 0);
-            label21.Margin = new Padding(0);
-            label21.Name = "label21";
-            label21.Size = new Size(10, 100);
-            label21.TabIndex = 26;
-            label21.TextAlign = ContentAlignment.MiddleRight;
+            TpLabelCor5A.Anchor = AnchorStyles.None;
+            TpLabelCor5A.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            TpLabelCor5A.Location = new Point(0, 0);
+            TpLabelCor5A.Margin = new Padding(0);
+            TpLabelCor5A.Name = "TpLabelCor5A";
+            TpLabelCor5A.Size = new Size(10, 100);
+            TpLabelCor5A.TabIndex = 26;
+            TpLabelCor5A.TextAlign = ContentAlignment.MiddleRight;
             // 
             // TpGpDisputados
             // 
@@ -1140,10 +1140,10 @@
         private Label label28;
         private Label label29;
         private Panel panel6;
-        private Label label15;
+        private Label TpLabelCor5B;
         private Label TpTitulosF1;
         private Label label19;
-        private Label label21;
+        private Label TpLabelCor5A;
         private Label TpGpDisputados;
         private Label TpPolePosition;
         private Label TpTotalDeVitoria;

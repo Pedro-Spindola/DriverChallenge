@@ -33,6 +33,8 @@
             buttonNovoJogo = new Button();
             buttonSobre = new Button();
             buttonConfiguracao = new Button();
+            button1 = new Button();
+            button2 = new Button();
             SuspendLayout();
             // 
             // buttonContinuar
@@ -99,12 +101,50 @@
             buttonConfiguracao.Text = "CONFIGURAÇÃO";
             buttonConfiguracao.UseVisualStyleBackColor = false;
             // 
+            // button1
+            // 
+            button1.BackColor = SystemColors.ScrollBar;
+            button1.BackgroundImageLayout = ImageLayout.None;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
+            button1.ForeColor = SystemColors.ControlText;
+            button1.Location = new Point(50, 385);
+            button1.Margin = new Padding(0);
+            button1.Name = "button1";
+            button1.Size = new Size(116, 34);
+            button1.TabIndex = 4;
+            button1.Text = "REGISTRAR";
+            button1.UseVisualStyleBackColor = false;
+            button1.Visible = false;
+            button1.Click += button1_Click;
+            // 
+            // button2
+            // 
+            button2.BackColor = SystemColors.ScrollBar;
+            button2.BackgroundImageLayout = ImageLayout.None;
+            button2.FlatAppearance.BorderSize = 0;
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
+            button2.ForeColor = SystemColors.ControlText;
+            button2.Location = new Point(751, 9);
+            button2.Margin = new Padding(0);
+            button2.Name = "button2";
+            button2.Size = new Size(40, 40);
+            button2.TabIndex = 5;
+            button2.Text = "X";
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
+            // 
             // TelaInicioDoJogo
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(80, 80, 80);
+            BackgroundImage = Properties.Resources.wpTelaCorrida1;
             ClientSize = new Size(800, 450);
+            Controls.Add(button2);
+            Controls.Add(button1);
             Controls.Add(buttonConfiguracao);
             Controls.Add(buttonSobre);
             Controls.Add(buttonNovoJogo);
@@ -124,5 +164,7 @@
         private Button buttonNovoJogo;
         private Button buttonSobre;
         private Button buttonConfiguracao;
+        private Button button1;
+        private Button button2;
     }
 }

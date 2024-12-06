@@ -77,6 +77,8 @@ namespace DriverChallenge
 
                 TpLabelCor1A.BackColor = corPrincipal;
                 TpLabelCor1B.BackColor = corSecundaria;
+                TpLabelCor2A.BackColor = corPrincipal;
+                TpLabelCor2B.BackColor = corSecundaria;
                 TpLabelCor3A.BackColor = corPrincipal;
                 TpLabelCor3B.BackColor = corSecundaria;
             }

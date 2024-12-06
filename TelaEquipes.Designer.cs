@@ -88,6 +88,8 @@
             panel4 = new Panel();
             label1 = new Label();
             label4 = new Label();
+            TpLabelCor2A = new Label();
+            TpLabelCor2B = new Label();
             panel17.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dvgTelaEquipesExibirTodasEquipes).BeginInit();
             panel1.SuspendLayout();
@@ -431,6 +433,8 @@
             // panel3
             // 
             panel3.BackColor = Color.FromArgb(240, 240, 240);
+            panel3.Controls.Add(TpLabelCor2B);
+            panel3.Controls.Add(TpLabelCor2A);
             panel3.Controls.Add(label25);
             panel3.Controls.Add(TpMedia);
             panel3.Controls.Add(label23);
@@ -819,6 +823,28 @@
             label4.Text = "RANK";
             label4.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // TpLabelCor2A
+            // 
+            TpLabelCor2A.Anchor = AnchorStyles.None;
+            TpLabelCor2A.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            TpLabelCor2A.Location = new Point(0, 0);
+            TpLabelCor2A.Margin = new Padding(0);
+            TpLabelCor2A.Name = "TpLabelCor2A";
+            TpLabelCor2A.Size = new Size(10, 300);
+            TpLabelCor2A.TabIndex = 67;
+            TpLabelCor2A.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // TpLabelCor2B
+            // 
+            TpLabelCor2B.Anchor = AnchorStyles.None;
+            TpLabelCor2B.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            TpLabelCor2B.Location = new Point(0, 300);
+            TpLabelCor2B.Margin = new Padding(0);
+            TpLabelCor2B.Name = "TpLabelCor2B";
+            TpLabelCor2B.Size = new Size(10, 100);
+            TpLabelCor2B.TabIndex = 68;
+            TpLabelCor2B.TextAlign = ContentAlignment.MiddleRight;
+            // 
             // TelaEquipes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -916,5 +942,7 @@
         private Label TpMedia;
         private Label label23;
         private Label label25;
+        private Label TpLabelCor2B;
+        private Label TpLabelCor2A;
     }
 }

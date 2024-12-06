@@ -36,6 +36,7 @@
             label5 = new Label();
             inputSobrenomePiloto = new TextBox();
             label2 = new Label();
+            button2 = new Button();
             SuspendLayout();
             // 
             // listEscolheNacionalidade
@@ -122,12 +123,30 @@
             label2.TabIndex = 16;
             label2.Text = "INFORME O SEU SOBRENOME";
             // 
+            // button2
+            // 
+            button2.BackColor = SystemColors.ScrollBar;
+            button2.BackgroundImageLayout = ImageLayout.None;
+            button2.FlatAppearance.BorderSize = 0;
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
+            button2.ForeColor = SystemColors.ControlText;
+            button2.Location = new Point(9, 9);
+            button2.Margin = new Padding(0);
+            button2.Name = "button2";
+            button2.Size = new Size(40, 40);
+            button2.TabIndex = 17;
+            button2.Text = "X";
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
+            // 
             // TelaIniciarNovoJogo
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(80, 80, 80);
             ClientSize = new Size(800, 420);
+            Controls.Add(button2);
             Controls.Add(label2);
             Controls.Add(inputSobrenomePiloto);
             Controls.Add(label5);
@@ -153,5 +172,6 @@
         private Label label5;
         private TextBox inputSobrenomePiloto;
         private Label label2;
+        private Button button2;
     }
 }
