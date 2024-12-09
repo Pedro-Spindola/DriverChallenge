@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaEscritorio));
             panel1 = new Panel();
             tf_statusContrato01 = new Label();
@@ -132,14 +133,24 @@
             label25 = new Label();
             panel5 = new Panel();
             label14 = new Label();
+            panel6 = new Panel();
+            label6 = new Label();
+            panel7 = new Panel();
+            panel8 = new Panel();
+            label12 = new Label();
+            dvgHallDaFama = new DataGridView();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)tf_nacEquipe01).BeginInit();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)tf_nacEquipe02).BeginInit();
             ((System.ComponentModel.ISupportInitialize)DgvHistoricoJogador).BeginInit();
             panel3.SuspendLayout();
+            panel4.SuspendLayout();
             panel13.SuspendLayout();
             panel5.SuspendLayout();
+            panel6.SuspendLayout();
+            panel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dvgHallDaFama).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -852,10 +863,11 @@
             // panel4
             // 
             panel4.BackColor = SystemColors.ButtonFace;
-            panel4.Location = new Point(460, 200);
+            panel4.Controls.Add(dvgHallDaFama);
+            panel4.Location = new Point(460, 520);
             panel4.Margin = new Padding(0);
             panel4.Name = "panel4";
-            panel4.Size = new Size(440, 490);
+            panel4.Size = new Size(440, 230);
             panel4.TabIndex = 26;
             // 
             // label1
@@ -1401,10 +1413,10 @@
             // 
             panel5.BackColor = Color.FromArgb(240, 240, 240);
             panel5.Controls.Add(label14);
-            panel5.Location = new Point(460, 701);
+            panel5.Location = new Point(910, 700);
             panel5.Margin = new Padding(0);
             panel5.Name = "panel5";
-            panel5.Size = new Size(440, 50);
+            panel5.Size = new Size(420, 50);
             panel5.TabIndex = 15;
             // 
             // label14
@@ -1415,11 +1427,89 @@
             label14.Location = new Point(0, 0);
             label14.Margin = new Padding(0);
             label14.Name = "label14";
-            label14.Size = new Size(440, 50);
+            label14.Size = new Size(420, 50);
             label14.TabIndex = 39;
             label14.Text = "Voltar";
             label14.TextAlign = ContentAlignment.MiddleCenter;
             label14.Click += label14_Click;
+            // 
+            // panel6
+            // 
+            panel6.BackColor = SystemColors.ButtonFace;
+            panel6.Controls.Add(label6);
+            panel6.Location = new Point(460, 470);
+            panel6.Margin = new Padding(0);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(440, 40);
+            panel6.TabIndex = 27;
+            // 
+            // label6
+            // 
+            label6.BackColor = SystemColors.ButtonFace;
+            label6.Font = new Font("Comic Sans MS", 14F, FontStyle.Bold);
+            label6.Location = new Point(0, 0);
+            label6.Name = "label6";
+            label6.Size = new Size(440, 40);
+            label6.TabIndex = 28;
+            label6.Text = "HALL DA FAMA";
+            label6.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // panel7
+            // 
+            panel7.BackColor = SystemColors.ButtonFace;
+            panel7.Location = new Point(460, 200);
+            panel7.Margin = new Padding(0);
+            panel7.Name = "panel7";
+            panel7.Size = new Size(440, 260);
+            panel7.TabIndex = 27;
+            // 
+            // panel8
+            // 
+            panel8.BackColor = Color.FromArgb(240, 240, 240);
+            panel8.Controls.Add(label12);
+            panel8.Location = new Point(911, 580);
+            panel8.Margin = new Padding(0);
+            panel8.Name = "panel8";
+            panel8.Size = new Size(420, 110);
+            panel8.TabIndex = 40;
+            // 
+            // label12
+            // 
+            label12.Anchor = AnchorStyles.None;
+            label12.Cursor = Cursors.Hand;
+            label12.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            label12.Location = new Point(0, 30);
+            label12.Margin = new Padding(0);
+            label12.Name = "label12";
+            label12.Size = new Size(420, 31);
+            label12.TabIndex = 39;
+            label12.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // dvgHallDaFama
+            // 
+            dvgHallDaFama.AllowUserToAddRows = false;
+            dvgHallDaFama.AllowUserToDeleteRows = false;
+            dvgHallDaFama.AllowUserToOrderColumns = true;
+            dvgHallDaFama.AllowUserToResizeColumns = false;
+            dvgHallDaFama.AllowUserToResizeRows = false;
+            dvgHallDaFama.BorderStyle = BorderStyle.None;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = SystemColors.Control;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9.75F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dvgHallDaFama.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dvgHallDaFama.ColumnHeadersHeight = 22;
+            dvgHallDaFama.Location = new Point(0, 0);
+            dvgHallDaFama.Margin = new Padding(0);
+            dvgHallDaFama.MultiSelect = false;
+            dvgHallDaFama.Name = "dvgHallDaFama";
+            dvgHallDaFama.ReadOnly = true;
+            dvgHallDaFama.RowHeadersVisible = false;
+            dvgHallDaFama.Size = new Size(440, 230);
+            dvgHallDaFama.TabIndex = 25;
             // 
             // TelaEscritorio
             // 
@@ -1427,6 +1517,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(80, 80, 80);
             ClientSize = new Size(1340, 760);
+            Controls.Add(panel8);
+            Controls.Add(panel7);
+            Controls.Add(panel6);
             Controls.Add(panel5);
             Controls.Add(label25);
             Controls.Add(panel4);
@@ -1447,8 +1540,12 @@
             ((System.ComponentModel.ISupportInitialize)tf_nacEquipe02).EndInit();
             ((System.ComponentModel.ISupportInitialize)DgvHistoricoJogador).EndInit();
             panel3.ResumeLayout(false);
+            panel4.ResumeLayout(false);
             panel13.ResumeLayout(false);
             panel5.ResumeLayout(false);
+            panel6.ResumeLayout(false);
+            panel8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dvgHallDaFama).EndInit();
             ResumeLayout(false);
         }
 
@@ -1555,5 +1652,11 @@
         private Label label54;
         private Label label55;
         private ComboBox comboBoxXp;
+        private Panel panel6;
+        private Label label6;
+        private Panel panel7;
+        private Panel panel8;
+        private Label label12;
+        private DataGridView dvgHallDaFama;
     }
 }

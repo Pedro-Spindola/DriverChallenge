@@ -176,7 +176,77 @@ namespace DriverChallenge
             PotencialPiloto = (PotencialPiloto / 100);
             IdadePiloto = random.Next(18, 22);  // Definir de forma aleatória a idade do piloto (18 até 21)
             AugePiloto = AugePiloto = random.Next(30, 37); // Definir de forma aleatória o auge do piloto (30 até 36)
-            AposentadoriaPiloto = AposentadoriaPiloto = random.Next(36, 42); // Definir de forma aleatória a aposentadoria do piloto (36 até 41)
+            AposentadoriaPiloto = random.Next(36, 42); // Definir de forma aleatória a aposentadoria do piloto (36 até 41)
+            VisibilidadePiloto = random.Next(0, 51);  // Definir a visibilidade do piloto para patrocinador (entre 0 a 50)
+            // Atribuindo de formas aleatória, a qualidade de cada atributos (10 a 30)
+            Largada = random.Next(10, 40);
+            Concentracao = random.Next(10, 40);
+            Ultrapassagem = random.Next(10, 40);
+            Experiencia = random.Next(10, 40);
+            Rapidez = random.Next(10, 40);
+            Chuva = random.Next(10, 40);
+            AcertoDoCarro = random.Next(10, 40);
+            Fisico = random.Next(10, 40);
+            MediaPiloto = ((Largada + Concentracao + Ultrapassagem + Experiencia + Rapidez + Chuva + AcertoDoCarro + Fisico) / 8);
+        }
+        public void GeraPilotoProximosAnos(int idd, int apos)
+        {
+            PaisPiloto paisPilotos = new PaisPiloto();
+            string nacionalidade = "";
+            RandomNacionalidade = random.Next(0, 17); // Após finalizar os arquivos com todos os nomes das nacionalidade altera a linha para esse -> RandomNacionalidade = random.Next(0,19);
+            // Seleciona uma nacionalidade aleatória
+            if (RandomNacionalidade <= 9)
+            {
+                nacionalidade = paisPilotos.NacionalidadesTop1[random.Next(paisPilotos.NacionalidadesTop1.Count)];
+                NacionalidadePiloto = nacionalidade;
+            }
+            else if (RandomNacionalidade <= 14)
+            {
+                nacionalidade = paisPilotos.NacionalidadesTop2[random.Next(paisPilotos.NacionalidadesTop2.Count)];
+                NacionalidadePiloto = nacionalidade;
+            }
+            else if (RandomNacionalidade <= 17)
+            {
+                nacionalidade = paisPilotos.NacionalidadesTop2[random.Next(paisPilotos.NacionalidadesTop2.Count)];
+                NacionalidadePiloto = nacionalidade;
+            }
+            else
+            {
+                nacionalidade = paisPilotos.NacionalidadesTop3[random.Next(paisPilotos.NacionalidadesTop3.Count)];
+                NacionalidadePiloto = nacionalidade;
+            }
+            // Construa o caminho completo para o arquivo de nomes do piloto
+            string nomeArquivo = Path.Combine("NomesPilotos", "Piloto_" + nacionalidade + ".txt");
+            // Construa o caminho completo para o arquivo do sobrenome do piloto
+            string sobrenomeArquivo = Path.Combine("SobrenomesPilotos", "Piloto_" + nacionalidade + ".txt");
+            // Verifique se o arquivo existe antes de lê-lo
+            if (File.Exists(nomeArquivo))
+            {
+                string[] nomes = File.ReadAllLines(nomeArquivo);
+                string nomeAleatorio = nomes[random.Next(nomes.Length)]; // Seleciona um nome aleatório a partir dos nomes lidos
+                NomePiloto = nomeAleatorio; // Configure os campos da classe com os valores selecionados
+            }
+            else
+            {
+                Console.WriteLine("Arquivo de nomes não encontrado para a nacionalidade: " + nacionalidade); // Lida com o caso em que o arquivo não foi encontrado
+            }
+            if (File.Exists(sobrenomeArquivo)) // Verifique se o arquivo existe antes de lê-lo
+            {
+                string[] ssnomes = File.ReadAllLines(sobrenomeArquivo);
+                string sobrenomeAleatorio = ssnomes[random.Next(ssnomes.Length)]; // Seleciona um nome aleatório a partir dos nomes lidos
+                SobrenomePiloto = sobrenomeAleatorio;
+            }
+            else
+            {
+                Console.WriteLine("Arquivo de nomes não encontrado para a nacionalidade: " + nacionalidade);  // Lida com o caso em que o arquivo não foi encontrado
+            }
+
+            XpPiloto = 0;
+            PotencialPiloto = random.Next(60, 81);
+            PotencialPiloto = (PotencialPiloto / 100);
+            IdadePiloto = idd;  // Definir de forma aleatória a idade do piloto (18 até 21)
+            AugePiloto = AugePiloto = random.Next(30, 37); // Definir de forma aleatória o auge do piloto (30 até 36)
+            AposentadoriaPiloto = apos; // Definir de forma aleatória a aposentadoria do piloto (36 até 41)
             VisibilidadePiloto = random.Next(0, 51);  // Definir a visibilidade do piloto para patrocinador (entre 0 a 50)
             // Atribuindo de formas aleatória, a qualidade de cada atributos (10 a 30)
             Largada = random.Next(10, 40);

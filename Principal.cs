@@ -65,6 +65,7 @@ namespace DriverChallenge
         public int VigessimoLugar { get; set; } = 0;
         public int PontoVoltaMaisRapida { get; set; } = 0;
         public string OpcaoParaXP { get; set; } = "AUTOMÁTICO";
+        public List<string> HallDaFama { get; set; } = new List<string>();
         public Principal(){}
         public void ConfigurarFaixaDePontuacao(String caminhoArquivo)   // Metodo para atribuir a pontução que vai ser utilizada no game.
         {

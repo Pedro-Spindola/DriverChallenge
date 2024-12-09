@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace DriverChallenge
 {
+    [Serializable]
     public class Pista
     {
         public string NomeGp { get; set; } = "";
@@ -15,7 +16,8 @@ namespace DriverChallenge
         public int Retas { get; set; } = 0;
         public int TempoBase { get; set; } = 0;
         public int SemanaDaProva { get; set; } = 0;
-        public Dictionary<int, (string, string, string)> CombinacaoPitStop { get; set; } = new Dictionary<int, (string, string, string)>();
+        public Dictionary<int, CombinacaoPossivel> CombinacaoPitStop { get; set; } = new Dictionary<int, CombinacaoPossivel>();
+
 
         public Pista() { }
 
@@ -62,15 +64,33 @@ namespace DriverChallenge
                 { 27, ("Duro", "Médio", "Médio") }, // 86 voltas
             };
 
+            // Preenche o dicionário CombinacaoPitStop com as combinações selecionadas pelos índices passados
             foreach (var indice in indices)
             {
                 if (todasCombinacoes.ContainsKey(indice))
                 {
                     var combinacao = todasCombinacoes[indice];
-                    // Adiciona a combinação ao dicionário com o novo formato
-                    CombinacaoPitStop[indice] = (combinacao.Item1, combinacao.Item2, combinacao.Item3);
+                    // Cria uma nova instância de CombinacaoPossivel e adiciona ao dicionário
+                    CombinacaoPitStop[indice] = new CombinacaoPossivel(combinacao.Item1, combinacao.Item2, combinacao.Item3);
                 }
             }
         }
+
+        // Classe interna CombinacaoPitStop
+        public class CombinacaoPossivel
+        {
+            public string Pneu1 { get; set; }
+            public string Pneu2 { get; set; }
+            public string Pneu3 { get; set; }
+
+            // Construtor da CombinacaoPitStop
+            public CombinacaoPossivel(string pneu1, string pneu2, string pneu3)
+            {
+                Pneu1 = pneu1;
+                Pneu2 = pneu2;
+                Pneu3 = pneu3;
+            }
+        }
+
     }
 }

@@ -28,8 +28,11 @@ namespace DriverChallenge
         private void TelaEscritorio_Load(object sender, EventArgs e)
         {
             CriarDataGridViewHistoricoDoPiloto(DgvHistoricoJogador);
+            CriarDataGridViewHallDaFama(dvgHallDaFama);
             PreencherDataGridViewHistoricoPilotos(piloto[principal.IndexDoJogador].PilotosTemporadas, DgvHistoricoJogador);
+            PreencherDataGridViewHallDaFama(principal.HallDaFama, dvgHallDaFama);
             AtualizarTabelas(DgvHistoricoJogador);
+            AtualizarTabelaHallDaFama(dvgHallDaFama);
             LoadingTela();
             LoadingPropostas();
             AtualizarAtributos();
@@ -90,8 +93,8 @@ namespace DriverChallenge
             tf_nomeEquipe01.Text = piloto[principal.IndexDoJogador].PropostaDeContrato[0].NomeDaEquipe;
             string caminhoImagem01 = Path.Combine("Paises", piloto[principal.IndexDoJogador].PropostaDeContrato[0].NacionalidadeDaEquipe + ".png");
             tf_nacEquipe01.Image = Image.FromFile(caminhoImagem01);
-            if(piloto[principal.IndexDoJogador].PropostaDeContrato[0].TempoPropostaContrato == 0) { tf_valorProposta01.Text = ""; tf_tempoContrato01.Text = ""; tf_statusContrato01.Text = ""; }
-            if(piloto[principal.IndexDoJogador].PropostaDeContrato[0].TempoPropostaContrato != 0) { tf_valorProposta01.Text = piloto[principal.IndexDoJogador].PropostaDeContrato[0].ValorContrato.ToString("C", new System.Globalization.CultureInfo("pt-BR")); tf_tempoContrato01.Text = "Até " + piloto[principal.IndexDoJogador].PropostaDeContrato[0].TempoDeContrato.ToString(); tf_statusContrato01.Text = piloto[principal.IndexDoJogador].PropostaDeContrato[0].StatusDoPiloto; }
+            if (piloto[principal.IndexDoJogador].PropostaDeContrato[0].TempoPropostaContrato == 0) { tf_valorProposta01.Text = ""; tf_tempoContrato01.Text = ""; tf_statusContrato01.Text = ""; }
+            if (piloto[principal.IndexDoJogador].PropostaDeContrato[0].TempoPropostaContrato != 0) { tf_valorProposta01.Text = piloto[principal.IndexDoJogador].PropostaDeContrato[0].ValorContrato.ToString("C", new System.Globalization.CultureInfo("pt-BR")); tf_tempoContrato01.Text = "Até " + piloto[principal.IndexDoJogador].PropostaDeContrato[0].TempoDeContrato.ToString(); tf_statusContrato01.Text = piloto[principal.IndexDoJogador].PropostaDeContrato[0].StatusDoPiloto; }
             tf_nomeEquipe02.Text = piloto[principal.IndexDoJogador].PropostaDeContrato[1].NomeDaEquipe;
             string caminhoImagem02 = Path.Combine("Paises", piloto[principal.IndexDoJogador].PropostaDeContrato[1].NacionalidadeDaEquipe + ".png");
             tf_nacEquipe02.Image = Image.FromFile(caminhoImagem02);
@@ -219,6 +222,121 @@ namespace DriverChallenge
             }
             dgv.ClearSelection();
         }
+        private void CriarDataGridViewHallDaFama(DataGridView dgv)
+        {
+            DataTable histoticoPiloto = new DataTable();
+
+            histoticoPiloto.Columns.Add("#", typeof(int));
+            histoticoPiloto.Columns.Add("Nome", typeof(string));
+            histoticoPiloto.Columns.Add("V", typeof(string));
+            histoticoPiloto.Columns.Add("PP", typeof(string));
+            histoticoPiloto.Columns.Add("GP", typeof(string));
+            histoticoPiloto.Columns.Add("F1", typeof(string));
+            histoticoPiloto.Columns.Add("F2", typeof(string));
+            histoticoPiloto.Columns.Add("F3", typeof(string));
+            histoticoPiloto.Columns.Add("P", typeof(double));
+
+            // Configurando Layout
+            dgv.RowHeadersVisible = false;
+            dgv.AllowUserToAddRows = false;
+            dgv.AllowUserToDeleteRows = false;
+            dgv.AllowUserToOrderColumns = false;
+            dgv.AllowUserToResizeColumns = false;
+            dgv.AllowUserToResizeColumns = false;
+            dgv.AllowUserToResizeRows = false;
+            dgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dgv.ScrollBars = ScrollBars.Vertical;
+            dgv.AllowUserToAddRows = false;
+            dgv.RowHeadersDefaultCellStyle.BackColor = Color.FromArgb(180, 180, 180); // Define a cor das linhas do cabe�alho
+            dgv.DefaultCellStyle.BackColor = Color.FromArgb(255, 255, 255);
+            dgv.DefaultCellStyle.SelectionBackColor = Color.FromArgb(255, 255, 255);
+            dgv.DefaultCellStyle.SelectionForeColor = Color.Black;
+            dgv.GridColor = Color.FromArgb(220, 220, 220);
+            dgv.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgv.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+            dgv.DataSource = histoticoPiloto;
+
+            // Altura das linhas
+            dgv.RowTemplate.Height = 25;
+            // Define a altura do cabeçalho das colunas
+            dgv.ColumnHeadersHeight = 30;
+
+            // Defina a ordem de exibiçao das colunas com base nos índices
+            dgv.Columns["#"].DisplayIndex = 0;
+            dgv.Columns["Nome"].DisplayIndex = 1;
+            dgv.Columns["V"].DisplayIndex = 2;
+            dgv.Columns["PP"].DisplayIndex = 3;
+            dgv.Columns["GP"].DisplayIndex = 4;
+            dgv.Columns["F1"].DisplayIndex = 5;
+            dgv.Columns["F2"].DisplayIndex = 6;
+            dgv.Columns["F3"].DisplayIndex = 7;
+            dgv.Columns["P"].DisplayIndex = 8;
+
+            dgv.Columns[0].Width = 30;
+            dgv.Columns[1].Width = 190;
+            dgv.Columns[2].Width = 30;
+            dgv.Columns[3].Width = 30;
+            dgv.Columns[4].Width = 30;
+            dgv.Columns[5].Width = 30;
+            dgv.Columns[6].Width = 30;
+            dgv.Columns[7].Width = 30;
+            dgv.Columns[8].Width = 40;
+        }
+        public void AtualizarTabelaHallDaFama(DataGridView dgv)
+        {
+            DataTable histoticoPiloto = (DataTable)dgv.DataSource;
+
+            // Desative a opção de ordenação em todas as colunas
+            foreach (DataGridViewColumn column in dgv.Columns)
+            {
+                column.SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
+            // Ordene automaticamente a coluna 4 do maior para o menor
+            dgv.Sort(dgv.Columns[8], ListSortDirection.Descending);
+
+            for (int i = 0; i < histoticoPiloto.Rows.Count; i++)
+            {
+                dgv.Rows[i].Cells["#"].Value = i + 1;
+            }
+                dgv.ClearSelection();
+        }
+        private void PreencherDataGridViewHallDaFama(List<string> hallDaFama, DataGridView dgv)
+        {
+            DataTable historicoHall = (DataTable)dgv.DataSource;
+
+            // Limpa as linhas do DataGridView
+            historicoHall.Rows.Clear();
+
+            // Adiciona cada piloto do Hall da Fama como uma nova linha no DataGridView
+            foreach (var piloto in hallDaFama)
+            {
+                // Divide a string do piloto pelos valores separados por vírgula
+                var dadosPiloto = piloto.Split(',');
+
+                // Cria uma nova linha no DataTable
+                DataRow row = historicoHall.NewRow();
+
+                // Verifica se o número de dados corresponde ao número de colunas
+                if (dadosPiloto.Length == 8)
+                {
+                    row["Nome"] = dadosPiloto[0].Trim(); 
+                    row["V"] = dadosPiloto[1].Trim();
+                    row["PP"] = dadosPiloto[2].Trim();
+                    row["GP"] = dadosPiloto[3].Trim();
+                    row["F1"] = dadosPiloto[4].Trim();
+                    row["F2"] = dadosPiloto[5].Trim();
+                    row["F3"] = dadosPiloto[6].Trim();
+                    row["P"] = Convert.ToDouble(dadosPiloto[7].Trim());
+                }
+
+                // Adiciona a linha ao DataTable
+                historicoHall.Rows.Add(row);
+            }
+
+            // Define o DataTable como a fonte de dados do DataGridView
+            dgv.DataSource = historicoHall;
+        }
         private void label14_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -293,6 +411,7 @@ namespace DriverChallenge
             piloto[principal.IndexDoJogador].LimparPropostaDeContrato(piloto[principal.IndexDoJogador].PropostaDeContrato[0]);
             Tf_aceitar1_btn.Visible = false;
             Tf_rejeitar1_btn.Visible = false;
+            LoadingPropostas();
         }
         private void Tf_aceitar2_btn_Click(object sender, EventArgs e)
         {
@@ -363,6 +482,7 @@ namespace DriverChallenge
             piloto[principal.IndexDoJogador].LimparPropostaDeContrato(piloto[principal.IndexDoJogador].PropostaDeContrato[1]);
             Tf_aceitar2_btn.Visible = false;
             Tf_rejeitar2_btn.Visible = false;
+            LoadingPropostas();
         }
         private void TpLargada_1_Click(object sender, EventArgs e)
         {

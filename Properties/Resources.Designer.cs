@@ -153,9 +153,9 @@ namespace DriverChallenge.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Duro {
+        internal static System.Drawing.Bitmap duro {
             get {
-                object obj = ResourceManager.GetObject("Duro", resourceCulture);
+                object obj = ResourceManager.GetObject("duro", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -183,9 +183,9 @@ namespace DriverChallenge.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Macio {
+        internal static System.Drawing.Bitmap macio {
             get {
-                object obj = ResourceManager.GetObject("Macio", resourceCulture);
+                object obj = ResourceManager.GetObject("macio", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -253,9 +253,9 @@ namespace DriverChallenge.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Médio {
+        internal static System.Drawing.Bitmap medio {
             get {
-                object obj = ResourceManager.GetObject("Médio", resourceCulture);
+                object obj = ResourceManager.GetObject("medio", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -366,6 +366,16 @@ namespace DriverChallenge.Properties {
         internal static System.Drawing.Bitmap patrocinador {
             get {
                 object obj = ResourceManager.GetObject("patrocinador", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pneuNull {
+            get {
+                object obj = ResourceManager.GetObject("pneuNull", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

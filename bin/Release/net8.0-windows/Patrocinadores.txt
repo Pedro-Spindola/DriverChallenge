@@ -1,0 +1,170 @@
+Adidas,Alemanha
+Audi,Alemanha
+Bayer AG,Alemanha
+BMW,Alemanha
+BWT,Alemanha
+DHL,Alemanha
+Hugo Boss,Alemanha
+Mahle,Alemanha
+Mercedes-Benz,Alemanha
+Porsche,Alemanha
+Puma,Alemanha
+Ravenol,Alemanha
+Red Bull,Alemanha
+SAP,Alemanha
+Sofina,Alemanha
+TeamViewer,Alemanha
+Sofina,Alemanha
+TeamViewer,Alemanha
+Aramco,Arábia Saudita
+Kaust,Arábia Saudita
+SABIC,Arábia Saudita
+Globant,Argentina
+MercadoLivre,Argentina
+Gold Fie,África do Sul
+BHP,Austrália
+Commbank,Austrália
+Rexona,Austrália
+BWT,Áustria
+Rauch,Áustria
+Red Bull,Áustria
+Riedel,Áustria
+Ambev,Brasil
+Banco do Brasil,Brasil
+Claro,Brasil
+Eletrobras,Brasil
+Hypera Pharma,Brasil
+Itaú,Brasil
+JBS,Brasil
+NuBank,Brasil
+Petrobras,Brasil
+Vale,Brasil
+Bombardier,Canadá
+Canada Life,Canadá
+RBC,Canadá
+LATAM,Chile
+Alibaba,China
+Huawei,China
+Xiaomi,China
+Tencent,China
+KIA,Coreia do Sul
+LG,Coreia do Sul
+Samsung,Coreia do Sul
+Bestseller,Dinamarca
+Carlsberg,Dinamarca
+Novo Nordisk,Dinamarca
+Emirates,Emirados Árabes Unidos
+Johnnie Walker,Escócia
+Estrella Galicia,Espanha
+Iberdrola,Espanha
+Inditex,Espanha
+Zara,Espanha
+3M,Estados Unidos
+AMD,Estados Unidos
+American Express,Estados Unidos
+Apple,Estados Unidos
+AWS,Estados Unidos
+Bank of America,Estados Unidos
+Budweiser,Estados Unidos
+Chase Sapphire,Estados Unidos
+Coca-Cola,Estados Unidos
+Dell,Estados Unidos
+ESPN,Estados Unidos
+Fedex,Estados Unidos
+General Electric,Estados Unidos
+General Motors,Estados Unidos
+Google,Estados Unidos
+HP,Estados Unidos
+IBM,Estados Unidos
+Intel,Estados Unidos
+JP Morgan Chase,Estados Unidos
+KFC,Estados Unidos
+Lockheed Martin,Estados Unidos
+Marlboro,Estados Unidos
+McDonald's,Estados Unidos
+Microsoft,Estados Unidos
+NASA,Estados Unidos
+Netflix,Estados Unidos
+Nike,Estados Unidos
+Nvidia,Estados Unidos
+Oracle,Estados Unidos
+PayPal,Estados Unidos
+Penske,Estados Unidos
+Qualcomm,Estados Unidos
+Raytheon,Estados Unidos
+Starbucks,Estados Unidos
+Tesla,Estados Unidos
+United Airlines,Estados Unidos
+UPS,Estados Unidos
+Visa,Estados Unidos
+Walmart,Estados Unidos
+Nokia,Finlândia
+Bell & Ross,França
+Bugatti,França
+Louis Vuitton,França
+Renault,França
+Heineken,Holanda
+Jumbo,Holanda
+Randstad Holding,Holanda
+Infosys,Índia
+Kingfisher,Índia
+Sahara,Índia
+Tata Consultancy,Índia
+Alfa Romeo,Itália
+Ferrari,Itália
+Gucci,Itália
+Iveco,Itália
+Lamborghini,Itália
+OZ Racing,Itália
+Pirelli,Itália
+Ray-Ban,Itália
+Sparco,Itália
+Epson,Japão
+Honda,Japão
+Mitsubishi,Japão
+Nissan,Japão
+Sony,Japão
+Toyota,Japão
+AirAsia,Malásia
+Petronas,Malásia
+Becle,México
+Cemex,México
+Telcel,México
+Equinor,Noruega
+Kongsberg,Noruega
+Air New Zealand,Nova Zelândia
+Fonterra,Nova Zelândia
+PKN Orlen,Polônia
+Banco BPI,Portugal
+Pingo Doce,Portugal
+Petrogal,Portugal
+Qatar Airways,Catar
+Qatar Petroleum,Catar
+Aston Martin,Reino Unido
+HSBC,Reino Unido
+Jaguar,Reino Unido
+Land Rover,Reino Unido
+Marks & Spencer,Reino Unido
+Rich Energy,Reino Unido
+Rolls-Royce,Reino Unido
+Shell,Reino Unido
+Vodafone,Reino Unido
+Electrolux,Suécia
+Ericsson,Suécia
+Hennes & Mauritz,Suécia
+Huski Chocolate,Suécia
+Koenigsegg,Suécia
+Scania,Suécia
+Securitas AB,Suécia
+Spotify,Suécia
+Volvo,Suécia
+ABB,Suíça
+Credit Suisse,Suíça
+Novartis,Suíça
+Nestlé,Suíça
+Rolex,Suíça
+Securitas,Suíça
+TAG Heuer,Suíça
+Singha,Tailândia
+TSMC,Taiwan
+PDVSA,Venezuela

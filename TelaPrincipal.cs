@@ -11,7 +11,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static DriverChallenge.Equipe;
 using static DriverChallenge.Financia;
+using static DriverChallenge.Historico;
 using static DriverChallenge.Piloto;
+using static DriverChallenge.Pista;
 
 namespace DriverChallenge
 {
@@ -79,7 +81,26 @@ namespace DriverChallenge
                 }
                 else
                 {
-                    newPiloto.GeraPiloto();
+                    if (i >= 80 && i < 85)
+                    {
+                        newPiloto.GeraPilotoProximosAnos(40, 40);
+                    }
+                    if (i >= 85 && i < 90)
+                    {
+                        newPiloto.GeraPilotoProximosAnos(39, 40);
+                    }
+                    if (i >= 90 && i < 95)
+                    {
+                        newPiloto.GeraPilotoProximosAnos(38, 40);
+                    }
+                    if (i >= 95 && i < 101)
+                    {
+                        newPiloto.GeraPilotoProximosAnos(37, 40);
+                    }
+                    if (i < 80)
+                    {
+                        newPiloto.GeraPiloto();
+                    }
                     piloto[i] = newPiloto;
                 }
             }
@@ -329,30 +350,30 @@ namespace DriverChallenge
         }
         public void CriandoOsDadosPistas() // Depois de finalizar os testem desbloquear o restantes das pistas.
         {
-            pista[0] = new Pista("Austrália", "Melbourne", 58, 44, 56, 76800, 7, 8, 9, 10, 11);
-            pista[1] = new Pista("Itália", "Monza", 53, 35, 65, 70200, 4, 5, 6, 7, 8, 9);
+            pista[0] = new Pista("Austrália", "Melbourne", 58, 44, 56, 76800, 7, 8, 9);
+            pista[1] = new Pista("Itália", "Monza", 53, 35, 65, 70200, 4, 5, 6);
             pista[2] = new Pista("Brasil", "Interlagos", 71, 42, 58, 65400, 16, 17, 18, 19, 20, 21);
-            pista[3] = new Pista("Bahrein", "Sakhir", 57, 43, 57, 77400, 7, 8, 9, 10, 11);
-            pista[4] = new Pista("Arábia Saudita", "Corniche Circuit", 49, 58, 42, 76200, 3, 4, 5, 6);
-            pista[5] = new Pista("Japão", "Suzuka", 53, 59, 41, 75420, 4, 5, 6, 10, 11);
-            pista[6] = new Pista("China", "Shanghai", 56, 48, 52, 81000, 7, 8, 9, 10, 11);
-            pista[7] = new Pista("Estados Unidos", "Miami", 57, 56, 44, 73200, 7, 8, 9, 10, 11);
+            pista[3] = new Pista("Bahrein", "Sakhir", 57, 43, 57, 77400, 10, 11);
+            pista[4] = new Pista("Arábia Saudita", "Corniche Circuit", 48, 58, 42, 76200, 1, 2, 3);
+            pista[5] = new Pista("Japão", "Suzuka", 53, 59, 41, 75420, 4, 5, 6);
+            pista[6] = new Pista("China", "Shanghai", 56, 48, 52, 81000, 10, 11);
+            pista[7] = new Pista("Estados Unidos", "Miami", 57, 56, 44, 73200, 10, 11);
             pista[8] = new Pista("Itália", "Imola", 63, 32, 62, 72600, 12, 13, 14, 15);
             pista[9] = new Pista("Mônaco", "Monte Carlo", 78, 64, 36, 67800, 22, 23, 24, 25, 26, 27);
             pista[10] = new Pista("Canadá", "Gilles Vileneuve", 70, 40, 60, 67200, 16, 17, 18, 19, 20, 21);
             pista[11] = new Pista("Espanha", "Catalunha", 66, 40, 60, 69000, 12, 13, 14, 15);
             pista[12] = new Pista("Áustria", "Red Bull Ring", 71, 25, 75, 63600, 16, 17, 18, 19, 20, 21);
-            pista[13] = new Pista("Reino Unido", "Silverstone", 52, 43, 57, 74400, 4, 5, 6, 10, 11);
+            pista[13] = new Pista("Reino Unido", "Silverstone", 52, 43, 57, 74400, 4, 5, 6);
             pista[14] = new Pista("Holanda", "Zandvoort", 72, 48, 52, 67200, 16, 17, 18, 19, 20, 21);
             pista[15] = new Pista("Hungria", "Hungaroring", 70, 46, 54, 72000, 16, 17, 18, 19, 20, 21);
-            pista[16] = new Pista("Bélgica", "Spa-Francorchamps", 44, 47, 53, 88200, 1, 2, 3, 4, 5, 6);
-            pista[17] = new Pista("África do Sul", "Kyalami", 45, 55, 72, 70800, 1, 2, 3, 4, 5, 6);
+            pista[16] = new Pista("Bélgica", "Spa-Francorchamps", 44, 47, 53, 88200, 1, 2, 3);
+            pista[17] = new Pista("África do Sul", "Kyalami", 45, 55, 72, 70800, 1, 2, 3);
             pista[18] = new Pista("México", "Hermanos Rodríguez", 71, 38, 62, 67800, 16, 17, 18, 19, 20, 21);
-            pista[19] = new Pista("Azerbaijão", "Baku", 51, 59, 41, 88200, 3, 4, 5, 6);
-            pista[20] = new Pista("Singapura", "Marina Bay", 62, 52, 48, 82200, 12, 13, 14, 15);
-            pista[21] = new Pista("Catar", "Lusail Circuit", 57, 59, 41, 72480, 7, 8, 9, 10, 11);
+            pista[19] = new Pista("Azerbaijão", "Baku", 51, 59, 41, 88200, 4, 5, 6);
+            pista[20] = new Pista("Singapura", "Marina Bay", 62, 52, 48, 82200, 7, 8, 9);
+            pista[21] = new Pista("Catar", "Lusail Circuit", 57, 59, 41, 72480, 7, 8, 9);
             pista[22] = new Pista("Estados Unidos", "Las Vegas", 50, 70, 30, 81100, 3, 4, 5, 6);
-            pista[23] = new Pista("Emirados Árabes Unidos", "Yas Marina", 58, 39, 61, 74400, 7, 8, 9, 10, 11);
+            pista[23] = new Pista("Emirados Árabes Unidos", "Yas Marina", 58, 39, 61, 74400, 10, 11);
             pista[24] = new Pista("Alemanha", "Hockenheimring", 67, 42, 58, 68400, 15, 16, 17, 18, 19, 20, 21);
         }
         public void EmbaralharPistas()
@@ -510,6 +531,7 @@ namespace DriverChallenge
             principal.ProximoGpPais = pista[i].NomeCircuito;
             principal.ProximoGpSemana = pista[i].SemanaDaProva;
             principal.ProximoGpVoltas = pista[i].NumerosDeVoltas;
+            principal.EtapaAtual = i;
         }
         public void AtualizarCores()
         {
@@ -615,6 +637,7 @@ namespace DriverChallenge
                     if (financia.Patrocinadores[i].TempoPropostaContrato == 0)
                     {
                         principal.NovaMessagemEmail("Patrocinador", "Oferta de patrocínio retirada.");
+                        financia.limparPatrocinador(financia.Patrocinadores[i]);
                     }
                 }
                 if (financia.Patrocinadores[i].ContratoValido)
@@ -1907,15 +1930,15 @@ namespace DriverChallenge
                     {
                         case "F1":
                             mediaMax = 100;
-                            mediaMin = 70;
+                            mediaMin = 60;
                             break;
                         case "F2":
-                            mediaMax = 80;
-                            mediaMin = 40;
+                            mediaMax = 90;
+                            mediaMin = 30;
                             break;
                         default:
-                            mediaMax = 50;
-                            mediaMin = 10;
+                            mediaMax = 60;
+                            mediaMin = 0;
                             break;
                     }
                     foreach (int indice in indicesAleatorios)
@@ -1942,15 +1965,15 @@ namespace DriverChallenge
                     {
                         case "F1":
                             mediaMax = 100;
-                            mediaMin = 70;
+                            mediaMin = 60;
                             break;
                         case "F2":
-                            mediaMax = 80;
-                            mediaMin = 40;
+                            mediaMax = 90;
+                            mediaMin = 30;
                             break;
                         default:
-                            mediaMax = 50;
-                            mediaMin = 10;
+                            mediaMax = 60;
+                            mediaMin = 0;
                             break;
                     }
                     foreach (int indice in indicesAleatorios)
@@ -1991,6 +2014,16 @@ namespace DriverChallenge
             {
                 if (piloto[i].IdadePiloto == piloto[i].AposentadoriaPiloto && piloto[i].EquipePiloto == "")
                 {
+                    string nomeCompleto = (piloto[i].NomePiloto + " " + piloto[i].SobrenomePiloto);
+                    string vitoria = piloto[i].VitoriaCorrida.ToString();
+                    string pole = piloto[i].PolePosition.ToString();
+                    string gp = piloto[i].GpDisputado.ToString();
+                    string f1 = piloto[i].TituloF1.ToString();
+                    string f2 = piloto[i].TituloF2.ToString();
+                    string f3 = piloto[i].TituloF3.ToString();
+                    string pontos = ((piloto[i].VitoriaCorrida / 2) + (piloto[i].PolePosition / 2) + (piloto[i].GpDisputado * 0.05) + (piloto[i].TituloF1 * 30) + (piloto[i].TituloF2 * 20) + (piloto[i].TituloF3 * 10)).ToString();
+                    string adc = $"{nomeCompleto}, {vitoria}, {pole}, {gp}, {f1}, {f2}, {f3}, {pontos}";
+                    principal.HallDaFama.Add(adc);
                     Piloto newPiloto = new Piloto();
                     newPiloto.GeraPiloto();
                     piloto[i] = newPiloto;
@@ -2349,13 +2382,8 @@ namespace DriverChallenge
         }
         public void PictureBox3_Click(object sender, EventArgs e) // Botão de configuração do jogo.
         {
-            MessageBox.Show(piloto[principal.IndexDoJogador].PropostaDeContrato[0].NomeDaEquipe.ToString());
-            MessageBox.Show(piloto[principal.IndexDoJogador].PropostaDeContrato[1].NomeDaEquipe.ToString());
-            /*
-            TelaSettings telaSettings = new TelaSettings(principal);
-            telaSettings.ShowDialog();
-            AtualizarCores();
-            */
+            MessageBox.Show(financia.Patrocinadores[0].NacionalidadeDaEmpresa);
+
         }
         public void PictureBoxClassificacao_Click(object sender, EventArgs e)
         {
