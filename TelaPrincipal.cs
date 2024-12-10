@@ -81,26 +81,7 @@ namespace DriverChallenge
                 }
                 else
                 {
-                    if (i >= 80 && i < 85)
-                    {
-                        newPiloto.GeraPilotoProximosAnos(40, 40);
-                    }
-                    if (i >= 85 && i < 90)
-                    {
-                        newPiloto.GeraPilotoProximosAnos(39, 40);
-                    }
-                    if (i >= 90 && i < 95)
-                    {
-                        newPiloto.GeraPilotoProximosAnos(38, 40);
-                    }
-                    if (i >= 95 && i < 101)
-                    {
-                        newPiloto.GeraPilotoProximosAnos(37, 40);
-                    }
-                    if (i < 80)
-                    {
-                        newPiloto.GeraPiloto();
-                    }
+                    newPiloto.GeraPiloto();
                     piloto[i] = newPiloto;
                 }
             }
@@ -199,22 +180,21 @@ namespace DriverChallenge
             Random r = new Random();
             for (int i = 0; i < piloto.Length; i++)
             {
-                
                 if (i >= 0 && i <= 19)
                 {
-                    piloto[i].MetodoProvisorioParaAumentarIdade(r.Next(8, 11));
+                    piloto[i].MetodoProvisorioParaAumentarIdade(r.Next(8, 11), 52);
                 }
                 if (i >= 20 && i <= 39)
                 {
-                    piloto[i].MetodoProvisorioParaAumentarIdade(r.Next(5, 9));
+                    piloto[i].MetodoProvisorioParaAumentarIdade(r.Next(5, 9), 52);
                 }
                 if (i >= 60 && i <= 69)
                 {
-                    piloto[i].MetodoProvisorioParaAumentarIdade(r.Next(8, 11));
+                    piloto[i].MetodoProvisorioParaAumentarIdade(r.Next(8, 11), 52);
                 }
                 if (i >= 70 && i <= 79)
                 {
-                    piloto[i].MetodoProvisorioParaAumentarIdade(r.Next(5, 9));
+                    piloto[i].MetodoProvisorioParaAumentarIdade(r.Next(5, 9), 52);
                 }
             }
 
@@ -1485,7 +1465,7 @@ namespace DriverChallenge
                     if (opcaoDeOferta == 4)
                     {
                         Shuffle(indicesAleatorios);
-                        int decicaoDeRenovação = random.Next(1, 3); // Vai decidir se a oferta vai ser de renovação ou de um novo piloto.
+                        int decicaoDeRenovacao = random.Next(1, 3); // Vai decidir se a oferta vai ser de renovação ou de um novo piloto.
                         int mediaMax = 0;
                         int mediaMin = 0;
                         switch (equipe.Categoria)
@@ -1503,7 +1483,7 @@ namespace DriverChallenge
                                 mediaMin = 10;
                                 break;
                         }
-                        if (decicaoDeRenovação == 1)
+                        if (decicaoDeRenovacao == 1)
                         {
                             foreach (int indice in indicesAleatorios)
                             {
@@ -1511,7 +1491,7 @@ namespace DriverChallenge
                                 {
                                     double ofertaDeSalario = DefinirSalario(piloto[indice].MediaPiloto, equipe.Categoria);
 
-                                    if (piloto[indice].SalarioPiloto < ofertaDeSalario && indice != principal.IndexDoJogador)
+                                    if (indice != principal.IndexDoJogador)
                                     {
                                         piloto[indice].ProximoAnoContratoPiloto = (random.Next(1, 4) + principal.ContadorDeAno);
                                         piloto[indice].ProximoAnoEquipePiloto = equipe.NomeEquipe;
@@ -1522,7 +1502,7 @@ namespace DriverChallenge
                                         equipe.ProximoAnoPrimeiroPilotoContrato = piloto[indice].ProximoAnoContratoPiloto;
                                         equipe.ProximoAnoPrimeiroPilotoSalario = piloto[indice].ProximoAnoSalarioPiloto;
                                     }
-                                    if (piloto[indice] == piloto[principal.IndexDoJogador])
+                                    if (indice == principal.IndexDoJogador)
                                     {
                                         Boolean posicaoNegocio = true;
                                         if (piloto[indice].PropostaDeContrato[0].PropostaAceita == false && piloto[indice].PropostaDeContrato[0].TempoPropostaContrato == 0)
@@ -1562,7 +1542,7 @@ namespace DriverChallenge
                                         equipe.ProximoAnoPrimeiroPilotoContrato = piloto[indice].ProximoAnoContratoPiloto;
                                         equipe.ProximoAnoPrimeiroPilotoSalario = piloto[indice].ProximoAnoSalarioPiloto;
                                     }
-                                    if (piloto[indice] == piloto[principal.IndexDoJogador])
+                                    if (indice == principal.IndexDoJogador)
                                     {
                                         Boolean posicaoNegocio = true;
                                         if (piloto[indice].PropostaDeContrato[0].PropostaAceita == false && piloto[indice].PropostaDeContrato[0].TempoPropostaContrato == 0)
@@ -1616,7 +1596,7 @@ namespace DriverChallenge
                                 if (piloto[indice].MediaPiloto >= mediaMin && piloto[indice].MediaPiloto <= mediaMax && piloto[indice].ProximoAnoEquipePiloto == "" && piloto[indice].IdadePiloto < piloto[indice].AposentadoriaPiloto)
                                 {
                                     double ofertaDeSalario = DefinirSalario(piloto[indice].MediaPiloto, equipe.Categoria);
-                                    if (piloto[indice].SalarioPiloto < ofertaDeSalario && indice != principal.IndexDoJogador)
+                                    if (indice != principal.IndexDoJogador)
                                     {
                                         piloto[indice].ProximoAnoContratoPiloto = (random.Next(1, 4) + principal.ContadorDeAno);
                                         piloto[indice].ProximoAnoEquipePiloto = equipe.NomeEquipe;
@@ -1627,24 +1607,21 @@ namespace DriverChallenge
                                         equipe.ProximoAnoSegundoPilotoContrato = piloto[indice].ProximoAnoContratoPiloto;
                                         equipe.ProximoAnoSegundoPilotoSalario = piloto[indice].ProximoAnoSalarioPiloto;
                                     }
-                                    if (piloto[indice] == piloto[principal.IndexDoJogador])
+                                    if (indice == principal.IndexDoJogador)
                                     {
-                                        if (piloto[indice] == piloto[principal.IndexDoJogador])
+                                        Boolean posicaoNegocio = true;
+                                        if (piloto[indice].PropostaDeContrato[0].PropostaAceita == false && piloto[indice].PropostaDeContrato[0].TempoPropostaContrato == 0)
                                         {
-                                            Boolean posicaoNegocio = true;
-                                            if (piloto[indice].PropostaDeContrato[0].PropostaAceita == false && piloto[indice].PropostaDeContrato[0].TempoPropostaContrato == 0)
-                                            {
-                                                equipe.ProximoAnoSegundoPiloto = "Negociando";
-                                                piloto[indice].PropostaDeContrato[0] = piloto[indice].NovaPropostaDeContrato(equipe.NomeEquipe, equipe.Sede, ofertaDeSalario, (random.Next(1, 4) + principal.ContadorDeAno), "2º Piloto");
-                                                principal.NovaMessagemEmail("Contrato", "Renovação de Contrato.");
-                                                posicaoNegocio = false;
-                                            }
-                                            if (posicaoNegocio && piloto[indice].PropostaDeContrato[1].PropostaAceita == false && piloto[indice].PropostaDeContrato[1].TempoPropostaContrato == 0)
-                                            {
-                                                equipe.ProximoAnoSegundoPiloto = "Negociando";
-                                                piloto[indice].PropostaDeContrato[1] = piloto[indice].NovaPropostaDeContrato(equipe.NomeEquipe, equipe.Sede, ofertaDeSalario, (random.Next(1, 4) + principal.ContadorDeAno), "2º Piloto");
-                                                principal.NovaMessagemEmail("Contrato", "Renovação de Contrato.");
-                                            }
+                                            equipe.ProximoAnoSegundoPiloto = "Negociando";
+                                            piloto[indice].PropostaDeContrato[0] = piloto[indice].NovaPropostaDeContrato(equipe.NomeEquipe, equipe.Sede, ofertaDeSalario, (random.Next(1, 4) + principal.ContadorDeAno), "2º Piloto");
+                                            principal.NovaMessagemEmail("Contrato", "Renovação de Contrato.");
+                                            posicaoNegocio = false;
+                                        }
+                                        if (posicaoNegocio && piloto[indice].PropostaDeContrato[1].PropostaAceita == false && piloto[indice].PropostaDeContrato[1].TempoPropostaContrato == 0)
+                                        {
+                                            equipe.ProximoAnoSegundoPiloto = "Negociando";
+                                            piloto[indice].PropostaDeContrato[1] = piloto[indice].NovaPropostaDeContrato(equipe.NomeEquipe, equipe.Sede, ofertaDeSalario, (random.Next(1, 4) + principal.ContadorDeAno), "2º Piloto");
+                                            principal.NovaMessagemEmail("Contrato", "Renovação de Contrato.");
                                         }
                                     }
                                     break;
@@ -1670,24 +1647,21 @@ namespace DriverChallenge
                                         equipe.ProximoAnoSegundoPilotoContrato = piloto[indice].ProximoAnoContratoPiloto;
                                         equipe.ProximoAnoSegundoPilotoSalario = piloto[indice].ProximoAnoSalarioPiloto;
                                     }
-                                    if (piloto[indice] == piloto[principal.IndexDoJogador])
+                                    if (indice == principal.IndexDoJogador)
                                     {
-                                        if (piloto[indice] == piloto[principal.IndexDoJogador])
+                                        Boolean posicaoNegocio = true;
+                                        if (piloto[indice].PropostaDeContrato[0].PropostaAceita == false && piloto[indice].PropostaDeContrato[0].TempoPropostaContrato == 0)
                                         {
-                                            Boolean posicaoNegocio = true;
-                                            if (piloto[indice].PropostaDeContrato[0].PropostaAceita == false && piloto[indice].PropostaDeContrato[0].TempoPropostaContrato == 0)
-                                            {
-                                                equipe.ProximoAnoSegundoPiloto = "Negociando";
-                                                piloto[indice].PropostaDeContrato[0] = piloto[indice].NovaPropostaDeContrato(equipe.NomeEquipe, equipe.Sede, ofertaDeSalario, (random.Next(1, 4) + principal.ContadorDeAno), "2º Piloto");
-                                                principal.NovaMessagemEmail("Contrato", "Oferta de Contrato.");
-                                                posicaoNegocio = false;
-                                            }
-                                            if (posicaoNegocio && piloto[indice].PropostaDeContrato[1].PropostaAceita == false && piloto[indice].PropostaDeContrato[1].TempoPropostaContrato == 0)
-                                            {
-                                                equipe.ProximoAnoSegundoPiloto = "Negociando";
-                                                piloto[indice].PropostaDeContrato[1] = piloto[indice].NovaPropostaDeContrato(equipe.NomeEquipe, equipe.Sede, ofertaDeSalario, (random.Next(1, 4) + principal.ContadorDeAno), "2º Piloto");
-                                                principal.NovaMessagemEmail("Contrato", "Oferta de Contrato.");
-                                            }
+                                            equipe.ProximoAnoSegundoPiloto = "Negociando";
+                                            piloto[indice].PropostaDeContrato[0] = piloto[indice].NovaPropostaDeContrato(equipe.NomeEquipe, equipe.Sede, ofertaDeSalario, (random.Next(1, 4) + principal.ContadorDeAno), "2º Piloto");
+                                            principal.NovaMessagemEmail("Contrato", "Oferta de Contrato.");
+                                            posicaoNegocio = false;
+                                        }
+                                        if (posicaoNegocio && piloto[indice].PropostaDeContrato[1].PropostaAceita == false && piloto[indice].PropostaDeContrato[1].TempoPropostaContrato == 0)
+                                        {
+                                            equipe.ProximoAnoSegundoPiloto = "Negociando";
+                                            piloto[indice].PropostaDeContrato[1] = piloto[indice].NovaPropostaDeContrato(equipe.NomeEquipe, equipe.Sede, ofertaDeSalario, (random.Next(1, 4) + principal.ContadorDeAno), "2º Piloto");
+                                            principal.NovaMessagemEmail("Contrato", "Oferta de Contrato.");
                                         }
                                     }
                                     break;
@@ -1745,7 +1719,7 @@ namespace DriverChallenge
                                 equipe.ProximoAnoPrimeiroPilotoSalario = piloto[indice].ProximoAnoSalarioPiloto;
                             }
 
-                            if (piloto[indice] == piloto[principal.IndexDoJogador])
+                            if (indice == principal.IndexDoJogador)
                             {
                                 Boolean posicaoNegocio = true;
                                 if (piloto[indice].PropostaDeContrato[0].PropostaAceita == false && piloto[indice].PropostaDeContrato[0].TempoPropostaContrato == 0)
@@ -1801,24 +1775,21 @@ namespace DriverChallenge
                                 equipe.ProximoAnoSegundoPilotoContrato = piloto[indice].ProximoAnoContratoPiloto;
                                 equipe.ProximoAnoSegundoPilotoSalario = piloto[indice].ProximoAnoSalarioPiloto;
                             }
-                            if (piloto[indice] == piloto[principal.IndexDoJogador])
+                            if (indice == principal.IndexDoJogador)
                             {
-                                if (piloto[indice] == piloto[principal.IndexDoJogador])
+                                Boolean posicaoNegocio = true;
+                                if (piloto[indice].PropostaDeContrato[0].PropostaAceita == false && piloto[indice].PropostaDeContrato[0].TempoPropostaContrato == 0)
                                 {
-                                    Boolean posicaoNegocio = true;
-                                    if (piloto[indice].PropostaDeContrato[0].PropostaAceita == false && piloto[indice].PropostaDeContrato[0].TempoPropostaContrato == 0)
-                                    {
-                                        equipe.ProximoAnoSegundoPiloto = "Negociando";
-                                        piloto[indice].PropostaDeContrato[0] = piloto[indice].NovaPropostaDeContrato(equipe.NomeEquipe, equipe.Sede, ofertaDeSalario, (random.Next(1, 4) + principal.ContadorDeAno), "2º Piloto");
-                                        principal.NovaMessagemEmail("Contrato", "Oferta de Contrato.");
-                                        posicaoNegocio = false;
-                                    }
-                                    if (posicaoNegocio && piloto[indice].PropostaDeContrato[1].PropostaAceita == false && piloto[indice].PropostaDeContrato[1].TempoPropostaContrato == 0)
-                                    {
-                                        equipe.ProximoAnoSegundoPiloto = "Negociando";
-                                        piloto[indice].PropostaDeContrato[1] = piloto[indice].NovaPropostaDeContrato(equipe.NomeEquipe, equipe.Sede, ofertaDeSalario, (random.Next(1, 4) + principal.ContadorDeAno), "2º Piloto");
-                                        principal.NovaMessagemEmail("Contrato", "Oferta de Contrato.");
-                                    }
+                                    equipe.ProximoAnoSegundoPiloto = "Negociando";
+                                    piloto[indice].PropostaDeContrato[0] = piloto[indice].NovaPropostaDeContrato(equipe.NomeEquipe, equipe.Sede, ofertaDeSalario, (random.Next(1, 4) + principal.ContadorDeAno), "2º Piloto");
+                                    principal.NovaMessagemEmail("Contrato", "Oferta de Contrato.");
+                                    posicaoNegocio = false;
+                                }
+                                if (posicaoNegocio && piloto[indice].PropostaDeContrato[1].PropostaAceita == false && piloto[indice].PropostaDeContrato[1].TempoPropostaContrato == 0)
+                                {
+                                    equipe.ProximoAnoSegundoPiloto = "Negociando";
+                                    piloto[indice].PropostaDeContrato[1] = piloto[indice].NovaPropostaDeContrato(equipe.NomeEquipe, equipe.Sede, ofertaDeSalario, (random.Next(1, 4) + principal.ContadorDeAno), "2º Piloto");
+                                    principal.NovaMessagemEmail("Contrato", "Oferta de Contrato.");
                                 }
                             }
                             break;
@@ -1826,6 +1797,99 @@ namespace DriverChallenge
                     }
                 }
             }
+        }
+        public void OfertaDeContratoFimDeAnoParaUsuario()
+        {
+            List<int> indicesAleatorios = new List<int>();
+            for (int i = 0; i < equipe.Length; i++)
+            {
+                indicesAleatorios.Add(i);
+            }
+            int myIndice = principal.IndexDoJogador;
+            Shuffle(indicesAleatorios);
+            foreach (int indice in indicesAleatorios)
+            {
+                if (equipe[indice].ProximoAnoPrimeiroPiloto == "")
+                {
+                    int mediaMax = 0;
+                    int mediaMin = 0;
+                    switch (equipe[indice].Categoria)
+                    {
+                        case "F1":
+                            mediaMax = 100;
+                            mediaMin = 70;
+                            break;
+                        case "F2":
+                            mediaMax = 80;
+                            mediaMin = 40;
+                            break;
+                        default:
+                            mediaMax = 50;
+                            mediaMin = 10;
+                            break;
+                    }
+                    if (piloto[myIndice].MediaPiloto >= mediaMin && piloto[myIndice].MediaPiloto <= mediaMax && piloto[myIndice].ProximoAnoEquipePiloto == "" && piloto[myIndice].IdadePiloto < piloto[myIndice].AposentadoriaPiloto)
+                    {
+                        double ofertaDeSalario = DefinirSalario(piloto[myIndice].MediaPiloto, equipe[indice].Categoria);
+
+                        Boolean posicaoNegocio = true;
+                        if (piloto[myIndice].PropostaDeContrato[0].PropostaAceita == false && piloto[myIndice].PropostaDeContrato[0].TempoPropostaContrato == 0)
+                        {
+                            equipe[indice].ProximoAnoPrimeiroPiloto = "Negociando";
+                            piloto[myIndice].PropostaDeContrato[0] = piloto[myIndice].NovaPropostaDeContrato(equipe[indice].NomeEquipe, equipe[indice].Sede, ofertaDeSalario, (random.Next(1, 4) + principal.ContadorDeAno), "1º Piloto");
+                            principal.NovaMessagemEmail("Contrato", "Proposta de Contrato.");
+                            posicaoNegocio = false;
+                        }
+                        if (posicaoNegocio && piloto[myIndice].PropostaDeContrato[1].PropostaAceita == false && piloto[myIndice].PropostaDeContrato[1].TempoPropostaContrato == 0)
+                        {
+                            equipe[indice].ProximoAnoPrimeiroPiloto = "Negociando";
+                            piloto[myIndice].PropostaDeContrato[1] = piloto[myIndice].NovaPropostaDeContrato(equipe[indice].NomeEquipe, equipe[indice].Sede, ofertaDeSalario, (random.Next(1, 4) + principal.ContadorDeAno), "1º Piloto");
+                            principal.NovaMessagemEmail("Contrato", "Proposta de Contrato.");
+                        }
+                    }
+                }
+
+                if (equipe[indice].ProximoAnoSegundoPiloto == "")
+                {
+                    int mediaMax = 0;
+                    int mediaMin = 0;
+                    switch (equipe[indice].Categoria)
+                    {
+                        case "F1":
+                            mediaMax = 100;
+                            mediaMin = 70;
+                            break;
+                        case "F2":
+                            mediaMax = 80;
+                            mediaMin = 40;
+                            break;
+                        default:
+                            mediaMax = 50;
+                            mediaMin = 10;
+                            break;
+                    }
+                    if (piloto[myIndice].MediaPiloto >= mediaMin && piloto[myIndice].MediaPiloto <= mediaMax && piloto[myIndice].ProximoAnoEquipePiloto == "" && piloto[myIndice].IdadePiloto < piloto[myIndice].AposentadoriaPiloto)
+                    {
+                        double ofertaDeSalario = DefinirSalario(piloto[myIndice].MediaPiloto, equipe[indice].Categoria);
+
+                        Boolean posicaoNegocio = true;
+                        if (piloto[myIndice].PropostaDeContrato[0].PropostaAceita == false && piloto[myIndice].PropostaDeContrato[0].TempoPropostaContrato == 0)
+                        {
+                            equipe[indice].ProximoAnoSegundoPiloto = "Negociando";
+                            piloto[myIndice].PropostaDeContrato[0] = piloto[myIndice].NovaPropostaDeContrato(equipe[indice].NomeEquipe, equipe[indice].Sede, ofertaDeSalario, (random.Next(1, 4) + principal.ContadorDeAno), "1º Piloto");
+                            principal.NovaMessagemEmail("Contrato", "Proposta de Contrato.");
+                            posicaoNegocio = false;
+                        }
+                        if (posicaoNegocio && piloto[myIndice].PropostaDeContrato[1].PropostaAceita == false && piloto[myIndice].PropostaDeContrato[1].TempoPropostaContrato == 0)
+                        {
+                            equipe[indice].ProximoAnoSegundoPiloto = "Negociando";
+                            piloto[myIndice].PropostaDeContrato[1] = piloto[myIndice].NovaPropostaDeContrato(equipe[indice].NomeEquipe, equipe[indice].Sede, ofertaDeSalario, (random.Next(1, 4) + principal.ContadorDeAno), "1º Piloto");
+                            principal.NovaMessagemEmail("Contrato", "Proposta de Contrato.");
+                        }
+                    }
+                }
+            }
+
         }
         public void OfertaDeContratoFimDeAnoIaOrdemCrescente()
         {
@@ -1930,6 +1994,89 @@ namespace DriverChallenge
                     {
                         case "F1":
                             mediaMax = 100;
+                            mediaMin = 70;
+                            break;
+                        case "F2":
+                            mediaMax = 80;
+                            mediaMin = 40;
+                            break;
+                        default:
+                            mediaMax = 50;
+                            mediaMin = 10;
+                            break;
+                    }
+                    foreach (int indice in indicesAleatorios)
+                    {
+                        if (piloto[indice].MediaPiloto >= mediaMin && piloto[indice].MediaPiloto <= mediaMax && piloto[indice].ProximoAnoEquipePiloto == "" && piloto[indice].IdadePiloto < piloto[indice].AposentadoriaPiloto && piloto[indice] != piloto[principal.IndexDoJogador])
+                        {
+                            piloto[indice].ProximoAnoEquipePiloto = equipe.NomeEquipe;
+                            piloto[indice].ProximoAnoStatusPiloto = "1º Piloto";
+                            piloto[indice].ProximoAnoContratoPiloto = (random.Next(1, 4) + principal.ContadorDeAno);
+                            piloto[indice].ProximoAnoSalarioPiloto = DefinirSalario(piloto[indice].MediaPiloto, equipe.Categoria);
+
+                            equipe.ProximoAnoPrimeiroPiloto = $"{piloto[indice].NomePiloto} {piloto[indice].SobrenomePiloto}";
+                            equipe.ProximoAnoPrimeiroPilotoContrato = piloto[indice].ProximoAnoContratoPiloto;
+                            equipe.ProximoAnoPrimeiroPilotoSalario = piloto[indice].ProximoAnoSalarioPiloto;
+                            break;
+                        }
+                    }
+                }
+                while (equipe.ProximoAnoSegundoPiloto == "")
+                {
+                    int mediaMax = 0;
+                    int mediaMin = 0;
+                    switch (equipe.Categoria)
+                    {
+                        case "F1":
+                            mediaMax = 100;
+                            mediaMin = 70;
+                            break;
+                        case "F2":
+                            mediaMax = 80;
+                            mediaMin = 40;
+                            break;
+                        default:
+                            mediaMax = 50;
+                            mediaMin = 10;
+                            break;
+                    }
+                    foreach (int indice in indicesAleatorios)
+                    {
+                        if (piloto[indice].MediaPiloto >= mediaMin && piloto[indice].MediaPiloto <= mediaMax && piloto[indice].ProximoAnoEquipePiloto == "" && piloto[indice].IdadePiloto < piloto[indice].AposentadoriaPiloto && piloto[indice] != piloto[principal.IndexDoJogador])
+                        {
+                            piloto[indice].ProximoAnoEquipePiloto = equipe.NomeEquipe;
+                            piloto[indice].ProximoAnoStatusPiloto = "2º Piloto";
+                            piloto[indice].ProximoAnoContratoPiloto = (random.Next(1, 4) + principal.ContadorDeAno);
+                            piloto[indice].ProximoAnoSalarioPiloto = DefinirSalario(piloto[indice].MediaPiloto, equipe.Categoria);
+
+                            equipe.ProximoAnoSegundoPiloto = $"{piloto[indice].NomePiloto} {piloto[indice].SobrenomePiloto}";
+                            equipe.ProximoAnoSegundoPilotoContrato = piloto[indice].ProximoAnoContratoPiloto;
+                            equipe.ProximoAnoSegundoPilotoSalario = piloto[indice].ProximoAnoSalarioPiloto;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        public void OfertaDeContratoFimDeAnoIA2()
+        {
+            List<int> indicesAleatorios = new List<int>();
+            for (int i = 0; i < piloto.Length; i++)
+            {
+                indicesAleatorios.Add(i);
+            }
+            indicesAleatorios.Sort((x, y) => piloto[y].MediaPiloto.CompareTo(piloto[x].MediaPiloto));
+
+            foreach (Equipe equipe in equipe)
+            {
+                while (equipe.ProximoAnoPrimeiroPiloto == "")
+                {
+                    int mediaMax = 0;
+                    int mediaMin = 0;
+                    switch (equipe.Categoria)
+                    {
+                        case "F1":
+                            mediaMax = 100;
                             mediaMin = 60;
                             break;
                         case "F2":
@@ -1976,6 +2123,59 @@ namespace DriverChallenge
                             mediaMin = 0;
                             break;
                     }
+                    foreach (int indice in indicesAleatorios)
+                    {
+                        if (piloto[indice].MediaPiloto >= mediaMin && piloto[indice].MediaPiloto <= mediaMax && piloto[indice].ProximoAnoEquipePiloto == "" && piloto[indice].IdadePiloto < piloto[indice].AposentadoriaPiloto && piloto[indice] != piloto[principal.IndexDoJogador])
+                        {
+                            piloto[indice].ProximoAnoEquipePiloto = equipe.NomeEquipe;
+                            piloto[indice].ProximoAnoStatusPiloto = "2º Piloto";
+                            piloto[indice].ProximoAnoContratoPiloto = (random.Next(1, 4) + principal.ContadorDeAno);
+                            piloto[indice].ProximoAnoSalarioPiloto = DefinirSalario(piloto[indice].MediaPiloto, equipe.Categoria);
+
+                            equipe.ProximoAnoSegundoPiloto = $"{piloto[indice].NomePiloto} {piloto[indice].SobrenomePiloto}";
+                            equipe.ProximoAnoSegundoPilotoContrato = piloto[indice].ProximoAnoContratoPiloto;
+                            equipe.ProximoAnoSegundoPilotoSalario = piloto[indice].ProximoAnoSalarioPiloto;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        public void OfertaDeContratoFimDeAnoIA3()
+        {
+            List<int> indicesAleatorios = new List<int>();
+            for (int i = 0; i < piloto.Length; i++)
+            {
+                indicesAleatorios.Add(i);
+            }
+            indicesAleatorios.Sort((x, y) => piloto[y].MediaPiloto.CompareTo(piloto[x].MediaPiloto));
+
+            foreach (Equipe equipe in equipe)
+            {
+                while (equipe.ProximoAnoPrimeiroPiloto == "")
+                {
+                    int mediaMax = 0;
+                    int mediaMin = 0;
+                    foreach (int indice in indicesAleatorios)
+                    {
+                        if (piloto[indice].MediaPiloto >= mediaMin && piloto[indice].MediaPiloto <= mediaMax && piloto[indice].ProximoAnoEquipePiloto == "" && piloto[indice].IdadePiloto < piloto[indice].AposentadoriaPiloto && piloto[indice] != piloto[principal.IndexDoJogador])
+                        {
+                            piloto[indice].ProximoAnoEquipePiloto = equipe.NomeEquipe;
+                            piloto[indice].ProximoAnoStatusPiloto = "1º Piloto";
+                            piloto[indice].ProximoAnoContratoPiloto = (random.Next(1, 4) + principal.ContadorDeAno);
+                            piloto[indice].ProximoAnoSalarioPiloto = DefinirSalario(piloto[indice].MediaPiloto, equipe.Categoria);
+
+                            equipe.ProximoAnoPrimeiroPiloto = $"{piloto[indice].NomePiloto} {piloto[indice].SobrenomePiloto}";
+                            equipe.ProximoAnoPrimeiroPilotoContrato = piloto[indice].ProximoAnoContratoPiloto;
+                            equipe.ProximoAnoPrimeiroPilotoSalario = piloto[indice].ProximoAnoSalarioPiloto;
+                            break;
+                        }
+                    }
+                }
+                while (equipe.ProximoAnoSegundoPiloto == "")
+                {
+                    int mediaMax = 0;
+                    int mediaMin = 0;
                     foreach (int indice in indicesAleatorios)
                     {
                         if (piloto[indice].MediaPiloto >= mediaMin && piloto[indice].MediaPiloto <= mediaMax && piloto[indice].ProximoAnoEquipePiloto == "" && piloto[indice].IdadePiloto < piloto[indice].AposentadoriaPiloto && piloto[indice] != piloto[principal.IndexDoJogador])
@@ -2288,6 +2488,7 @@ namespace DriverChallenge
             else if (principal.ContadorDeSemana == principal.TotalSemanas - 1)
             {
                 OfertaDeContratoFimDeAno();
+                OfertaDeContratoFimDeAnoParaUsuario();
                 principal.ContinuarTurno();
                 principal.XpTurnoSemanal(piloto);
                 // principal.XpTurnoSemanalJogador(piloto);
@@ -2329,6 +2530,8 @@ namespace DriverChallenge
                 // PREENCHER TODOS OS CONTRATOS
                 OfertaDeContratoFimDeAnoIaOrdemCrescente();
                 OfertaDeContratoFimDeAnoIA();
+                OfertaDeContratoFimDeAnoIA2();
+                OfertaDeContratoFimDeAnoIA3();
                 principal.XpTurnoSemanal(piloto);
                 // principal.XpTurnoSemanalJogador(piloto);
                 principal.XpEquipeSemanal(equipe);
@@ -2359,6 +2562,10 @@ namespace DriverChallenge
             }
             else
             {
+                if (principal.ContadorDeSemana == 1 && piloto[principal.IndexDoJogador].EquipePiloto == "")
+                {
+                    OfertaDeContratoFimDeAnoParaUsuario();
+                }
                 OfertaDeContrato();
                 OfertaDeContratoPatrocinadores();
                 principal.XpTurnoSemanal(piloto);
@@ -2383,7 +2590,6 @@ namespace DriverChallenge
         public void PictureBox3_Click(object sender, EventArgs e) // Botão de configuração do jogo.
         {
             MessageBox.Show(financia.Patrocinadores[0].NacionalidadeDaEmpresa);
-
         }
         public void PictureBoxClassificacao_Click(object sender, EventArgs e)
         {

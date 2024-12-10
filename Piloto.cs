@@ -114,10 +114,10 @@ namespace DriverChallenge
 
             MediaPiloto = ((Largada + Concentracao + Ultrapassagem + Experiencia + Rapidez + Chuva + AcertoDoCarro + Fisico) / 8);
         }
-        public void MetodoProvisorioParaAumentarIdade(int idadeAdc)
+        public void MetodoProvisorioParaAumentarIdade(int idadeAdc, int pp)
         {
             IdadePiloto += idadeAdc;
-            XpPiloto = ((PotencialPiloto * 52) * idadeAdc);
+            XpPiloto = ((PotencialPiloto * pp) * idadeAdc);
         }
         public void GeraPiloto()
         {
