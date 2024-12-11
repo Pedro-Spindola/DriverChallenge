@@ -78,14 +78,33 @@ namespace DriverChallenge
                 corPrincipal = ColorTranslator.FromHtml(piloto[i].Cor1);
                 corSecundaria = ColorTranslator.FromHtml(piloto[i].Cor2);
 
+                if (piloto[i].ProximoAnoEquipePiloto != "")
+                {
+                    for (int j = 0; j < equipe.Length; j++)
+                    {
+                        if (equipe[j].NomeEquipe == piloto[i].ProximoAnoEquipePiloto)
+                        {
+                            Color PrincipalProximo = ColorTranslator.FromHtml(equipe[j].Cor1);
+                            Color corSecundariaProximo = ColorTranslator.FromHtml(equipe[j].Cor2);
+                            TpLabelCor4A.BackColor = PrincipalProximo;
+                            TpLabelCor4B.BackColor = corSecundariaProximo;
+                            break;
+                        }
+                    }
+                }
+                else
+                {
+                    Color corNull = Color.FromArgb(240, 240, 240);
+                    TpLabelCor4A.BackColor = corNull;
+                    TpLabelCor4B.BackColor = corNull;
+                }
+
                 TpLabelCor1A.BackColor = corPrincipal;
                 TpLabelCor1B.BackColor = corSecundaria;
                 TpLabelCor2A.BackColor = corPrincipal;
                 TpLabelCor2B.BackColor = corSecundaria;
                 TpLabelCor3A.BackColor = corPrincipal;
                 TpLabelCor3B.BackColor = corSecundaria;
-                TpLabelCor4A.BackColor = corPrincipal;
-                TpLabelCor4B.BackColor = corSecundaria;
                 TpLabelCor5A.BackColor = corPrincipal;
                 TpLabelCor5B.BackColor = corSecundaria;
 

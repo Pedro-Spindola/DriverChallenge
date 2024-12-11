@@ -335,7 +335,7 @@ namespace DriverChallenge
                 ValorContrato = valor;
                 TempoDeContrato = contrato;
                 Random r = new Random();
-                TempoPropostaContrato = r.Next(1, 11);
+                TempoPropostaContrato = r.Next(2, 12);
                 StatusDoPiloto = status;
             }
         }

@@ -317,18 +317,14 @@ namespace DriverChallenge
                 // Cria uma nova linha no DataTable
                 DataRow row = historicoHall.NewRow();
 
-                // Verifica se o número de dados corresponde ao número de colunas
-                if (dadosPiloto.Length == 8)
-                {
-                    row["Nome"] = dadosPiloto[0].Trim(); 
-                    row["V"] = dadosPiloto[1].Trim();
-                    row["PP"] = dadosPiloto[2].Trim();
-                    row["GP"] = dadosPiloto[3].Trim();
-                    row["F1"] = dadosPiloto[4].Trim();
-                    row["F2"] = dadosPiloto[5].Trim();
-                    row["F3"] = dadosPiloto[6].Trim();
-                    row["P"] = Convert.ToDouble(dadosPiloto[7].Trim());
-                }
+                row["Nome"] = dadosPiloto[0].Trim(); 
+                row["V"] = dadosPiloto[1].Trim();
+                row["PP"] = dadosPiloto[2].Trim();
+                row["GP"] = dadosPiloto[3].Trim();
+                row["F1"] = dadosPiloto[4].Trim();
+                row["F2"] = dadosPiloto[5].Trim();
+                row["F3"] = dadosPiloto[6].Trim();
+                row["P"] = Convert.ToDouble(dadosPiloto[7].Trim());
 
                 // Adiciona a linha ao DataTable
                 historicoHall.Rows.Add(row);
@@ -466,9 +462,9 @@ namespace DriverChallenge
         {
             foreach (Equipe equipe in equipe)
             {
-                if (equipe.NomeEquipe == piloto[principal.IndexDoJogador].PropostaDeContrato[0].NomeDaEquipe)
+                if (equipe.NomeEquipe == piloto[principal.IndexDoJogador].PropostaDeContrato[1].NomeDaEquipe)
                 {
-                    if (piloto[principal.IndexDoJogador].PropostaDeContrato[0].StatusDoPiloto == "1º Piloto")
+                    if (piloto[principal.IndexDoJogador].PropostaDeContrato[1].StatusDoPiloto == "1º Piloto")
                     {
                         equipe.ProximoAnoPrimeiroPiloto = "";
                     }

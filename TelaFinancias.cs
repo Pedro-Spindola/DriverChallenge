@@ -106,6 +106,7 @@ namespace DriverChallenge
             tf_valorTotalPatrocinadores.Text = financia.SalarioPatrocinadores.ToString("C", new System.Globalization.CultureInfo("pt-BR"));
             tf_valorTotalEmConta.Text = financia.DinheiroJogadorTotal.ToString("C", new System.Globalization.CultureInfo("pt-BR"));
             tf_despesasEscritorio.Text = financia.CustoEscritorio.ToString("C", new System.Globalization.CultureInfo("pt-BR"));
+            tf_despesasContratos.Text =  financia.DespesasContratos.ToString("C", new System.Globalization.CultureInfo("pt-BR"));
 
             tf_nomePatrocinador1.Text = financia.Patrocinadores[0].NomeDaEmpresa;
             string caminhoImagem01 = Path.Combine("Paises", financia.Patrocinadores[0].NacionalidadeDaEmpresa + ".png");
@@ -261,19 +262,78 @@ namespace DriverChallenge
 
         private void Tf_rescindir1_btn_Click(object sender, EventArgs e)
         {
+            double valorCarteira = financia.DinheiroJogadorTotal;
+            int semanaRestantes = financia.Patrocinadores[0].TempoDeContratoSemanal;
+            double valorSemanal = financia.Patrocinadores[0].ValorContrato;
+            double multa = (valorSemanal * semanaRestantes);
+            // Prescisa aparecer uma telinha para confirmar a recisão.
+            valorCarteira -= multa;
+            financia.DinheiroJogadorTotal = valorCarteira;
+            string msg = $"O contrato com a {financia.Patrocinadores[0].NomeDaEmpresa} foi rescindido com sucesso, com uma multa no valor de R$ {multa}";
+            principal.NovaMessagemEmail("Patrocinador", msg);
+            financia.limparPatrocinador(financia.Patrocinadores[0]);
+            financia.EspacoContratoDisponivel++;
+            double despesasTotal = financia.DespesasContratos;
+            despesasTotal += multa;
+            financia.DespesasContratos = despesasTotal;
+            LoadTela();
         }
 
         private void Tf_rescindir2_btn_Click(object sender, EventArgs e)
         {
+            double valorCarteira = financia.DinheiroJogadorTotal;
+            int semanaRestantes = financia.Patrocinadores[1].TempoDeContratoSemanal;
+            double valorSemanal = financia.Patrocinadores[1].ValorContrato;
+            double multa = (valorSemanal * semanaRestantes);
+            // Prescisa aparecer uma telinha para confirmar a recisão.
+            valorCarteira -= multa;
+            financia.DinheiroJogadorTotal = valorCarteira;
+            string msg = $"O contrato com a {financia.Patrocinadores[1].NomeDaEmpresa} foi rescindido com sucesso, com uma multa no valor de R$ {multa}";
+            principal.NovaMessagemEmail("Patrocinador", msg);
+            financia.limparPatrocinador(financia.Patrocinadores[1]);
+            financia.EspacoContratoDisponivel++;
+            double despesasTotal = financia.DespesasContratos;
+            despesasTotal += multa;
+            financia.DespesasContratos = despesasTotal;
+            LoadTela();
         }
 
         private void Tf_rescindir3_btn_Click(object sender, EventArgs e)
         {
+            double valorCarteira = financia.DinheiroJogadorTotal;
+            int semanaRestantes = financia.Patrocinadores[2].TempoDeContratoSemanal;
+            double valorSemanal = financia.Patrocinadores[2].ValorContrato;
+            double multa = (valorSemanal * semanaRestantes);
+            // Prescisa aparecer uma telinha para confirmar a recisão.
+            valorCarteira -= multa;
+            financia.DinheiroJogadorTotal = valorCarteira;
+            string msg = $"O contrato com a {financia.Patrocinadores[2].NomeDaEmpresa} foi rescindido com sucesso, com uma multa no valor de R$ {multa}";
+            principal.NovaMessagemEmail("Patrocinador", msg);
+            financia.limparPatrocinador(financia.Patrocinadores[2]);
+            financia.EspacoContratoDisponivel++;
+            double despesasTotal = financia.DespesasContratos;
+            despesasTotal += multa;
+            financia.DespesasContratos = despesasTotal;
+            LoadTela();
         }
 
         private void Tf_rescindir4_btn_Click(object sender, EventArgs e)
         {
-
+            double valorCarteira = financia.DinheiroJogadorTotal;
+            int semanaRestantes = financia.Patrocinadores[3].TempoDeContratoSemanal;
+            double valorSemanal = financia.Patrocinadores[3].ValorContrato;
+            double multa = (valorSemanal * semanaRestantes);
+            // Prescisa aparecer uma telinha para confirmar a recisão.
+            valorCarteira -= multa;
+            financia.DinheiroJogadorTotal = valorCarteira;
+            string msg = $"O contrato com a {financia.Patrocinadores[3].NomeDaEmpresa} foi rescindido com sucesso, com uma multa no valor de R$ {multa}";
+            principal.NovaMessagemEmail("Patrocinador", msg);
+            financia.limparPatrocinador(financia.Patrocinadores[3]);
+            financia.EspacoContratoDisponivel++;
+            double despesasTotal = financia.DespesasContratos;
+            despesasTotal += multa;
+            financia.DespesasContratos = despesasTotal;
+            LoadTela();
         }
     }
 }

@@ -715,7 +715,6 @@ namespace DriverChallenge
                             if (equipes[k].NomeEquipe == pilotos[j].EquipePiloto && pilotos[j].Categoria == fCategoria)
                             {
                                 pilotos[j].BonusRandom += GerarBonusRandom(numberVoltasF, pilotos[j].BonusRandom);
-                                int bonusCadaDezVoltas = pilotos[j].BonusRandom;
                                 int bonusAdversario = 0;
                                 int bonusTotalDaVolta = 0;
                                 int bonusPitStop = 0;
@@ -732,7 +731,6 @@ namespace DriverChallenge
                                 {
                                     if (equipes[k].VoltaParaPitStopPrimeiroPiloto == numberVoltasF)
                                     {
-                                       
                                         if (equipes[k].QuantidadeDeParadaPrimeiroPiloto == 0)
                                         {
                                             pilotos[j].TipoDePneuUtilizando = equipes[k].TrocaDePneuParada02PrimeiroPiloto;
@@ -1045,7 +1043,7 @@ namespace DriverChallenge
                     pilotos[j].DiferancaPri = 0;
                     pilotos[j].BonusRandom = 0;
                 }
-                for (int k = equipeF1Min; k < equipeF1Max; k++)
+                for (int k = 0; k < equipes.Length; k++)
                 {
                     equipes[k].QuantidadeDeParadaPrimeiroPiloto = 0;
                     equipes[k].PneuAtualPrimeiroPiloto = 0;

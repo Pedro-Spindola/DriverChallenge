@@ -14,6 +14,7 @@ namespace DriverChallenge
         public double EspacoContratoDisponivel { get; set; } = 4;
         public double SalarioDaEquipe { get; set; } = 0;
         public double CustoEscritorio { get; set; } = 15000;
+        public double DespesasContratos { get; set; } = 0;
         public Patrocinador[] Patrocinadores { get; set; } = new Patrocinador[4]
         {
             new Patrocinador(),
