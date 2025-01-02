@@ -274,14 +274,14 @@ namespace DriverChallenge
             dgv.Columns["P"].DisplayIndex = 8;
 
             dgv.Columns[0].Width = 30;
-            dgv.Columns[1].Width = 190;
+            dgv.Columns[1].Width = 180;
             dgv.Columns[2].Width = 30;
             dgv.Columns[3].Width = 30;
             dgv.Columns[4].Width = 30;
             dgv.Columns[5].Width = 30;
             dgv.Columns[6].Width = 30;
             dgv.Columns[7].Width = 30;
-            dgv.Columns[8].Width = 40;
+            dgv.Columns[8].Width = 50;
         }
         public void AtualizarTabelaHallDaFama(DataGridView dgv)
         {

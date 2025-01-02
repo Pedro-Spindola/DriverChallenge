@@ -178,11 +178,12 @@ namespace DriverChallenge
             // Método para chamar uma Tela, onde jogador vai escolher a sua equipe inicial.
             EscolherEquipeInicialDoJogador();
             Random r = new Random();
+            
             for (int i = 0; i < piloto.Length; i++)
             {
                 if (i >= 0 && i <= 19)
                 {
-                    piloto[i].MetodoProvisorioParaAumentarIdade(r.Next(8, 11), 52);
+                    piloto[i].MetodoProvisorioParaAumentarIdade(r.Next(8, 10), 52);
                 }
                 if (i >= 20 && i <= 39)
                 {
@@ -190,15 +191,16 @@ namespace DriverChallenge
                 }
                 if (i >= 60 && i <= 69)
                 {
-                    piloto[i].MetodoProvisorioParaAumentarIdade(r.Next(8, 11), 52);
+                    piloto[i].MetodoProvisorioParaAumentarIdade(r.Next(8, 10), 52);
                 }
                 if (i >= 70 && i <= 79)
                 {
                     piloto[i].MetodoProvisorioParaAumentarIdade(r.Next(5, 9), 52);
                 }
             }
-
+            
             // Vai atribur os pilotos as suas equipes.
+            principal.XpTurnoSemanal(piloto);
             for (int i = 0; i < (equipe.Length * 2); i++)
             {
                 int equipeIndex = i / 2; // Equipe 0 para pilotos 0 e 1, equipe 1 para pilotos 2 e 3, etc.
@@ -210,7 +212,6 @@ namespace DriverChallenge
                     piloto[i].Cor1 = equipeSelecionada.Cor1;
                     piloto[i].Cor2 = equipeSelecionada.Cor2;
                     piloto[i].Categoria = equipeSelecionada.Categoria;
-                    principal.XpTurnoSemanal(piloto);
                     if (piloto[i].ContratoPiloto == 0) piloto[i].ContratoPiloto = ((random.Next(1, 4) + principal.ContadorDeAno) - 1);
                     if (piloto[i].SalarioPiloto == 0) piloto[i].SalarioPiloto = DefinirSalario(piloto[i].MediaPiloto, equipeSelecionada.Categoria);
                     equipeSelecionada.PrimeiroPiloto = $"{piloto[i].NomePiloto} {piloto[i].SobrenomePiloto}";
@@ -247,7 +248,6 @@ namespace DriverChallenge
                     piloto[i].Cor1 = equipeSelecionada.Cor1;
                     piloto[i].Cor2 = equipeSelecionada.Cor2;
                     piloto[i].Categoria = equipeSelecionada.Categoria;
-                    principal.XpTurnoSemanal(piloto);
                     if (piloto[i].ContratoPiloto == 0) piloto[i].ContratoPiloto = ((random.Next(1, 4) + principal.ContadorDeAno) - 1);
                     if (piloto[i].SalarioPiloto == 0) piloto[i].SalarioPiloto = DefinirSalario(piloto[i].MediaPiloto, equipeSelecionada.Categoria);
                     equipeSelecionada.SegundoPiloto = $"{piloto[i].NomePiloto} {piloto[i].SobrenomePiloto}";
@@ -278,7 +278,6 @@ namespace DriverChallenge
                     }
                 }
             }
-            principal.XpTurnoSemanal(piloto);
             // principal.XpTurnoSemanalJogador(piloto);
             CriandoOsDadosPistas();
             EmbaralharPistas();
@@ -290,6 +289,8 @@ namespace DriverChallenge
             principal.ProximoGpPais = pista[0].NomeCircuito;
             principal.ProximoGpSemana = pista[0].SemanaDaProva;
             principal.ProximoGpVoltas = pista[0].NumerosDeVoltas;
+
+            principal.SemanaDaOferta = random.Next(10, 40);
 
         }
         public double DefinirSalario(int mediaHabilidade, string categoria)
@@ -1416,6 +1417,7 @@ namespace DriverChallenge
             {
                 piloto[principal.IndexDoJogador].LimparPropostaDeContrato(piloto[principal.IndexDoJogador].PropostaDeContrato[i]);
             }
+            principal.SemanaDaOferta = random.Next(10, 40);
         }
         public void InicioDeTemporadaAtualizarContratos()
         {
@@ -1699,7 +1701,7 @@ namespace DriverChallenge
                 indicesAleatorios.Add(i);
             }
             indicesAleatorios.Sort((x, y) => piloto[y].MediaPiloto.CompareTo(piloto[x].MediaPiloto));
-
+            
             foreach (Equipe equipe in equipe)
             {
                 if (equipe.ProximoAnoPrimeiroPiloto == "")
@@ -2173,13 +2175,12 @@ namespace DriverChallenge
         }
         public void OfertaDeContratoFimDeAnoIA3()
         {
-            MessageBox.Show("Aqui");
             List<int> indicesAleatorios = new List<int>();
             for (int i = 0; i < piloto.Length; i++)
             {
                 indicesAleatorios.Add(i);
             }
-            indicesAleatorios.Sort((x, y) => piloto[y].MediaPiloto.CompareTo(piloto[x].MediaPiloto));
+            indicesAleatorios.Sort((x, y) => piloto[x].MediaPiloto.CompareTo(piloto[y].MediaPiloto));
 
             foreach (Equipe equipe in equipe)
             {
@@ -2553,18 +2554,15 @@ namespace DriverChallenge
                     }
                 }
                 principal.NovaMessagemEmail("FinalDeTemporada", "Temporada chegou ao fim.");
+                //METODO PARA ADICIONAR OS NOVOS PILOTOS DURANTES OS PRIMEIROS ANOS.
                 OfertaDeContrato();
                 OfertaDeContratoPatrocinadores();
                 // PREENCHER TODOS OS CONTRATOS
-                MessageBox.Show("01");
                 OfertaDeContratoFimDeAnoIaOrdemCrescente();
-                MessageBox.Show("02");
                 OfertaDeContratoFimDeAnoIA();
-                MessageBox.Show("03");
                 OfertaDeContratoFimDeAnoIA2();
-                MessageBox.Show("04");
                 OfertaDeContratoFimDeAnoIA3();
-                MessageBox.Show("0");
+
                 principal.XpTurnoSemanal(piloto);
                 // principal.XpTurnoSemanalJogador(piloto);
                 principal.XpEquipeSemanal(equipe);
@@ -2596,6 +2594,10 @@ namespace DriverChallenge
             else
             {
                 if (principal.ContadorDeSemana == 1 && piloto[principal.IndexDoJogador].EquipePiloto == "")
+                {
+                    OfertaDeContratoFimDeAnoParaUsuario();
+                }
+                if (principal.ContadorDeSemana == principal.SemanaDaOferta && piloto[principal.IndexDoJogador].EquipePiloto == "")
                 {
                     OfertaDeContratoFimDeAnoParaUsuario();
                 }

@@ -65,6 +65,7 @@ namespace DriverChallenge
         public int VigessimoLugar { get; set; } = 0;
         public int PontoVoltaMaisRapida { get; set; } = 0;
         public string OpcaoParaXP { get; set; } = "AUTOMÁTICO";
+        public int SemanaDaOferta { get; set; } = 0;
         public List<string> HallDaFama { get; set; } = new List<string>();
         public Principal(){}
         public void ConfigurarFaixaDePontuacao(String caminhoArquivo)   // Metodo para atribuir a pontução que vai ser utilizada no game.
@@ -525,45 +526,46 @@ namespace DriverChallenge
         {
             foreach (Equipe equipeSelecionado in equipe)
             {
-                int newXp = random.Next(1, 4);   // Vai sortear entre 1 e 3 (1 = -1      2 = 0      3 = 1)
+                int newXp = random.Next(1, 9);   // Vai sortear entre 1 e 3 (1 = -1      2 = 0      3 = 1)
 
                 do
                 {
                     if (equipeSelecionado.MediaEquipe <= 100 && equipeSelecionado.MediaEquipe >= 10 && newXp != 0)
                     {
+                        int tipoAtribuicao = random.Next(1, 4);   // Vai sortear entre 1 e 3 (1 = -1      2 = 0      3 = 1)
                         string atributoAleatorio = atributosListaEquipes[random.Next(atributosListaEquipes.Count)];
                         switch (atributoAleatorio)
                         {
                             case "aerodinamica":
                                 if (equipeSelecionado.Aerodinamica <= 100 && equipeSelecionado.Aerodinamica >= 10)
                                 {
-                                    switch (newXp)
+                                    switch (tipoAtribuicao)
                                     {
                                         case 1: 
                                             if (equipeSelecionado.Aerodinamica <= 10)
                                             {
-                                                newXp = 0;
+                                                newXp --;
                                                 break;
                                             }
                                             else
                                             {
                                                 equipeSelecionado.Aerodinamica -= 1;
-                                                newXp = 0;
+                                                newXp --;
                                                 break;
                                             }
                                         case 2:
-                                            newXp = 0;
+                                            newXp --;
                                             break;
                                         case 3:
                                             if (equipeSelecionado.Aerodinamica >= 100)
                                             {
-                                                newXp = 0;
+                                                newXp--;
                                                 break;
                                             }
                                             else
                                             {
                                                 equipeSelecionado.Aerodinamica += 1;
-                                                newXp = 0;
+                                                newXp--;
                                                 break;
                                             }
                                         default:
@@ -575,33 +577,33 @@ namespace DriverChallenge
                             case "freio":
                                 if (equipeSelecionado.Freio <= 100 && equipeSelecionado.Freio >= 10)
                                 {
-                                    switch (newXp)
+                                    switch (tipoAtribuicao)
                                     {
                                         case 1:
                                             if (equipeSelecionado.Freio <= 10)
                                             {
-                                                newXp = 0;
+                                                newXp--;
                                                 break;
                                             }
                                             else
                                             {
                                                 equipeSelecionado.Freio -= 1;
-                                                newXp = 0;
+                                                newXp--;
                                                 break;
                                             }
                                         case 2:
-                                            newXp = 0;
+                                            newXp--;
                                             break;
                                         case 3:
                                             if (equipeSelecionado.Freio >= 100)
                                             {
-                                                newXp = 0;
+                                                newXp--;
                                                 break;
                                             }
                                             else
                                             {
                                                 equipeSelecionado.Freio += 1;
-                                                newXp = 0;
+                                                newXp--;
                                                 break;
                                             }
                                         default:
@@ -613,33 +615,33 @@ namespace DriverChallenge
                             case "asaDianteira":
                                 if (equipeSelecionado.AsaDianteira <= 100 && equipeSelecionado.AsaDianteira >= 10)
                                 {
-                                    switch (newXp)
+                                    switch (tipoAtribuicao)
                                     {
                                         case 1:
                                             if (equipeSelecionado.AsaDianteira <= 10)
                                             {
-                                                newXp = 0;
+                                                newXp--;
                                                 break;
                                             }
                                             else
                                             {
                                                 equipeSelecionado.AsaDianteira -= 1;
-                                                newXp = 0;
+                                                newXp--;
                                                 break;
                                             }
                                         case 2:
-                                            newXp = 0;
+                                            newXp--;
                                             break;
                                         case 3:
                                             if (equipeSelecionado.AsaDianteira >= 100)
                                             {
-                                                newXp = 0;
+                                                newXp--;
                                                 break;
                                             }
                                             else
                                             {
                                                 equipeSelecionado.AsaDianteira += 1;
-                                                newXp = 0;
+                                                newXp--;
                                                 break;
                                             }
                                         default:
@@ -651,33 +653,33 @@ namespace DriverChallenge
                             case "asaTraseira":
                                 if (equipeSelecionado.AsaTraseira <= 100 && equipeSelecionado.AsaTraseira >= 10)
                                 {
-                                    switch (newXp)
+                                    switch (tipoAtribuicao)
                                     {
                                         case 1:
                                             if (equipeSelecionado.AsaTraseira <= 10)
                                             {
-                                                newXp = 0;
+                                                newXp--;
                                                 break;
                                             }
                                             else
                                             {
                                                 equipeSelecionado.AsaTraseira -= 1;
-                                                newXp = 0;
+                                                newXp--;
                                                 break;
                                             }
                                         case 2:
-                                            newXp = 0;
+                                            newXp--;
                                             break;
                                         case 3:
                                             if (equipeSelecionado.AsaTraseira >= 100)
                                             {
-                                                newXp = 0;
+                                                newXp--;
                                                 break;
                                             }
                                             else
                                             {
                                                 equipeSelecionado.AsaTraseira += 1;
-                                                newXp = 0;
+                                                newXp--;
                                                 break;
                                             }
                                         default:
@@ -689,33 +691,33 @@ namespace DriverChallenge
                             case "cambio":
                                 if (equipeSelecionado.Cambio <= 100 && equipeSelecionado.Cambio >= 10)
                                 {
-                                    switch (newXp)
+                                    switch (tipoAtribuicao)
                                     {
                                         case 1:
                                             if (equipeSelecionado.Cambio <= 10)
                                             {
-                                                newXp = 0;
+                                                newXp--;
                                                 break;
                                             }
                                             else
                                             {
                                                 equipeSelecionado.Cambio -= 1;
-                                                newXp = 0;
+                                                newXp--;
                                                 break;
                                             }
                                         case 2:
-                                            newXp = 0;
+                                            newXp--;
                                             break;
                                         case 3:
                                             if (equipeSelecionado.Cambio >= 100)
                                             {
-                                                newXp = 0;
+                                                newXp--;
                                                 break;
                                             }
                                             else
                                             {
                                                 equipeSelecionado.Cambio += 1;
-                                                newXp = 0;
+                                                newXp--;
                                                 break;
                                             }
                                         default:
@@ -727,33 +729,33 @@ namespace DriverChallenge
                             case "eletrico":
                                 if (equipeSelecionado.Eletrico <= 100 && equipeSelecionado.Eletrico >= 10)
                                 {
-                                    switch (newXp)
+                                    switch (tipoAtribuicao)
                                     {
                                         case 1:
                                             if (equipeSelecionado.Eletrico <= 10)
                                             {
-                                                newXp = 0;
+                                                newXp--;
                                                 break;
                                             }
                                             else
                                             {
                                                 equipeSelecionado.Eletrico -= 1;
-                                                newXp = 0;
+                                                newXp--;
                                                 break;
                                             }
                                         case 2:
-                                            newXp = 0;
+                                            newXp--;
                                             break;
                                         case 3:
                                             if (equipeSelecionado.Eletrico >= 100)
                                             {
-                                                newXp = 0;
+                                                newXp--;
                                                 break;
                                             }
                                             else
                                             {
                                                 equipeSelecionado.Eletrico += 1;
-                                                newXp = 0;
+                                                newXp--;
                                                 break;
                                             }
                                         default:
@@ -765,33 +767,33 @@ namespace DriverChallenge
                             case "direcao":
                                 if (equipeSelecionado.Direcao <= 100 && equipeSelecionado.Direcao >= 10)
                                 {
-                                    switch (newXp)
+                                    switch (tipoAtribuicao)
                                     {
                                         case 1:
                                             if (equipeSelecionado.Direcao <= 10)
                                             {
-                                                newXp = 0;
+                                                newXp--;
                                                 break;
                                             }
                                             else
                                             {
                                                 equipeSelecionado.Direcao -= 1;
-                                                newXp = 0;
+                                                newXp--;
                                                 break;
                                             }
                                         case 2:
-                                            newXp = 0;
+                                            newXp--;
                                             break;
                                         case 3:
                                             if (equipeSelecionado.Direcao >= 100)
                                             {
-                                                newXp = 0;
+                                                newXp--;
                                                 break;
                                             }
                                             else
                                             {
                                                 equipeSelecionado.Direcao += 1;
-                                                newXp = 0;
+                                                newXp--;
                                                 break;
                                             }
                                         default:
@@ -803,33 +805,33 @@ namespace DriverChallenge
                             case "confiabilidade":
                                 if (equipeSelecionado.Confiabilidade <= 100 && equipeSelecionado.Confiabilidade >= 10)
                                 {
-                                    switch (newXp)
+                                    switch (tipoAtribuicao)
                                     {
                                         case 1:
                                             if (equipeSelecionado.Confiabilidade <= 10)
                                             {
-                                                newXp = 0;
+                                                newXp--;
                                                 break;
                                             }
                                             else
                                             {
                                                 equipeSelecionado.Confiabilidade -= 1;
-                                                newXp = 0;
+                                                newXp--;
                                                 break;
                                             }
                                         case 2:
-                                            newXp = 0;
+                                            newXp--;
                                             break;
                                         case 3:
                                             if (equipeSelecionado.Confiabilidade >= 100)
                                             {
-                                                newXp = 0;
+                                                newXp--;
                                                 break;
                                             }
                                             else
                                             {
                                                 equipeSelecionado.Confiabilidade += 1;
-                                                newXp = 0;
+                                                newXp--;
                                                 break;
                                             }
                                         default:
@@ -845,14 +847,12 @@ namespace DriverChallenge
                     else if (equipeSelecionado.MediaEquipe == 100 || equipeSelecionado.MediaEquipe == 9)
                     {
                         newXp = 0;
-                        break;
                     }
                     else
                     {
                         newXp = 0;
-                        break;
                     }
-                } while (true);
+                } while (newXp != 0);
             }
         }
         public void PotenciaMotoresEquipe(Motor motor, Equipe[] equipes)

@@ -13,16 +13,16 @@ namespace DriverChallenge
         public Motor()
         {
             // Add os valores inicial dos Motores.
-            valoresDosMotores.Add("Honda", 90);
-            valoresDosMotores.Add("Ferrari", 90);
-            valoresDosMotores.Add("TAG", 85);
-            valoresDosMotores.Add("Mercedes", 85);
-            valoresDosMotores.Add("Renault", 80);
-            valoresDosMotores.Add("BMW", 80);
-            valoresDosMotores.Add("Ford", 75);
-            valoresDosMotores.Add("Audi", 75);
-            valoresDosMotores.Add("Toyota", 70);
-            valoresDosMotores.Add("Lamborghini", 70);
+            valoresDosMotores.Add("Honda", 95);
+            valoresDosMotores.Add("Ferrari", 93);
+            valoresDosMotores.Add("TAG", 90);
+            valoresDosMotores.Add("Mercedes", 90);
+            valoresDosMotores.Add("Renault", 88);
+            valoresDosMotores.Add("BMW", 86);
+            valoresDosMotores.Add("Ford", 85);
+            valoresDosMotores.Add("Audi", 84);
+            valoresDosMotores.Add("Toyota", 82);
+            valoresDosMotores.Add("Lamborghini", 80);
             //...
         }
 
@@ -35,7 +35,7 @@ namespace DriverChallenge
         {
             if (valoresDosMotores.ContainsKey(nomeDoMotor))
             {
-                if (valoresDosMotores[nomeDoMotor] < 100 && valoresDosMotores[nomeDoMotor] > 70)
+                if (valoresDosMotores[nomeDoMotor] < 100 && valoresDosMotores[nomeDoMotor] > 80)
                 {
                     if (novoValor == 1) valoresDosMotores[nomeDoMotor] -= 1;
                     else if (novoValor == 3) valoresDosMotores[nomeDoMotor] += 1;
@@ -44,7 +44,7 @@ namespace DriverChallenge
                 {
                     if (novoValor == 1) valoresDosMotores[nomeDoMotor] -= 1;
                 }
-                else if (valoresDosMotores[nomeDoMotor] == 70)
+                else if (valoresDosMotores[nomeDoMotor] == 80)
                 {
                     if (novoValor == 3)valoresDosMotores[nomeDoMotor] += 1;
                 }
